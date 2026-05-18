@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: 'Marifah Tax Advisory | Best UAE VAT & Corporate Tax Consultants',
   description: 'Top-rated UAE tax consultancy. Expert VAT registration, Corporate Tax filing & Accounting services in Dubai, Abu Dhabi & all Emirates. Book a free consultation today.',
   generator: 'Marifah Tax Advisory',
-  keywords: [
+keywords: [
+    // Correct spellings
     'UAE tax consultancy', 'VAT registration UAE', 'corporate tax UAE',
     'tax consultants Dubai', 'accounting services UAE',
     'best tax consultancy UAE', 'top accounting firms UAE', 'VAT filing Dubai',
@@ -18,7 +19,13 @@ export const metadata: Metadata = {
     'VAT consultants Dubai', 'top 10 tax companies UAE', 'UAE FTA compliance',
     'best accounting firm Dubai', 'tax agent UAE', 'corporate tax filing UAE',
     'Marifah Tax Advisory', 'tax consultants Abu Dhabi', 'VAT return filing UAE',
-    'top tax consultants UAE', 'best VAT consultants Dubai', 'FTA compliance UAE'
+    'top tax consultants UAE', 'best VAT consultants Dubai', 'FTA compliance UAE',
+    // Misspelling variations
+    'Marefa Tax Advisory', 'Marifa Tax Advisory', 'Marefah Tax Advisory',
+    'Mareefa Tax Advisory', 'Mariefa Tax Advisory', 'Maarifa Tax Advisory',
+    'marefa tax UAE', 'marifa tax UAE', 'marefah tax Dubai',
+    'marefa VAT consultants', 'marifa tax consultants UAE',
+    'marefah accounting UAE', 'mareefa tax advisory Dubai',
   ],
   authors: [{ name: 'Marifah Tax Advisory' }],
   creator: 'Marifah Tax Advisory',
