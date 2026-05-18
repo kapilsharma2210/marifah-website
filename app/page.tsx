@@ -258,7 +258,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
         </ul>
 
         <div className="flex items-center gap-3">
-          
+          <a
             href={`https://wa.me/${content.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -663,7 +663,7 @@ export default function MarifahWebsite() {
     );
   }
 
-  // ── HOME PAGE ────────────────────────────────────────────────────
+  // ── HOME PAGE ────────���───────────────────────────────────────────
   return (
     <div className="bg-background text-foreground font-sans">
 
