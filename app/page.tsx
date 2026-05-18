@@ -28,7 +28,6 @@ const stats = [
   { value: "AED 0", label: "Hidden Charges" },
 ];
 
-```tsx
 const services = [
   {
     icon: FileText,
@@ -203,21 +202,21 @@ const blogs = [
     excerpt: "VAT registration is mandatory if your turnover exceeds AED 375,000. Here is everything you need to know to register correctly.",
     category: "VAT",
     readTime: "4 min read",
-    content: `## What is UAE VAT:\n\nValue Added Tax (VAT) is an indirect tax applied at each stage of the supply chain. Introduced in the UAE on 1st January 2018 at a standard rate of 5%, VAT is charged on most goods and services.\nBusinesses collect VAT on behalf of the government and remit it to the Federal Tax Authority (FTA).\n\n## Who Needs to Register for VAT?:\n\nVAT registration in the UAE is categorized into two types:\n1. Mandatory Registration\nA business must register for VAT if:\nIts taxable supplies and imports exceed AED 375,000 annually.\n\n2. Voluntary Registration\nA business can opt for VAT registration if:\nIts taxable supplies, imports, or expenses exceed AED 187,500 annually.\nVoluntary registration is beneficial for startups and small businesses as it allows them to recover input VAT.\n\n✔ Voluntary registration is available above AED 187,500.\n\n## Documents Required:\n\n✔ Trade License\n\n✔ Emirates ID\n\n✔ Signed AOA & MOA\n\n✔ Mobile Number & Email ID.\n\n## VAT Compliance Requirements:\n\n✔ Businesses must charge 5% VAT\n\n✔ Maintain records\n\n✔ File VAT Returns Timely.\n\n## Common VAT Mistakes:\n\n✔ Late registration leads to AED 10,000 penalty.\n\n## Why Choose Marifah Tax Advisory:\n\n✔ We handle full VAT registration & compliance in UAE.`,
+    content: "## What is UAE VAT:\\n\\nValue Added Tax (VAT) is an indirect tax applied at each stage of the supply chain. Introduced in the UAE on 1st January 2018 at a standard rate of 5%, VAT is charged on most goods and services.\\nBusinesses collect VAT on behalf of the government and remit it to the Federal Tax Authority (FTA).\\n\\n## Who Needs to Register for VAT?:\\n\\nVAT registration in the UAE is categorized into two types:\\n1. Mandatory Registration\\nA business must register for VAT if:\\nIts taxable supplies and imports exceed AED 375,000 annually.\\n\\n2. Voluntary Registration\\nA business can opt for VAT registration if:\\nIts taxable supplies, imports, or expenses exceed AED 187,500 annually.\\nVoluntary registration is beneficial for startups and small businesses as it allows them to recover input VAT.\\n\\n✔ Voluntary registration is available above AED 187,500.\\n\\n## Documents Required:\\n\\n✔ Trade License\\n\\n✔ Emirates ID\\n\\n✔ Signed AOA & MOA\\n\\n✔ Mobile Number & Email ID.\\n\\n## VAT Compliance Requirements:\\n\\n✔ Businesses must charge 5% VAT\\n\\n✔ Maintain records\\n\\n✔ File VAT Returns Timely.\\n\\n## Common VAT Mistakes:\\n\\n✔ Late registration leads to AED 10,000 penalty.\\n\\n## Why Choose Marifah Tax Advisory:\\n\\n✔ We handle full VAT registration & compliance in UAE.",
   },
   {
     title: "Corporate Tax in UAE Explained",
     excerpt: "Corporate Tax at 9% is now in full effect. Find out if your business is liable, what steps to take, and how to stay compliant.",
     category: "Corporate Tax",
     readTime: "5 min read",
-    content: `## UAE Corporate Tax Overview\n\n✔ Corporate tax is 9% on income above AED 375,000.\n\n## Who is Subject to Corporate Tax\n\n✔ Applies to most UAE businesses including mainland and free zones.\n\n## Corporate Tax Registration UAE\n\n✔ Businesses must register with FTA to avoid penalties.\n\n## Tax Planning Strategies\n\n✔ Proper structuring reduces tax liability.\n\n## Compliance Requirements\n\n✔ Maintain books\n\n✔ File Corporate Tax Return Timely\n\n✔ Follow FTA rules.\n\n## Marifah Tax Advisory\n\nWe provide full corporate tax advisory & compliance.`,
+    content: "## UAE Corporate Tax Overview\\n\\n✔ Corporate tax is 9% on income above AED 375,000.\\n\\n## Who is Subject to Corporate Tax\\n\\n✔ Applies to most UAE businesses including mainland and free zones.\\n\\n## Corporate Tax Registration UAE\\n\\n✔ Businesses must register with FTA to avoid penalties.\\n\\n## Tax Planning Strategies\\n\\n✔ Proper structuring reduces tax liability.\\n\\n## Compliance Requirements\\n\\n✔ Maintain books\\n\\n✔ File Corporate Tax Return Timely\\n\\n✔ Follow FTA rules.\\n\\n## Marifah Tax Advisory\\n\\nWe provide full corporate tax advisory & compliance.",
   },
   {
     title: "5 Costly VAT Mistakes UAE Businesses Make",
     excerpt: "These VAT errors cost UAE businesses thousands in penalties every year. Make sure you are not making any of them.",
     category: "VAT",
     readTime: "3 min read",
-    content: `## Incorrect VAT Calculation\n\n✔ Wrong input/output VAT leads to penalties.\n\n## Late VAT Filing UAE\n\n✔ Late returns attract AED 1,000+ penalties.\n\n## Poor Record Keeping\n\n✔ Missing invoices create audit issues.\n\n## Wrong VAT Treatment\n\n✔ Confusion between zero-rated & exempt supplies.\n\n## Input VAT Errors\n\n✔ Claiming VAT on non-eligible expenses.\n\n## Solution\n\n☆ Marifah Tax Advisory ensures error-free VAT compliance.`,
+    content: "## Incorrect VAT Calculation\\n\\n✔ Wrong input/output VAT leads to penalties.\\n\\n## Late VAT Filing UAE\\n\\n✔ Late returns attract AED 1,000+ penalties.\\n\\n## Poor Record Keeping\\n\\n✔ Missing invoices create audit issues.\\n\\n## Wrong VAT Treatment\\n\\n✔ Confusion between zero-rated & exempt supplies.\\n\\n## Input VAT Errors\\n\\n✔ Claiming VAT on non-eligible expenses.\\n\\n## Solution\\n\\n☆ Marifah Tax Advisory ensures error-free VAT compliance.",
   },
 ];
 
