@@ -28,7 +28,6 @@ const stats = [
   { value: "AED 0", label: "Hidden Charges" },
 ];
 
-```tsx
 const services = [
   {
     icon: FileText,
