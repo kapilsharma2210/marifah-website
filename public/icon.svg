@@ -1,0 +1,35 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="180" height="180" rx="38" fill="#0D0D14"/>
+  <!-- Subtle gold ring -->
+  <rect x="6" y="6" width="168" height="168" rx="33" fill="none" stroke="#C9A84C" stroke-width="2" stroke-opacity="0.35"/>
+  <!-- Shield background fill -->
+  <path d="M90,14 L160,44 L160,108 Q160,158 90,172 Q20,158 20,108 L20,44 Z"
+        fill="#C9A84C" fill-opacity="0.10"/>
+  <!-- Shield outer border -->
+  <path d="M90,14 L160,44 L160,108 Q160,158 90,172 Q20,158 20,108 L20,44 Z"
+        fill="none" stroke="#C9A84C" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Shield inner inset -->
+  <path d="M90,26 L148,52 L148,108 Q148,148 90,160 Q32,148 32,108 L32,52 Z"
+        fill="none" stroke="#C9A84C" stroke-width="1.2" stroke-opacity="0.35" stroke-linejoin="round"/>
+  <!-- M — inside the shield -->
+  <text
+    x="90" y="108"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="68"
+    font-weight="700"
+    fill="#C9A84C">M</text>
+  <!-- TAX — below M, inside shield belly -->
+  <text
+    x="90" y="150"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Arial, sans-serif"
+    font-size="15"
+    font-weight="700"
+    letter-spacing="5"
+    fill="#C9A84C"
+    fill-opacity="0.72">TAX</text>
+</svg>
