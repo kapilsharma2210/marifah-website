@@ -357,7 +357,7 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
             <p className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0 text-primary" />info@marifahtax.com</p>
             <p className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary" />+{content.whatsapp}</p>
           </div>
-          <a
+           </a>
             href={`https://wa.me/${content.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
