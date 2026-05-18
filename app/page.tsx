@@ -43,7 +43,25 @@ const services = [
       "Deregistration & ongoing support",
     ],
     price: "From AED 399",
-    content: `## Corporate Tax Registration\n\n✔ Register your business with the Federal Tax Authority before the deadline. Penalties for non-registration start at AED 10,000.\n\n## Return Filing\n\n✔ We prepare and submit accurate Corporate Tax returns on your behalf — no errors, no delays.\n\n## Free Zone Advisory\n\n✔ Qualifying Free Zone Persons can benefit from a 0% rate on qualifying income. We assess your eligibility and structure your filing accordingly.\n\n## Pricing\n\n✔ Registration: AED 399\n\n✔ Return Filing: AED 1,199\n\n✔ Registration + Filing Combo: AED 1,499`,
+    sections: [
+      {
+        title: "Corporate Tax Registration",
+        body: "Register your business with the Federal Tax Authority before the deadline. Penalties for non-registration start at AED 10,000.",
+      },
+      {
+        title: "Return Filing",
+        body: "We prepare and submit accurate Corporate Tax returns on your behalf — no errors, no delays.",
+      },
+      {
+        title: "Free Zone Advisory",
+        body: "Qualifying Free Zone Persons can benefit from a 0% rate on qualifying income. We assess your eligibility and structure your filing accordingly.",
+      },
+    ],
+    pricing: [
+      { label: "Corporate Tax Registration", price: "AED 399" },
+      { label: "Corporate Tax Return Filing", price: "AED 1,199" },
+      { label: "Registration + Filing Combo", price: "AED 1,499", highlight: true },
+    ],
   },
   {
     icon: Calculator,
@@ -59,7 +77,25 @@ const services = [
       "VAT refund assistance",
     ],
     price: "From AED 499",
-    content: `## VAT Registration\n\n✔ We obtain your Tax Registration Number (TRN) from the FTA — typically within 3–5 working days.\n\n## Quarterly VAT Filing\n\n✔ Accurate input/output VAT reconciliation and timely return submission to avoid late penalties.\n\n## VAT Advisory\n\n✔ Invoice review, zero-rated vs. exempt classification, and ongoing guidance as FTA regulations evolve.\n\n## Pricing\n\n✔ VAT Registration: AED 499\n\n✔ VAT Return Filing: AED 1,199\n\n✔ Registration + Filing Combo: AED 1,499`,
+    sections: [
+      {
+        title: "VAT Registration",
+        body: "We obtain your Tax Registration Number (TRN) from the FTA — typically within 3–5 working days.",
+      },
+      {
+        title: "Quarterly VAT Filing",
+        body: "Accurate input/output VAT reconciliation and timely return submission to avoid late penalties.",
+      },
+      {
+        title: "VAT Advisory",
+        body: "Invoice review, zero-rated vs. exempt classification, and ongoing guidance as FTA regulations evolve.",
+      },
+    ],
+    pricing: [
+      { label: "VAT Registration (TRN)", price: "AED 499" },
+      { label: "VAT Return Filing (per quarter)", price: "AED 1,199" },
+      { label: "Registration + Filing Combo", price: "AED 1,499", highlight: true },
+    ],
   },
   {
     icon: BookOpen,
@@ -75,7 +111,29 @@ const services = [
       "FTA-compliant record maintenance",
     ],
     price: "From AED 2,499",
-    content: `## Monthly Bookkeeping\n\n✔ Accurate recording of all transactions, bank reconciliation, and accounts payable/receivable management — every month without fail.\n\n## Financial Statements\n\n✔ Profit & loss statements, balance sheets, and cash flow reports prepared to accounting standards.\n\n## MIS Reporting\n\n✔ Management information reports that give you a real-time picture of your business performance.\n\n## FTA-Compliant Records\n\n✔ UAE law requires businesses to maintain financial records for 7 years. We ensure yours are always audit-ready.\n\n## Pricing\n\n✔ From AED 2,499 (up to 50 transactions)\n\n✔ Custom pricing available for higher transaction volumes`,
+    sections: [
+      {
+        title: "Monthly Bookkeeping",
+        body: "Accurate recording of all transactions, bank reconciliation, and accounts payable/receivable management — every month without fail.",
+      },
+      {
+        title: "Financial Statements",
+        body: "Profit & loss statements, balance sheets, and cash flow reports prepared to accounting standards.",
+      },
+      {
+        title: "MIS Reporting",
+        body: "Management information reports that give you a real-time picture of your business performance.",
+      },
+      {
+        title: "FTA-Compliant Records",
+        body: "UAE law requires businesses to maintain financial records for 7 years. We ensure yours are always audit-ready.",
+      },
+    ],
+    pricing: [
+      { label: "Up to 50 transactions/month", price: "AED 2,499" },
+      { label: "Up to 150 transactions/month", price: "AED 3,499" },
+      { label: "Custom (high volume)", price: "Get a Quote", highlight: true },
+    ],
   },
   {
     icon: Package,
@@ -91,7 +149,19 @@ const services = [
       "Priority support & deadline reminders",
     ],
     price: "AED 4,999",
-    content: `## What's Included\n\n✔ VAT registration and quarterly return filing\n\n✔ Corporate Tax registration and annual return filing\n\n✔ Monthly bookkeeping and financial statement preparation\n\n✔ Dedicated tax advisor — one person who knows your business\n\n✔ Priority support, compliance calendar, and deadline reminders year-round\n\n## Why This Package?\n\n✔ Buying individually would cost significantly more. This bundle gives you complete FTA compliance at one predictable price — no surprises, no extra invoices.\n\n## Pricing\n\n✔ AED 4,999 — all-inclusive`,
+    sections: [
+      {
+        title: "What's Included",
+        body: "VAT registration and quarterly return filing. Corporate Tax registration and annual return filing. Monthly bookkeeping and financial statement preparation. Dedicated tax advisor — one person who knows your business. Priority support, compliance calendar, and deadline reminders year-round.",
+      },
+      {
+        title: "Why This Package?",
+        body: "Buying individually would cost significantly more. This bundle gives you complete FTA compliance at one predictable price — no surprises, no extra invoices.",
+      },
+    ],
+    pricing: [
+      { label: "Full Compliance Package (all-inclusive)", price: "AED 4,999", highlight: true },
+    ],
   },
 ];
 
@@ -604,26 +674,137 @@ export default function MarifahWebsite() {
 
   // ── SERVICE DETAIL ───────────────────────────────────────────────
   if (selectedService) {
-    const sections = selectedService.content.split("\n\n");
+    const svc = selectedService as typeof services[0];
+    const ServiceIcon = svc.icon;
     return (
       <div className="bg-background text-foreground min-h-screen">
         <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
           <Navbar onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} />
         </div>
-        <div className="bg-card border-b border-primary/10 py-14 px-6">
-          <div className="max-w-4xl mx-auto">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-              <ArrowLeft className="w-4 h-4" /> Back
+
+        {/* Hero banner */}
+        <div className="relative overflow-hidden bg-card border-b border-primary/10 py-16 px-6">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
+          <div className="max-w-4xl mx-auto relative">
+            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+              <ArrowLeft className="w-4 h-4" /> Back to Services
             </button>
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-4xl font-bold text-foreground mb-3">{selectedService.title}</motion.h1>
-            <div className="w-16 h-1 bg-primary rounded-full"></div>
+            <div className="flex items-start gap-5">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                <ServiceIcon className="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
+                  {svc.tag}
+                </span>
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-3xl md:text-4xl font-bold text-foreground mb-2"
+                >
+                  {svc.title}
+                </motion.h1>
+                <p className="text-muted-foreground text-sm tracking-wide">{svc.subtitle}</p>
+              </div>
+            </div>
+            <p className="mt-6 text-muted-foreground leading-relaxed max-w-2xl text-base border-l-2 border-primary/40 pl-4">
+              {svc.desc}
+            </p>
           </div>
         </div>
-        <div className="max-w-4xl mx-auto px-6 py-14 space-y-6">
-          {sections.map((sec, i) => {
-            if (sec.startsWith("##")) return <h2 key={i} className="text-xl font-semibold text-foreground flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-primary inline-block"></span>{sec.replace("## ", "")}</h2>;
-            return <p key={i} className="text-muted-foreground leading-relaxed whitespace-pre-line pl-5">{sec}</p>;
-          })}
+
+        <div className="max-w-4xl mx-auto px-6 py-14 space-y-14">
+
+          {/* What's Included checklist */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+            <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">What's Included</h2>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {svc.points.map((pt: string, i: number) => (
+                <div key={i} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
+                  <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-foreground">{pt}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Service sections */}
+          {svc.sections && (
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
+              <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">How We Help</h2>
+              <div className="space-y-4">
+                {svc.sections.map((sec: { title: string; body: string }, i: number) => (
+                  <div key={i} className="bg-card border border-primary/10 rounded-2xl p-6 hover:border-primary/25 transition-colors">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                        <span className="text-primary font-bold text-xs">{String(i + 1).padStart(2, "0")}</span>
+                      </div>
+                      <h3 className="text-base font-semibold text-foreground">{sec.title}</h3>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed pl-10">{sec.body}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Pricing table */}
+          {svc.pricing && (
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+              <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">Transparent Pricing</h2>
+              <div className="rounded-2xl border border-primary/20 overflow-hidden">
+                {svc.pricing.map((row: { label: string; price: string; highlight?: boolean }, i: number) => (
+                  <div
+                    key={i}
+                    className={`flex items-center justify-between px-6 py-4 border-b border-primary/10 last:border-0 ${
+                      row.highlight ? "bg-primary/10" : "bg-card"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      {row.highlight && <BadgeCheck className="w-4 h-4 text-primary shrink-0" />}
+                      <span className={`text-sm ${row.highlight ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
+                        {row.label}
+                      </span>
+                    </div>
+                    <span className={`text-sm font-bold ${row.highlight ? "text-primary text-base" : "text-foreground"}`}>
+                      {row.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-3 pl-1">* No hidden charges. What you see is what you pay.</p>
+            </motion.div>
+          )}
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="bg-primary/5 border border-primary/20 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          >
+            <div>
+              <h3 className="text-lg font-bold text-foreground mb-1">Ready to get started?</h3>
+              <p className="text-sm text-muted-foreground">Book a free 30-minute consultation — no commitment required.</p>
+            </div>
+            <div className="flex gap-3 shrink-0">
+              <button
+                onClick={() => setConsultancyOpen(true)}
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+              >
+                Book Free Consultation
+              </button>
+              <a
+                href={`https://wa.me/${content.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" /> WhatsApp
+              </a>
+            </div>
+          </motion.div>
+
         </div>
         <Footer onNav={navigate} />
         <FloatingWhatsApp />
@@ -631,6 +812,7 @@ export default function MarifahWebsite() {
       </div>
     );
   }
+
 
   // ── BLOG DETAIL ──────────────────────────────────────────────────
   if (selectedBlog) {
