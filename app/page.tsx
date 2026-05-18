@@ -206,75 +206,114 @@ type PageKey = keyof typeof pageContent;
 // ─── SHARED COMPONENTS ───────────────────────────────────────────
 
 function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; onConsultancy: () => void }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
   return (
-    <nav className="sticky top-0 z-50 flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
-      <h1
-        className="font-bold text-lg tracking-widest text-primary cursor-pointer shrink-0"
-        onClick={() => onNav(null)}
-      >
-        {content.brand}
-      </h1>
+    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
+      <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+        <h1
+          className="font-bold text-lg tracking-widest text-primary cursor-pointer shrink-0"
+          onClick={() => { onNav(null); setMobileOpen(false); }}
+        >
+          {content.brand}
+        </h1>
 
-      <ul className="hidden lg:flex items-center gap-6 list-none">
-        <li><button onClick={() => onNav(null)} className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</button></li>
-        <li><button onClick={() => onNav("about")} className="text-sm text-foreground hover:text-primary transition-colors">About</button></li>
+        {/* Desktop Nav */}
+        <ul className="hidden lg:flex items-center gap-6 list-none">
+          <li><button onClick={() => onNav(null)} className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</button></li>
+          <li><button onClick={() => onNav("about")} className="text-sm text-foreground hover:text-primary transition-colors">About</button></li>
+          <li className="relative group">
+            <button className="flex items-center gap-1 text-sm text-foreground hover:text-primary transition-colors">
+              Services <ChevronDown className="w-3 h-3" />
+            </button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-card border border-border rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 w-[700px] p-7 grid grid-cols-3 gap-8">
+              <div>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Corporate Tax</p>
+                <ul className="space-y-2.5">
+                  {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration"].map(item => (
+                    <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">UAE VAT</p>
+                <ul className="space-y-2.5">
+                  {["VAT Registration Services", "VAT Consultancy & Advisory", "VAT Return Filing", "VAT Deregistration", "VAT Refund Services"].map(item => (
+                    <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Accounting</p>
+                <ul className="space-y-2.5">
+                  {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review", "Tax Agency Services"].map(item => (
+                    <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><button onClick={() => onNav("packages")} className="text-sm text-foreground hover:text-primary transition-colors">Packages</button></li>
+          <li><button onClick={() => onNav("blog")} className="text-sm text-foreground hover:text-primary transition-colors">Blog</button></li>
+          <li><button onClick={() => onNav("contact")} className="text-sm text-foreground hover:text-primary transition-colors">Contact</button></li>
+        </ul>
 
-        {/* Services Dropdown */}
-        <li className="relative group">
-          <button className="flex items-center gap-1 text-sm text-foreground hover:text-primary transition-colors">
-            Services <ChevronDown className="w-3 h-3" />
+        <div className="flex items-center gap-3">
+          
+            href={`https://wa.me/${content.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <PhoneCall className="w-4 h-4" />
+            <span className="text-sm">{`+${content.whatsapp}`}</span>
+          </a>
+          <Button
+            onClick={onConsultancy}
+            className="hidden lg:flex bg-primary text-primary-foreground rounded-full px-5 py-2 text-sm hover:bg-primary/90 font-medium"
+          >
+            Free Consultation
+          </Button>
+          {/* Hamburger button - mobile only */}
+          <button
+            className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-card border border-border rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 w-[700px] p-7 grid grid-cols-3 gap-8">
-            <div>
-              <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Corporate Tax</p>
-              <ul className="space-y-2.5">
-                {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration"].map(item => (
-                  <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">UAE VAT</p>
-              <ul className="space-y-2.5">
-                {["VAT Registration Services", "VAT Consultancy & Advisory", "VAT Return Filing", "VAT Deregistration", "VAT Refund Services"].map(item => (
-                  <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Accounting</p>
-              <ul className="space-y-2.5">
-                {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review", "Tax Agency Services"].map(item => (
-                  <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </li>
-
-        <li><button onClick={() => onNav("packages")} className="text-sm text-foreground hover:text-primary transition-colors">Packages</button></li>
-        <li><button onClick={() => onNav("blog")} className="text-sm text-foreground hover:text-primary transition-colors">Blog</button></li>
-        <li><button onClick={() => onNav("contact")} className="text-sm text-foreground hover:text-primary transition-colors">Contact</button></li>
-      </ul>
-
-      <div className="flex items-center gap-3">
-        <a
-          href={`https://wa.me/${content.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-        >
-          <PhoneCall className="w-4 h-4" />
-          <span className="text-sm">{`+${content.whatsapp}`}</span>
-        </a>
-        <Button
-          onClick={onConsultancy}
-          className="bg-primary text-primary-foreground rounded-full px-5 py-2 text-sm hover:bg-primary/90 font-medium"
-        >
-          Free Consultation
-        </Button>
+        </div>
       </div>
-    </nav >
+
+      {/* Mobile Menu Dropdown */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-card border-t border-primary/10 px-6 py-4 flex flex-col gap-1">
+          {[
+            { label: "Home", page: null },
+            { label: "About", page: "about" },
+            { label: "Services", page: "services" },
+            { label: "Packages", page: "packages" },
+            { label: "Blog", page: "blog" },
+            { label: "Contact", page: "contact" },
+          ].map(({ label, page }) => (
+            <button
+              key={label}
+              onClick={() => { onNav(page as PageKey | null); setMobileOpen(false); }}
+              className="text-left text-base text-foreground hover:text-primary py-3 border-b border-primary/10 last:border-0 transition-colors"
+            >
+              {label}
+            </button>
+          ))}
+          <Button
+            onClick={() => { onConsultancy(); setMobileOpen(false); }}
+            className="mt-3 w-full bg-primary text-primary-foreground rounded-full py-2 text-sm hover:bg-primary/90"
+          >
+            Free Consultation
+          </Button>
+        </div>
+      )}
+    </nav>
   );
 }
 
