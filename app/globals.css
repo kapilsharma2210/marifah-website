@@ -4,7 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark theme with gold/yellow accents - MARIFAH Tax Advisory */
   --background: oklch(0.12 0.005 240);
   --foreground: oklch(0.92 0 0);
   --card: oklch(0.16 0.005 240);
@@ -41,7 +40,6 @@
 }
 
 .dark {
-  /* Same as root - dark theme by default */
   --background: oklch(0.12 0.005 240);
   --foreground: oklch(0.92 0 0);
   --card: oklch(0.16 0.005 240);
@@ -128,7 +126,18 @@
 
 /* Hide v0 "Built with" badge */
 [data-v0-t="badge"],
+[data-v0-t],
 a[href*="v0.dev"],
-iframe[src*="v0.dev"] {
+iframe[src*="v0.dev"],
+div[class*="v0-badge"],
+div[class*="PoweredBy"],
+div[id*="v0"],
+.v0-badge {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
