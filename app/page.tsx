@@ -174,11 +174,7 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
   packages: {
     title: "Our Packages & Pricing",
     sections: [
-      { heading: "Corporate Tax Package", body: "✔ Corporate Tax Registration — AED 399\n✔ Corporate Tax Filing — AED 1,199\n✔ Registration + Filing Combo — AED 1,499\n\nIncludes FTA registration, return preparation, submission, and compliance review." },
-      { heading: "VAT Package", body: "✔ VAT Registration — AED 499\n✔ VAT Return Filing — AED 1,199\n✔ Registration + Filing Combo — AED 1,499\n\nIncludes TRN registration, quarterly return filing, input/output VAT reconciliation." },
-      { heading: "Accounting & Bookkeeping", body: "✔ Monthly Bookkeeping — Starting From AED 2,499 (0-50 Monthly Transactions)\n *Prices may vary depending on the number of transactions.\n\nIncludes monthly journal entries, bank reconciliation, accounts payable/receivable management, and monthly financial statements." },
-      { heading: "Full Compliance Package — Best Value", body: "✔ VAT + Corporate Tax + Accounting — AED 4,999\n\nOur most popular package for businesses that want complete peace of mind. Everything covered under one affordable plan." },
-      { heading: "Not Sure Which Package is Right for You?", body: "Every business has different needs. Book a free 30-minute consultation with our tax experts and we will recommend the most suitable and cost-effective package for your business — with no obligation." },
+      { heading: "pricing-cards", body: "" },
     ],
   },
   blog: {
@@ -387,15 +383,116 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
 
       <div className="max-w-4xl mx-auto px-6 py-14">
         <div className="space-y-12">
-          {page.sections.map((section, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-primary inline-block shrink-0"></span>
-                {section.heading}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed whitespace-pre-line pl-5">{section.body}</p>
-            </motion.div>
-          ))}
+          {pageKey === "packages" ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Corporate Tax */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="rounded-2xl border border-primary/20 bg-card p-6 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="text-lg font-semibold text-foreground">Corporate Tax</h2>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-2xl font-bold text-primary">AED 399 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
+                  <p className="text-lg font-semibold text-foreground">AED 1,499 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
+                </div>
+                <p className="text-muted-foreground text-sm">Full corporate tax compliance handled by certified experts.</p>
+                <div className="border-t border-primary/10 pt-4 flex flex-col gap-2">
+                  {["FTA corporate tax registration", "Annual tax return filing", "Free zone eligibility assessment", "Dedicated tax advisor"].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* VAT */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }} className="rounded-2xl border border-primary/20 bg-card p-6 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Calculator className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="text-lg font-semibold text-foreground">VAT Services</h2>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-2xl font-bold text-primary">AED 499 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
+                  <p className="text-lg font-semibold text-foreground">AED 1,199 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
+                </div>
+                <p className="text-muted-foreground text-sm">VAT registration, filing and full FTA compliance.</p>
+                <div className="border-t border-primary/10 pt-4 flex flex-col gap-2">
+                  {["TRN registration with FTA", "Quarterly VAT return filing", "Input/output VAT reconciliation", "VAT advisory & invoice review"].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Accounting */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }} className="rounded-2xl border border-primary/20 bg-card p-6 flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <BookOpen className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="text-lg font-semibold text-foreground">Accounting & Bookkeeping</h2>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-2xl font-bold text-primary">AED 2,499 <span className="text-sm font-normal text-muted-foreground">starting from</span></p>
+                  <p className="text-xs text-muted-foreground">*Prices may vary depending on number of transactions</p>
+                </div>
+                <p className="text-muted-foreground text-sm">Complete bookkeeping and financial management for your business.</p>
+                <div className="border-t border-primary/10 pt-4 flex flex-col gap-2">
+                  {["Monthly journal entries", "Bank reconciliation", "Accounts payable/receivable mgmt", "Monthly financial statements"].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Full Compliance */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32 }} className="rounded-2xl border-2 border-primary bg-card p-6 flex flex-col gap-4 relative">
+                <div className="absolute -top-3 left-6">
+                  <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                    <Star className="w-3 h-3" /> Best Value
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Package className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="text-lg font-semibold text-foreground">Full Compliance Package</h2>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-2xl font-bold text-primary">AED 4,999 <span className="text-sm font-normal text-muted-foreground">/ year</span></p>
+                  <p className="text-xs text-muted-foreground">VAT · Corporate Tax · Accounting — all included</p>
+                </div>
+                <p className="text-muted-foreground text-sm">One firm, one invoice, total compliance. Our most popular package.</p>
+                <div className="border-t border-primary/10 pt-4 flex flex-col gap-2">
+                  {["VAT registration & quarterly filing", "Corporate tax registration & filing", "Monthly bookkeeping & statements", "Dedicated advisor + priority support"].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          ) : (
+            page.sections.map((section, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
+                <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-primary inline-block shrink-0"></span>
+                  {section.heading}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-line pl-5">{section.body}</p>
+              </motion.div>
+            ))
+          )}
         </div>
 
         {/* Bottom CTA */}
