@@ -348,7 +348,7 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
     sections: [
       { heading: "Who We Are", body: "Marifah Tax Advisory is a UAE-based tax consultancy firm dedicated to helping businesses navigate the complexities of UAE taxation. Founded by experienced tax professionals, we have built a reputation for accuracy, reliability, and client-first service. Whether you are a startup, SME, or an established enterprise, we are your trusted partner in tax compliance and financial clarity." },
       { heading: "Our Mission", body: "Our mission is simple — to make UAE tax compliance easy, affordable, and stress-free for every business. We believe that no business should suffer penalties or financial losses due to lack of proper tax guidance. We bridge the gap between complex FTA regulations and your business needs, so you can focus on what matters most — growing your business." },
-      { heading: "Why Businesses Trust Us", body: "✔ Experienced & certified tax professionals\n✔ 100% FTA-compliant processes\n✔ Transparent pricing — no hidden charges\n✔ Fast turnaround — registrations done in days\n✔ Dedicated support — we answer your calls and emails\n✔ Serving 5000+ businesses across UAE" },
+      { heading: "Why Businesses Trust Us", body: "CHECKLIST:Experienced & certified tax professionals|100% FTA-compliant processes|Transparent pricing — no hidden charges|Fast turnaround — registrations done in days|Dedicated support — we answer your calls and emails|Serving 500+ businesses across UAE" },
       { heading: "Our Expertise", body: "We specialise in UAE Corporate Tax, VAT Registration & Filing, Accounting & Bookkeeping, and Tax Advisory. Our team stays updated with every FTA regulation change so that your business is always compliant and never caught off guard." },
       { heading: "Our Promise to You", body: "When you choose Marifah Tax Advisory, you are not just hiring a tax firm — you are gaining a committed partner who genuinely cares about your business success. We go beyond filing returns. We advise, we plan, and we protect your business from unnecessary tax burdens and FTA penalties." },
     ],
@@ -714,17 +714,32 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
               </motion.div>
             </div>
           ) : (
-            page.sections.map((section, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
-                <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-primary inline-block shrink-0"></span>
-                  {section.heading}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line pl-5">{section.body}</p>
-              </motion.div>
-            ))
-          )}
-        </div>
+            page.sections.map((section, i) => {
+              const isChecklist = section.body.startsWith("CHECKLIST:");
+              const checklistItems = isChecklist
+                ? section.body.replace("CHECKLIST:", "").split("|")
+                : [];
+              return (
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
+                  <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
+                    <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0"></span>
+                    {section.heading}
+                  </h2>
+                  {isChecklist ? (
+                    <div className="grid sm:grid-cols-2 gap-3 pl-2">
+                      {checklistItems.map((item, j) => (
+                        <div key={j} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
+                          <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                          <span className="text-sm text-foreground">{item.trim()}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line pl-5">{section.body}</p>
+                  )}
+                </motion.div>
+              );
+            })
 
         {/* Bottom CTA */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
