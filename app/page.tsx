@@ -202,21 +202,143 @@ const blogs = [
     excerpt: "VAT registration is mandatory if your turnover exceeds AED 375,000. Here is everything you need to know to register correctly.",
     category: "VAT",
     readTime: "4 min read",
-    content: `## What is UAE VAT:\n\nValue Added Tax (VAT) is an indirect tax applied at each stage of the supply chain. Introduced in the UAE on 1st January 2018 at a standard rate of 5%, VAT is charged on most goods and services.\nBusinesses collect VAT on behalf of the government and remit it to the Federal Tax Authority (FTA).\n\n## Who Needs to Register for VAT?:\n\nVAT registration in the UAE is categorized into two types:\n1. Mandatory Registration\nA business must register for VAT if:\nIts taxable supplies and imports exceed AED 375,000 annually.\n\n2. Voluntary Registration\nA business can opt for VAT registration if:\nIts taxable supplies, imports, or expenses exceed AED 187,500 annually.\nVoluntary registration is beneficial for startups and small businesses as it allows them to recover input VAT.\n\n✔ Voluntary registration is available above AED 187,500.\n\n## Documents Required:\n\n✔ Trade License\n\n✔ Emirates ID\n\n✔ Signed AOA & MOA\n\n✔ Mobile Number & Email ID.\n\n## VAT Compliance Requirements:\n\n✔ Businesses must charge 5% VAT\n\n✔ Maintain records\n\n✔ File VAT Returns Timely.\n\n## Common VAT Mistakes:\n\n✔ Late registration leads to AED 10,000 penalty.\n\n## Why Choose Marifah Tax Advisory:\n\n✔ We handle full VAT registration & compliance in UAE.`,
+    sections: [
+      {
+        type: "text",
+        heading: "What is UAE VAT?",
+        body: "Value Added Tax (VAT) is an indirect tax applied at each stage of the supply chain. Introduced in the UAE on 1st January 2018 at a standard rate of 5%, VAT is charged on most goods and services. Businesses collect VAT on behalf of the government and remit it to the Federal Tax Authority (FTA).",
+      },
+      {
+        type: "text",
+        heading: "Who Needs to Register for VAT?",
+        body: "VAT registration in the UAE falls into two categories. Mandatory Registration applies if your taxable supplies and imports exceed AED 375,000 annually — you must register. Voluntary Registration is available if your taxable supplies, imports, or expenses exceed AED 187,500 annually, which is beneficial for startups and small businesses as it allows them to recover input VAT.",
+      },
+      {
+        type: "checklist",
+        heading: "Documents Required",
+        items: [
+          "Trade License",
+          "Emirates ID of owner / manager",
+          "Signed Memorandum & Articles of Association (MOA & AOA)",
+          "Mobile number & email address",
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "VAT Compliance Requirements",
+        items: [
+          "Charge 5% VAT on all applicable goods and services",
+          "Maintain proper VAT records and invoices",
+          "File VAT returns on time every quarter",
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Common VAT Mistake to Avoid",
+        body: "Late registration alone carries an AED 10,000 penalty from the FTA. Do not wait until your turnover is already above the threshold — start the registration process early.",
+      },
+      {
+        type: "cta",
+        heading: "Why Choose Marifah Tax Advisory?",
+        body: "We handle your full VAT registration and ongoing compliance in the UAE — from obtaining your TRN to quarterly return filing — so you never have to worry about FTA deadlines.",
+      },
+    ],
   },
   {
     title: "Corporate Tax in UAE Explained",
     excerpt: "Corporate Tax at 9% is now in full effect. Find out if your business is liable, what steps to take, and how to stay compliant.",
     category: "Corporate Tax",
     readTime: "5 min read",
-    content: `## UAE Corporate Tax Overview\n\n✔ Corporate tax is 9% on income above AED 375,000.\n\n## Who is Subject to Corporate Tax\n\n✔ Applies to most UAE businesses including mainland and free zones.\n\n## Corporate Tax Registration UAE\n\n✔ Businesses must register with FTA to avoid penalties.\n\n## Tax Planning Strategies\n\n✔ Proper structuring reduces tax liability.\n\n## Compliance Requirements\n\n✔ Maintain books\n\n✔ File Corporate Tax Return Timely\n\n✔ Follow FTA rules.\n\n## Marifah Tax Advisory\n\nWe provide full corporate tax advisory & compliance.`,
+    sections: [
+      {
+        type: "text",
+        heading: "UAE Corporate Tax Overview",
+        body: "The UAE introduced a federal Corporate Tax of 9% on business profits above AED 375,000, effective for financial years starting on or after 1st June 2023. This is one of the most significant regulatory changes in UAE business history, and every business — mainland or free zone — must understand its obligations.",
+      },
+      {
+        type: "text",
+        heading: "Who is Subject to Corporate Tax?",
+        body: "Corporate Tax applies to most UAE businesses, including mainland companies, free zone entities (on non-qualifying income), and foreign companies with a permanent establishment in the UAE. Businesses earning below AED 375,000 in net profit are taxed at 0%, but registration with the FTA is still mandatory for all.",
+      },
+      {
+        type: "checklist",
+        heading: "Corporate Tax Registration — Key Facts",
+        items: [
+          "All UAE businesses must register with the FTA, even if exempt",
+          "Penalty for non-registration starts at AED 10,000",
+          "Free zone companies may qualify for 0% on qualifying income",
+          "Annual Corporate Tax returns must be filed within 9 months of year-end",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Tax Planning Strategies",
+        body: "Proper business structuring can legally reduce your tax liability. This includes optimising your free zone status, ensuring qualifying income is correctly classified, reviewing related-party transactions, and maintaining compliant financial records. Our advisors help you plan ahead — not just file after the fact.",
+      },
+      {
+        type: "checklist",
+        heading: "Compliance Requirements",
+        items: [
+          "Maintain accurate books and financial records",
+          "File Corporate Tax return on time each year",
+          "Follow all FTA guidelines for deductions and exemptions",
+        ],
+      },
+      {
+        type: "cta",
+        heading: "Marifah Tax Advisory",
+        body: "We provide full Corporate Tax registration, return filing, and ongoing advisory for UAE businesses. Our experts ensure you are always compliant — and never overpaying.",
+      },
+    ],
   },
   {
     title: "5 Costly VAT Mistakes UAE Businesses Make",
     excerpt: "These VAT errors cost UAE businesses thousands in penalties every year. Make sure you are not making any of them.",
     category: "VAT",
     readTime: "3 min read",
-    content: `## Incorrect VAT Calculation\n\n✔ Wrong input/output VAT leads to penalties.\n\n## Late VAT Filing UAE\n\n✔ Late returns attract AED 1,000+ penalties.\n\n## Poor Record Keeping\n\n✔ Missing invoices create audit issues.\n\n## Wrong VAT Treatment\n\n✔ Confusion between zero-rated & exempt supplies.\n\n## Input VAT Errors\n\n✔ Claiming VAT on non-eligible expenses.\n\n## Solution\n\n☆ Marifah Tax Advisory ensures error-free VAT compliance.`,
+    sections: [
+      {
+        type: "text",
+        heading: "Why VAT Mistakes Are So Expensive",
+        body: "UAE's Federal Tax Authority (FTA) has a zero-tolerance policy for VAT errors. Penalties are automatic, and they add up fast. Here are the five most common — and costly — mistakes we see UAE businesses make, and how to avoid them.",
+      },
+      {
+        type: "numbered",
+        heading: "The 5 Costly Mistakes",
+        items: [
+          {
+            title: "Incorrect VAT Calculation",
+            body: "Wrong input or output VAT figures on returns create discrepancies that trigger FTA audits and financial penalties.",
+          },
+          {
+            title: "Late VAT Filing",
+            body: "Filing your quarterly VAT return even one day late attracts a minimum AED 1,000 penalty — and AED 2,000 for repeat offences.",
+          },
+          {
+            title: "Poor Record Keeping",
+            body: "Missing invoices, unreconciled accounts, or incomplete records mean the FTA can reject your VAT returns outright.",
+          },
+          {
+            title: "Wrong VAT Treatment",
+            body: "Confusing zero-rated supplies (0% VAT) with exempt supplies (no VAT recovery) is a very common error that leads to miscalculation.",
+          },
+          {
+            title: "Incorrect Input VAT Claims",
+            body: "Claiming VAT back on non-eligible expenses (entertainment, personal costs) is a direct violation of FTA regulations.",
+          },
+        ],
+      },
+      {
+        type: "alert",
+        heading: "The Cost of Getting It Wrong",
+        body: "A single VAT audit can result in penalties of AED 10,000 or more, plus interest on unpaid VAT. Prevention is always cheaper than correction.",
+      },
+      {
+        type: "cta",
+        heading: "The Solution",
+        body: "Marifah Tax Advisory ensures error-free VAT compliance for your business. We review your invoices, reconcile your accounts, and file accurate returns every quarter — so you never face avoidable penalties.",
+      },
+    ],
   },
 ];
 
@@ -816,28 +938,146 @@ export default function MarifahWebsite() {
 
   // ── BLOG DETAIL ──────────────────────────────────────────────────
   if (selectedBlog) {
-    const sections = selectedBlog.content.split("\n\n");
+    const blog = selectedBlog as typeof blogs[0];
     return (
       <div className="bg-background text-foreground min-h-screen">
         <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
           <Navbar onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} />
         </div>
-        <div className="bg-card border-b border-primary/10 py-14 px-6">
-          <div className="max-w-4xl mx-auto">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-              <ArrowLeft className="w-4 h-4" /> Back
+
+        {/* Hero */}
+        <div className="relative overflow-hidden bg-card border-b border-primary/10 py-16 px-6">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
+          <div className="max-w-4xl mx-auto relative">
+            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+              <ArrowLeft className="w-4 h-4" /> Back to Insights
             </button>
-            {selectedBlog.category && <span className="text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 px-3 py-1 rounded-full mb-4 inline-block">{selectedBlog.category}</span>}
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-3">{selectedBlog.title}</motion.h1>
-            <div className="w-16 h-1 bg-primary rounded-full"></div>
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              {blog.category && (
+                <span className="text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+                  {blog.category}
+                </span>
+              )}
+              {blog.readTime && (
+                <span className="text-xs text-muted-foreground">{blog.readTime}</span>
+              )}
+            </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+            >
+              {blog.title}
+            </motion.h1>
+            <p className="text-muted-foreground text-base leading-relaxed max-w-2xl border-l-2 border-primary/40 pl-4">
+              {blog.excerpt}
+            </p>
           </div>
         </div>
-        <div className="max-w-4xl mx-auto px-6 py-14 space-y-6">
-          {sections.map((sec, i) => {
-            if (sec.startsWith("##")) return <h2 key={i} className="text-xl font-semibold text-foreground flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-primary inline-block"></span>{sec.replace("## ", "")}</h2>;
-            return <p key={i} className="text-muted-foreground leading-relaxed whitespace-pre-line pl-5">{sec}</p>;
+
+        {/* Article body */}
+        <div className="max-w-4xl mx-auto px-6 py-14 space-y-10">
+          {blog.sections?.map((sec: any, i: number) => {
+
+            // Plain text section
+            if (sec.type === "text") return (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
+                <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                  <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0" />
+                  {sec.heading}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed pl-4">{sec.body}</p>
+              </motion.div>
+            );
+
+            // Checklist section
+            if (sec.type === "checklist") return (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
+                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0" />
+                  {sec.heading}
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-3 pl-4">
+                  {sec.items?.map((item: string, j: number) => (
+                    <div key={j} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+
+            // Numbered list section
+            if (sec.type === "numbered") return (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
+                <h2 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
+                  <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0" />
+                  {sec.heading}
+                </h2>
+                <div className="space-y-4 pl-4">
+                  {sec.items?.map((item: { title: string; body: string }, j: number) => (
+                    <div key={j} className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/25 transition-colors">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                          <span className="text-primary font-bold text-xs">{String(j + 1).padStart(2, "0")}</span>
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                      </div>
+                      <p className="text-muted-foreground text-sm leading-relaxed pl-10">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+
+            // Alert / warning box
+            if (sec.type === "alert") return (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
+                <div className="bg-primary/5 border border-primary/25 rounded-2xl p-6">
+                  <div className="flex items-start gap-3">
+                    <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-sm font-bold text-foreground mb-1">{sec.heading}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{sec.body}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+
+            // CTA box
+            if (sec.type === "cta") return (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
+                <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                  <div>
+                    <h3 className="text-base font-bold text-foreground mb-1">{sec.heading}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{sec.body}</p>
+                  </div>
+                  <div className="flex gap-3 shrink-0">
+                    <button
+                      onClick={() => setConsultancyOpen(true)}
+                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+                    >
+                      Free Consultation
+                    </button>
+                    <a
+                      href={`https://wa.me/${content.whatsapp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4" /> WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            );
+
+            return null;
           })}
         </div>
+
         <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
