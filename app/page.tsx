@@ -22,7 +22,7 @@ const content = {
 // ─── DATA ────────────────────────────────────────────────────────
 
 const stats = [
-  { value: "500+", label: "Businesses Served" },
+  { value: "5000+", label: "Businesses Served" },
   { value: "100%", label: "FTA Compliant" },
   { value: "5+", label: "Years Experience" },
   { value: "AED 0", label: "Hidden Charges" },
@@ -348,7 +348,7 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
     sections: [
       { heading: "Who We Are", body: "Marifah Tax Advisory is a UAE-based tax consultancy firm dedicated to helping businesses navigate the complexities of UAE taxation. Founded by experienced tax professionals, we have built a reputation for accuracy, reliability, and client-first service. Whether you are a startup, SME, or an established enterprise, we are your trusted partner in tax compliance and financial clarity." },
       { heading: "Our Mission", body: "Our mission is simple — to make UAE tax compliance easy, affordable, and stress-free for every business. We believe that no business should suffer penalties or financial losses due to lack of proper tax guidance. We bridge the gap between complex FTA regulations and your business needs, so you can focus on what matters most — growing your business." },
-      { heading: "Why Businesses Trust Us", body: "✔ Experienced & certified tax professionals\n✔ 100% FTA-compliant processes\n✔ Transparent pricing — no hidden charges\n✔ Fast turnaround — registrations done in days\n✔ Dedicated support — we answer your calls and emails\n✔ Serving 500+ businesses across UAE" },
+      { heading: "Why Businesses Trust Us", body: "✔ Experienced & certified tax professionals\n✔ 100% FTA-compliant processes\n✔ Transparent pricing — no hidden charges\n✔ Fast turnaround — registrations done in days\n✔ Dedicated support — we answer your calls and emails\n✔ Serving 5000+ businesses across UAE" },
       { heading: "Our Expertise", body: "We specialise in UAE Corporate Tax, VAT Registration & Filing, Accounting & Bookkeeping, and Tax Advisory. Our team stays updated with every FTA regulation change so that your business is always compliant and never caught off guard." },
       { heading: "Our Promise to You", body: "When you choose Marifah Tax Advisory, you are not just hiring a tax firm — you are gaining a committed partner who genuinely cares about your business success. We go beyond filing returns. We advise, we plan, and we protect your business from unnecessary tax burdens and FTA penalties." },
     ],
@@ -1137,7 +1137,7 @@ export default function MarifahWebsite() {
                   { icon: Clock, text: "Registration in 3–5 Working Days" },
                   { icon: Users, text: "Dedicated Tax Advisor Assigned" },
                   { icon: Award, text: "Transparent, Flat-Fee Pricing" },
-                  { icon: TrendingUp, text: "500+ UAE Businesses Served" },
+                  { icon: TrendingUp, text: "5000+ UAE Businesses Served" },
                   { icon: Building2, text: "Serving All Emirates" },
                 ].map((item, i) => {
                   const Icon = item.icon;
