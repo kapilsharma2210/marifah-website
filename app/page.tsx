@@ -385,10 +385,10 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
       { heading: "Get in Touch", body: "We are here to help your business stay compliant and grow with confidence. Whether you have a quick question or need a full tax review, our team is ready to assist." },
       { heading: "CONTACT_CARDS", body: "" },
       { heading: "Book a Free Consultation", body: "Book a free 30-minute consultation with our tax experts. We will review your business situation, identify your compliance requirements, and recommend the best solution — completely free, with no obligation." },
-    ],
+  ],
   },
-
-type Blog = { title: string; excerpt?: string; category?: string; readTime?: string; content: string };
+};
+type Blog = { title: string; excerpt?: string; category?: string; readTime?: string; sections?: any[] };
 type ServicePlan = typeof services[0];
 type PageKey = keyof typeof pageContent;
 
