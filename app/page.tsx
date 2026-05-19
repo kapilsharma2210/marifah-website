@@ -714,7 +714,6 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
               </motion.div>
             </div>
           ) : (
-            ) : (
             page.sections.map((section, i) => {
               const isChecklist = section.body.startsWith("CHECKLIST:");
               const checklistItems = isChecklist
