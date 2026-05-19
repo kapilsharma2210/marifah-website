@@ -714,6 +714,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
               </motion.div>
             </div>
           ) : (
+            ) : (
             page.sections.map((section, i) => {
               const isChecklist = section.body.startsWith("CHECKLIST:");
               const checklistItems = isChecklist
@@ -740,6 +741,8 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
                 </motion.div>
               );
             })
+          )}
+        </div>
 
         {/* Bottom CTA */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
