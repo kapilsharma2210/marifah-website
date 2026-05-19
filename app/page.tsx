@@ -383,13 +383,10 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
     title: "Contact Marifah Tax Advisory",
     sections: [
       { heading: "Get in Touch", body: "We are here to help your business stay compliant and grow with confidence. Whether you have a quick question or need a full tax review, our team is ready to assist." },
-      { heading: "WhatsApp & Phone", body: "📞 +971505815245\n\nCall or WhatsApp us directly. Our team typically responds within 1 hour during business hours." },
-      { heading: "Email", body: "📧 info@marifahtax.com\n\nSend us your query and we will respond within 24 hours." },
-      { heading: "Business Hours", body: "Monday to Friday: 9:00 AM – 6:00 PM (UAE Time)\nSaturday: 10:00 AM – 2:00 PM\nSunday: Closed" },
+      { heading: "CONTACT_CARDS", body: "" },
       { heading: "Book a Free Consultation", body: "Book a free 30-minute consultation with our tax experts. We will review your business situation, identify your compliance requirements, and recommend the best solution — completely free, with no obligation." },
     ],
   },
-};
 
 type Blog = { title: string; excerpt?: string; category?: string; readTime?: string; content: string };
 type ServicePlan = typeof services[0];
@@ -719,6 +716,60 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
               const checklistItems = isChecklist
                 ? section.body.replace("CHECKLIST:", "").split("|")
                 : [];
+              if (section.heading === "CONTACT_CARDS") return (
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {/* Phone / WhatsApp */}
+                    <a href={`https://wa.me/971505815245`} target="_blank" rel="noopener noreferrer"
+                      className="flex flex-col gap-3 bg-card border border-primary/15 rounded-2xl p-6 hover:border-primary/40 transition-colors group">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-1">WhatsApp & Phone</p>
+                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">+971505815245</p>
+                        <p className="text-xs text-muted-foreground mt-1">Responds within 1 hour</p>
+                      </div>
+                    </a>
+                    {/* Email */}
+                    <a href="mailto:info@marifahtax.com"
+                      className="flex flex-col gap-3 bg-card border border-primary/15 rounded-2xl p-6 hover:border-primary/40 transition-colors group">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-1">Email</p>
+                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">info@marifahtax.com</p>
+                        <p className="text-xs text-muted-foreground mt-1">Responds within 24 hours</p>
+                      </div>
+                    </a>
+                    {/* Business Hours */}
+                    <div className="flex flex-col gap-3 bg-card border border-primary/15 rounded-2xl p-6">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Clock className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">Business Hours</p>
+                        <div className="space-y-1">
+                          <div className="flex justify-between text-xs">
+                            <span className="text-muted-foreground">Mon – Fri</span>
+                            <span className="text-foreground font-medium">9:00 AM – 6:00 PM</span>
+                          </div>
+                          <div className="flex justify-between text-xs">
+                            <span className="text-muted-foreground">Saturday</span>
+                            <span className="text-foreground font-medium">10:00 AM – 2:00 PM</span>
+                          </div>
+                          <div className="flex justify-between text-xs">
+                            <span className="text-muted-foreground">Sunday</span>
+                            <span className="text-red-400 font-medium">Closed</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
                   <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
