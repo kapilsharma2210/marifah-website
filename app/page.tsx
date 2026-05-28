@@ -42,7 +42,7 @@ const services = [
       "Free zone eligibility review",
       "Deregistration & ongoing support",
     ],
-    price: "From AED 399",
+    price: "From AED 499",
     sections: [
       {
         title: "Corporate Tax Registration",
@@ -58,7 +58,7 @@ const services = [
       },
     ],
     pricing: [
-      { label: "Corporate Tax Registration", price: "AED 399" },
+      { label: "Corporate Tax Registration", price: "AED 499" },
       { label: "Corporate Tax Return Filing", price: "AED 1,499" },
       { label: "Registration + Filing Combo", price: "AED 1,699", highlight: true },
     ],
@@ -622,7 +622,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
                   <h2 className="text-lg font-semibold text-foreground">Corporate Tax</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 399 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 499 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
                   <p className="text-lg font-semibold text-foreground">AED 1,499 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
                 </div>
                 <p className="text-muted-foreground text-sm">Full corporate tax compliance handled by certified experts.</p>
