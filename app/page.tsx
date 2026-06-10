@@ -823,18 +823,24 @@ export default function MarifahWebsite() {
   }, [selectedBlog, selectedService, activePage]);
 
   const navigate = (page: PageKey | null) => {
-    setScrollPosition(window.scrollY);
-    setActivePage(page);
-    setSelectedBlog(null);
-    setSelectedService(null);
-  };
+  setScrollPosition(window.scrollY);
+  setActivePage(page);
+  setSelectedBlog(null);
+  setSelectedService(null);
+  if (page) {
+    window.history.pushState({ page, type: "page" }, "", `#${page}`);
+  } else {
+    window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
+  }
+};
 
   const goBack = () => {
-    setActivePage(null);
-    setSelectedBlog(null);
-    setSelectedService(null);
-    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-  };
+  setActivePage(null);
+  setSelectedBlog(null);
+  setSelectedService(null);
+  window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
+  setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+};
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
