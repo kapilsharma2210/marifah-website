@@ -819,8 +819,19 @@ export default function MarifahWebsite() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
-    if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
-  }, [selectedBlog, selectedService, activePage]);
+  if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
+}, [selectedBlog, selectedService, activePage]);
+
+useEffect(() => {
+  const handlePopState = () => {
+    setActivePage(null);
+    setSelectedBlog(null);
+    setSelectedService(null);
+    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+  };
+  window.addEventListener("popstate", handlePopState);
+  return () => window.removeEventListener("popstate", handlePopState);
+}, [scrollPosition]);
 
   const navigate = (page: PageKey | null) => {
   setScrollPosition(window.scrollY);
@@ -1259,7 +1270,11 @@ export default function MarifahWebsite() {
             return (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <Card
-                  onClick={() => { setScrollPosition(window.scrollY); setSelectedService(svc); }}
+                  onClick={() => {
+  setScrollPosition(window.scrollY);
+  setSelectedService(svc);
+  window.history.pushState({ type: "service", title: svc.title }, "", `#service`);
+}}
                   className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group relative overflow-hidden"
                 >
                   {svc.tag && (
@@ -1395,7 +1410,11 @@ export default function MarifahWebsite() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {blogs.map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer" onClick={() => { setScrollPosition(window.scrollY); setSelectedBlog(b); }}>
+              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer" onClick={() => {
+  setScrollPosition(window.scrollY);
+  setSelectedBlog(b);
+  window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
+}}>
                 <CardContent className="p-7 flex flex-col h-full">
                   <div className="flex items-center gap-3 mb-5">
                     {b.category && <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">{b.category}</span>}
