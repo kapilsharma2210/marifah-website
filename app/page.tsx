@@ -1776,15 +1776,7 @@ useEffect(() => {
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden py-24 md:py-36 px-6">
-  <div className="absolute inset-0 z-0">
-    <img
-      src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=2000&q=85"
-      alt="Dubai skyline"
-      className="w-full h-full object-cover object-center opacity-10"
-    />
-    <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/80" />
-  </div>
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none z-0" />
+  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center relative z-10">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
