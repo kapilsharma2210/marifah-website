@@ -1777,7 +1777,7 @@ useEffect(() => {
       {/* ── HERO ── */}
       <section className="relative overflow-hidden py-24 md:py-36 px-6">
   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center relative z-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
               <BadgeCheck className="w-3.5 h-3.5" /> Marifah Tax Advisory
