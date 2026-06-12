@@ -1545,11 +1545,10 @@ useEffect(() => {
     {/* View on Google CTA */}
     <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-10">
       
-        href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK"
+       href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2.5 border border-border bg-background hover:border-primary/40 transition-all text-sm text-muted-foreground hover:text-foreground px-5 py-2.5 rounded-full"
-      >
+        className="inline-flex items-center gap-2.5 border border-border bg-background hover:border-primary/40 transition-all text-sm text-muted-foreground hover:text-foreground px-5 py-2.5 rounded-full">
         <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
