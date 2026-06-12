@@ -2061,7 +2061,8 @@ useEffect(() => {
             View All Articles <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>
-        {blogs.slice(0, 6).map((b, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogs.slice(0, 6).map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
               <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer" onClick={() => {
   setScrollPosition(window.scrollY);
