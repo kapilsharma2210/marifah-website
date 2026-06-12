@@ -1244,17 +1244,108 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* ── STATS BAR ── */}
-      <section className="py-8 border-y border-primary/10 bg-card">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-              <p className="text-2xl md:text-3xl font-bold text-primary">{s.value}</p>
-              <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+     {/* ── STATS BAR ── */}
+<section className="py-8 border-y border-primary/10 bg-card">
+  <StatsCounter />
+</section>
+      function StatsCounter() {
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6"
+    >
+      {stats.map((s, i) => (
+        <StatItem key={i} stat={s} index={i} inView={inView} />
+      ))}
+    </div>
+  );
+}
+
+function StatItem({
+  stat,
+  index,
+  inView,
+}: {
+  stat: { value: string; label: string };
+  index: number;
+  inView: boolean;
+}) {
+  const [display, setDisplay] = useState("0");
+
+  // Parse the raw number and any prefix/suffix from strings like
+  // "5000+", "100%", "5+", "AED 0"
+  const parsed = useMemo(() => {
+    const raw = stat.value;
+    const prefix = raw.startsWith("AED ") ? "AED " : "";
+    const stripped = raw.replace("AED ", "");
+    const suffix = stripped.replace(/[0-9]/g, "");
+    const num = parseInt(stripped.replace(/\D/g, ""), 10) || 0;
+    return { prefix, suffix, num };
+  }, [stat.value]);
+
+  useEffect(() => {
+    if (!inView) return;
+
+    // Stagger each counter by its index
+    const delay = index * 150;
+    const duration = 1800;
+    const startTime = performance.now() + delay;
+    let frame: number;
+
+    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const tick = (now: number) => {
+      if (now < startTime) {
+        frame = requestAnimationFrame(tick);
+        return;
+      }
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.round(eased * parsed.num);
+      setDisplay(`${parsed.prefix}${current.toLocaleString()}${parsed.suffix}`);
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [inView, parsed, index]);
+
+  return (
+    <div
+      className="text-center transition-all duration-700"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(12px)",
+        transitionDelay: `${index * 100}ms`,
+      }}
+    >
+      <p className="text-2xl md:text-3xl font-bold text-primary tabular-nums">
+        {display}
+      </p>
+      <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+    </div>
+  );
+}
 
       {/* ── SERVICES ── */}
       <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
