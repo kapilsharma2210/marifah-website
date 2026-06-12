@@ -1845,70 +1845,100 @@ useEffect(() => {
 </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">What We Offer</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">Everything your business needs to stay 100% FTA compliant — under one roof, at one firm.</p>
-        </motion.div>
+<section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="text-center mb-14"
+  >
+    <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">
+      What We Offer
+    </p>
+    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+      Our Services
+    </h2>
+    <p className="text-muted-foreground max-w-xl mx-auto">
+      Everything your business needs to stay 100% FTA compliant — under one roof, at one firm.
+    </p>
+  </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((svc, i) => {
-            const Icon = svc.icon;
-            return (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <Card
-                  onClick={() => {
-  setScrollPosition(window.scrollY);
-  setSelectedService(svc);
-  window.history.pushState({ type: "service", title: svc.title }, "", `#service`);
-}}
-                  <Card
-  onClick={() => { ... }}
-  className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group relative overflow-hidden"
->
-  {svc.tag && (
-    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full z-10">
-      {svc.tag}
-    </div>
-  )}
-  <div className="relative h-44 overflow-hidden">
-    <img
-      src={svc.image}
-      alt={svc.title}
-      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-    <div className="absolute bottom-4 left-5">
-      <div className="w-10 h-10 rounded-xl bg-primary/90 flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary-foreground" />
-      </div>
-    </div>
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {services.map((svc, i) => {
+      const Icon = svc.icon;
+
+      return (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1 }}
+        >
+          <Card
+            onClick={() => {
+              setScrollPosition(window.scrollY);
+              setSelectedService(svc);
+              window.history.pushState(
+                { type: "service", title: svc.title },
+                "",
+                "#service"
+              );
+            }}
+            className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group relative overflow-hidden"
+          >
+            {svc.tag && (
+              <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full z-10">
+                {svc.tag}
+              </div>
+            )}
+
+            <div className="relative h-44 overflow-hidden">
+              <img
+                src={svc.image}
+                alt={svc.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+              <div className="absolute bottom-4 left-5">
+                <div className="w-10 h-10 rounded-xl bg-primary/90 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-primary-foreground" />
+                </div>
+              </div>
+            </div>
+
+            <CardContent className="p-7 flex flex-col h-full">
+              <h3 className="text-foreground text-lg font-bold mb-1">{svc.title}</h3>
+              <p className="text-muted-foreground text-xs mb-4">{svc.subtitle}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
+                {svc.desc}
+              </p>
+
+              <ul className="space-y-1.5 mb-6">
+                {svc.points.map((pt) => (
+                  <li
+                    key={pt}
+                    className="flex items-center gap-2 text-xs text-muted-foreground"
+                  >
+                    <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-center justify-between mt-auto">
+                <span className="text-sm font-bold text-primary">{svc.price}</span>
+                <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">
+                  View Details <ArrowRight className="w-3 h-3" />
+                </span>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      );
+    })}
   </div>
-  <CardContent className="p-7 flex flex-col h-full">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-foreground text-lg font-bold mb-1">{svc.title}</h3>
-                    <p className="text-muted-foreground text-xs mb-4">{svc.subtitle}</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">{svc.desc}</p>
-                    <ul className="space-y-1.5 mb-6">
-                      {svc.points.map(pt => (
-                        <li key={pt} className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />{pt}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center justify-between mt-auto">
-                      <span className="text-sm font-bold text-primary">{svc.price}</span>
-                      <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">View Details <ArrowRight className="w-3 h-3" /></span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
+</section>
 
       {/* ── WHY CHOOSE US ── */}
       <section className="py-20 md:py-28 px-6 bg-card border-y border-primary/10">
