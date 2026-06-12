@@ -1776,8 +1776,16 @@ useEffect(() => {
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden py-24 md:py-36 px-6">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+  <div className="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=2000&q=85"
+      alt="Dubai skyline"
+      className="w-full h-full object-cover object-center opacity-10"
+    />
+    <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/80" />
+  </div>
+  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none z-0" />
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center relative z-10">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
               <BadgeCheck className="w-3.5 h-3.5" /> Marifah Tax Advisory
@@ -1863,15 +1871,29 @@ useEffect(() => {
   setSelectedService(svc);
   window.history.pushState({ type: "service", title: svc.title }, "", `#service`);
 }}
-                  className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group relative overflow-hidden"
-                >
-                  {svc.tag && (
-                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                      {svc.tag}
-                    </div>
-                  )}
-                  <CardContent className="p-7 flex flex-col h-full">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                  <Card
+  onClick={() => { ... }}
+  className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group relative overflow-hidden"
+>
+  {svc.tag && (
+    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full z-10">
+      {svc.tag}
+    </div>
+  )}
+  <div className="relative h-44 overflow-hidden">
+    <img
+      src={svc.image}
+      alt={svc.title}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+    <div className="absolute bottom-4 left-5">
+      <div className="w-10 h-10 rounded-xl bg-primary/90 flex items-center justify-center">
+        <Icon className="w-5 h-5 text-primary-foreground" />
+      </div>
+    </div>
+  </div>
+  <CardContent className="p-7 flex flex-col h-full">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="text-foreground text-lg font-bold mb-1">{svc.title}</h3>
