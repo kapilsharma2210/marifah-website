@@ -197,151 +197,642 @@ const faqs = [
 ];
 
 const blogs = [
+  // ── ARTICLE 1 ──────────────────────────────────────────────────
   {
-    title: "UAE VAT Registration Guide",
-    excerpt: "VAT registration is mandatory if your turnover exceeds AED 375,000. Here is everything you need to know to register correctly.",
-    category: "VAT",
-    readTime: "4 min read",
+    title: "Corporate Tax Registration Deadline UAE 2025–2026",
+    excerpt: "Miss the FTA registration deadline and face an automatic AED 10,000 penalty. Here are the exact deadlines for every entity type — and the current penalty waiver you can still use.",
+    category: "Corporate Tax",
+    readTime: "6 min read",
     sections: [
       {
         type: "text",
-        heading: "What is UAE VAT?",
-        body: "Value Added Tax (VAT) is an indirect tax applied at each stage of the supply chain. Introduced in the UAE on 1st January 2018 at a standard rate of 5%, VAT is charged on most goods and services. Businesses collect VAT on behalf of the government and remit it to the Federal Tax Authority (FTA).",
+        heading: "Why the Registration Deadline Matters",
+        body: "UAE Corporate Tax was introduced under Federal Decree-Law No. 47 of 2022, effective for financial years starting on or after 1 June 2023. Every UAE business — whether or not it owes any tax — must register with the Federal Tax Authority (FTA) on EmaraTax. Missing your deadline triggers a fixed AED 10,000 administrative penalty under Cabinet Decision No. 10 of 2024, regardless of your profit level.",
       },
       {
         type: "text",
-        heading: "Who Needs to Register for VAT?",
-        body: "VAT registration in the UAE falls into two categories. Mandatory Registration applies if your taxable supplies and imports exceed AED 375,000 annually — you must register. Voluntary Registration is available if your taxable supplies, imports, or expenses exceed AED 187,500 annually, which is beneficial for startups and small businesses as it allows them to recover input VAT.",
+        heading: "Deadlines by Entity Type",
+        body: "For existing juridical persons (companies) registered before 1 March 2024, the deadline was tied to the month of trade licence issuance — ranging from 31 May 2024 to 31 December 2024. For new companies incorporated on or after 1 March 2024, the deadline is 3 months from the date of incorporation. For natural persons (sole proprietors, freelancers) whose taxable turnover from business exceeded AED 1 million in 2024, the deadline was 31 March 2025. For non-resident persons with a Permanent Establishment in the UAE who exceed AED 1 million turnover, registration must be completed within 3 months of meeting the conditions.",
       },
       {
         type: "checklist",
-        heading: "Documents Required",
+        heading: "Key Registration Facts",
         items: [
-          "Trade License",
-          "Emirates ID of owner / manager",
-          "Signed Memorandum & Articles of Association (MOA & AOA)",
-          "Mobile number & email address",
+          "All UAE businesses must register — even if turnover is below AED 375,000",
+          "Registration is done on the FTA's EmaraTax portal (tax.gov.ae)",
+          "Penalty for late registration: AED 10,000 (fixed, automatic)",
+          "New companies incorporated from 1 March 2024: register within 3 months",
+          "Natural persons: deadline was 31 March 2025 for FY 2024",
+          "Tax return must be filed within 9 months of the financial year-end",
+        ],
+      },
+      {
+        type: "text",
+        heading: "2025–2026 Penalty Waiver — Act Now",
+        body: "The FTA introduced a penalty waiver initiative effective from 14 April 2025. If you missed your registration deadline, you can have the AED 10,000 penalty waived — provided you file your first Corporate Tax return (or annual declaration if exempt) within 7 months from the end of your first tax period. For most businesses with a 31 December 2024 financial year-end, this means filing by 31 July 2025. The waiver applies even if you have already received the penalty. After the waiver window closes, the AED 10,000 fine remains and is not automatically reversible.",
+      },
+      {
+        type: "text",
+        heading: "2026 Penalty Framework Update",
+        body: "Under Cabinet Decision No. 129 of 2025, effective 14 April 2026, the late payment penalty framework was restructured. The late payment penalty is now 14% per annum, replacing the previous 2% day-1 plus 4% monthly structure. The AED 10,000 late registration penalty itself was not changed. All businesses must also pay any tax due within the same 9-month filing window — there are no instalment options in the standard regime.",
+      },
+      {
+        type: "alert",
+        heading: "Critical: Do Not Confuse Registration with Filing",
+        body: "Registration (getting your Corporate Tax number) and filing your return are two separate FTA obligations with two separate deadlines. Both carry penalties. Register first on EmaraTax, then file your return within 9 months of your financial year-end.",
+      },
+      {
+        type: "cta",
+        heading: "Need Help Registering Before the Deadline?",
+        body: "Marifah Tax Advisory completes FTA Corporate Tax Registration within days. We also check your penalty waiver eligibility and file your first return accurately. Contact us for a free consultation.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 2 ──────────────────────────────────────────────────
+  {
+    title: "VAT Registration Requirements UAE 2025",
+    excerpt: "VAT registration is mandatory once your taxable turnover exceeds AED 375,000. Here is every requirement, document, threshold, and deadline — fully updated for 2025.",
+    category: "VAT",
+    readTime: "5 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "UAE VAT — The Basics",
+        body: "Value Added Tax (VAT) was introduced in the UAE on 1 January 2018 under Federal Decree-Law No. 8 of 2017, at a standard rate of 5%. Businesses collect VAT on taxable supplies on behalf of the government and remit the net amount to the Federal Tax Authority (FTA) through periodic returns filed on EmaraTax.",
+      },
+      {
+        type: "text",
+        heading: "Registration Thresholds",
+        body: "Mandatory VAT registration applies when your taxable supplies and imports in the previous 12 months exceed AED 375,000 — or when you expect to exceed AED 375,000 in the next 30 days. You must register within 30 days of crossing the threshold. Voluntary VAT registration is available if your taxable supplies, imports, or eligible expenses exceed AED 187,500 annually. Non-resident businesses making taxable supplies in the UAE must register regardless of turnover, unless the supply falls under the reverse charge mechanism.",
+      },
+      {
+        type: "checklist",
+        heading: "Documents Required for VAT Registration",
+        items: [
+          "Valid Trade Licence",
+          "Emirates ID of owner / authorised manager",
+          "Memorandum and Articles of Association (MOA & AOA)",
+          "Bank account details (IBAN)",
+          "Mobile number and email address linked to EmaraTax",
+          "Financial statements or sales evidence showing turnover threshold met",
+          "Customs registration number (if applicable)",
         ],
       },
       {
         type: "checklist",
-        heading: "VAT Compliance Requirements",
+        heading: "Ongoing VAT Compliance Requirements",
         items: [
-          "Charge 5% VAT on all applicable goods and services",
-          "Maintain proper VAT records and invoices",
-          "File VAT returns on time every quarter",
+          "Charge 5% VAT on all standard-rated taxable supplies",
+          "Issue tax invoices compliant with FTA requirements",
+          "File VAT returns every quarter (28 days after end of tax period)",
+          "Maintain all VAT records for a minimum of 5 years",
+          "Apply reverse charge on imported services from unregistered foreign suppliers",
+          "Report zero-rated and exempt supplies separately in each return",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Penalties for Non-Registration and Late Filing",
+        body: "Failing to register within 30 days of exceeding the AED 375,000 threshold results in a fixed AED 10,000 penalty. Late registration also triggers retroactive VAT liability on all taxable supplies from the date registration was due. The penalty for late VAT return filing is AED 1,000 for the first offence and AED 2,000 for repeat offences within 24 months. Under the updated framework effective 14 April 2026 (Cabinet Decision No. 129 of 2025), the late payment penalty is now 14% per annum.",
+      },
+      {
+        type: "text",
+        heading: "2026 VAT Law Update — Federal Decree-Law No. 16 of 2025",
+        body: "From 1 January 2026, the requirement to issue a self-invoice for standard reverse charge imports has been removed under Federal Decree-Law No. 16 of 2025. However, the obligation to declare and pay the VAT on reverse charge transactions remains fully in force. Record-keeping penalty amounts were also updated under Cabinet Decision No. 129 of 2025: AED 5,000 for first offence (reduced from AED 10,000) and AED 10,000 for repeat offences.",
+      },
+      {
+        type: "alert",
+        heading: "Common Mistake — Waiting Until You Have Already Exceeded the Threshold",
+        body: "You are required to monitor your rolling 12-month taxable turnover continuously. The 30-day window to register starts from the day you cross AED 375,000 — not from the end of the financial year. Late registration carries both a penalty and a retroactive VAT liability, making it one of the most expensive compliance mistakes UAE businesses make.",
+      },
+      {
+        type: "cta",
+        heading: "Get Your TRN in 3–5 Working Days",
+        body: "Marifah Tax Advisory handles your complete VAT registration with the FTA — from document preparation to TRN issuance. We ensure your application is accurate, complete, and approved without delays. Contact us for a free consultation.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 3 ──────────────────────────────────────────────────
+  {
+    title: "How to File VAT Return UAE — Step by Step 2025",
+    excerpt: "A complete step-by-step guide to filing your UAE VAT return on EmaraTax — deadlines, boxes explained, common errors, and penalties to avoid.",
+    category: "VAT",
+    readTime: "7 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "VAT Return Filing — Overview",
+        body: "Every VAT-registered business in the UAE must file a VAT return with the Federal Tax Authority (FTA) at the end of each tax period. For most businesses, the tax period is quarterly. The return must be filed and any tax due must be paid within 28 days of the end of the tax period. VAT returns are filed exclusively through the EmaraTax portal at tax.gov.ae.",
+      },
+      {
+        type: "checklist",
+        heading: "Before You File — Prepare These",
+        items: [
+          "All sales invoices issued during the period (output VAT)",
+          "All purchase invoices with valid VAT numbers (input VAT)",
+          "Import declarations / customs documents",
+          "Credit notes issued or received",
+          "Reverse charge records for imported services",
+          "Bank statements for reconciliation",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Step 1 — Log In to EmaraTax",
+        body: "Go to tax.gov.ae and log in to your EmaraTax account using your registered UAE Pass or username and password. Select your VAT registration (TRN) from the dashboard and click 'File Return' for the relevant tax period.",
+      },
+      {
+        type: "text",
+        heading: "Step 2 — Complete Box 1 to Box 3 (Sales / Output VAT)",
+        body: "Box 1: Enter the total value of your standard-rated supplies (sales at 5% VAT) and the VAT collected. Box 2: Enter zero-rated supplies (exports, international transport, certain food items, etc.) — these are taxable but at 0%. Box 3: Enter any exempt supplies (residential property sales, local passenger transport, bare land) — no VAT charged and no input VAT recovery on related costs.",
+      },
+      {
+        type: "text",
+        heading: "Step 3 — Complete Box 4 to Box 7 (Purchases / Input VAT)",
+        body: "Box 4: Total standard-rated expenses/purchases made during the period and the input VAT you are recovering. Box 5: Enter imports subject to VAT paid at customs. Box 6: Enter imports of services subject to reverse charge mechanism — declare both output and input VAT here. Box 7: Report any out-of-scope supplies not subject to UAE VAT.",
+      },
+      {
+        type: "text",
+        heading: "Step 4 — Review the Net VAT Position",
+        body: "EmaraTax will automatically calculate your net VAT due (output VAT minus input VAT). If output exceeds input, you owe that amount to the FTA. If input exceeds output, you have a VAT credit — you may carry it forward to the next period or submit a refund request. Always cross-check the calculated figure against your own accounting records before submitting.",
+      },
+      {
+        type: "text",
+        heading: "Step 5 — Submit and Pay",
+        body: "Once you are satisfied the return is accurate, click 'Submit'. Payment of VAT due must reach the FTA within 28 days of the tax period end. Payment methods accepted on EmaraTax include credit/debit card, local bank transfer via GIBAN, eDebit, and e-Dirham card. The payment deadline is the same as the filing deadline — you cannot file and pay separately on different dates.",
+      },
+      {
+        type: "checklist",
+        heading: "Common Mistakes That Trigger FTA Penalties",
+        items: [
+          "Claiming input VAT on non-business expenses (e.g., entertainment, personal vehicles)",
+          "Missing the 28-day filing deadline — AED 1,000 first offence, AED 2,000 repeat",
+          "Failing to report reverse charge on imported services",
+          "Issuing non-compliant tax invoices (missing TRN, wrong VAT amount)",
+          "Errors in Box 3 (classifying standard-rated supplies as exempt)",
+          "Late payment penalty: 14% per annum from 14 April 2026 (Cabinet Decision No. 129 of 2025)",
         ],
       },
       {
         type: "alert",
-        heading: "Common VAT Mistake to Avoid",
-        body: "Late registration alone carries an AED 10,000 penalty from the FTA. Do not wait until your turnover is already above the threshold — start the registration process early.",
+        heading: "Nil Returns — Do Not Skip",
+        body: "Even if you made no sales and no purchases in a quarter, you must still file a nil VAT return before the deadline. Failing to file a nil return carries the same AED 1,000 penalty as missing any other return.",
       },
       {
         type: "cta",
-        heading: "Why Choose Marifah Tax Advisory?",
-        body: "We handle your full VAT registration and ongoing compliance in the UAE — from obtaining your TRN to quarterly return filing — so you never have to worry about FTA deadlines.",
+        heading: "Let Marifah Handle Your VAT Filing",
+        body: "Our team prepares and submits accurate VAT returns on your behalf — every quarter, on time, with full reconciliation. Never miss an FTA deadline again. Contact us for a free consultation.",
       },
     ],
   },
+
+  // ── ARTICLE 4 ──────────────────────────────────────────────────
   {
-    title: "Corporate Tax in UAE Explained",
-    excerpt: "Corporate Tax at 9% is now in full effect. Find out if your business is liable, what steps to take, and how to stay compliant.",
+    title: "Free Zone Corporate Tax UAE — Complete Guide 2025–2026",
+    excerpt: "Free zone companies are NOT automatically exempt from UAE Corporate Tax. Here is the complete guide to Qualifying Free Zone Person (QFZP) status, the 5 conditions, and what happens if you fail.",
+    category: "Corporate Tax",
+    readTime: "8 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "The Core Misconception",
+        body: "Many free zone business owners assume their free zone licence automatically exempts them from UAE Corporate Tax. It does not. Under Federal Decree-Law No. 47 of 2022, free zone entities are subject to UAE Corporate Tax. However, entities that qualify as a Qualifying Free Zone Person (QFZP) can access a 0% Corporate Tax rate on their qualifying income. The 0% rate is earned through compliance with five specific conditions — it is not automatic.",
+      },
+      {
+        type: "text",
+        heading: "The 5 QFZP Conditions (All Must Be Met)",
+        body: "To be treated as a QFZP and access the 0% rate on qualifying income, a free zone entity must satisfy all five of the following conditions every year: (1) Maintain adequate substance in the UAE free zone — real offices, employees, and management decisions made locally. (2) Derive qualifying income as defined under Ministerial Decision No. 229 of 2025 — including services to foreign clients, intra-group services meeting conditions, certain IP income, and income from regulated financial services. (3) Pass the De Minimis test — non-qualifying income must not exceed the lower of AED 5 million or 5% of total revenue. (4) No mainland election — the entity must not have elected to be treated as a standard mainland taxable person. (5) Comply with transfer pricing rules under Article 34 (arm's-length transactions with related parties) and Article 55 (general anti-abuse rule) of the CT Law.",
+      },
+      {
+        type: "text",
+        heading: "What Happens if You Fail Even One Condition",
+        body: "QFZP status is all-or-nothing. If a free zone entity fails any single QFZP condition, it loses QFZP status for the entire tax year — not just for the income that caused the failure. The entity then becomes subject to 9% Corporate Tax on all taxable income above AED 375,000 for that year and the four subsequent tax years. This is one of the most severe consequence structures in the UAE CT Law and is the primary reason why free zone entities must actively manage their QFZP position year-round.",
+      },
+      {
+        type: "checklist",
+        heading: "Activities That Qualify for the 0% Rate (Ministerial Decision No. 229 of 2025)",
+        items: [
+          "Manufacturing and processing of goods within the free zone",
+          "Holding shares and other securities for investment purposes",
+          "Treasury and financing services to related parties (meeting conditions)",
+          "Distribution of goods and materials in a Designated Zone",
+          "Logistics services within the free zone",
+          "Fund management services regulated by UAE authorities",
+          "Reinsurance services regulated in the UAE",
+          "Back-office and headquarters services to related parties",
+          "Ship registration and management services",
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "Activities That Do NOT Qualify (Non-Qualifying Income at 9%)",
+        items: [
+          "Transactions with UAE mainland customers (above de minimis limits)",
+          "Immovable property income in the UAE (outside Designated Zones)",
+          "Income from excluded activities (e.g., banking, insurance without FTA approval)",
+          "Revenue from intellectual property created under a tax planning structure",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Audited Financial Statements — Mandatory for QFZPs",
+        body: "Under Ministerial Decision No. 84 of 2025, all free zone entities claiming QFZP status must prepare audited financial statements in accordance with IFRS or IFRS for SMEs — regardless of company size or revenue. This is the single most common compliance gap: many free zone companies with lower revenues had not previously commissioned an audit. Without audited statements, QFZP status cannot be claimed.",
+      },
+      {
+        type: "text",
+        heading: "Small Business Relief and Free Zones",
+        body: "Free zone entities with revenue below AED 3 million may elect Small Business Relief (SBR), which treats the entity as having no taxable income. SBR is available for tax periods ending on or before 31 December 2026 as a transitional measure. However, electing SBR means the entity cannot simultaneously claim QFZP benefits for that period. For most free zone entities with predominantly qualifying income, maintaining QFZP status at 0% is more advantageous than electing SBR — but this should be assessed on a case-by-case basis.",
+      },
+      {
+        type: "text",
+        heading: "Corporate Tax Return Deadlines for Free Zone Companies",
+        body: "Free zone entities must file their Corporate Tax return within 9 months of the end of their tax period. For a company with a financial year ending 31 December 2025, the return deadline is 30 September 2026. The return must accurately declare QFZP status, distinguish qualifying and non-qualifying income, and be supported by audited financials. Records must be retained for at least 7 years.",
+      },
+      {
+        type: "alert",
+        heading: "DMCC, JAFZA, IFZA, DIFC, ADGM — All Subject to the Same Rules",
+        body: "QFZP conditions apply uniformly across all UAE free zones, including DMCC, JAFZA, IFZA, DIFC, and ADGM. Your free zone authority does not administer Corporate Tax — the FTA does. Compliance must be demonstrated to the FTA, not your free zone authority.",
+      },
+      {
+        type: "cta",
+        heading: "Assess Your Free Zone QFZP Eligibility",
+        body: "Marifah Tax Advisory conducts full QFZP eligibility assessments for free zone businesses. We review your income sources, substance levels, and related-party transactions to confirm whether you qualify for the 0% rate — and manage your CT return filing accurately. Contact us for a free consultation.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 5 ──────────────────────────────────────────────────
+  {
+    title: "DMCC Corporate Tax — What Every Member Needs to Know",
+    excerpt: "DMCC companies are not automatically exempt from UAE Corporate Tax. Here is a clear, accurate guide to QFZP eligibility, DMCC-specific activities, and your 2026 filing deadline.",
+    category: "Corporate Tax",
+    readTime: "6 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "DMCC and UAE Corporate Tax",
+        body: "The Dubai Multi Commodities Centre (DMCC) is one of the UAE's largest and most prestigious free zones. However, DMCC membership does not exempt a company from UAE Corporate Tax under Federal Decree-Law No. 47 of 2022. DMCC entities are subject to the same Corporate Tax framework as all other UAE businesses. The 0% rate on qualifying income is available — but only if the entity qualifies as a Qualifying Free Zone Person (QFZP) under the five-condition test administered by the Federal Tax Authority.",
+      },
+      {
+        type: "text",
+        heading: "Which DMCC Activities Qualify for 0%?",
+        body: "Under Ministerial Decision No. 229 of 2025, qualifying income for DMCC entities typically includes: income from commodities trading between free zone/foreign parties in a Designated Zone, logistics and warehousing services within the free zone, back-office and headquarters services to foreign or related group entities, holding company income (dividends and capital gains from qualifying shareholdings), and fund management services regulated by the SCA or DFSA.",
+      },
+      {
+        type: "checklist",
+        heading: "DMCC QFZP Compliance Checklist",
+        items: [
+          "Physical office space in DMCC (not a virtual/flexi-desk arrangement)",
+          "Employed staff in the UAE with sufficient expertise for the business activities",
+          "Board meetings and key management decisions made in the UAE",
+          "Non-qualifying income below AED 5 million or 5% of total revenue (de minimis)",
+          "Audited IFRS financial statements prepared for the tax period",
+          "Transfer pricing documentation for all related-party transactions",
+          "Corporate Tax return filed within 9 months of financial year-end",
+        ],
+      },
+      {
+        type: "text",
+        heading: "DMCC Commodities Trading — The Designated Zone Issue",
+        body: "Many DMCC members trade commodities. For trading income to qualify for the 0% rate, goods must be traded within or through a Designated Zone (DZ) as defined by the FTA. DMCC's Almas Tower and related physical trading facilities are part of a Designated Zone, but the classification is activity-specific. Commodities trading with UAE mainland buyers can push the entity beyond the de minimis non-qualifying income limit, risking full loss of QFZP status.",
+      },
+      {
+        type: "text",
+        heading: "2026 Filing Deadline",
+        body: "For DMCC entities with a financial year running 1 January to 31 December 2025, the Corporate Tax return deadline is 30 September 2026. The return must be filed on EmaraTax. Any Corporate Tax due must be paid by the same date — there are no instalments. Late payment from 14 April 2026 carries a penalty of 14% per annum under Cabinet Decision No. 129 of 2025.",
+      },
+      {
+        type: "alert",
+        heading: "DMCC Does Not File Tax Returns on Your Behalf",
+        body: "DMCC as a free zone authority manages your trade licence and membership. It has no role in your UAE Corporate Tax registration or return filing. Your CT registration and annual returns must be submitted directly to the FTA on EmaraTax. Many DMCC companies discovered this only after receiving AED 10,000 late registration penalties.",
+      },
+      {
+        type: "cta",
+        heading: "DMCC Corporate Tax — Get It Right",
+        body: "Marifah Tax Advisory specialises in Corporate Tax compliance for DMCC and other UAE free zone entities. We assess your QFZP eligibility, prepare audited-aligned documentation, and file your return accurately before the September deadline. Contact us for a free consultation.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 6 ──────────────────────────────────────────────────
+  {
+    title: "UAE Corporate Tax for Small Business — Complete Guide 2025",
+    excerpt: "Small Business Relief allows eligible UAE businesses to pay 0% Corporate Tax. Here is who qualifies, how to elect it, and what changes after 31 December 2026.",
     category: "Corporate Tax",
     readTime: "5 min read",
     sections: [
       {
         type: "text",
-        heading: "UAE Corporate Tax Overview",
-        body: "The UAE introduced a federal Corporate Tax of 9% on business profits above AED 375,000, effective for financial years starting on or after 1st June 2023. This is one of the most significant regulatory changes in UAE business history, and every business — mainland or free zone — must understand its obligations.",
+        heading: "UAE Corporate Tax Rates for Small Businesses",
+        body: "Under Federal Decree-Law No. 47 of 2022, UAE Corporate Tax is charged at 0% on taxable income up to AED 375,000 and 9% on taxable income above AED 375,000. This means a business with AED 374,999 in net profit pays zero Corporate Tax. A business with AED 500,000 in net profit pays 9% only on AED 125,000 (the amount above the threshold) — which equals AED 11,250.",
       },
       {
         type: "text",
-        heading: "Who is Subject to Corporate Tax?",
-        body: "Corporate Tax applies to most UAE businesses, including mainland companies, free zone entities (on non-qualifying income), and foreign companies with a permanent establishment in the UAE. Businesses earning below AED 375,000 in net profit are taxed at 0%, but registration with the FTA is still mandatory for all.",
+        heading: "Small Business Relief (SBR) — The Additional Protection",
+        body: "Beyond the standard 0%/9% threshold structure, the UAE CT Law provides Small Business Relief for eligible businesses. Under SBR, a qualifying business is treated as having no taxable income for the relevant tax period — it pays zero Corporate Tax and has simplified compliance obligations. SBR is available for tax periods ending on or before 31 December 2026. It is a transitional measure and is not permanent.",
       },
       {
         type: "checklist",
-        heading: "Corporate Tax Registration — Key Facts",
+        heading: "SBR Eligibility Conditions",
         items: [
-          "All UAE businesses must register with the FTA, even if exempt",
-          "Penalty for non-registration starts at AED 10,000",
-          "Free zone companies may qualify for 0% on qualifying income",
-          "Annual Corporate Tax returns must be filed within 9 months of year-end",
+          "Must be a UAE tax resident person (not a non-resident or exempt person)",
+          "Revenue for the current tax period must not exceed AED 3 million",
+          "Revenue in each previous tax period since 1 June 2023 must also not have exceeded AED 3 million",
+          "Must actively elect SBR in the Corporate Tax return — it is not applied automatically",
+          "Large multinationals subject to Pillar Two rules (Qualifying MNE Groups) are not eligible for SBR",
         ],
       },
       {
         type: "text",
-        heading: "Tax Planning Strategies",
-        body: "Proper business structuring can legally reduce your tax liability. This includes optimising your free zone status, ensuring qualifying income is correctly classified, reviewing related-party transactions, and maintaining compliant financial records. Our advisors help you plan ahead — not just file after the fact.",
+        heading: "What 'Revenue' Means for SBR",
+        body: "Revenue for SBR purposes means the gross income of the business in the tax period — not net profit. A business with AED 2.9 million in gross revenue but AED 2.8 million in expenses still qualifies for SBR (as long as previous periods also met the AED 3 million test). Once revenue exceeds AED 3 million in any period, SBR is lost and cannot be elected again.",
       },
       {
-        type: "checklist",
-        heading: "Compliance Requirements",
-        items: [
-          "Maintain accurate books and financial records",
-          "File Corporate Tax return on time each year",
-          "Follow all FTA guidelines for deductions and exemptions",
-        ],
+        type: "text",
+        heading: "SBR Does Not Eliminate Registration",
+        body: "Electing Small Business Relief does not exempt a business from registering with the FTA. All UAE businesses must register for Corporate Tax. The penalty for non-registration is AED 10,000, regardless of whether you ultimately owe any tax. Register on EmaraTax, then elect SBR in your return if eligible.",
+      },
+      {
+        type: "text",
+        heading: "After 2026 — What Small Businesses Should Prepare For",
+        body: "SBR is a transitional relief available only for tax periods ending on or before 31 December 2026. From the 2027 tax year, there is currently no legislative extension of SBR. Small businesses with revenue below AED 375,000 in net profit will still pay 0% under the standard rates — but businesses between AED 375,000 and AED 3 million in taxable income will need to file full Corporate Tax returns and may owe tax at 9% on the income above the threshold.",
+      },
+      {
+        type: "alert",
+        heading: "SBR Cannot Be Combined with QFZP Status",
+        body: "Free zone entities cannot elect Small Business Relief and claim QFZP (0% qualifying income) status in the same tax period. Electing SBR means the entity is treated as not having qualifying income — so QFZP benefits do not apply. For most free zone entities with qualifying income, maintaining QFZP status is more advantageous.",
       },
       {
         type: "cta",
-        heading: "Marifah Tax Advisory",
-        body: "We provide full Corporate Tax registration, return filing, and ongoing advisory for UAE businesses. Our experts ensure you are always compliant — and never overpaying.",
+        heading: "Is Your Business Eligible for Small Business Relief?",
+        body: "Marifah Tax Advisory reviews your revenue, structure, and tax period to determine whether SBR applies — and files your return correctly. We ensure you do not over-pay Corporate Tax or miss an election that could save you thousands. Contact us for a free consultation.",
       },
     ],
   },
+
+  // ── ARTICLE 7 ──────────────────────────────────────────────────
   {
-    title: "5 Costly VAT Mistakes UAE Businesses Make",
-    excerpt: "These VAT errors cost UAE businesses thousands in penalties every year. Make sure you are not making any of them.",
+    title: "Penalty for Late VAT Registration UAE — Full Guide 2025–2026",
+    excerpt: "Late VAT registration in the UAE carries an automatic AED 10,000 penalty — plus retroactive VAT liability. Here is exactly what the FTA charges, and how to avoid it.",
     category: "VAT",
-    readTime: "3 min read",
+    readTime: "5 min read",
     sections: [
       {
         type: "text",
-        heading: "Why VAT Mistakes Are So Expensive",
-        body: "UAE's Federal Tax Authority (FTA) has a zero-tolerance policy for VAT errors. Penalties are automatic, and they add up fast. Here are the five most common — and costly — mistakes we see UAE businesses make, and how to avoid them.",
+        heading: "The AED 10,000 Late Registration Penalty",
+        body: "Under the UAE VAT law (Federal Decree-Law No. 8 of 2017) and the administrative penalties framework (Cabinet Decision No. 49 of 2021, updated by Cabinet Decision No. 129 of 2025 from 14 April 2026), any business that fails to register for VAT within 30 days of crossing the AED 375,000 mandatory threshold is subject to a fixed administrative penalty of AED 10,000. This penalty is imposed by the FTA and appears directly in your EmaraTax account.",
       },
       {
-        type: "numbered",
-        heading: "The 5 Costly Mistakes",
+        type: "text",
+        heading: "The Hidden Cost — Retroactive VAT Liability",
+        body: "The AED 10,000 penalty is only part of the cost. When a business registers late, the FTA calculates VAT liability from the date the business should have registered — not from the date of actual registration. This means you may owe 5% VAT on all taxable supplies made during the gap period, plus late payment penalties on that amount. For a business that was already generating AED 500,000 in annual revenue, the retroactive VAT exposure alone can be significantly higher than the initial registration penalty.",
+      },
+      {
+        type: "checklist",
+        heading: "Full Penalty Schedule — VAT Non-Compliance",
         items: [
-          {
-            title: "Incorrect VAT Calculation",
-            body: "Wrong input or output VAT figures on returns create discrepancies that trigger FTA audits and financial penalties.",
-          },
-          {
-            title: "Late VAT Filing",
-            body: "Filing your quarterly VAT return even one day late attracts a minimum AED 1,000 penalty — and AED 2,000 for repeat offences.",
-          },
-          {
-            title: "Poor Record Keeping",
-            body: "Missing invoices, unreconciled accounts, or incomplete records mean the FTA can reject your VAT returns outright.",
-          },
-          {
-            title: "Wrong VAT Treatment",
-            body: "Confusing zero-rated supplies (0% VAT) with exempt supplies (no VAT recovery) is a very common error that leads to miscalculation.",
-          },
-          {
-            title: "Incorrect Input VAT Claims",
-            body: "Claiming VAT back on non-eligible expenses (entertainment, personal costs) is a direct violation of FTA regulations.",
-          },
+          "Late VAT registration: AED 10,000 (fixed, one-time)",
+          "Late VAT return filing (first offence): AED 1,000",
+          "Late VAT return filing (repeat within 24 months): AED 2,000",
+          "Late VAT payment (from 14 April 2026): 14% per annum under Cabinet Decision No. 129 of 2025",
+          "Failure to maintain required VAT records (first offence): AED 5,000",
+          "Failure to maintain records (repeat within 24 months): AED 10,000",
+          "Non-compliant tax invoice issued (first offence): AED 2,500",
+          "Non-compliant tax invoice (repeat within 24 months): AED 5,000",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Is There a Waiver for Late VAT Registration?",
+        body: "Unlike Corporate Tax (which has a formal penalty waiver initiative for 2025), there is no automatic waiver for late VAT registration penalties. Businesses that have received a penalty may submit a formal reconsideration request (Ta'arrud) to the FTA, but these are assessed on a case-by-case basis and are not guaranteed. The strongest grounds for reconsideration are genuine force majeure circumstances — not administrative oversight. Prevention is the only reliable strategy.",
+      },
+      {
+        type: "text",
+        heading: "When Must You Register — The 30-Day Rule",
+        body: "The registration clock starts on the day your taxable supplies and imports exceed AED 375,000 in the previous 12 months — or the day you have a reasonable basis to expect they will exceed AED 375,000 in the next 30 days. You must submit your VAT registration application within 30 days of either trigger. The FTA monitors business data and issues registration requirements proactively — do not assume you will receive a formal notice before the penalty is applied.",
+      },
+      {
+        type: "alert",
+        heading: "Voluntary Registration Can Protect You Earlier",
+        body: "If your taxable supplies or expenses exceed AED 187,500 annually, you may register for VAT voluntarily. Voluntary registration allows you to recover input VAT on business expenses, improves your business credibility, and — most importantly — means you are already registered and compliant before you cross the AED 375,000 mandatory threshold. Many fast-growing UAE businesses benefit significantly from early voluntary registration.",
+      },
+      {
+        type: "cta",
+        heading: "Avoid the Penalty — Register Today",
+        body: "Marifah Tax Advisory completes VAT registration with the FTA in as little as 3–5 working days. We review your turnover position, confirm your threshold status, and file a complete, accurate application. Contact us before the FTA contacts you.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 8 ──────────────────────────────────────────────────
+  {
+    title: "Difference Between VAT Exempt and Zero Rated in UAE",
+    excerpt: "Zero-rated and VAT-exempt supplies are both charged at 0% — but they are completely different in law. Getting this wrong can cost you thousands in disallowed input VAT.",
+    category: "VAT",
+    readTime: "5 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "Why the Difference Matters",
+        body: "Both zero-rated and VAT-exempt supplies result in 0% VAT being charged to the customer. However, they are treated very differently under UAE VAT law, and misclassifying a supply can result in disallowed input VAT deductions, incorrect VAT returns, and FTA penalties. Understanding the distinction is fundamental to accurate VAT compliance.",
+      },
+      {
+        type: "text",
+        heading: "Zero-Rated Supplies — 0% VAT, Full Input VAT Recovery",
+        body: "A zero-rated supply is a taxable supply — it is within the scope of UAE VAT, but the rate applied is 0% instead of 5%. The critical point: because the supply is technically 'taxable', the business making the supply can recover all input VAT on costs directly related to making that supply. Zero-rated supplies must be reported in your VAT return. Failing to report zero-rated supplies is a VAT error, not an exemption from reporting.",
+      },
+      {
+        type: "checklist",
+        heading: "Examples of Zero-Rated Supplies in UAE",
+        items: [
+          "Exports of goods outside the UAE",
+          "International transport of goods and passengers",
+          "Supply of certain food items (basic food staples as defined by Cabinet Decision)",
+          "Supply of certain medicines and medical equipment (as listed by the Ministry of Health)",
+          "Investment-grade precious metals (gold, silver, platinum of 99%+ purity)",
+          "First supply of residential buildings (within 3 years of completion)",
+          "Educational services and related goods/services (qualifying institutions)",
+          "Healthcare services and preventive healthcare services",
+        ],
+      },
+      {
+        type: "text",
+        heading: "VAT Exempt Supplies — No VAT, No Input VAT Recovery",
+        body: "A VAT-exempt supply is outside the standard VAT mechanism. No VAT is charged to the customer, but — critically — the supplier also cannot recover any input VAT on costs related to making that exempt supply. This makes exempt supplies more restrictive than zero-rated supplies. Businesses that make a mixture of taxable and exempt supplies must apply a partial input VAT recovery calculation.",
+      },
+      {
+        type: "checklist",
+        heading: "Examples of VAT Exempt Supplies in UAE",
+        items: [
+          "Supply of bare land",
+          "Supply of residential buildings (subsequent supply, not first supply)",
+          "Local passenger transport (metro, taxis, buses)",
+          "Financial services where the fee is implicit (e.g., margin in currency exchange, interest)",
+          "Life insurance and reinsurance",
+        ],
+      },
+      {
+        type: "text",
+        heading: "The Partial Exemption Problem",
+        body: "If your business makes both taxable supplies and exempt supplies, you face a partial exemption calculation. You cannot recover input VAT on overhead costs in full — you must apportion the input VAT based on the ratio of taxable to total supplies. This calculation is done in your VAT return and must be reviewed annually. Businesses in real estate, financial services, and healthcare are most commonly affected.",
+      },
+      {
+        type: "text",
+        heading: "Out-of-Scope Supplies — A Third Category",
+        body: "There is a third category that is neither zero-rated nor exempt: out-of-scope supplies. These are supplies that fall entirely outside the UAE VAT framework — for example, salaries, grants, or supplies made outside the UAE. Out-of-scope supplies are not reported in your VAT return. Input VAT on costs related to out-of-scope activities is generally not recoverable.",
+      },
+      {
+        type: "alert",
+        heading: "Common Error — Treating Zero-Rated as Exempt",
+        body: "The most costly misclassification is treating a zero-rated supply (such as an export) as VAT-exempt. This means you fail to report the supply in your return AND fail to claim back the input VAT on related costs. For exporters with significant input VAT, this can mean losing tens of thousands of dirhams in recoverable tax unnecessarily.",
+      },
+      {
+        type: "cta",
+        heading: "Is Your VAT Classification Correct?",
+        body: "Marifah Tax Advisory reviews your supply classification, VAT return accuracy, and input VAT recovery position. Correct classification from the start avoids costly FTA assessments. Contact us for a free VAT review.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 9 ──────────────────────────────────────────────────
+  {
+    title: "How to Open EmaraTax Account UAE — Step by Step",
+    excerpt: "EmaraTax is the FTA's official portal for all UAE tax registrations and filings. Here is a complete, current guide to creating your account and navigating it correctly.",
+    category: "VAT",
+    readTime: "5 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "What is EmaraTax?",
+        body: "EmaraTax (tax.gov.ae) is the Federal Tax Authority's official digital platform for all UAE tax compliance activities. It replaced the previous FTA e-Services portal in 2022. All VAT registrations, Corporate Tax registrations, tax return filings, refund applications, and penalty payments are processed through EmaraTax. You cannot file UAE taxes without an EmaraTax account.",
+      },
+      {
+        type: "text",
+        heading: "Step 1 — Go to the EmaraTax Portal",
+        body: "Open a browser and go to tax.gov.ae. Click 'Sign Up' to create a new account. Do not use any third-party website or app — the FTA's official portal is the only legitimate way to register and file. If you already have an existing FTA e-Services account from before 2022, you can log in using your old credentials and your data will have been migrated.",
+      },
+      {
+        type: "text",
+        heading: "Step 2 — Create Your UAE Pass or EmaraTax Account",
+        body: "EmaraTax supports login via UAE Pass (the UAE government's digital identity platform). If you have a UAE Pass, you can link it directly. If not, register on EmaraTax using your email address and a secure password. You will receive a verification email — verify your account before proceeding.",
+      },
+      {
+        type: "text",
+        heading: "Step 3 — Add Your Entity",
+        body: "After logging in, click 'Add Taxable Person' or 'Register a New Taxable Person'. You will need to enter your trade licence details, Emirates ID or passport number (for the authorised signatory), and business contact information. If you are registering a company with multiple shareholders, you will need the Emirates ID or passport details of each shareholder above the threshold set by the FTA.",
+      },
+      {
+        type: "checklist",
+        heading: "Information Required to Set Up EmaraTax",
+        items: [
+          "Trade licence number and issuing authority",
+          "Emirates ID of owner / authorised manager (with expiry date)",
+          "Passport copy for non-UAE-national owners",
+          "Business mobile number and email address",
+          "Bank account IBAN (required for VAT refund processing)",
+          "Business activity description matching trade licence",
+          "Memorandum and Articles of Association (MOA & AOA) for companies",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Step 4 — Register for VAT or Corporate Tax",
+        body: "Once your entity profile is set up in EmaraTax, you can apply for VAT registration, Corporate Tax registration, or both. Click on the relevant registration type from your dashboard. Complete the application form accurately — errors in the form can delay approval or result in the FTA requesting additional documents. The FTA aims to process complete VAT registration applications within 20 working days.",
+      },
+      {
+        type: "text",
+        heading: "Step 5 — Manage Your Tax Obligations on EmaraTax",
+        body: "Once registered, your EmaraTax dashboard becomes your compliance hub. You can view your upcoming return deadlines, file VAT returns, file Corporate Tax returns, make tax payments (via credit card, GIBAN, eDebit, or e-Dirham), submit voluntary disclosures, view penalty notices, and track correspondence from the FTA. Set up email notifications to ensure you never miss a deadline.",
+      },
+      {
+        type: "checklist",
+        heading: "Common EmaraTax Issues and How to Avoid Them",
+        items: [
+          "Mismatched Emirates ID details — ensure name matches exactly as on FTA records",
+          "Using an expired trade licence — renew before starting registration",
+          "Wrong authorised signatory — only an authorised manager or owner can sign",
+          "Not linking your UAE Pass — causes login issues for future filings",
+          "Failing to update contact details — you miss FTA notifications and deadline reminders",
         ],
       },
       {
         type: "alert",
-        heading: "The Cost of Getting It Wrong",
-        body: "A single VAT audit can result in penalties of AED 10,000 or more, plus interest on unpaid VAT. Prevention is always cheaper than correction.",
+        heading: "Third Party Access — Tax Agents",
+        body: "If you appoint a registered UAE Tax Agent (like Marifah Tax Advisory) to manage your account, they can be granted access to your EmaraTax profile. This allows the agent to file returns, respond to FTA queries, and manage your compliance — without you needing to log in for every action. Tax agent access is set up from within your EmaraTax dashboard under 'Linkage to Tax Agent'.",
       },
       {
         type: "cta",
-        heading: "The Solution",
-        body: "Marifah Tax Advisory ensures error-free VAT compliance for your business. We review your invoices, reconcile your accounts, and file accurate returns every quarter — so you never face avoidable penalties.",
+        heading: "Let Us Set Up and Manage Your EmaraTax Account",
+        body: "Marifah Tax Advisory handles your full EmaraTax setup, VAT registration, Corporate Tax registration, and ongoing filing — all in one place. Contact us for a free consultation.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 10 ──────────────────────────────────────────────────
+  {
+    title: "Corporate Tax for Freelancers UAE — Complete Guide 2025",
+    excerpt: "UAE freelancers with annual business income above AED 1 million must register for Corporate Tax. Here is exactly what applies, what doesn't, and how to stay compliant.",
+    category: "Corporate Tax",
+    readTime: "6 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "Do UAE Freelancers Pay Corporate Tax?",
+        body: "Yes — but with an important threshold. Under Federal Decree-Law No. 47 of 2022, UAE Corporate Tax applies to natural persons (individuals) who conduct a business or business activity in the UAE. A freelancer, sole proprietor, or self-employed individual is a natural person for Corporate Tax purposes. However, Corporate Tax for natural persons only applies if the individual's annual business turnover (gross revenue from the business activity) exceeds AED 1 million in a Gregorian calendar year.",
+      },
+      {
+        type: "text",
+        heading: "The AED 1 Million Threshold — What It Means",
+        body: "Unlike companies (juridical persons), individuals are not subject to Corporate Tax if their business revenue is AED 1 million or below in a calendar year. This is a gross revenue test — not a profit test. A freelancer earning AED 900,000 with AED 800,000 in expenses is below the threshold and pays no Corporate Tax. A freelancer earning AED 1,100,000 in gross revenue exceeds the threshold, must register, and pays 9% on net profit above AED 375,000.",
+      },
+      {
+        type: "checklist",
+        heading: "Freelancer Corporate Tax — Key Facts",
+        items: [
+          "Threshold: AED 1 million in annual gross business turnover",
+          "Tax rate: 9% on net profit above AED 375,000 (after allowable deductions)",
+          "First tax period for natural persons: Gregorian calendar year 2024",
+          "Registration deadline (if above AED 1 million in 2024): 31 March 2025",
+          "For new freelancers exceeding AED 1 million: register within 3 months",
+          "Tax return due: 9 months after the end of the calendar year (i.e., 30 September 2026 for FY 2025)",
+          "Personal employment income, dividends as an employee, and investment income are NOT business income",
+        ],
+      },
+      {
+        type: "text",
+        heading: "What Income Counts for the AED 1 Million Test?",
+        body: "Business income that counts toward the AED 1 million threshold includes income from freelance services, consulting, contracting, rental income from real estate held as a business activity, and any other income from carrying on a business. Income that does NOT count includes salary from employment, investment returns on personal assets (dividends, interest on personal savings), and income from one-time personal asset sales. If you are unsure whether your income constitutes 'business income', the FTA's guidance recommends considering whether the activity is conducted with regularity, continuity, and for profit.",
+      },
+      {
+        type: "text",
+        heading: "Freelancers on Freelance Visas vs. Company Owners",
+        body: "UAE freelancers working under a freelance permit (issued by free zones like Dubai Media City, twofour54, IFZA, etc.) are natural persons for Corporate Tax purposes and are subject to the AED 1 million threshold. Freelancers who have incorporated a company (LLC or free zone entity) are NOT natural persons for this threshold — the company is a juridical person subject to standard CT rules from AED 375,000 net profit, regardless of the business scale.",
+      },
+      {
+        type: "text",
+        heading: "Allowable Deductions for Freelancers",
+        body: "Freelancers subject to Corporate Tax can deduct business expenses that are wholly and exclusively incurred for the purposes of the business. Allowable deductions include office rent, equipment costs, software subscriptions, business travel, professional fees, and staff costs. Personal expenses, entertainment above specified limits, and expenses without documentary evidence cannot be deducted. Maintaining clean accounting records is essential — the FTA can audit your claimed deductions for up to 7 years.",
+      },
+      {
+        type: "text",
+        heading: "Small Business Relief for Freelancers",
+        body: "Freelancers whose gross revenue exceeds AED 1 million (making them subject to CT) but does not exceed AED 3 million may be eligible to elect Small Business Relief, effectively treating their taxable income as nil. SBR must be actively elected in the CT return and is available only for tax periods ending on or before 31 December 2026. Once revenue exceeds AED 3 million in any period, SBR eligibility is permanently lost.",
+      },
+      {
+        type: "alert",
+        heading: "Registration Penalty Still Applies Even If No Tax Is Owed",
+        body: "If your gross business revenue exceeded AED 1 million in 2024, you were required to register for Corporate Tax by 31 March 2025. If you did not, the AED 10,000 late registration penalty applies — even if your net profit is below AED 375,000 and you ultimately owe zero Corporate Tax. The penalty is for missing the registration deadline, not for owing tax.",
+      },
+      {
+        type: "cta",
+        heading: "Freelancer? Let Us Handle Your Corporate Tax",
+        body: "Marifah Tax Advisory helps UAE freelancers determine their Corporate Tax obligations, assess SBR eligibility, and manage FTA registration and return filing — at a price designed for individual professionals. Contact us for a free consultation.",
       },
     ],
   },
 ];
-
 const pageContent: Record<string, { title: string; sections: { heading: string; body: string }[] }> = {
   about: {
     title: "About Marifah Tax Advisory",
@@ -1570,8 +2061,7 @@ useEffect(() => {
             View All Articles <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-          {blogs.map((b, i) => (
+        {blogs.slice(0, 6).map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
               <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer" onClick={() => {
   setScrollPosition(window.scrollY);
