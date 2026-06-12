@@ -810,6 +810,15 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
 
 // ─── MAIN COMPONENT ──────────────────────────────────────────────
 
+function GoogleReviewButton() {
+  return (
+    <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-border bg-background text-sm text-muted-foreground px-5 py-2.5 rounded-full hover:border-primary/40 transition-all">
+      <span>View all reviews on Google</span>
+      <ArrowRight className="w-3.5 h-3.5" />
+    </a>
+  );
+}
+
 function StatsCounter() {
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
