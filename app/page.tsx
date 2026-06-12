@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import {
   ArrowLeft, MessageCircle, Mail, Phone, Linkedin, Instagram, Facebook,
   ChevronDown, Search, ShieldCheck, Clock, Users, Award, FileText,
