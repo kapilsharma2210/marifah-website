@@ -2049,30 +2049,32 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative">
 
-          {/* Animated background line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 z-0">
-            <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              <motion.line
-                x1="0" y1="1" x2="100%" y2="1"
+          {/* Static background dotted line */}
+          <div className="absolute top-1/2 left-[12.5%] right-[12.5%] -translate-y-1/2 z-0">
+            <svg width="100%" height="3" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <line
+                x1="0" y1="1.5" x2="100%" y2="1.5"
                 stroke="hsl(var(--primary) / 0.15)"
-                strokeWidth="1.5"
+                strokeWidth="2"
+                strokeDasharray="6 6"
+                strokeLinecap="round"
               />
             </svg>
           </div>
 
-          {/* Animated fill line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 z-0">
-            <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          {/* Animated fill dotted line */}
+          <div className="absolute top-1/2 left-[12.5%] right-[12.5%] -translate-y-1/2 z-0">
+            <svg width="100%" height="3" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
               <motion.line
-                x1="0" y1="1" x2="100%" y2="1"
+                x1="0" y1="1.5" x2="100%" y2="1.5"
                 stroke="hsl(var(--primary))"
                 strokeWidth="2"
-                strokeDasharray="8 6"
+                strokeDasharray="6 6"
                 strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
+                initial={{ pathLength: 0, opacity: 0 }}
+                whileInView={{ pathLength: 1, opacity: 1 }}
                 viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 1.8, ease: "easeInOut" }}
+                transition={{ duration: 2, ease: "easeInOut" }}
               />
             </svg>
           </div>
