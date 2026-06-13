@@ -1962,7 +1962,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   setSelectedService(svc);
   window.history.pushState({ type: "service", title: svc.title }, "", `#service`);
 }}
-                  className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group overflow-hidden"
+                    className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group overflow-hidden flex flex-col"
                 >
                   {/* Image with tag badge inside */}
                   <div className="relative overflow-hidden">
