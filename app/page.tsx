@@ -1083,7 +1083,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
 
       {/* Page Hero */}
       <div className="bg-card border-b border-primary/10 py-14 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className={`${pageKey === "blog" ? "max-w-7xl" : "max-w-4xl"} mx-auto`}>
           <button onClick={onBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
@@ -1094,7 +1094,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-14">
+      <div className={`${pageKey === "blog" ? "max-w-7xl" : "max-w-4xl"} mx-auto px-6 py-14`}>
         <div className="space-y-12">
           {pageKey === "blog" ? (
             <div className="space-y-8">
@@ -1319,18 +1319,16 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Ready to Get Started?</p>
-          <h3 className="text-2xl font-bold text-foreground mb-4">Book Your Free Consultation</h3>
-          <p className="text-muted-foreground mb-7 max-w-md mx-auto">No obligation. No pressure. Just expert advice from UAE's trusted tax professionals.</p>
-          <Button onClick={onConsultancy} className="bg-primary text-primary-foreground rounded-full px-8 py-3 hover:bg-primary/90 text-base">
-            <MessageCircle className="w-4 h-4 mr-2" />Book Free Consultation
-          </Button>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
+        {pageKey !== "blog" && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
+            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Ready to Get Started?</p>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Book Your Free Consultation</h3>
+            <p className="text-muted-foreground mb-7 max-w-md mx-auto">No obligation. No pressure. Just expert advice from UAE's trusted tax professionals.</p>
+            <Button onClick={onConsultancy} className="bg-primary text-primary-foreground rounded-full px-8 py-3 hover:bg-primary/90 text-base">
+              <MessageCircle className="w-4 h-4 mr-2" />Book Free Consultation
+            </Button>
+          </motion.div>
+        )}
 
 // ─── MAIN COMPONENT ──────────────────────────────────────────────
 
