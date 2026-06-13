@@ -1444,7 +1444,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [consultancyOpen, setConsultancyOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [blogSource, setBlogSource] = useState<"home" | "blogpage">("home");
 
   useEffect(() => {
     if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
