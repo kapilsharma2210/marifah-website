@@ -463,7 +463,7 @@ const blogs = [
     ],
   },
 
-  // ── ARTICLE 5 ──────────────────────────────────────────────────
+  // ── ARTICLE 5 ──────────────────────────────────────────���───────
   {
     title: "DMCC Corporate Tax — What Every Member Needs to Know",
     excerpt: "DMCC companies are not automatically exempt from UAE Corporate Tax. Here is a clear, accurate guide to QFZP eligibility, DMCC-specific activities, and your 2026 filing deadline.",
@@ -2097,10 +2097,10 @@ useEffect(() => {
           {blogs.map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
               <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer" onClick={() => {
-  setScrollPosition(window.scrollY);
-  setSelectedBlog(b);
-  window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
-}}>
+                setScrollPosition(window.scrollY);
+                setSelectedBlog(b);
+                window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
+              }}>
                 <CardContent className="p-7 flex flex-col h-full">
                   <div className="flex items-center gap-3 mb-5">
                     {b.category && <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">{b.category}</span>}
