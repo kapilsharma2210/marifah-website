@@ -34,6 +34,7 @@ const services = [
     tag: "High Demand",
     title: "Corporate Tax",
     subtitle: "Registration · Filing · Advisory",
+    image: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "UAE's 9% corporate tax regime demands precision. We manage your end-to-end FTA compliance — registration, return filing, and year-round advisory — so your business never faces avoidable penalties.",
     points: [
       "FTA corporate tax registration",
@@ -68,6 +69,7 @@ const services = [
     tag: "High Demand",
     title: "UAE VAT",
     subtitle: "Registration · Filing · Advisory",
+    image: "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "From obtaining your Tax Registration Number to filing quarterly VAT returns — we handle every step with accuracy and meet every FTA deadline, keeping your business fully compliant at all times.",
     points: [
       "VAT registration (TRN) with FTA",
@@ -102,6 +104,7 @@ const services = [
     tag: "High Demand",
     title: "Accounting",
     subtitle: "Monthly Bookkeeping · Reporting",
+    image: "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "Clean, audit-ready books every single month. We manage your accounts, prepare financial statements, and give you clear visibility into your business finances — so decisions are always data-driven.",
     points: [
       "Monthly bookkeeping & journal entries",
@@ -140,6 +143,7 @@ const services = [
     tag: "Best Value",
     title: "Full Compliance Package",
     subtitle: "VAT · Corporate Tax · Accounting",
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "One firm, one invoice, total compliance. Our most popular package bundles VAT, Corporate Tax, and monthly Accounting under a single affordable retainer — giving your business complete peace of mind.",
     points: [
       "VAT registration & quarterly filing",
@@ -164,7 +168,6 @@ const services = [
     ],
   },
 ];
-
 const whyUs = [
   { icon: ShieldCheck, title: "Tax Experts", desc: "Fully compliant with the Federal Tax Authority. We stay updated with every regulation change so you don't have to." },
   { icon: Clock, title: "Fast Turnaround", desc: "VAT & Corporate Tax registrations completed within days. We respect your deadlines as much as you do." },
