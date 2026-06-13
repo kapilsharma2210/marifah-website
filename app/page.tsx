@@ -1447,10 +1447,23 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 
   useEffect(() => {
     const handlePopState = () => {
-      setActivePage(null);
-      setSelectedBlog(null);
-      setSelectedService(null);
-      setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+      const hash = window.location.hash;
+      if (hash === "#blog") {
+        setSelectedBlog(null);
+        setSelectedService(null);
+        setActivePage("blog" as PageKey);
+        window.scrollTo(0, 0);
+      } else if (hash === "#service") {
+        setSelectedBlog(null);
+        setSelectedService(null);
+        setActivePage(null);
+        setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+      } else {
+        setActivePage(null);
+        setSelectedBlog(null);
+        setSelectedService(null);
+        setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+      }
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
