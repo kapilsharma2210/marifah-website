@@ -1581,42 +1581,42 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
           </div>
           <div className="absolute inset-0 pointer-events-none" />
-          <div className="max-w-4xl mx-auto relative">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+          <div className="max-w-4xl mx-auto relative px-4 sm:px-6 pb-8">
+            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
               <ArrowLeft className="w-4 h-4" /> Back to Insights
             </button>
-            <div className="flex items-start gap-5">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <ServiceIcon className="w-7 h-7 text-primary" />
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                <ServiceIcon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <span className="inline-block text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
                   {svc.tag}
                 </span>
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-3xl md:text-4xl font-bold text-foreground mb-2"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 leading-tight"
                 >
                   {svc.title}
                 </motion.h1>
                 <p className="text-muted-foreground text-sm tracking-wide">{svc.subtitle}</p>
               </div>
             </div>
-            <p className="mt-6 text-muted-foreground leading-relaxed max-w-2xl text-base border-l-2 border-primary/40 pl-4">
+            <p className="mt-5 text-muted-foreground leading-relaxed text-sm sm:text-base border-l-2 border-primary/40 pl-4">
               {svc.desc}
             </p>
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 py-14 space-y-14">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-10 sm:space-y-14">
 
           {/* What's Included checklist */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
             <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">What's Included</h2>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {svc.points.map((pt: string, i: number) => (
-                <div key={i} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
+                <div key={i} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors w-full">
                   <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm text-foreground">{pt}</span>
                 </div>
@@ -1637,7 +1637,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       </div>
                       <h3 className="text-base font-semibold text-foreground">{sec.title}</h3>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed pl-10">{sec.body}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed pl-0 sm:pl-10">{sec.body}</p>
                   </div>
                 ))}
               </div>
@@ -1652,7 +1652,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                 {svc.pricing.map((row: { label: string; price: string; highlight?: boolean }, i: number) => (
                   <div
                     key={i}
-                    className={`flex items-center justify-between px-6 py-4 border-b border-primary/10 last:border-0 ${
+                    className={`flex items-center justify-between px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${
                       row.highlight ? "bg-primary/10" : "bg-card"
                     }`}
                   >
@@ -1677,16 +1677,16 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-primary/5 border border-primary/20 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+            className="bg-primary/5 border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-5"
           >
             <div>
               <h3 className="text-lg font-bold text-foreground mb-1">Ready to get started?</h3>
               <p className="text-sm text-muted-foreground">Book a free 30-minute consultation — no commitment required.</p>
             </div>
-            <div className="flex gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <button
                 onClick={() => setConsultancyOpen(true)}
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto"
               >
                 Book Free Consultation
               </button>
@@ -1694,7 +1694,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                 href={`https://wa.me/${content.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-primary text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors w-full sm:w-auto"
               >
                 <MessageCircle className="w-4 h-4" /> WhatsApp
               </a>
