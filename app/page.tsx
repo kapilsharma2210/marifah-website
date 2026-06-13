@@ -2049,105 +2049,143 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative">
 
-          {/* Static background dotted line */}
-          <div className="absolute top-1/2 left-[12.5%] right-[12.5%] -translate-y-1/2 z-0">
-            <svg width="100%" height="3" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              <line
-                x1="0" y1="1.5" x2="100%" y2="1.5"
-                stroke="hsl(var(--primary) / 0.15)"
-                strokeWidth="2"
-                strokeDasharray="6 6"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
+          {/* Full width timeline row */}
+          <div className="relative flex items-center justify-between">
 
-          {/* Animated fill dotted line */}
-          <div className="absolute top-1/2 left-[12.5%] right-[12.5%] -translate-y-1/2 z-0">
-            <svg width="100%" height="3" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              <motion.line
-                x1="0" y1="1.5" x2="100%" y2="1.5"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
-                strokeDasharray="6 6"
-                strokeLinecap="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
-            </svg>
-          </div>
+            {/* Background track line */}
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-primary/10 z-0" />
 
-          {/* Steps */}
-          <div className="grid grid-cols-4 relative z-10">
-            {process.map((step, i) => {
-              const isTop = i % 2 === 0;
-              return (
+            {/* Animated dotted overlay line */}
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-0 overflow-hidden">
+              <svg width="100%" height="4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <motion.line
+                  x1="0" y1="2" x2="100%" y2="2"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="2"
+                  strokeDasharray="8 7"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: false, amount: 0.4 }}
+                  transition={{ duration: 2.2, ease: "easeInOut" }}
+                />
+              </svg>
+            </div>
+
+            {/* Steps */}
+            {process.map((step, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center" style={{ width: "25%" }}>
+
+                {/* Top label — odd steps */}
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: isTop ? -30 : 30 }}
+                  initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: i * 0.15 }}
-                  className="flex flex-col items-center"
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                  className={`mb-6 text-center px-2 ${i % 2 !== 0 ? "invisible" : ""}`}
                 >
-                  {/* Top content */}
-                  <div className={`w-full px-4 pb-8 ${isTop ? "flex flex-col items-center text-center" : "invisible"}`}>
-                    <span className="text-xs font-bold tracking-widest uppercase text-primary mb-2 block">Step {step.step}</span>
-                    <h3 className="text-foreground font-bold text-base mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed">{step.desc}</p>
+                  <div className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-2">
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-primary">Step {step.step}</span>
                   </div>
+                  <h3 className="text-sm font-bold text-foreground mb-1">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+                </motion.div>
 
-                  {/* Center dot */}
+                {/* Connector line top */}
+                {i % 2 === 0 && (
                   <motion.div
-                    className="relative z-20 shrink-0"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
+                    initial={{ scaleY: 0 }}
+                    whileInView={{ scaleY: 1 }}
                     viewport={{ once: false }}
-                    transition={{ duration: 0.4, delay: i * 0.2, type: "spring", stiffness: 200 }}
-                  >
-                    <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-base shadow-lg shadow-primary/30 ring-4 ring-background">
-                      {step.step}
-                    </div>
-                    {/* Pulse ring */}
-                    <motion.div
-                      className="absolute inset-0 rounded-full bg-primary/30"
-                      animate={{ scale: [1, 1.6, 1], opacity: [0.5, 0, 0.5] }}
-                      transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.4 }}
-                    />
-                  </motion.div>
+                    transition={{ duration: 0.3, delay: i * 0.2 }}
+                    className="w-px h-6 bg-primary/30 origin-bottom"
+                    style={{ marginBottom: "-1px" }}
+                  />
+                )}
 
-                  {/* Bottom content */}
-                  <div className={`w-full px-4 pt-8 ${!isTop ? "flex flex-col items-center text-center" : "invisible"}`}>
-                    <span className="text-xs font-bold tracking-widest uppercase text-primary mb-2 block">Step {step.step}</span>
-                    <h3 className="text-foreground font-bold text-base mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed">{step.desc}</p>
+                {/* Center dot */}
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.4, delay: i * 0.2 + 0.1, type: "spring", stiffness: 250 }}
+                  className="relative"
+                >
+                  {/* Outer glow ring */}
+                  <motion.div
+                    className="absolute -inset-3 rounded-full bg-primary/10"
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
+                  />
+                  {/* Main dot */}
+                  <div className="relative w-10 h-10 rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-background flex items-center justify-center z-10">
+                    <span className="text-primary-foreground font-bold text-xs">{step.step}</span>
                   </div>
                 </motion.div>
-              );
-            })}
+
+                {/* Connector line bottom */}
+                {i % 2 !== 0 && (
+                  <motion.div
+                    initial={{ scaleY: 0 }}
+                    whileInView={{ scaleY: 1 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.3, delay: i * 0.2 }}
+                    className="w-px h-6 bg-primary/30 origin-top"
+                    style={{ marginTop: "-1px" }}
+                  />
+                )}
+
+                {/* Bottom label — even steps */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                  className={`mt-6 text-center px-2 ${i % 2 === 0 ? "invisible" : ""}`}
+                >
+                  <div className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-2">
+                    <span className="text-[10px] font-bold tracking-widest uppercase text-primary">Step {step.step}</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground mb-1">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+                </motion.div>
+
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Mobile — vertical timeline */}
-        <div className="lg:hidden relative pl-8">
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-primary/20" />
+        <div className="lg:hidden relative pl-10">
+          {/* Vertical track */}
+          <div className="absolute left-4 top-2 bottom-2 w-px bg-primary/15" />
+          {/* Animated fill */}
+          <motion.div
+            className="absolute left-4 top-2 w-px bg-primary origin-top"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ height: "calc(100% - 1rem)" }}
+          />
           {process.map((step, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative mb-10 last:mb-0"
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="relative mb-8 last:mb-0"
             >
               {/* Dot */}
-              <div className="absolute -left-8 top-1 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-md shadow-primary/30 ring-2 ring-background">
+              <div className="absolute -left-10 top-4 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-md shadow-primary/30 ring-2 ring-background z-10">
                 {step.step}
               </div>
-              <div className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/30 transition-colors">
-                <h3 className="text-foreground font-bold mb-2">{step.title}</h3>
+              <div className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/30 transition-all hover:shadow-md">
+                <div className="inline-flex items-center gap-1.5 bg-primary/10 rounded-full px-2.5 py-0.5 mb-3">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">Step {step.step}</span>
+                </div>
+                <h3 className="text-foreground font-bold mb-1.5">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
