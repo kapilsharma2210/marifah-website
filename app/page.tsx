@@ -1319,16 +1319,18 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
         </div>
 
         {/* Bottom CTA */}
-        {pageKey !== "blog" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Ready to Get Started?</p>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Book Your Free Consultation</h3>
-            <p className="text-muted-foreground mb-7 max-w-md mx-auto">No obligation. No pressure. Just expert advice from UAE's trusted tax professionals.</p>
-            <Button onClick={onConsultancy} className="bg-primary text-primary-foreground rounded-full px-8 py-3 hover:bg-primary/90 text-base">
-              <MessageCircle className="w-4 h-4 mr-2" />Book Free Consultation
-            </Button>
-          </motion.div>
-        )}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
+          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Ready to Get Started?</p>
+          <h3 className="text-2xl font-bold text-foreground mb-4">Book Your Free Consultation</h3>
+          <p className="text-muted-foreground mb-7 max-w-md mx-auto">No obligation. No pressure. Just expert advice from UAE's trusted tax professionals.</p>
+          <Button onClick={onConsultancy} className="bg-primary text-primary-foreground rounded-full px-8 py-3 hover:bg-primary/90 text-base">
+            <MessageCircle className="w-4 h-4 mr-2" />Book Free Consultation
+          </Button>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
 
 // ─── MAIN COMPONENT ──────────────────────────────────────────────
 
