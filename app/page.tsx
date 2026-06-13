@@ -1469,19 +1469,31 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   };
 
   const goBack = () => {
-    setActivePage(null);
-    setSelectedBlog(null);
-    setSelectedService(null);
-    window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
-    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-  };
-
-  const goBackToBlog = () => {
-    setSelectedBlog(null);
-    setSelectedService(null);
-    setActivePage("blog" as PageKey);
-    window.history.pushState({ page: "blog", type: "page" }, "", `#blog`);
-    window.scrollTo(0, 0);
+    if (selectedBlog) {
+      setSelectedBlog(null);
+      if (activePage === "blog") {
+        window.history.pushState({ page: "blog", type: "page" }, "", `#blog`);
+      } else {
+        setActivePage(null);
+        window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
+        setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+      }
+      window.scrollTo(0, 0);
+      return;
+    }
+    if (selectedService) {
+      setSelectedService(null);
+      setActivePage(null);
+      window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
+      setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+      return;
+    }
+    if (activePage) {
+      setActivePage(null);
+      window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
+      setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+      return;
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -1523,7 +1535,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         <div className="relative overflow-hidden bg-card border-b border-primary/10 py-16 px-6">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
           <div className="max-w-4xl mx-auto relative">
-            <button onClick={goBackToBlog} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft className="w-4 h-4" /> Back to Insights
             </button>
             <div className="flex items-start gap-5">
