@@ -1498,11 +1498,12 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 
   const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
-  // ── INNER PAGES ─────────────────────────────────────────────────
-  if (activePage && pageContent[activePage]) {
+  // ── INNER PAGES — only when no blog/service detail is open ───────
+  if (activePage && pageContent[activePage] && !selectedBlog && !selectedService) {
     return (
       <>
-          <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={(b) => { setSelectedBlog(b); window.history.pushState({ type: "blog", title: b.title }, "", `#blog`); }} />        <Footer onNav={navigate} />
+        <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={(b) => { setSelectedBlog(b); window.history.pushState({ type: "blog", title: b.title }, "", `#blog`); }} />
+        <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
       </>
