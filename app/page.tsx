@@ -837,17 +837,10 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
   about: {
     title: "About Marifah Tax Advisory",
     sections: [
-      {
-        heading: "ABOUT_HERO_IMAGE",
-        body: "",
-      },
+      { heading: "ABOUT_HERO_IMAGE", body: "" },
       { heading: "Who We Are", body: "Marifah Tax Advisory is a UAE-based tax consultancy firm dedicated to helping businesses navigate the complexities of UAE taxation. Founded by experienced tax professionals, we have built a reputation for accuracy, reliability, and client-first service. Whether you are a startup, SME, or an established enterprise, we are your trusted partner in tax compliance and financial clarity." },
       { heading: "Our Mission", body: "Our mission is simple — to make UAE tax compliance easy, affordable, and stress-free for every business. We believe that no business should suffer penalties or financial losses due to lack of proper tax guidance. We bridge the gap between complex FTA regulations and your business needs, so you can focus on what matters most — growing your business." },
       { heading: "Why Businesses Trust Us", body: "CHECKLIST:Experienced & certified tax professionals|100% FTA-compliant processes|Transparent pricing — no hidden charges|Fast turnaround — registrations done in days|Dedicated support — we answer your calls and emails|Serving 500+ businesses across UAE" },
-      {
-        heading: "ABOUT_OFFICE_IMAGE",
-        body: "",
-      },
       { heading: "Our Expertise", body: "We specialise in UAE Corporate Tax, VAT Registration & Filing, Accounting & Bookkeeping, and Tax Advisory. Our team stays updated with every FTA regulation change so that your business is always compliant and never caught off guard." },
       { heading: "Our Promise to You", body: "When you choose Marifah Tax Advisory, you are not just hiring a tax firm — you are gaining a committed partner who genuinely cares about your business success. We go beyond filing returns. We advise, we plan, and we protect your business from unnecessary tax burdens and FTA penalties." },
     ],
@@ -1244,44 +1237,17 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                 ? section.body.replace("CHECKLIST:", "").split("|")
                 : [];
               if (section.heading === "ABOUT_HERO_IMAGE") return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
-                  <div className="rounded-2xl overflow-hidden border border-primary/10">
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+                  <div className="relative rounded-2xl overflow-hidden border border-primary/10 shadow-sm">
                     <img
-                      src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=90"
-                      alt="Professional tax advisory team in Dubai"
-                      className="w-full h-72 object-cover object-center"
+                      src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=90"
+                      alt="Dubai skyline — UAE business hub"
+                      className="w-full h-80 object-cover object-center"
                     />
-                  </div>
-                  <div className="grid grid-cols-3 gap-3 mt-3">
-                    <div className="rounded-xl overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80" alt="Business professional" className="w-full h-28 object-cover object-center" />
-                    </div>
-                    <div className="rounded-xl overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="Tax documents" className="w-full h-28 object-cover object-center" />
-                    </div>
-                    <div className="rounded-xl overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80" alt="Dubai business district" className="w-full h-28 object-cover object-center" />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-
-              if (section.heading === "ABOUT_OFFICE_IMAGE") return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="rounded-2xl overflow-hidden border border-primary/10">
-                      <img
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=90"
-                        alt="Financial analysis and reporting"
-                        className="w-full h-56 object-cover object-center"
-                      />
-                    </div>
-                    <div className="rounded-2xl overflow-hidden border border-primary/10">
-                      <img
-                        src="https://images.unsplash.com/photo-1664575602807-e002fc20892c?w=800&q=90"
-                        alt="Tax consultation meeting UAE"
-                        className="w-full h-56 object-cover object-center"
-                      />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-5 left-6 right-6">
+                      <p className="text-white text-sm font-medium opacity-90">Dubai, United Arab Emirates</p>
+                      <p className="text-white/70 text-xs mt-0.5">Serving businesses across all Emirates</p>
                     </div>
                   </div>
                 </motion.div>
