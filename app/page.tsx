@@ -1438,8 +1438,6 @@ function StatItem({
   );
 }
 
-}
-
 export default function Home() {
 const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [selectedService, setSelectedService] = useState<ServicePlan | null>(null);
