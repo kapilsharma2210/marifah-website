@@ -1989,17 +1989,12 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     </div>
                     <h3 className="text-foreground text-lg font-bold mb-1">{svc.title}</h3>
                     <p className="text-muted-foreground text-xs mb-4">{svc.subtitle}</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">{svc.desc}</p>
-                    <ul className="space-y-1.5 mb-6">
-                      {svc.points.map(pt => (
-                        <li key={pt} className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />{pt}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center justify-between mt-auto">
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-grow">{svc.desc}</p>
+                    <div className="mt-6 pt-4 border-t border-primary/10 flex items-center justify-between">
                       <span className="text-sm font-bold text-primary">{svc.price}</span>
-                      <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">View Details <ArrowRight className="w-3 h-3" /></span>
+                      <span className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                        View Details <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
