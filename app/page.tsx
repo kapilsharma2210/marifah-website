@@ -1568,7 +1568,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             <img
               src={
                 svc.title === "Corporate Tax"
-                  ? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=90"
+                  ? "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=90"
                   : svc.title === "UAE VAT"
                   ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=90"
                   : svc.title === "Accounting"
@@ -1968,7 +1968,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <div className="relative overflow-hidden">
                     <img
                       src={[
-                        "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80",
+                        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
                         "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
                         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
                         "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
