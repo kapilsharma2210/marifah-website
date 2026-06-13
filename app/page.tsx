@@ -862,13 +862,7 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
   },
   blog: {
     title: "Tax Insights & Knowledge Hub",
-    sections: [
-      { heading: "UAE Corporate Tax — What Every Business Must Know", body: "The UAE Federal Corporate Tax at 9% is now in full effect for businesses with financial years starting June 2023 onwards. If your business earns above AED 375,000 in net profit, you are liable to register, calculate, and file your Corporate Tax return with the FTA. Missing the registration deadline alone attracts an AED 10,000 penalty." },
-      { heading: "5 VAT Mistakes UAE Businesses Make", body: "CHECKLIST:Late VAT Registration — penalty AED 10,000|Wrong VAT on invoices — creates audit risk|Missing input VAT claims — you lose money|Poor record keeping — FTA can reject your returns|Confusing zero-rated and exempt supplies — leads to miscalculation" },
-      { heading: "Is Your Free Zone Business Subject to Corporate Tax?", body: "Many free zone businesses assume they are exempt from Corporate Tax. The reality is more nuanced — Qualifying Free Zone Persons can enjoy 0% tax on qualifying income, but only if they meet strict FTA conditions. Non-qualifying income is taxed at 9%." },
-      { heading: "Why Clean Accounting Books Save You Money", body: "Accurate bookkeeping is not just good practice — it is a legal requirement under UAE Corporate Tax law. Businesses must maintain proper financial records for at least 7 years. Clean books also help you claim every legitimate deduction, reducing your taxable income." },
-      { heading: "How to Choose the Right Tax Consultant in UAE", body: "Look for: FTA-registered tax agents, transparent pricing, clear communication, proven track record, and personalised service. At Marifah Tax Advisory, we tick every box — real professionals who know your business by name." },
-    ],
+    sections: [],
   },
   contact: {
     title: "Contact Marifah Tax Advisory",
@@ -1102,7 +1096,46 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
 
       <div className="max-w-4xl mx-auto px-6 py-14">
         <div className="space-y-12">
-          {pageKey === "packages" ? (
+          {pageKey === "blog" ? (
+            <div className="space-y-8">
+              <div className="grid sm:grid-cols-2 gap-6">
+                {blogs.map((b, i) => (
+                  <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}>
+                    <Card
+                      className="rounded-2xl bg-background border border-border hover:border-primary transition-all group h-full cursor-pointer"
+                      onClick={() => {
+                        onNav(null);
+                        setTimeout(() => {
+                          const event = new CustomEvent("openBlog", { detail: b });
+                          window.dispatchEvent(event);
+                        }, 50);
+                      }}
+                    >
+                      <CardContent className="p-7 flex flex-col h-full">
+                        <div className="flex items-center gap-3 mb-4">
+                          {b.category && (
+                            <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                              {b.category}
+                            </span>
+                          )}
+                          {b.readTime && (
+                            <span className="text-[11px] text-muted-foreground">{b.readTime}</span>
+                          )}
+                        </div>
+                        <h3 className="text-foreground font-bold mb-3 group-hover:text-primary transition-colors leading-snug text-base">
+                          {b.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm mb-5 leading-relaxed flex-grow">{b.excerpt}</p>
+                        <span className="text-sm text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                          Read Article <ArrowRight className="w-3.5 h-3.5" />
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ) : pageKey === "packages" ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Corporate Tax */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="rounded-2xl border border-primary/20 bg-card p-6 flex flex-col gap-4">
@@ -1414,19 +1447,29 @@ export default function MarifahWebsite() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
-  if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
-}, [selectedBlog, selectedService, activePage]);
+    if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
+  }, [selectedBlog, selectedService, activePage]);
 
-useEffect(() => {
-  const handlePopState = () => {
-    setActivePage(null);
-    setSelectedBlog(null);
-    setSelectedService(null);
-    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-  };
-  window.addEventListener("popstate", handlePopState);
-  return () => window.removeEventListener("popstate", handlePopState);
-}, [scrollPosition]);
+  useEffect(() => {
+    const handlePopState = () => {
+      setActivePage(null);
+      setSelectedBlog(null);
+      setSelectedService(null);
+      setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [scrollPosition]);
+
+  useEffect(() => {
+    const handleOpenBlog = (e: Event) => {
+      const blog = (e as CustomEvent).detail;
+      setSelectedBlog(blog);
+      window.history.pushState({ type: "blog", title: blog.title }, "", `#blog`);
+    };
+    window.addEventListener("openBlog", handleOpenBlog);
+    return () => window.removeEventListener("openBlog", handleOpenBlog);
+  }, []);
 
   const navigate = (page: PageKey | null) => {
   setScrollPosition(window.scrollY);
