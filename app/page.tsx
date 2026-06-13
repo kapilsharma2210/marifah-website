@@ -2286,12 +2286,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         </motion.div>
       ))}
     </div>
-
-{/* View on Google CTA */}
-    <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-10">
-      <GoogleReviewButton />
-    </motion.div>
-
   </div>
 </section>
 
