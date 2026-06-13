@@ -2179,12 +2179,12 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {blogs.slice(0, 6).map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer overflow-hidden" onClick={() => {
+              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer overflow-hidden p-0" onClick={() => {
   setScrollPosition(window.scrollY);
   setSelectedBlog(b);
   window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
 }}>
-                <div className="w-full h-48 overflow-hidden shrink-0">
+                <div className="relative overflow-hidden shrink-0 -mt-px">
                   <img
                     src={[
                       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
@@ -2195,10 +2195,10 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
                     ][i % 6]}
                     alt={b.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <CardContent className="p-7 flex flex-col h-full">
+                <CardContent className="p-7 flex flex-col flex-1 pt-5">
                   <div className="flex items-center gap-3 mb-5">
                     {b.category && <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">{b.category}</span>}
                     {b.readTime && <span className="text-[11px] text-muted-foreground">{b.readTime}</span>}
