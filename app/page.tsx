@@ -24,7 +24,7 @@ const content = {
 const stats = [
   { value: "5000+", label: "Businesses Served" },
   { value: "100%", label: "FTA Compliant" },
-  { value: "5+", label: "Years Experience" },
+  { value: "3+", label: "Years Experience" },
   { value: "AED 0", label: "Hidden Charges" },
 ];
 
