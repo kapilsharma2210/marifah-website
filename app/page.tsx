@@ -463,7 +463,7 @@ const blogs = [
     ],
   },
 
-  // ── ARTICLE 5 ──────────────────────────────────────────���───────
+  // ── ARTICLE 5 ───────────────────────────────────────��──���───────
   {
     title: "DMCC Corporate Tax — What Every Member Needs to Know",
     excerpt: "DMCC companies are not automatically exempt from UAE Corporate Tax. Here is a clear, accurate guide to QFZP eligibility, DMCC-specific activities, and your 2026 filing deadline.",
@@ -1438,7 +1438,8 @@ function StatItem({
   );
 }
 
-const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+export default function Page() {
+  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [selectedService, setSelectedService] = useState<ServicePlan | null>(null);
   const [activePage, setActivePage] = useState<PageKey | null>(null);
   const [consultancyOpen, setConsultancyOpen] = useState(false);
@@ -2052,7 +2053,7 @@ useEffect(() => {
                   }}
                 />
                 <div
-                  className="w-9 h-9 rounded-full bg-primary/20 items-center justify-center text-primary font-bold text-xs shrink-0"
+                  className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs shrink-0"
                   style={{ display: "none" }}
                 >
                   {t.name.charAt(0)}
