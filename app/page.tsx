@@ -2182,18 +2182,12 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   setSelectedBlog(b);
   window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
 }}>
-                <div className="w-full h-48 overflow-hidden shrink-0">
+                <div className="w-full h-48 overflow-hidden rounded-t-2xl shrink-0">
                   <img
-                    src={[
-                      "https://images.unsplash.com/photo-1586486942804-08d1eb9f4f75?w=600&q=80",
-                      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
-                      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-                      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-                      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
-                      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
-                    ][i % 6]}
-                    alt={b.title}
+                    src={svc.image}
+                    alt={svc.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
                 <CardContent className="p-7 flex flex-col h-full">
