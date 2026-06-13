@@ -1068,11 +1068,12 @@ function FloatingWhatsApp() {
 
 // ─── INNER PAGE LAYOUT ───────────────────────────────────────────
 
-function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
+function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
   pageKey: PageKey;
   onBack: () => void;
   onNav: (p: PageKey | null) => void;
   onConsultancy: () => void;
+  onBlog: (b: any) => void;
 }) {
   const page = pageContent[pageKey];
   return (
@@ -1103,13 +1104,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
                   <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}>
                     <Card
                       className="rounded-2xl bg-background border border-border hover:border-primary transition-all group h-full cursor-pointer"
-                      onClick={() => {
-                        onNav(null);
-                        setTimeout(() => {
-                          const event = new CustomEvent("openBlog", { detail: b });
-                          window.dispatchEvent(event);
-                        }, 50);
-                      }}
+                      onClick={() => onBlog(b)}
                     >
                       <CardContent className="p-7 flex flex-col h-full">
                         <div className="flex items-center gap-3 mb-4">
@@ -1499,7 +1494,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   if (activePage && pageContent[activePage]) {
     return (
       <>
-        <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} />
+          <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={(b) => { setActivePage(null); setSelectedBlog(b); window.history.pushState({ type: "blog", title: b.title }, "", `#blog`); }} />
         <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
