@@ -1563,27 +1563,21 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         </div>
 
         {/* Hero banner */}
-        <div className="relative overflow-hidden border-b border-primary/10">
-          <div className="relative h-72 w-full overflow-hidden">
+        <div className="relative overflow-hidden bg-card border-b border-primary/10">
+          {/* Image — uses svc.image from the card */}
+          <div className="relative h-64 w-full overflow-hidden">
             <img
-              src={
-                svc.title === "Corporate Tax"
-                  ? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=90"
-                  : svc.title === "UAE VAT"
-                  ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=90"
-                  : svc.title === "Accounting"
-                  ? "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=90"
-                  : "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=90"
-              }
+              src={svc.image}
               alt={svc.title}
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/50 to-background" />
           </div>
-          <div className="absolute inset-0 pointer-events-none" />
-          <div className="max-w-4xl mx-auto relative">
+
+          {/* Content below image */}
+          <div className="max-w-4xl mx-auto px-6 py-10 relative z-10">
             <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Insights
+              <ArrowLeft className="w-4 h-4" /> Back to Services
             </button>
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
@@ -1608,7 +1602,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             </p>
           </div>
         </div>
-
         <div className="max-w-4xl mx-auto px-6 py-14 w-full">
 
           {/* What's Included checklist */}
