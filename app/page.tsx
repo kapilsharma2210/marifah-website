@@ -2184,8 +2184,15 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 }}>
                 <div className="w-full h-48 overflow-hidden rounded-t-2xl shrink-0">
                   <img
-                    src={svc.image}
-                    alt={svc.title}
+                    src={[
+                      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80",
+                      "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
+                      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+                      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+                      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
+                      "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80",
+                    ][i % 6]}
+                    alt={b.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
