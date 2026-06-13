@@ -34,7 +34,6 @@ const services = [
     tag: "High Demand",
     title: "Corporate Tax",
     subtitle: "Registration · Filing · Advisory",
-    image: "https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "UAE's 9% corporate tax regime demands precision. We manage your end-to-end FTA compliance — registration, return filing, and year-round advisory — so your business never faces avoidable penalties.",
     points: [
       "FTA corporate tax registration",
@@ -69,7 +68,6 @@ const services = [
     tag: "High Demand",
     title: "UAE VAT",
     subtitle: "Registration · Filing · Advisory",
-    image: "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "From obtaining your Tax Registration Number to filing quarterly VAT returns — we handle every step with accuracy and meet every FTA deadline, keeping your business fully compliant at all times.",
     points: [
       "VAT registration (TRN) with FTA",
@@ -104,7 +102,6 @@ const services = [
     tag: "High Demand",
     title: "Accounting",
     subtitle: "Monthly Bookkeeping · Reporting",
-    image: "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "Clean, audit-ready books every single month. We manage your accounts, prepare financial statements, and give you clear visibility into your business finances — so decisions are always data-driven.",
     points: [
       "Monthly bookkeeping & journal entries",
@@ -143,7 +140,6 @@ const services = [
     tag: "Best Value",
     title: "Full Compliance Package",
     subtitle: "VAT · Corporate Tax · Accounting",
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
     desc: "One firm, one invoice, total compliance. Our most popular package bundles VAT, Corporate Tax, and monthly Accounting under a single affordable retainer — giving your business complete peace of mind.",
     points: [
       "VAT registration & quarterly filing",
@@ -168,6 +164,7 @@ const services = [
     ],
   },
 ];
+
 const whyUs = [
   { icon: ShieldCheck, title: "Tax Experts", desc: "Fully compliant with the Federal Tax Authority. We stay updated with every regulation change so you don't have to." },
   { icon: Clock, title: "Fast Turnaround", desc: "VAT & Corporate Tax registrations completed within days. We respect your deadlines as much as you do." },
@@ -1081,14 +1078,14 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
 }) {
   const page = pageContent[pageKey];
   return (
-    <div className="bg-background text-foreground min-h-screen w-full">
+    <div className="bg-background text-foreground min-h-screen">
       <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <Navbar onNav={onNav} onConsultancy={onConsultancy} />
       </div>
 
       {/* Page Hero */}
-      <div className="bg-card border-b border-primary/10 py-14 px-6 w-full">
-        <div className="max-w-4xl mx-auto w-full">
+      <div className="bg-card border-b border-primary/10 py-14 px-6">
+        <div className={`${pageKey === "blog" ? "max-w-7xl" : "max-w-4xl"} mx-auto`}>
           <button onClick={onBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
@@ -1566,21 +1563,27 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         </div>
 
         {/* Hero banner */}
-        <div className="relative overflow-hidden bg-card border-b border-primary/10">
-          {/* Image — uses svc.image from the card */}
-          <div className="relative h-64 w-full overflow-hidden">
+        <div className="relative overflow-hidden border-b border-primary/10">
+          <div className="relative h-72 w-full overflow-hidden">
             <img
-              src={svc.image}
+              src={
+                svc.title === "Corporate Tax"
+                  ? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=90"
+                  : svc.title === "UAE VAT"
+                  ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=90"
+                  : svc.title === "Accounting"
+                  ? "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=90"
+                  : "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=90"
+              }
               alt={svc.title}
               className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/50 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
           </div>
-
-          {/* Content below image */}
-          <div className="max-w-4xl mx-auto px-6 py-10 relative z-10">
+          <div className="absolute inset-0 pointer-events-none" />
+          <div className="max-w-4xl mx-auto relative">
             <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Services
+              <ArrowLeft className="w-4 h-4" /> Back to Insights
             </button>
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
@@ -1605,7 +1608,8 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             </p>
           </div>
         </div>
-        <div className="max-w-4xl mx-auto px-6 py-14 w-full">
+
+        <div className="max-w-4xl mx-auto px-6 py-14 space-y-14">
 
           {/* What's Included checklist */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
@@ -2185,19 +2189,18 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   setSelectedBlog(b);
   window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
 }}>
-                <div className="w-full h-48 overflow-hidden rounded-t-2xl shrink-0">
+                <div className="w-full h-48 overflow-hidden shrink-0">
                   <img
                     src={[
-                      "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80",
-                      "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
+                      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
+                      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
                       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
                       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-                      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
-                      "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80",
+                      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+                      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
                     ][i % 6]}
                     alt={b.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
                 <CardContent className="p-7 flex flex-col h-full">
