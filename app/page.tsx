@@ -1454,7 +1454,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
       setActivePage(null);
       setSelectedBlog(null);
       setSelectedService(null);
-      setBlogSource("home");
       setTimeout(() => window.scrollTo(0, scrollPosition), 0);
     };
     window.addEventListener("popstate", handlePopState);
@@ -1471,31 +1470,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
     window.addEventListener("openBlog", handleOpenBlog);
     return () => window.removeEventListener("openBlog", handleOpenBlog);
   }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      if (selectedBlog && blogSource === "blogpage") {
-        setSelectedBlog(null);
-        setBlogSource("home");
-        setActivePage("blog");
-        window.history.pushState({ page: "blog", type: "page" }, "", `#blog`);
-        window.scrollTo(0, 0);
-        return;
-      }
-      if (selectedBlog || selectedService || activePage) {
-        setActivePage(null);
-        setSelectedBlog(null);
-        setSelectedService(null);
-        setBlogSource("home");
-        window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
-        setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedBlog, selectedService, activePage, blogSource, scrollPosition]);
-
   const navigate = (page: PageKey | null) => {
   setScrollPosition(window.scrollY);
   setActivePage(page);
