@@ -2316,7 +2316,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
                       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
                       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
-                      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
+                      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=90",,
                     ][i % 6]}
                     alt={b.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
