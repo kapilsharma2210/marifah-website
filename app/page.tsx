@@ -1608,7 +1608,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             </p>
           </div>
         </div>
-        </div>
 
         <div className="max-w-4xl mx-auto px-6 py-14 space-y-14">
 
