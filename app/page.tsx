@@ -2247,7 +2247,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
               <img
                 src="https://images.unsplash.com/photo-1664575602807-e002fc20892c?w=800&q=80"
                 alt="UAE tax consultation meeting"
-                className="w-full h-52 object-cover object-center"
+                className="w-full h-72 object-cover object-center"
               />
             </div>
             <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">Get In Touch</p>
