@@ -2047,14 +2047,48 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {process.map((step, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="relative">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="relative"
+            >
+              {/* Animated dotted line connector */}
               {i < process.length - 1 && (
-                <div className="hidden lg:block absolute top-7 left-full w-full h-px border-t border-dashed border-primary/30 z-0" style={{ width: "calc(100% - 2rem)" }} />
+                <div
+                  className="hidden lg:block absolute top-7 z-0"
+                  style={{ left: "3.5rem", width: "calc(100% - 2rem)" }}
+                >
+                  <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg">
+                    <motion.line
+                      x1="0"
+                      y1="1"
+                      x2="100%"
+                      y2="1"
+                      stroke="hsl(var(--primary))"
+                      strokeWidth="2"
+                      strokeDasharray="6 5"
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 1 }}
+                      viewport={{ once: false, amount: 0.5 }}
+                      transition={{ duration: 0.8, delay: i * 0.3, ease: "easeInOut" }}
+                    />
+                  </svg>
+                </div>
               )}
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-5">
+                <motion.div
+                  className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-5"
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.4, delay: i * 0.15 }}
+                >
                   {step.step}
-                </div>
+                </motion.div>
                 <h3 className="text-foreground font-semibold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
