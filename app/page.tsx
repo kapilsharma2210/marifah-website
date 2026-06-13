@@ -1446,39 +1446,39 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
-  if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
-}, [selectedBlog, selectedService, activePage]);
+    if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
+  }, [selectedBlog, selectedService, activePage]);
 
-useEffect(() => {
-  const handlePopState = () => {
+  useEffect(() => {
+    const handlePopState = () => {
+      setActivePage(null);
+      setSelectedBlog(null);
+      setSelectedService(null);
+      setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [scrollPosition]);
+
+  const navigate = (page: PageKey | null) => {
+    setScrollPosition(window.scrollY);
+    setActivePage(page);
+    setSelectedBlog(null);
+    setSelectedService(null);
+    if (page) {
+      window.history.pushState({ page, type: "page" }, "", `#${page}`);
+    } else {
+      window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
+    }
+  };
+
+  const goBack = () => {
     setActivePage(null);
     setSelectedBlog(null);
     setSelectedService(null);
+    window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
     setTimeout(() => window.scrollTo(0, scrollPosition), 0);
   };
-  window.addEventListener("popstate", handlePopState);
-  return () => window.removeEventListener("popstate", handlePopState);
-}, [scrollPosition]);
-
-  const navigate = (page: PageKey | null) => {
-  setScrollPosition(window.scrollY);
-  setActivePage(page);
-  setSelectedBlog(null);
-  setSelectedService(null);
-  if (page) {
-    window.history.pushState({ page, type: "page" }, "", `#${page}`);
-  } else {
-    window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
-  }
-};
-
-  const goBack = () => {
-  setActivePage(null);
-  setSelectedBlog(null);
-  setSelectedService(null);
-  window.history.pushState({ page: null, type: "home" }, "", window.location.pathname);
-  setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-};
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -1505,7 +1505,6 @@ useEffect(() => {
       </>
     );
   }
-
   // ── SERVICE DETAIL ───────────────────────────────────────────────
   if (selectedService) {
     const svc = selectedService as typeof services[0];
