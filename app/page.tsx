@@ -1866,11 +1866,16 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             </div>
           </motion.div>
 
-          {/* Hero Right — Stats Card */}
+          {/* Hero Right — Image + Stats Card */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="hidden md:block">
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl" />
-              <div className="relative bg-card border border-primary/20 rounded-3xl p-8 space-y-6">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80"
+                alt="Tax professionals reviewing financial documents"
+                className="w-full h-56 object-cover rounded-t-3xl border border-primary/20 border-b-0"
+              />
+              <div className="relative bg-card border border-primary/20 rounded-b-3xl p-8 space-y-6">
                 <p className="text-xs font-bold tracking-widest uppercase text-primary">Why Marifah?</p>
                 {[
                   { icon: ShieldCheck, text: "100% FTA Compliant Process" },
@@ -1930,7 +1935,21 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       {svc.tag}
                     </div>
                   )}
-                  <CardContent className="p-7 flex flex-col h-full">
+                  <CardContent className="p-0 flex flex-col h-full">
+                    <div className="relative overflow-hidden rounded-t-2xl">
+                      <img
+                        src={[
+                          "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
+                          "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
+                          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+                          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
+                        ][i]}
+                        alt={svc.title}
+                        className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                    </div>
+                    <div className="p-7 flex flex-col flex-grow">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
@@ -1948,6 +1967,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       <span className="text-sm font-bold text-primary">{svc.price}</span>
                       <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">View Details <ArrowRight className="w-3 h-3" /></span>
                     </div>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -1963,6 +1983,13 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Our Difference</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Marifah?</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">Hundreds of UAE businesses trust us with their tax compliance. Here is exactly why.</p>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14 rounded-2xl overflow-hidden border border-primary/10">
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80"
+              alt="Marifah tax advisory team in a professional boardroom meeting"
+              className="w-full h-64 md:h-80 object-cover object-top"
+            />
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {whyUs.map((item, i) => {
@@ -2124,11 +2151,25 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {blogs.slice(0, 6).map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer" onClick={() => {
+              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer overflow-hidden" onClick={() => {
   setScrollPosition(window.scrollY);
   setSelectedBlog(b);
   window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
 }}>
+                <div className="overflow-hidden">
+                  <img
+                    src={[
+                      "https://images.unsplash.com/photo-1568385247005-0d371d214a2c?w=600&q=80",
+                      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+                      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
+                      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
+                      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80",
+                      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
+                    ][i % 6]}
+                    alt={b.title}
+                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <CardContent className="p-7 flex flex-col h-full">
                   <div className="flex items-center gap-3 mb-5">
                     {b.category && <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">{b.category}</span>}
@@ -2203,6 +2244,13 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
       <section id="contact" className="py-20 md:py-24 px-6 bg-card border-t border-primary/10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-start">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div className="rounded-2xl overflow-hidden border border-primary/10 mb-8">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                alt="Professional tax consultant ready to assist"
+                className="w-full h-52 object-cover object-top"
+              />
+            </div>
             <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Request a Free Consultation</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
