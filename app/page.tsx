@@ -2039,57 +2039,113 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+      <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-20">
           <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Simple Process</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">Getting your business tax-compliant with Marifah is straightforward and hassle-free.</p>
         </motion.div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        {/* Desktop Timeline */}
+        <div className="hidden lg:block relative">
+
+          {/* Animated background line */}
+          <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 z-0">
+            <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <motion.line
+                x1="0" y1="1" x2="100%" y2="1"
+                stroke="hsl(var(--primary) / 0.15)"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </div>
+
+          {/* Animated fill line */}
+          <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2 z-0">
+            <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <motion.line
+                x1="0" y1="1" x2="100%" y2="1"
+                stroke="hsl(var(--primary))"
+                strokeWidth="2"
+                strokeDasharray="8 6"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1.8, ease: "easeInOut" }}
+              />
+            </svg>
+          </div>
+
+          {/* Steps */}
+          <div className="grid grid-cols-4 relative z-10">
+            {process.map((step, i) => {
+              const isTop = i % 2 === 0;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: isTop ? -30 : 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  className="flex flex-col items-center"
+                >
+                  {/* Top content */}
+                  <div className={`w-full px-4 pb-8 ${isTop ? "flex flex-col items-center text-center" : "invisible"}`}>
+                    <span className="text-xs font-bold tracking-widest uppercase text-primary mb-2 block">Step {step.step}</span>
+                    <h3 className="text-foreground font-bold text-base mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+
+                  {/* Center dot */}
+                  <motion.div
+                    className="relative z-20 shrink-0"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.4, delay: i * 0.2, type: "spring", stiffness: 200 }}
+                  >
+                    <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-base shadow-lg shadow-primary/30 ring-4 ring-background">
+                      {step.step}
+                    </div>
+                    {/* Pulse ring */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full bg-primary/30"
+                      animate={{ scale: [1, 1.6, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.4 }}
+                    />
+                  </motion.div>
+
+                  {/* Bottom content */}
+                  <div className={`w-full px-4 pt-8 ${!isTop ? "flex flex-col items-center text-center" : "invisible"}`}>
+                    <span className="text-xs font-bold tracking-widest uppercase text-primary mb-2 block">Step {step.step}</span>
+                    <h3 className="text-foreground font-bold text-base mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile — vertical timeline */}
+        <div className="lg:hidden relative pl-8">
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-primary/20" />
           {process.map((step, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="relative mb-10 last:mb-0"
             >
-              {/* Animated dotted line connector */}
-              {i < process.length - 1 && (
-                <div
-                  className="hidden lg:block absolute top-7 z-0"
-                  style={{ left: "3.5rem", width: "calc(100% - 2rem)" }}
-                >
-                  <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg">
-                    <motion.line
-                      x1="0"
-                      y1="1"
-                      x2="100%"
-                      y2="1"
-                      stroke="hsl(var(--primary))"
-                      strokeWidth="2"
-                      strokeDasharray="6 5"
-                      strokeLinecap="round"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: 1 }}
-                      viewport={{ once: false, amount: 0.5 }}
-                      transition={{ duration: 0.8, delay: i * 0.3, ease: "easeInOut" }}
-                    />
-                  </svg>
-                </div>
-              )}
-              <div className="relative z-10">
-                <motion.div
-                  className="w-14 h-14 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-5"
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.4, delay: i * 0.15 }}
-                >
-                  {step.step}
-                </motion.div>
-                <h3 className="text-foreground font-semibold mb-2">{step.title}</h3>
+              {/* Dot */}
+              <div className="absolute -left-8 top-1 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-md shadow-primary/30 ring-2 ring-background">
+                {step.step}
+              </div>
+              <div className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/30 transition-colors">
+                <h3 className="text-foreground font-bold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
