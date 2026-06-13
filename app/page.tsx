@@ -2087,8 +2087,8 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <div className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-2">
                     <span className="text-[10px] font-bold tracking-widest uppercase text-primary">Step {step.step}</span>
                   </div>
-                  <h3 className="text-sm font-bold text-foreground mb-1">{step.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+                  <h3 className="text-base font-bold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </motion.div>
 
                 {/* Connector line top */}
@@ -2098,7 +2098,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: i * 0.2 }}
-                    className="w-px h-6 bg-primary/30 origin-bottom"
+                    className="w-px h-10 bg-primary/30 origin-bottom"
                     style={{ marginBottom: "-1px" }}
                   />
                 )}
@@ -2118,8 +2118,8 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
                   />
                   {/* Main dot */}
-                  <div className="relative w-10 h-10 rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-background flex items-center justify-center z-10">
-                    <span className="text-primary-foreground font-bold text-xs">{step.step}</span>
+                  <div className="relative w-14 h-14 rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-background flex items-center justify-center z-10">
+                    <span className="text-primary-foreground font-bold text-base">{step.step}</span>
                   </div>
                 </motion.div>
 
@@ -2130,7 +2130,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: false }}
                     transition={{ duration: 0.3, delay: i * 0.2 }}
-                    className="w-px h-6 bg-primary/30 origin-top"
+                    className="w-px h-10 bg-primary/30 origin-top"
                     style={{ marginTop: "-1px" }}
                   />
                 )}
@@ -2146,8 +2146,8 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <div className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-2">
                     <span className="text-[10px] font-bold tracking-widest uppercase text-primary">Step {step.step}</span>
                   </div>
-                  <h3 className="text-sm font-bold text-foreground mb-1">{step.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+                  <h3 className="text-base font-bold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </motion.div>
 
               </div>
