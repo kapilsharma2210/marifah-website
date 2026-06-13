@@ -2312,14 +2312,14 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <img
                     src={[
   "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=90",
-  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=90",
+  "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1400&q=90",
   "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=90",
   "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=90",
   "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=90",
   "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1400&q=90",
 ][i % 6]}
                     alt={b.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-52 object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <CardContent className="p-7 flex flex-col flex-1 pt-5">
