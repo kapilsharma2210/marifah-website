@@ -1446,30 +1446,20 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
-    if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
-  }, [selectedBlog, selectedService, activePage]);
+  if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
+}, [selectedBlog, selectedService, activePage]);
 
-  useEffect(() => {
-    const handlePopState = () => {
-      setActivePage(null);
-      setSelectedBlog(null);
-      setSelectedService(null);
-      setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-    };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, [scrollPosition]);
+useEffect(() => {
+  const handlePopState = () => {
+    setActivePage(null);
+    setSelectedBlog(null);
+    setSelectedService(null);
+    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
+  };
+  window.addEventListener("popstate", handlePopState);
+  return () => window.removeEventListener("popstate", handlePopState);
+}, [scrollPosition]);
 
-  useEffect(() => {
-    const handleOpenBlog = (e: Event) => {
-      const blog = (e as CustomEvent).detail;
-      setSelectedBlog(blog);
-      setBlogSource("blogpage");
-      window.history.pushState({ type: "blog", title: blog.title }, "", `#blog`);
-    };
-    window.addEventListener("openBlog", handleOpenBlog);
-    return () => window.removeEventListener("openBlog", handleOpenBlog);
-  }, []);
   const navigate = (page: PageKey | null) => {
   setScrollPosition(window.scrollY);
   setActivePage(page);
