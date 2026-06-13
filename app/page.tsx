@@ -2014,9 +2014,9 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14 rounded-2xl overflow-hidden border border-primary/10">
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80"
-              alt="Marifah tax advisory team in a professional boardroom meeting"
-              className="w-full h-64 md:h-80 object-cover object-top"
+              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1400"
+              alt="Marifah tax advisory team in a professional meeting"
+              className="w-full h-72 md:h-96 object-cover object-center"
             />
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
