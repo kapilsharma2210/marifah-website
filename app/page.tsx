@@ -1928,28 +1928,28 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   setSelectedService(svc);
   window.history.pushState({ type: "service", title: svc.title }, "", `#service`);
 }}
-                  className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group relative overflow-hidden"
+                  className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group overflow-hidden"
                 >
-                  {svc.tag && (
-                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
-                      {svc.tag}
-                    </div>
-                  )}
-                  <CardContent className="p-0 flex flex-col h-full">
-                    <div className="relative overflow-hidden rounded-t-2xl">
-                      <img
-                        src={[
-                          "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
-                          "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
-                          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-                          "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
-                        ][i]}
-                        alt={svc.title}
-                        className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
-                    </div>
-                    <div className="p-7 flex flex-col flex-grow">
+                  {/* Image with tag badge inside */}
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={[
+                        "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80",
+                        "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
+                        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+                        "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
+                      ][i]}
+                      alt={svc.title}
+                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/70 to-transparent" />
+                    {svc.tag && (
+                      <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full z-10">
+                        {svc.tag}
+                      </div>
+                    )}
+                  </div>
+                  <CardContent className="p-7 flex flex-col h-full">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
@@ -1966,7 +1966,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     <div className="flex items-center justify-between mt-auto">
                       <span className="text-sm font-bold text-primary">{svc.price}</span>
                       <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">View Details <ArrowRight className="w-3 h-3" /></span>
-                    </div>
                     </div>
                   </CardContent>
                 </Card>
