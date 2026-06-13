@@ -1965,7 +1965,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group overflow-hidden flex flex-col"
                 >
                   {/* Image with tag badge inside */}
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden shrink-0">
                     <img
                       src={[
                         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
