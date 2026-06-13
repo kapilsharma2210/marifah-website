@@ -1098,7 +1098,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy }: {
         <div className="space-y-12">
           {pageKey === "blog" ? (
             <div className="space-y-8">
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogs.map((b, i) => (
                   <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}>
                     <Card
