@@ -1962,10 +1962,10 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   setSelectedService(svc);
   window.history.pushState({ type: "service", title: svc.title }, "", `#service`);
 }}
-                    className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group overflow-hidden flex flex-col"
+                    className="cursor-pointer rounded-2xl bg-card border border-border hover:border-primary transition-all duration-300 h-full group overflow-hidden flex flex-col p-0"
                 >
                   {/* Image with tag badge inside */}
-                  <div className="relative overflow-hidden shrink-0">
+                  <div className="relative overflow-hidden shrink-0 -mt-px">
                     <img
                       src={[
                         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
@@ -1983,7 +1983,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       </div>
                     )}
                   </div>
-                  <CardContent className="p-7 flex flex-col h-full">
+                  <CardContent className="p-7 flex flex-col flex-1 pt-5">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
