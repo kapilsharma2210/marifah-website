@@ -1476,6 +1476,14 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
     setTimeout(() => window.scrollTo(0, scrollPosition), 0);
   };
 
+  const goBackToBlog = () => {
+    setSelectedBlog(null);
+    setSelectedService(null);
+    setActivePage("blog");
+    window.history.pushState({ page: "blog", type: "page" }, "", `#blog`);
+    window.scrollTo(0, 0);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -1656,7 +1664,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         <div className="relative overflow-hidden bg-card border-b border-primary/10 py-16 px-6">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
           <div className="max-w-4xl mx-auto relative">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+            <button onClick={goBackToBlog} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft className="w-4 h-4" /> Back to Insights
             </button>
             <div className="flex flex-wrap items-center gap-3 mb-4">
