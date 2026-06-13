@@ -2158,12 +2158,12 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                 <div className="w-full h-48 overflow-hidden shrink-0">
                   <img
                     src={[
-                      "https://images.unsplash.com/photo-1568385247005-0d371d214a2c?w=600&q=80",
-                      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+                      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
                       "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
-                      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
-                      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80",
-                      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
+                      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+                      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+                      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+                      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
                     ][i % 6]}
                     alt={b.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -2245,9 +2245,9 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="rounded-2xl overflow-hidden border border-primary/10 mb-8">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
-                alt="Professional tax consultant ready to assist"
-                className="w-full h-52 object-cover object-top"
+                src="https://images.unsplash.com/photo-1664575602807-e002fc20892c?w=800&q=80"
+                alt="UAE tax consultation meeting"
+                className="w-full h-52 object-cover object-center"
               />
             </div>
             <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">Get In Touch</p>
