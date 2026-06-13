@@ -2155,7 +2155,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   setSelectedBlog(b);
   window.history.pushState({ type: "blog", title: b.title }, "", `#blog`);
 }}>
-                <div className="overflow-hidden">
+                <div className="w-full h-48 overflow-hidden shrink-0">
                   <img
                     src={[
                       "https://images.unsplash.com/photo-1568385247005-0d371d214a2c?w=600&q=80",
@@ -2166,7 +2166,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
                     ][i % 6]}
                     alt={b.title}
-                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <CardContent className="p-7 flex flex-col h-full">
