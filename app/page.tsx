@@ -1479,7 +1479,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const goBackToBlog = () => {
     setSelectedBlog(null);
     setSelectedService(null);
-    setActivePage("blog");
+    setActivePage("blog" as PageKey);
     window.history.pushState({ page: "blog", type: "page" }, "", `#blog`);
     window.scrollTo(0, 0);
   };
@@ -1502,8 +1502,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   if (activePage && pageContent[activePage]) {
     return (
       <>
-          <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={(b) => { setActivePage(null); setSelectedBlog(b); window.history.pushState({ type: "blog", title: b.title }, "", `#blog`); }} />
-        <Footer onNav={navigate} />
+          <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={(b) => { setSelectedBlog(b); window.history.pushState({ type: "blog", title: b.title }, "", `#blog`); }} />        <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
       </>
@@ -1523,8 +1522,8 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
         <div className="relative overflow-hidden bg-card border-b border-primary/10 py-16 px-6">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
           <div className="max-w-4xl mx-auto relative">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Services
+            <button onClick={goBackToBlog} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+              <ArrowLeft className="w-4 h-4" /> Back to Insights
             </button>
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
