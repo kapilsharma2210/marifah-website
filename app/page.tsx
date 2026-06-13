@@ -1438,13 +1438,13 @@ function StatItem({
   );
 }
 
-export default function MarifahWebsite() {
-  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [selectedService, setSelectedService] = useState<ServicePlan | null>(null);
   const [activePage, setActivePage] = useState<PageKey | null>(null);
   const [consultancyOpen, setConsultancyOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [blogSource, setBlogSource] = useState<"home" | "blogpage">("home");
 
   useEffect(() => {
     if (selectedBlog || selectedService || activePage) window.scrollTo(0, 0);
