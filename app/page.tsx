@@ -1078,14 +1078,14 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
 }) {
   const page = pageContent[pageKey];
   return (
-    <div className="bg-background text-foreground min-h-screen">
+    <div className="bg-background text-foreground min-h-screen w-full">
       <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
         <Navbar onNav={onNav} onConsultancy={onConsultancy} />
       </div>
 
       {/* Page Hero */}
-      <div className="bg-card border-b border-primary/10 py-14 px-6">
-        <div className={`${pageKey === "blog" ? "max-w-7xl" : "max-w-4xl"} mx-auto`}>
+      <div className="bg-card border-b border-primary/10 py-14 px-6 w-full">
+        <div className="max-w-4xl mx-auto w-full">
           <button onClick={onBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
@@ -1609,7 +1609,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 py-14 space-y-14">
+        <div className="max-w-4xl mx-auto px-6 py-14 w-full">
 
           {/* What's Included checklist */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
