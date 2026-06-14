@@ -2263,7 +2263,12 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
               {/* Reviewer info with avatar photo */}
               <div className="flex items-center gap-3 border-t border-border pt-4">
                 <img
-                  src={`https://i.pravatar.cc/48?img=${[10, 25, 33, 47][i]}`}
+                  src={[
+                    "https://images.pexels.com/photos/32064778/pexels-photo-32064778.jpeg?auto=compress&cs=tinysrgb&w=96&h=96&fit=crop&crop=face",
+                    "https://images.pexels.com/photos/12373136/pexels-photo-12373136.jpeg?auto=compress&cs=tinysrgb&w=96&h=96&fit=crop&crop=face",
+                    "https://images.pexels.com/photos/28426637/pexels-photo-28426637.jpeg?auto=compress&cs=tinysrgb&w=96&h=96&fit=crop&crop=face",
+                    "https://images.pexels.com/photos/28442315/pexels-photo-28442315.jpeg?auto=compress&cs=tinysrgb&w=96&h=96&fit=crop&crop=face",
+                  ][i]}
                   alt={t.name}
                   className="w-9 h-9 rounded-full object-cover shrink-0 ring-2 ring-primary/10"
                   onError={(e) => {
