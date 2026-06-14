@@ -1862,6 +1862,15 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   // ── HOME PAGE ─   ──  ───────────────────────────────────────────────
   return (
     <div className="bg-background text-foreground font-sans">
+      <style>{`
+        img {
+          -webkit-user-drag: none;
+          user-drag: none;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          user-select: none;
+        }
+      `}</style>
 
       {/* Sticky Navbar */}
       <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
