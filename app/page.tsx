@@ -2398,7 +2398,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="rounded-2xl overflow-hidden border border-primary/10 mb-8">
               <img
-                src="https://images.unsplash.com/photo-1664575602807-e002fc20892c?w=800&q=80"
+                src="https://images.pexels.com/photos/7821671/pexels-photo-7821671.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="UAE tax consultation meeting"
                 className="w-full h-72 object-cover object-center"
               />
