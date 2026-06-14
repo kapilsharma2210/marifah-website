@@ -1568,7 +1568,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             <img
               src={
                 svc.title === "Corporate Tax"
-                  ? "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=1400&q=90"
+                  ? "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=90"
                   : svc.title === "UAE VAT"
                   ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=90"
                   : svc.title === "Accounting"
