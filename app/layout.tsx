@@ -67,6 +67,10 @@ keywords: [
     icon: '/icon.svg',
     apple: '/apple-icon.png',
   },
+  other: {
+    'msapplication-tap-highlight': 'no',
+    'imagetoolbar': 'no',
+  },
 }
 
 export default function RootLayout({
@@ -78,6 +82,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://www.marifahtax.com" />
+        <meta httpEquiv="imagetoolbar" content="no" />
+        <meta name="msapplication-tap-highlight" content="no" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -119,7 +125,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" style={{ WebkitUserSelect: 'none', userSelect: 'none' }}>
         {children}
         <Analytics />
       </body>
