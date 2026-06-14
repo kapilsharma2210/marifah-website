@@ -1968,7 +1968,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <div className="relative overflow-hidden shrink-0 -mt-px">
                     <img
                       src={[
-                        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80",
+                        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=90",
                         "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
                         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
                         "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",
