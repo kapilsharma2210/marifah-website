@@ -1971,7 +1971,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                         "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=90",
                         "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
                         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-                        "https://images.pexels.com/photos/7658322/pexels-photo-7658322.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
+                        "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80",  
                       ][i]}
                       alt={svc.title}
                       className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
