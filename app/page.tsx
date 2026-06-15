@@ -1354,7 +1354,6 @@ function GoogleReviewButton() {
     </a>
   );
 }
-
 function StatsCounter() {
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -1363,7 +1362,6 @@ function StatsCounter() {
     const el = ref.current;
     if (!el) return;
 
-    // Use threshold: 0 + rootMargin so it triggers as soon as ANY pixel enters viewport
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -2060,14 +2058,8 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative">
-
-          {/* Full width timeline row */}
           <div className="relative flex items-center justify-between">
-
-            {/* Background track line */}
             <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-primary/10 z-0" />
-
-            {/* Animated dotted overlay line */}
             <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-0 overflow-hidden">
               <svg width="100%" height="4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <motion.line
@@ -2084,11 +2076,9 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
               </svg>
             </div>
 
-            {/* Steps */}
             {process.map((step, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center" style={{ width: "25%" }}>
 
-                {/* Top label — even-index steps (01, 03) */}
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -2103,7 +2093,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </motion.div>
 
-                {/* Connector line top */}
                 {i % 2 === 0 && (
                   <motion.div
                     initial={{ scaleY: 0 }}
@@ -2115,7 +2104,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   />
                 )}
 
-                {/* Center dot */}
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -2123,19 +2111,16 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   transition={{ duration: 0.4, delay: i * 0.2 + 0.1, type: "spring", stiffness: 250 }}
                   className="relative"
                 >
-                  {/* Outer glow ring */}
                   <motion.div
                     className="absolute -inset-3 rounded-full bg-primary/10"
                     animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
                     transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
                   />
-                  {/* Main dot */}
                   <div className="relative w-14 h-14 rounded-full bg-primary shadow-lg shadow-primary/40 ring-4 ring-background flex items-center justify-center z-10">
                     <span className="text-primary-foreground font-bold text-base">{step.step}</span>
                   </div>
                 </motion.div>
 
-                {/* Connector line bottom */}
                 {i % 2 !== 0 && (
                   <motion.div
                     initial={{ scaleY: 0 }}
@@ -2147,7 +2132,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   />
                 )}
 
-                {/* Bottom label — odd-index steps (02, 04) */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -2169,9 +2153,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 
         {/* Mobile — vertical timeline */}
         <div className="lg:hidden relative pl-10">
-          {/* Vertical track */}
           <div className="absolute left-4 top-2 bottom-2 w-px bg-primary/15" />
-          {/* Animated fill */}
           <motion.div
             className="absolute left-4 top-2 w-px bg-primary origin-top"
             initial={{ scaleY: 0 }}
@@ -2189,7 +2171,6 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="relative mb-8 last:mb-0"
             >
-              {/* Dot */}
               <div className="absolute -left-10 top-4 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shadow-md shadow-primary/30 ring-2 ring-background z-10">
                 {step.step}
               </div>
@@ -2204,7 +2185,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
           ))}
         </div>
       </section>
-
+      
      {/* ── TESTIMONIALS ── */}
 <section className="py-20 md:py-28 px-6 bg-card border-y border-primary/10">
   <div className="max-w-7xl mx-auto">
