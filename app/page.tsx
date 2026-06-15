@@ -1361,6 +1361,10 @@ function StatsCounter() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Use threshold: 0 + rootMargin so it triggers as soon as ANY pixel enters viewport
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -1368,9 +1372,10 @@ function StatsCounter() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
-    if (ref.current) observer.observe(ref.current);
+
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
@@ -1385,7 +1390,6 @@ function StatsCounter() {
     </div>
   );
 }
-
 function StatItem({
   stat,
   index,
@@ -2075,7 +2079,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   strokeLinecap="round"
                   initial={{ pathLength: 0, opacity: 0 }}
                   whileInView={{ pathLength: 1, opacity: 1 }}
-                  viewport={{ once: false, amount: 0.4 }}
+                  viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 2.2, ease: "easeInOut" }}
                 />
               </svg>
@@ -2085,11 +2089,11 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             {process.map((step, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center" style={{ width: "25%" }}>
 
-                {/* Top label — odd steps */}
+                {/* Top label — even-index steps (01, 03) */}
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.2 }}
                   className={`mb-6 text-center px-2 ${i % 2 !== 0 ? "invisible" : ""}`}
                 >
@@ -2105,7 +2109,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <motion.div
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.2 }}
                     className="w-px h-10 bg-primary/30 origin-bottom"
                     style={{ marginBottom: "-1px" }}
@@ -2116,7 +2120,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.2 + 0.1, type: "spring", stiffness: 250 }}
                   className="relative"
                 >
@@ -2137,18 +2141,18 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                   <motion.div
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.2 }}
                     className="w-px h-10 bg-primary/30 origin-top"
                     style={{ marginTop: "-1px" }}
                   />
                 )}
 
-                {/* Bottom label — even steps */}
+                {/* Bottom label — odd-index steps (02, 04) */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.2 }}
                   className={`mt-6 text-center px-2 ${i % 2 === 0 ? "invisible" : ""}`}
                 >
@@ -2173,7 +2177,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             className="absolute left-4 top-2 w-px bg-primary origin-top"
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
             style={{ height: "calc(100% - 1rem)" }}
           />
@@ -2182,7 +2186,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
               key={i}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="relative mb-8 last:mb-0"
             >
