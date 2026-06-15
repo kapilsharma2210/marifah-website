@@ -1046,7 +1046,6 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
 
       <div className="border-t border-primary/10 py-5 px-6 flex flex-col md:flex-row justify-between items-center gap-2 max-w-7xl mx-auto">
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Marifah Tax Advisory. All Rights Reserved.</p>
-        <p className="text-xs text-muted-foreground">UAE VAT Registration No. —  Tax Agent</p>
       </div>
     </footer >
   );
