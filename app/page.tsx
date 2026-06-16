@@ -174,7 +174,7 @@ const whyUs = [
   { icon: Globe, title: "Serving All UAE", desc: "Dubai, Abu Dhabi, Sharjah, and all Emirates. We serve businesses across the entire UAE." },
 ];
 
-const process = [
+const processSteps = [
   { step: "01", title: "Free Consultation", desc: "Book a free 30-minute call. We understand your business and identify exactly what you need." },
   { step: "02", title: "Document Collection", desc: "We guide you on what documents are needed. Simple checklist — no confusion, no back and forth." },
   { step: "03", title: "We Handle Everything", desc: "Our experts file, register, and manage everything with FTA on your behalf. You relax." },
@@ -2076,7 +2076,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
               </svg>
             </div>
 
-            {process.map((step, i) => (
+            {processSteps.map((step, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center" style={{ width: "25%" }}>
 
                 <motion.div
@@ -2162,7 +2162,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
             transition={{ duration: 1.5, ease: "easeInOut" }}
             style={{ height: "calc(100% - 1rem)" }}
           />
-          {process.map((step, i) => (
+          {processSteps.map((step, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -20 }}
