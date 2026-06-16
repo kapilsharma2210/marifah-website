@@ -38,7 +38,7 @@ const SERVICES = [
   'Others',
 ];
 
-const WHATSAPP_NUMBER = '918860541927';
+const WHATSAPP_NUMBER = '971505815245';
 
 export function ConsultancyForm({ open, onOpenChange }: ConsultancyFormProps) {
   const [formData, setFormData] = useState({
