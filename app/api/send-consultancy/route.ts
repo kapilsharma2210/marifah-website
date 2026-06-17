@@ -43,7 +43,7 @@ ${message}
     
     const formData = new URLSearchParams();
     formData.append('From', twilioPhoneNumber);
-    formData.append('To', 'whatsapp:+919990223601');
+    formData.append('To', 'whatsapp:+971505815245');
     formData.append('Body', whatsappMessage);
 
     const response = await fetch(url, {
