@@ -832,6 +832,147 @@ const blogs = [
       },
     ],
   },
+
+  // ── ARTICLE 11 ──────────────────────────────────────────────────
+  {
+    title: "UAE Corporate Tax Return Filing — Step by Step 2026",
+    excerpt: "Your Corporate Tax return must be filed within 9 months of your financial year-end. Here is exactly how to file on EmaraTax — boxes explained, deadlines, and common mistakes to avoid.",
+    category: "Corporate Tax",
+    readTime: "7 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "What is a Corporate Tax Return?",
+        body: "A Corporate Tax return is the annual declaration you file with the Federal Tax Authority (FTA) declaring your taxable income, allowable deductions, and the Corporate Tax amount due for a financial year. Every UAE business that has registered for Corporate Tax must file a return — even if the tax owed is zero. The return is filed exclusively through the EmaraTax portal at tax.gov.ae.",
+      },
+      {
+        type: "text",
+        heading: "Filing Deadline — 9 Months from Year-End",
+        body: "You must file your Corporate Tax return and pay any tax due within 9 months from the end of your financial year. For example: if your financial year ends 31 December 2025, your return is due by 30 September 2026. If your year ends 31 March 2026, your return is due by 31 December 2026. There are no extensions available — late filing triggers a fixed AED 500 penalty per month for the first 12 months, and AED 1,000 per month thereafter.",
+      },
+      {
+        type: "checklist",
+        heading: "What You Need Before Filing",
+        items: [
+          "Audited or management financial statements for the full tax year",
+          "Trial balance and general ledger",
+          "List of related party transactions (transfer pricing disclosure)",
+          "Details of exempt income (dividends, capital gains under Participation Exemption)",
+          "Depreciation schedule and fixed asset register",
+          "Loan agreements (for interest deduction capping under 30% EBITDA rule)",
+          "Free zone income breakdown (qualifying vs non-qualifying) if applicable",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Step 1 — Log in to EmaraTax",
+        body: "Go to tax.gov.ae and log in using your registered credentials. From the dashboard, select your business entity and click 'Corporate Tax' from the left-hand menu. You will see your registered tax periods listed. Click on the relevant period to begin your return.",
+      },
+      {
+        type: "text",
+        heading: "Step 2 — Enter Your Financial Data",
+        body: "The return has several sections. You will enter your accounting profit or loss as per your financial statements, then make adjustments for: non-deductible expenses (entertainment above 50%, personal expenses, fines), exempt income (qualifying dividends, capital gains), and prior-year tax losses if you are carrying them forward. The system calculates your taxable income automatically.",
+      },
+      {
+        type: "text",
+        heading: "Step 3 — Apply Reliefs and Exemptions",
+        body: "At this stage you elect any available reliefs. Small Business Relief (SBR) is available if your revenue does not exceed AED 3 million and the tax period ends on or before 31 December 2026 — electing SBR treats your taxable income as nil. Free Zone Persons must confirm their Qualifying Free Zone Person (QFZP) status and separately declare qualifying vs non-qualifying income. Participation Exemption applies to dividends and capital gains from qualifying shareholdings.",
+      },
+      {
+        type: "text",
+        heading: "Step 4 — Calculate and Pay",
+        body: "Once all data is entered, EmaraTax calculates your tax liability. 0% applies on taxable income up to AED 375,000. 9% applies on income above AED 375,000. Any tax due must be paid within the same 9-month window as the return. Payment is made via EmaraTax using bank transfer (GIBAN), e-Dirham, or credit/debit card. There is no instalment option under the standard regime.",
+      },
+      {
+        type: "checklist",
+        heading: "Most Common Filing Mistakes",
+        items: [
+          "Filing late — the 9-month deadline is fixed, no extensions exist",
+          "Not electing Small Business Relief when eligible",
+          "Claiming 100% of entertainment expenses (only 50% is deductible)",
+          "Not applying the 30% EBITDA cap on net interest expenses",
+          "Missing related party disclosures — FTA can impose penalties for incomplete transfer pricing documentation",
+          "Free zone companies filing as mainland — losing QFZP status unnecessarily",
+          "Forgetting to carry forward prior-year losses in the return",
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Penalty for Late Filing",
+        body: "Filing your Corporate Tax return even one day late triggers an automatic AED 500 per month penalty for the first 12 months, then AED 1,000 per month. Separately, late payment of any tax due attracts a 14% per annum penalty effective from 14 April 2026 under Cabinet Decision No. 129 of 2025. Both penalties run simultaneously — there is no grace period.",
+      },
+      {
+        type: "cta",
+        heading: "Need Help Filing Your Corporate Tax Return?",
+        body: "Marifah Tax Advisory prepares and files UAE Corporate Tax returns accurately and on time. We handle the full return — from financial data extraction to EmaraTax submission. Contact us for a free consultation.",
+      },
+    ],
+  },
+
+  // ── ARTICLE 12 ──────────────────────────────────────────────────
+  {
+    title: "Small Business Relief UAE — Who Qualifies and How to Elect It",
+    excerpt: "Small Business Relief lets eligible UAE businesses pay 0% Corporate Tax regardless of profit. Here is exactly who qualifies, how to elect it, and the AED 3 million revenue trap to avoid.",
+    category: "Corporate Tax",
+    readTime: "5 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "What is Small Business Relief?",
+        body: "Small Business Relief (SBR) is a UAE Corporate Tax relief under Ministerial Decision No. 73 of 2023 that allows eligible businesses to treat their taxable income as nil — effectively paying 0% Corporate Tax. It is designed to reduce the compliance burden on small businesses and startups that are still in their early growth phases. SBR must be actively elected in your Corporate Tax return — it is NOT applied automatically.",
+      },
+      {
+        type: "checklist",
+        heading: "Who Qualifies for Small Business Relief?",
+        items: [
+          "Your revenue must not exceed AED 3 million in the relevant tax period",
+          "Your revenue must not have exceeded AED 3 million in any previous tax period from June 2023 onwards",
+          "You must be a UAE resident taxable person (juridical or natural)",
+          "The tax period must end on or before 31 December 2026",
+          "You must not be a member of a Multinational Enterprise group (global revenue above AED 3.15 billion)",
+          "You must not be a Qualifying Free Zone Person — QFZPs have their own 0% regime",
+        ],
+      },
+      {
+        type: "text",
+        heading: "The AED 3 Million Trap — Read Carefully",
+        body: "The AED 3 million threshold is cumulative and permanent. If your revenue exceeds AED 3 million in ANY tax period from 2023 onwards, you permanently lose SBR eligibility — even if your revenue drops back below AED 3 million in a future year. This means a business that had AED 3.2 million revenue in 2024 cannot elect SBR for 2025 even if its 2025 revenue was AED 1.5 million. Plan carefully if you are approaching this threshold.",
+      },
+      {
+        type: "text",
+        heading: "What Does SBR Actually Give You?",
+        body: "When you elect Small Business Relief, your taxable income is treated as nil for that tax period. This means you pay zero Corporate Tax regardless of your actual profit. However, you still have ALL other Corporate Tax obligations: you must remain registered with the FTA, you must still file your Corporate Tax return by the 9-month deadline, and you must still maintain financial records for 7 years. SBR reduces your tax to zero — it does NOT remove your compliance obligations.",
+      },
+      {
+        type: "text",
+        heading: "How to Elect Small Business Relief — Step by Step",
+        body: "Log in to EmaraTax at tax.gov.ae. Select your entity and open your Corporate Tax return for the relevant period. In the return, there is a section for Reliefs and Exemptions. Tick the Small Business Relief election checkbox. Confirm your revenue figure is below AED 3 million. The system will set your taxable income to nil automatically. Complete the rest of the return and file before your 9-month deadline.",
+      },
+      {
+        type: "checklist",
+        heading: "SBR Checklist Before You Elect",
+        items: [
+          "Confirm revenue (NOT profit) is below AED 3 million for this period",
+          "Confirm revenue was below AED 3 million in all previous periods from June 2023",
+          "Confirm you are not a QFZP (free zone entities use the QFZP regime instead)",
+          "Confirm you are not part of an MNE group",
+          "Confirm your tax period ends on or before 31 December 2026",
+          "Prepare financial statements to evidence the revenue figure",
+          "File the Corporate Tax return within 9 months of your financial year-end",
+        ],
+      },
+      {
+        type: "alert",
+        heading: "SBR Ends After 31 December 2026 — What Happens Next?",
+        body: "Small Business Relief is a transitional measure. For tax periods ending after 31 December 2026, SBR will no longer be available unless the UAE government extends it. If the relief is not extended, businesses that were relying on SBR will need to calculate and pay 9% on profits above AED 375,000 from their first eligible period. We recommend starting proper bookkeeping now so you are ready for full Corporate Tax compliance when SBR ends.",
+      },
+      {
+        type: "cta",
+        heading: "Are You Eligible for Small Business Relief?",
+        body: "Marifah Tax Advisory assesses your SBR eligibility, reviews your revenue figures, and files the election correctly on your behalf. Contact us for a free consultation — we will tell you in 15 minutes whether you qualify.",
+      },
+    ],
+  },
 ];
 const pageContent: Record<string, { title: string; sections: { heading: string; body: string }[] }> = {
   about: {
