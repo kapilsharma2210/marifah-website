@@ -124,9 +124,9 @@ function FloatingWhatsApp() {
 }
 
 const pricing = [
-  { label: "VAT Registration (TRN)", price: "AED 499" },
-  { label: "VAT Return Filing (four quarters)", price: "AED 1,199" },
-  { label: "Registration + Filing Combo", price: "AED 1,599", highlight: true },
+  { label: "VAT Registration (TRN)", price: "AED 599" },
+  { label: "VAT Return Filing (four quarters)", price: "AED 1,499" },
+  { label: "Registration + Filing Combo", price: "AED 1,999", highlight: true },
 ];
 
 const included = [
@@ -196,9 +196,9 @@ export default function VATConsultancyDubai() {
               { "@type": "Country", "name": "United Arab Emirates" }
             ],
             "offers": [
-              { "@type": "Offer", "name": "VAT Registration", "price": "499", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "VAT Return Filing", "price": "1199", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "VAT Registration + Filing Combo", "price": "1599", "priceCurrency": "AED" }
+              { "@type": "Offer", "name": "VAT Registration", "price": "599", "priceCurrency": "AED" },
+              { "@type": "Offer", "name": "VAT Return Filing", "price": "1499", "priceCurrency": "AED" },
+              { "@type": "Offer", "name": "VAT Registration + Filing Combo", "price": "1999", "priceCurrency": "AED" }
             ]
           })
         }}
@@ -236,7 +236,7 @@ export default function VATConsultancyDubai() {
             </div>
           </div>
           <p className="mt-5 text-muted-foreground leading-relaxed text-sm sm:text-base border-l-2 border-primary/40 pl-4">
-            Trusted by 5,000+ UAE businesses for VAT registration, return filing, and FTA compliance. From AED 499. We handle every step — so you never face an FTA penalty.
+            Trusted by 5,000+ UAE businesses for VAT registration, return filing, and FTA compliance. From AED 599. We handle every step — so you never face an FTA penalty.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <button
