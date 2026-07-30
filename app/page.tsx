@@ -76,7 +76,7 @@ const services = [
       "VAT advisory & invoice review",
       "VAT refund assistance",
     ],
-    price: "From AED 499",
+    price: "From AED 599",
     sections: [
       {
         title: "VAT Registration",
@@ -92,9 +92,9 @@ const services = [
       },
     ],
     pricing: [
-      { label: "VAT Registration (TRN)", price: "AED 499" },
-      { label: "VAT Return Filing (four quarter)", price: "AED 1,199" },
-      { label: "Registration + Filing Combo", price: "AED 1,599", highlight: true },
+      { label: "VAT Registration (TRN)", price: "AED 599" },
+      { label: "VAT Return Filing (four quarter)", price: "AED 1,499" },
+      { label: "Registration + Filing Combo", price: "AED 1,999", highlight: true },
     ],
   },
   {
@@ -110,7 +110,7 @@ const services = [
       "MIS & management reporting",
       "FTA-compliant record maintenance",
     ],
-    price: "From AED 2,499",
+    price: "From AED 3,499",
     sections: [
       {
         title: "Monthly Bookkeeping",
@@ -130,8 +130,8 @@ const services = [
       },
     ],
     pricing: [
-      { label: "Up to 50 transactions/month", price: "AED 2,499" },
-      { label: "Up to 150 transactions/month", price: "AED 3,499" },
+      { label: "Up to 50 transactions/month", price: "AED 3,499" },
+      { label: "Up to 150 transactions/month", price: "AED 4,499" },
       { label: "Custom (high volume)", price: "Get a Quote", highlight: true },
     ],
   },
@@ -148,7 +148,7 @@ const services = [
       "Dedicated tax advisor assigned",
       "Priority support & deadline reminders",
     ],
-    price: "AED 4,999",
+    price: "AED 5,999",
     sections: [
       {
         title: "What's Included",
@@ -160,7 +160,7 @@ const services = [
       },
     ],
     pricing: [
-      { label: "Full Compliance Package (all-inclusive)", price: "AED 4,999", highlight: true },
+      { label: "Full Compliance Package (all-inclusive)", price: "AED 5,999", highlight: true },
     ],
   },
 ];
@@ -1328,7 +1328,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                   <h2 className="text-lg font-semibold text-foreground">Accounting & Bookkeeping</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 2,499 <span className="text-sm font-normal text-muted-foreground">starting from</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 3,499 <span className="text-sm font-normal text-muted-foreground">starting from</span></p>
                   <p className="text-xs text-muted-foreground">*Prices may vary depending on number of transactions</p>
                 </div>
                 <p className="text-muted-foreground text-sm">Complete bookkeeping and financial management for your business.</p>
@@ -1356,7 +1356,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                   <h2 className="text-lg font-semibold text-foreground">Full Compliance Package</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 4,999 <span className="text-sm font-normal text-muted-foreground">/ year</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 5,999 <span className="text-sm font-normal text-muted-foreground">/ year</span></p>
                   <p className="text-xs text-muted-foreground">VAT · Corporate Tax · Accounting — all included</p>
                 </div>
                 <p className="text-muted-foreground text-sm">One firm, one invoice, total compliance. Our most popular package.</p>
