@@ -123,9 +123,9 @@ function FloatingWhatsApp() {
 }
 
 const pricing = [
-  { label: "Corporate Tax Registration", price: "AED 399" },
-  { label: "Corporate Tax Return Filing", price: "AED 1,499" },
-  { label: "Registration + Filing Combo", price: "AED 1,699", highlight: true },
+  { label: "Corporate Tax Registration", price: "AED 499" },
+  { label: "Corporate Tax Return Filing", price: "AED 2,199" },
+  { label: "Registration + Filing Combo", price: "AED 2,599", highlight: true },
 ];
 
 const included = [
@@ -185,9 +185,9 @@ export default function CorporateTaxConsultantsUAE() {
             },
             "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
             "offers": [
-              { "@type": "Offer", "name": "Corporate Tax Registration", "price": "399", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "Corporate Tax Return Filing", "price": "1499", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "Registration + Filing Combo", "price": "1699", "priceCurrency": "AED" }
+              { "@type": "Offer", "name": "Corporate Tax Registration", "price": "499", "priceCurrency": "AED" },
+              { "@type": "Offer", "name": "Corporate Tax Return Filing", "price": "2199", "priceCurrency": "AED" },
+              { "@type": "Offer", "name": "Registration + Filing Combo", "price": "2599", "priceCurrency": "AED" }
             ]
           })
         }}
@@ -225,7 +225,7 @@ export default function CorporateTaxConsultantsUAE() {
             </div>
           </div>
           <p className="mt-5 text-muted-foreground leading-relaxed text-sm sm:text-base border-l-2 border-primary/40 pl-4">
-            UAE&apos;s 9% Corporate Tax is live. Registration is mandatory for ALL businesses. We manage your end-to-end FTA compliance — so you never face an AED 10,000 penalty. From AED 399.
+            UAE&apos;s 9% Corporate Tax is live. Registration is mandatory for ALL businesses. We manage your end-to-end FTA compliance — so you never face an AED 10,000 penalty. From AED 499.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <button
@@ -265,8 +265,8 @@ export default function CorporateTaxConsultantsUAE() {
           <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">How We Help</h2>
           <div className="space-y-4">
             {[
-              { title: "Corporate Tax Registration — AED 399", body: "We register your business with the FTA for Corporate Tax via the EmaraTax portal. Document preparation, submission, and follow-up all handled. Turnaround: 3–5 working days." },
-              { title: "Corporate Tax Return Filing — AED 1,499", body: "We prepare your annual Corporate Tax return based on your audited or management accounts, calculate your taxable income correctly, and file before the FTA deadline." },
+              { title: "Corporate Tax Registration — AED 499", body: "We register your business with the FTA for Corporate Tax via the EmaraTax portal. Document preparation, submission, and follow-up all handled. Turnaround: 3–5 working days." },
+              { title: "Corporate Tax Return Filing — AED 2,199", body: "We prepare your annual Corporate Tax return based on your audited or management accounts, calculate your taxable income correctly, and file before the FTA deadline." },
               { title: "Tax Impact Assessment", body: "Not sure how Corporate Tax affects your business? We analyse your current financials and project your tax liability — so there are no surprises at year-end." },
               { title: "Free Zone Eligibility Review", body: "Qualifying Free Zone Persons can benefit from a 0% rate on qualifying income. We assess your eligibility and structure your filing accordingly." },
               { title: "Small Business Relief Election", body: "If your revenue is under AED 3 million, you may qualify to elect Small Business Relief and pay 0% tax. We assess your eligibility and file the election correctly with FTA." },
