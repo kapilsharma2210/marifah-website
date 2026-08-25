@@ -1305,7 +1305,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                   <h2 className="text-lg font-semibold text-foreground">VAT Services</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 499 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 599 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
                   <p className="text-lg font-semibold text-foreground">AED 1,499 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
                 </div>
                 <p className="text-muted-foreground text-sm">VAT registration, filing and full FTA compliance.</p>
