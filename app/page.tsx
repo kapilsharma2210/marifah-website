@@ -110,7 +110,7 @@ const services = [
       "MIS & management reporting",
       "FTA-compliant record maintenance",
     ],
-    price: "From AED 3,499",
+    price: "From AED 4,499",
     sections: [
       {
         title: "Monthly Bookkeeping",
@@ -130,8 +130,8 @@ const services = [
       },
     ],
     pricing: [
-      { label: "Up to 50 transactions/month", price: "AED 3,499" },
-      { label: "Up to 150 transactions/month", price: "AED 4,499" },
+      { label: "Up to 50 transactions/month", price: "AED 4,499" },
+      { label: "Up to 150 transactions/month", price: "AED 5,499" },
       { label: "Custom (high volume)", price: "Get a Quote", highlight: true },
     ],
   },
@@ -1328,7 +1328,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                   <h2 className="text-lg font-semibold text-foreground">Accounting & Bookkeeping</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 3,499 <span className="text-sm font-normal text-muted-foreground">starting from</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 4,499 <span className="text-sm font-normal text-muted-foreground">starting from</span></p>
                   <p className="text-xs text-muted-foreground">*Prices may vary depending on number of transactions</p>
                 </div>
                 <p className="text-muted-foreground text-sm">Complete bookkeeping and financial management for your business.</p>
