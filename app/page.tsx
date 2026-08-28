@@ -76,7 +76,7 @@ const services = [
       "VAT advisory & invoice review",
       "VAT refund assistance",
     ],
-    price: "From AED 599",
+    price: "From AED 799",
     sections: [
       {
         title: "VAT Registration",
@@ -92,8 +92,8 @@ const services = [
       },
     ],
     pricing: [
-      { label: "VAT Registration (TRN)", price: "AED 599" },
-      { label: "VAT Return Filing (four quarter)", price: "AED 1,499" },
+      { label: "VAT Registration (TRN)", price: "AED 799" },
+      { label: "VAT Return Filing (four quarter)", price: "AED 1,599" },
       { label: "Registration + Filing Combo", price: "AED 1,999", highlight: true },
     ],
   },
@@ -1305,8 +1305,8 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                   <h2 className="text-lg font-semibold text-foreground">VAT Services</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 599 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
-                  <p className="text-lg font-semibold text-foreground">AED 1,499 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 799 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
+                  <p className="text-lg font-semibold text-foreground">AED 1,599 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
                 </div>
                 <p className="text-muted-foreground text-sm">VAT registration, filing and full FTA compliance.</p>
                 <div className="border-t border-primary/10 pt-4 flex flex-col gap-2">
