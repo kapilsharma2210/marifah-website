@@ -148,7 +148,7 @@ const services = [
       "Dedicated tax advisor assigned",
       "Priority support & deadline reminders",
     ],
-    price: "AED 5,999",
+    price: "AED 6,499",
     sections: [
       {
         title: "What's Included",
@@ -160,7 +160,7 @@ const services = [
       },
     ],
     pricing: [
-      { label: "Full Compliance Package (all-inclusive)", price: "AED 5,999", highlight: true },
+      { label: "Full Compliance Package (all-inclusive)", price: "AED 6,499", highlight: true },
     ],
   },
 ];
@@ -1356,7 +1356,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                   <h2 className="text-lg font-semibold text-foreground">Full Compliance Package</h2>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl font-bold text-primary">AED 5,999 <span className="text-sm font-normal text-muted-foreground">/ year</span></p>
+                  <p className="text-2xl font-bold text-primary">AED 6,499 <span className="text-sm font-normal text-muted-foreground">/ year</span></p>
                   <p className="text-xs text-muted-foreground">VAT · Corporate Tax · Accounting — all included</p>
                 </div>
                 <p className="text-muted-foreground text-sm">One firm, one invoice, total compliance. Our most popular package.</p>
