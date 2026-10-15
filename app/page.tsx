@@ -197,6 +197,139 @@ const faqs = [
 ];
 
 const blogs = [
+  // ── ARTICLE 13 — E-INVOICING (NEW) ─────────────────────────────
+  {
+    title: "E-Invoicing in the UAE: Deadlines, Requirements and Penalties (2026–2027)",
+    excerpt: "Mandatory e-invoicing starts on 1 January 2027 for UAE businesses with revenue of AED 50 million or more. Here is who is covered, the exact deadlines, how the Peppol-based system works, and the penalties for getting it wrong.",
+    category: "E-Invoicing",
+    readTime: "9 min read",
+    sections: [
+      {
+        type: "text",
+        heading: "What Is E-Invoicing in the UAE?",
+        body: "The UAE Electronic Invoicing System is a national system for issuing, transmitting, exchanging and reporting invoices and credit notes in a structured electronic format that can be processed automatically. It was established by the Ministry of Finance under Ministerial Decision No. 243 of 2025 (the Electronic Invoicing System) and Ministerial Decision No. 244 of 2025 (its phased implementation). Because an e-invoice must be in a structured, machine-readable format, a PDF, scanned copy, Word file or email attachment does not qualify. E-invoicing changes how invoices are issued and shared — it does not replace VAT registration, VAT return filing or Corporate Tax obligations.",
+      },
+      {
+        type: "checklist",
+        heading: "The Legal Framework at a Glance",
+        items: [
+          "Ministerial Decision No. 243 of 2025 — scope, exclusions and the obligations of issuers and recipients",
+          "Ministerial Decision No. 244 of 2025 (as amended by Ministerial Decision No. 66 of 2026) — phases, thresholds and deadlines",
+          "Ministerial Decision No. 64 of 2025 — eligibility and accreditation of service providers",
+          "Cabinet Decision No. 106 of 2025 — violations and administrative penalties",
+          "UAE Electronic Invoicing Guidelines (Version 1.1, 1 June 2026) and the Mandatory Fields specification — operational guidance",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Who Must Comply?",
+        body: "Ministerial Decision No. 243 applies to any person conducting business in the UAE for every business transaction, unless the person or the transaction is specifically excluded — so the obligation is not limited to VAT-registered businesses. At present the system covers business-to-business (B2B) and business-to-government (B2G) transactions. Which phase you fall into depends on your Revenue, defined as the gross income earned during your most recent accounting period, based on your financial statements (or other documentation acceptable to the FTA if statements are not available). The Guidelines also confirm that transactions between members of the same VAT group are within scope, although a 24-month relief period applies to them, commencing on 1 January 2027.",
+      },
+      {
+        type: "checklist",
+        heading: "What Is Excluded?",
+        items: [
+          "Government entity transactions carried out in a sovereign capacity and not in competition with the private sector",
+          "International passenger transport by airlines where an electronic ticket is issued, and ancillary passenger services documented by an Electronic Miscellaneous Document",
+          "International air transport of goods under an airway bill — excluded for 24 months from the date the system becomes effective",
+          "Financial services that are VAT-exempt or zero-rated under Article 42 of the VAT Executive Regulation",
+          "Business-to-consumer (B2C) transactions, and persons dealing exclusively with consumers, until the Minister of Finance issues a decision",
+          "Any other transaction or category of person the Minister of Finance may determine",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Implementation Timeline",
+        items: [
+          { title: "1 July 2026 — Pilot and voluntary phase", body: "A pilot programme for a Taxpayer Working Group (selected by the Ministry, with the person's written agreement) begins, and any business may voluntarily implement the system from this date, provided it meets all technical requirements. Penalties under Cabinet Decision No. 106 of 2025 do not apply to voluntary adopters." },
+          { title: "30 October 2026 — Phase 1: appoint an ASP", body: "Businesses with Revenue of AED 50 million or more must appoint an Accredited Service Provider (ASP) by this date. It was originally 31 July 2026 and was extended by Ministerial Decision No. 66 of 2026." },
+          { title: "1 January 2027 — Phase 1: go live", body: "Businesses with Revenue of AED 50 million or more must have fully implemented the Electronic Invoicing System. This date did not change when the ASP deadline was extended." },
+          { title: "31 March 2027 — Phase 2 and Government: appoint an ASP", body: "Businesses with Revenue below AED 50 million, and Government Entities, must appoint an Accredited Service Provider by this date." },
+          { title: "1 July 2027 — Phase 2: go live", body: "Businesses with Revenue below AED 50 million must implement the Electronic Invoicing System." },
+          { title: "1 October 2027 — Government Entities: go live", body: "Government Entities must implement the Electronic Invoicing System. After these phases, any remaining person or entity subject to the system must also appoint an ASP and implement it, and a separate date for B2C transactions will be set by the Minister." },
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Phase 1 Deadline: 30 October 2026",
+        body: "If your Revenue is AED 50 million or more, your ASP must be appointed by 30 October 2026 — and go-live is still 1 January 2027. The Ministry of Finance confirmed that only the appointment date moved. Missing the appointment deadline attracts a penalty of AED 5,000 for each month of delay, or part of a month. Always check the Ministry of Finance website for any later changes.",
+      },
+      {
+        type: "numbered",
+        heading: "How the UAE E-Invoicing Model Works",
+        items: [
+          { title: "Corner 1 — The seller", body: "Your accounting or ERP system creates the invoice data. The UAE uses a decentralised, Peppol-based five-corner model, so invoices are not sent to a government portal for approval before they reach your customer." },
+          { title: "Corner 2 — The seller's Accredited Service Provider", body: "Your ASP validates the invoice data against the required specification and converts it into the structured XML format used in the UAE (PINT AE, the UAE adaptation of the Peppol international invoice standard)." },
+          { title: "Corner 3 — The buyer's Accredited Service Provider", body: "The invoice travels over the Peppol network from the seller's ASP to the buyer's ASP. Both parties to a transaction must appoint an ASP." },
+          { title: "Corner 4 — The buyer", body: "The buyer receives the invoice as structured data that can flow directly into their accounts payable system. Recipients are required to process e-invoices and e-credit notes through the system." },
+          { title: "Corner 5 — The Federal Tax Authority", body: "Invoice tax data is reported to the FTA through the ASPs. Under Ministerial Decision No. 243, both issuer and recipient must report within the timeline prescribed by the Minister of Finance." },
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "Key Obligations Under Ministerial Decision No. 243",
+        items: [
+          "Appoint an Accredited Service Provider from the list published by the Ministry of Finance",
+          "Issue and transmit an e-invoice for every in-scope business transaction through the system",
+          "VAT registrants: issue within the timeline in the VAT Law. Others: within 14 days of the Date of Business Transaction",
+          "Issue an e-credit note when a transaction is cancelled, the consideration is reduced or returned, or an administrative or numerical error occurred",
+          "Include every data field prescribed by the Ministry in the Mandatory Fields specification",
+          "Store e-invoices, e-credit notes and associated data within the UAE for the period required by the Tax Procedures Law",
+          "Notify the FTA of a system failure within 2 business days of it occurring",
+          "Tell your ASP in writing about changes to your registered FTA data within 5 business days of the FTA confirming the change",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Agents, Self-Billing and the Date of Business Transaction",
+        body: "An agent acting for a principal may issue and transmit e-invoices and e-credit notes on the principal's behalf. A recipient may issue an e-invoice on behalf of the supplier under a self-billing arrangement, provided both parties are VAT registrants and the conditions in the VAT Executive Regulation are met. The Date of Business Transaction, which starts the clock for the 14-day rule, is the earlier of the date the transaction occurred or the date payment was received. Version 1.1 of the Guidelines (1 June 2026) also added an appendix clarifying how advance payments and retention amounts are treated.",
+      },
+      {
+        type: "checklist",
+        heading: "Penalties Under Cabinet Decision No. 106 of 2025",
+        items: [
+          "Failing to implement the system or appoint an ASP on time — AED 5,000 for each month of delay or part of a month",
+          "Failing to issue and transmit an e-invoice on time — AED 100 per invoice, capped at AED 5,000 per month",
+          "Failing to issue and transmit an e-credit note on time — AED 100 per credit note, capped at AED 5,000 per month",
+          "Failing to notify the FTA of a system failure on time — AED 1,000 for each day of delay or part of a day",
+          "Failing to notify your ASP of changes to registered data on time — AED 1,000 for each day of delay or part of a day",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "How to Get Ready — A Practical Plan",
+        items: [
+          { title: "Confirm your phase", body: "Check your Revenue — gross income in your most recent accounting period, per your financial statements — against the AED 50 million threshold, and confirm whether any of your transactions are excluded." },
+          { title: "Review your invoicing process and data", body: "Look at how invoices and credit notes are created today. Clean up customer and supplier master data, tax registration details and item descriptions, and check that your accounting or ERP system can produce every field in the Mandatory Fields specification." },
+          { title: "Select an Accredited Service Provider", body: "Choose only from the providers on the Ministry of Finance's published list. Compare how each connects to your accounting software, how it handles receiving invoices from suppliers, and where it stores data." },
+          { title: "Onboard and test", body: "The voluntary phase has been open since 1 July 2026, which lets you test invoice exchange before your mandatory date. Voluntary adopters are not subject to the Cabinet Decision No. 106 penalties during that period." },
+          { title: "Plan for storage and system failures", body: "Make sure e-invoice data is stored within the UAE and can be retrieved for the FTA. Agree an internal process so that a system failure is notified to the FTA within 2 business days." },
+          { title: "Train your team and keep records current", body: "Brief your finance and sales teams on e-credit notes, the 14-day rule and receiving supplier invoices, and tell your ASP promptly when your registered FTA details change." },
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Frequently Asked Questions",
+        items: [
+          { title: "Is e-invoicing mandatory for small businesses?", body: "Yes, but later. Businesses with Revenue below AED 50 million must appoint an ASP by 31 March 2027 and implement the system by 1 July 2027." },
+          { title: "Do I need to be VAT registered to be in scope?", body: "No. The decision applies to any person conducting business in the UAE for in-scope transactions, unless excluded. VAT registration status does not by itself take you outside the system." },
+          { title: "Does e-invoicing apply to sales to consumers?", body: "Not yet. B2C transactions, and persons dealing exclusively with consumers, are outside the system until the Minister of Finance issues a decision setting a date." },
+          { title: "Can I keep sending PDF invoices?", body: "For in-scope transactions once your mandatory date applies, no. The invoice must be issued as a structured electronic invoice and transmitted through an Accredited Service Provider. A PDF can still be shared as a copy, but it is not the e-invoice." },
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Rules Are Still Evolving",
+        body: "This article reflects the legislation and Ministry of Finance and FTA guidance available as of 15 October 2026. The system is being rolled out in phases, and further decisions, guidelines and specifications are expected, so always confirm the current position on the Ministry of Finance and FTA websites before acting. This is general information, not legal advice for your specific situation.",
+      },
+      {
+        type: "cta",
+        heading: "Not Sure Which E-Invoicing Phase You Are In?",
+        body: "Marifah Tax Advisory is not an Accredited Service Provider, but we help you work out whether you are in scope, which deadline applies, and what needs to change in your invoicing and VAT processes before go-live. Contact us for a free consultation.",
+      },
+    ],
+  },
+
   // ── ARTICLE 1 ──────────────────────────────────────────────────
   {
     title: "Corporate Tax Registration Deadline UAE 2025–2026",
