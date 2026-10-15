@@ -332,7 +332,7 @@ const blogs = [
 
   // ── ARTICLE 1 ──────────────────────────────────────────────────
   {
-    title: "Corporate Tax Registration Deadline UAE 2025–2026",
+    title: "Corporate Tax Registration Deadline UAE",
     excerpt: "Miss the FTA registration deadline and face an automatic AED 10,000 penalty. Here are the exact deadlines for every entity type — and the current penalty waiver you can still use.",
     category: "Corporate Tax",
     readTime: "6 min read",
@@ -384,7 +384,7 @@ const blogs = [
 
   // ── ARTICLE 2 ──────────────────────────────────────────────────
   {
-    title: "VAT Registration Requirements UAE 2025",
+    title: "VAT Registration Requirements UAE",
     excerpt: "VAT registration is mandatory once your taxable turnover exceeds AED 375,000. Here is every requirement, document, threshold, and deadline — fully updated for 2025.",
     category: "VAT",
     readTime: "5 min read",
@@ -449,7 +449,7 @@ const blogs = [
 
   // ── ARTICLE 3 ──────────────────────────────────────────────────
   {
-    title: "How to File VAT Return UAE — Step by Step 2025",
+    title: "How to File VAT Return UAE — Step by Step",
     excerpt: "A complete step-by-step guide to filing your UAE VAT return on EmaraTax — deadlines, boxes explained, common errors, and penalties to avoid.",
     category: "VAT",
     readTime: "7 min read",
@@ -523,7 +523,7 @@ const blogs = [
 
   // ── ARTICLE 4 ──────────────────────────────────────────────────
   {
-    title: "Free Zone Corporate Tax UAE — Complete Guide 2025–2026",
+    title: "Free Zone Corporate Tax UAE — Complete Guide",
     excerpt: "Free zone companies are NOT automatically exempt from UAE Corporate Tax. Here is the complete guide to Qualifying Free Zone Person (QFZP) status, the 5 conditions, and what happens if you fail.",
     category: "Corporate Tax",
     readTime: "8 min read",
@@ -707,7 +707,7 @@ const blogs = [
 
   // ── ARTICLE 7 ──────────────────────────────────────────────────
   {
-    title: "Penalty for Late VAT Registration UAE — Full Guide 2025–2026",
+    title: "Penalty for Late VAT Registration UAE",
     excerpt: "Late VAT registration in the UAE carries an automatic AED 10,000 penalty — plus retroactive VAT liability. Here is exactly what the FTA charges, and how to avoid it.",
     category: "VAT",
     readTime: "5 min read",
@@ -905,7 +905,7 @@ const blogs = [
 
   // ── ARTICLE 10 ──────────────────────────────────────────────────
   {
-    title: "Corporate Tax for Freelancers UAE — Complete Guide 2025",
+    title: "Corporate Tax for Freelancers UAE — Complete Guide",
     excerpt: "UAE freelancers with annual business income above AED 1 million must register for Corporate Tax. Here is exactly what applies, what doesn't, and how to stay compliant.",
     category: "Corporate Tax",
     readTime: "6 min read",
@@ -968,7 +968,7 @@ const blogs = [
 
   // ── ARTICLE 11 ──────────────────────────────────────────────────
   {
-    title: "UAE Corporate Tax Return Filing — Step by Step 2026",
+    title: "UAE Corporate Tax Return Filing — Step by Step",
     excerpt: "Your Corporate Tax return must be filed within 9 months of your financial year-end. Here is exactly how to file on EmaraTax — boxes explained, deadlines, and common mistakes to avoid.",
     category: "Corporate Tax",
     readTime: "7 min read",
