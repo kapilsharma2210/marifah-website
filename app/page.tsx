@@ -199,7 +199,7 @@ const faqs = [
 const blogs = [
   // ── ARTICLE 13 — E-INVOICING (NEW) ─────────────────────────────
   {
-    title: "E-Invoicing in the UAE: Deadlines, Requirements and Penalties (2026–2027)",
+    title: "E-Invoicing in the UAE: Deadlines, Requirements and Penalties",
     excerpt: "Mandatory e-invoicing starts on 1 January 2027 for UAE businesses with revenue of AED 50 million or more. Here is who is covered, the exact deadlines, how the Peppol-based system works, and the penalties for getting it wrong.",
     category: "E-Invoicing",
     readTime: "9 min read",
