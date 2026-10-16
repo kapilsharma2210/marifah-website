@@ -23,11 +23,11 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
         </a>
         <div className="hidden lg:flex items-center gap-6">
           <a href="/" className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</a>
-          <a href="/#about" className="text-sm text-foreground hover:text-primary transition-colors">About</a>
-          <a href="/#services" className="text-sm text-foreground hover:text-primary transition-colors">Services</a>
-          <a href="/#packages" className="text-sm text-foreground hover:text-primary transition-colors">Packages</a>
-          <a href="/#blog" className="text-sm text-foreground hover:text-primary transition-colors">Insights</a>
-          <a href="/#contact" className="text-sm text-foreground hover:text-primary transition-colors">Contact</a>
+          <a href="/about" className="text-sm text-foreground hover:text-primary transition-colors">About</a>
+          <a href="/services" className="text-sm text-foreground hover:text-primary transition-colors">Services</a>
+          <a href="/packages" className="text-sm text-foreground hover:text-primary transition-colors">Packages</a>
+          <a href="/blog" className="text-sm text-foreground hover:text-primary transition-colors">Insights</a>
+          <a href="/contact" className="text-sm text-foreground hover:text-primary transition-colors">Contact</a>
           <button
             onClick={onConsultancy}
             className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
@@ -85,7 +85,7 @@ function Footer() {
           <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Services</h4>
           <ul className="space-y-3">
             {["Corporate Tax Registration", "Corporate Tax Filing", "VAT Registration", "VAT Return Filing", "Accounting & Bookkeeping"].map(s => (
-              <li key={s}><a href="/#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{s}</a></li>
+              <li key={s}><a href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{s}</a></li>
             ))}
           </ul>
         </div>
