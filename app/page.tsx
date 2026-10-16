@@ -13,6 +13,7 @@ import {
   TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
+import { siteConfig } from "@/lib/site-config";
 
 const content = {
   brand: "MARIFAH TAX ADVISORY",
@@ -189,7 +190,7 @@ const testimonials = [
 ];
 
 const faqs = [
-  { q: "Is Corporate Tax mandatory for all UAE businesses?", a: "Yes. All UAE businesses with net profit exceeding AED 375,000 must register and file Corporate Tax with FTA. Even exempt businesses must register. Penalties for non-registration start at AED 10,000." },
+  { q: "Is Corporate Tax mandatory for all UAE businesses?", a: "Yes. Every UAE business that is a taxable person must register for Corporate Tax with the FTA and file a return, whatever its profit. Profit up to AED 375,000 is taxed at 0% and profit above that at 9%. Even exempt businesses may need to register. The penalty for late registration is AED 10,000." },
   { q: "How long does VAT registration take?", a: "With Marifah, VAT registration (TRN) is typically completed within 3–5 working days once all documents are submitted. We guide you through every step." },
   { q: "What documents are needed for Corporate Tax registration?", a: "Trade License, Emirates ID of owner/manager, Memorandum of Association, financial statements, and EmaraTax portal access. We provide a full checklist after your free consultation." },
   { q: "Can free zone companies avoid Corporate Tax?", a: "Qualifying Free Zone Persons (QFZPs) can enjoy 0% on qualifying income — but strict FTA conditions apply. Non-qualifying income is taxed at 9%. Our experts assess your eligibility." },
@@ -1178,7 +1179,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
               <div>
                 <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Corporate Tax</p>
                 <ul className="space-y-2.5">
-                  {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration"].map(item => (
+                  {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration", "Tax Agency Services"].map(item => (
                     <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
                   ))}
                 </ul>
@@ -1194,7 +1195,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
               <div>
                 <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Accounting</p>
                 <ul className="space-y-2.5">
-                  {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review", "Tax Agency Services"].map(item => (
+                  {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review"].map(item => (
                     <li key={item}><button onClick={() => onNav("services")} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</button></li>
                   ))}
                 </ul>
@@ -1276,9 +1277,13 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
             UAE's trusted tax advisory firm — VAT, Corporate Tax & Accounting for businesses across all Emirates.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Linkedin className="w-4 h-4" /></a>
-            <a href="#" className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Instagram className="w-4 h-4" /></a>
-            <a href="#" className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Facebook className="w-4 h-4" /></a>
+            {[
+              { url: siteConfig.socials.linkedin, Icon: Linkedin, label: "LinkedIn" },
+              { url: siteConfig.socials.instagram, Icon: Instagram, label: "Instagram" },
+              { url: siteConfig.socials.facebook, Icon: Facebook, label: "Facebook" },
+            ].filter(s => s.url).map(({ url, Icon, label }) => (
+              <a key={label} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Icon className="w-4 h-4" /></a>
+            ))}
           </div>
         </div>
 
@@ -1621,8 +1626,9 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
 // ─── MAIN COMPONENT ──────────────────────────────────────────────
 
 function GoogleReviewButton() {
+  if (!siteConfig.googleReviewUrl) return null;
   return (
-    <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-border bg-background text-sm text-muted-foreground px-5 py-2.5 rounded-full hover:border-primary/40 transition-all">
+    <a href={siteConfig.googleReviewUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-border bg-background text-sm text-muted-foreground px-5 py-2.5 rounded-full hover:border-primary/40 transition-all">
       <span>View all reviews on Google</span>
       <ArrowRight className="w-3.5 h-3.5" />
     </a>
@@ -1670,7 +1676,7 @@ function StatItem({
   index: number;
   inView: boolean;
 }) {
-  const [display, setDisplay] = useState("0");
+  const [display, setDisplay] = useState(stat.value);
 
   const parsed = useMemo(() => {
     const raw = stat.value;
@@ -2294,7 +2300,7 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
             <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Our Difference</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Marifah?</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">Hundreds of UAE businesses trust us with their tax compliance. Here is exactly why.</p>
+            <p className="text-muted-foreground max-w-xl mx-auto">UAE businesses trust us with their tax compliance. Here is exactly why.</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14 rounded-2xl overflow-hidden border border-primary/10">
             <img
@@ -2630,11 +2636,9 @@ const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
                     <span className="text-foreground font-medium text-sm pr-4">{faq.q}</span>
                     <ChevronDown className={`w-4 h-4 text-primary shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
                   </button>
-                  {openFaq === i && (
-                    <div className="px-6 pb-5">
-                      <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
-                    </div>
-                  )}
+                  <div className="px-6 pb-5" hidden={openFaq !== i}>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
