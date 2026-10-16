@@ -6,6 +6,31 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.marifahtax.com/about</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/services</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/packages</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.marifahtax.com/corporate-tax-consultants-uae</loc>
     <lastmod>2026-10-16</lastmod>
     <priority>0.9</priority>
@@ -14,5 +39,90 @@
     <loc>https://www.marifahtax.com/vat-consultancy-dubai</loc>
     <lastmod>2026-10-16</lastmod>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/services/corporate-tax</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/services/uae-vat</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/services/accounting</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/services/full-compliance-package</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/e-invoicing-in-the-uae-deadlines-requirements-and-penalties</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/corporate-tax-registration-deadline-uae</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/vat-registration-requirements-uae</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/how-to-file-vat-return-uae-step-by-step</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/free-zone-corporate-tax-uae-complete-guide</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/dmcc-corporate-tax-what-every-member-needs-to-know</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/uae-corporate-tax-for-small-business-complete-guide-2025</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/penalty-for-late-vat-registration-uae</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/difference-between-vat-exempt-and-zero-rated-in-uae</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/how-to-open-emaratax-account-uae-step-by-step</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/corporate-tax-for-freelancers-uae-complete-guide</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/uae-corporate-tax-return-filing-step-by-step</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.marifahtax.com/blog/small-business-relief-uae-who-qualifies-and-how-to-elect-it</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
