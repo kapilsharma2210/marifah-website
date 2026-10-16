@@ -8,6 +8,7 @@ import {
   Clock, Users, Award, ChevronDown, Star
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
+import { siteConfig } from "@/lib/site-config";
 
 const content = { brand: "MARIFAH TAX ADVISORY", whatsapp: "971505815245" };
 
@@ -72,9 +73,13 @@ function Footer() {
             UAE's trusted tax advisory firm — VAT, Corporate Tax & Accounting for businesses across all Emirates.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Linkedin className="w-4 h-4" /></a>
-            <a href="#" className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Instagram className="w-4 h-4" /></a>
-            <a href="#" className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Facebook className="w-4 h-4" /></a>
+            {[
+              { url: siteConfig.socials.linkedin, Icon: Linkedin, label: "LinkedIn" },
+              { url: siteConfig.socials.instagram, Icon: Instagram, label: "Instagram" },
+              { url: siteConfig.socials.facebook, Icon: Facebook, label: "Facebook" },
+            ].filter(s => s.url).map(({ url, Icon, label }) => (
+              <a key={label} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Icon className="w-4 h-4" /></a>
+            ))}
           </div>
         </div>
         <div>
