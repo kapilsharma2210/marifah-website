@@ -1,7 +1,8 @@
 "use client";
 
-import { ArrowRight, BadgeCheck, CheckCircle, ChevronRight, MessageCircle } from "lucide-react";
+import { ArrowRight, BadgeCheck, ChevronRight, MessageCircle } from "lucide-react";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
+import { DocList, DocSection, DocSteps, Paper } from "./doc-blocks";
 import { splitPrice, type ServiceInfo } from "./types";
 
 /** A single service page (/services/<slug>): overview, what's included, how we help, pricing and other services. */
@@ -78,39 +79,17 @@ export function ServiceDetail({
       {/* Body */}
       <div className="px-4 sm:px-6 py-12 md:py-16">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,1fr)_360px] gap-10 lg:gap-12 items-start">
-          <div className="min-w-0 space-y-12">
-            <section>
-              <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">What&apos;s included</p>
-              <h2 className="text-2xl font-bold text-foreground mb-6">Everything covered in this service</h2>
-              <ul className="grid sm:grid-cols-2 gap-3">
-                {svc.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3.5 text-sm text-foreground">
-                    <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                    {pt}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {svc.sections && svc.sections.length > 0 && (
-              <section>
-                <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">How we help</p>
-                <h2 className="text-2xl font-bold text-foreground mb-6">Our approach</h2>
-                <ol className="rounded-2xl border border-border bg-card divide-y divide-border">
-                  {svc.sections.map((sec, i) => (
-                    <li key={sec.title} className="flex gap-4 p-5 sm:p-6">
-                      <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="font-semibold text-foreground mb-1.5">{sec.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{sec.body}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            )}
+          <div className="min-w-0 space-y-8">
+            <Paper>
+              <DocSection eyebrow="What's included" heading="Everything covered in this service">
+                <DocList items={svc.points} columns={2} />
+              </DocSection>
+              {svc.sections && svc.sections.length > 0 && (
+                <DocSection eyebrow="How we help" heading="Our approach">
+                  <DocSteps steps={svc.sections.map((sec, i) => ({ num: i + 1, title: sec.title, paragraphs: [sec.body] }))} />
+                </DocSection>
+              )}
+            </Paper>
 
             {svc.title === "Corporate Tax" && <BuyRegistrationCard />}
           </div>
