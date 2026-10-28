@@ -13,6 +13,9 @@ import {
   TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
+import { CartButton } from "@/components/cart/cart-button";
+import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
+import { CT_REGISTRATION_ID } from "@/lib/checkout/products";
 import { siteConfig } from "@/lib/site-config";
 import { blogs, blogSlug, findBlog } from "@/lib/blog-data";
 import { slugify } from "@/lib/blog-data";
@@ -61,7 +64,7 @@ const services = [
       },
     ],
     pricing: [
-      { label: "Corporate Tax Registration", price: "AED 499" },
+      { label: "Corporate Tax Registration", price: "AED 499", productId: CT_REGISTRATION_ID },
       { label: "Corporate Tax Return Filing", price: "AED 2,199" },
       { label: "Registration + Filing Combo", price: "AED 2,599", highlight: true },
     ],
@@ -250,10 +253,10 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
-      <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+      <div className="flex justify-between items-center gap-3 px-4 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto">
         <a
           href="/"
-          className="font-bold text-lg tracking-widest text-primary cursor-pointer shrink-0"
+          className="font-bold text-base sm:text-lg tracking-widest text-primary cursor-pointer shrink-0"
           onClick={(e) => { e.preventDefault(); onNav(null); setMobileOpen(false); }}
         >
           {content.brand}
@@ -299,7 +302,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
           <li><a href="/contact" onClick={(e) => { e.preventDefault(); onNav("contact"); }} className="text-sm text-foreground hover:text-primary transition-colors">Contact</a></li>
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={`https://wa.me/${content.whatsapp}`}
             target="_blank"
@@ -309,6 +312,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
             <PhoneCall className="w-4 h-4" />
             <span className="text-sm">{`+${content.whatsapp}`}</span>
           </a>
+          <CartButton />
           <Button
             onClick={onConsultancy}
             className="hidden lg:flex bg-primary text-primary-foreground rounded-full px-5 py-2 text-sm hover:bg-primary/90 font-medium"
@@ -523,6 +527,10 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                       {f}
                     </div>
                   ))}
+                </div>
+                <div className="mt-auto pt-2 flex flex-col gap-2">
+                  <AddToCartButton label="Add Registration to Cart" className="w-full" />
+                  <p className="text-xs text-muted-foreground text-center">Buy Corporate Tax Registration online · Pay by card</p>
                 </div>
               </motion.div>
 
@@ -826,6 +834,28 @@ function StatItem({
 
 export const serviceSlug = (svc: { title: string }) => slugify(svc.title);
 
+/** Site header + footer for standalone pages such as the cart and checkout. */
+export function SiteShell({ children }: { children: React.ReactNode }) {
+  const [consultancyOpen, setConsultancyOpen] = useState(false);
+  const go = (p: PageKey | null) => {
+    window.location.href = p ? `/${p}` : "/";
+  };
+  return (
+    <div className="bg-background text-foreground min-h-screen flex flex-col">
+      <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+        <Navbar onNav={go} onConsultancy={() => setConsultancyOpen(true)} />
+      </div>
+      <main className="flex-1">{children}</main>
+      <Footer onNav={go} />
+      {/* Hidden on phones so it doesn't cover the checkout form */}
+      <div className="hidden md:block">
+        <FloatingWhatsApp />
+      </div>
+      <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
+    </div>
+  );
+}
+
 export function SiteApp({
   initialPage = null,
   initialBlogSlug = null,
@@ -1042,26 +1072,36 @@ export function SiteApp({
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
               <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">Transparent Pricing</h2>
               <div className="rounded-2xl border border-primary/20 overflow-hidden">
-                {svc.pricing.map((row: { label: string; price: string; highlight?: boolean }, i: number) => (
+                {svc.pricing.map((row: { label: string; price: string; highlight?: boolean; productId?: string }, i: number) => (
                   <div
                     key={i}
-                    className={`flex items-center justify-between px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${
+                    className={`flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${
                       row.highlight ? "bg-primary/10" : "bg-card"
                     }`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
                       {row.highlight && <BadgeCheck className="w-4 h-4 text-primary shrink-0" />}
                       <span className={`text-sm ${row.highlight ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
                         {row.label}
                       </span>
                     </div>
-                    <span className={`text-sm font-bold ${row.highlight ? "text-primary text-base" : "text-foreground"}`}>
-                      {row.price}
-                    </span>
+                    <div className="flex items-center gap-3 shrink-0">
+                      <span className={`text-sm font-bold ${row.highlight ? "text-primary text-base" : "text-foreground"}`}>
+                        {row.price}
+                      </span>
+                      {row.productId && <AddToCartButton productId={row.productId} size="sm" />}
+                    </div>
                   </div>
                 ))}
               </div>
               <p className="text-xs text-muted-foreground mt-3 pl-1">* No hidden charges. What you see is what you pay.</p>
+            </motion.div>
+          )}
+
+          {/* Buy online — Corporate Tax Registration */}
+          {svc.title === "Corporate Tax" && (
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22 }}>
+              <BuyRegistrationCard />
             </motion.div>
           )}
 

@@ -7,6 +7,8 @@ import {
   CheckCircle, BadgeCheck, FileText, ChevronDown, Star
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
+import { CartButton } from "@/components/cart/cart-button";
+import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
 import { siteConfig } from "@/lib/site-config";
 
 const content = { brand: "MARIFAH TAX ADVISORY", whatsapp: "971505815245" };
@@ -17,8 +19,8 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
-      <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <a href="/" className="font-bold text-lg tracking-widest text-primary cursor-pointer shrink-0">
+      <div className="flex justify-between items-center gap-3 px-4 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto">
+        <a href="/" className="font-bold text-base sm:text-lg tracking-widest text-primary cursor-pointer shrink-0">
           {content.brand}
         </a>
         <div className="hidden lg:flex items-center gap-6">
@@ -28,6 +30,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
           <a href="/packages" className="text-sm text-foreground hover:text-primary transition-colors">Packages</a>
           <a href="/blog" className="text-sm text-foreground hover:text-primary transition-colors">Insights</a>
           <a href="/contact" className="text-sm text-foreground hover:text-primary transition-colors">Contact</a>
+          <CartButton />
           <button
             onClick={onConsultancy}
             className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
@@ -35,13 +38,16 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
             Free Consultation
           </button>
         </div>
-        <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          <div className="space-y-1.5">
-            <span className="block w-6 h-0.5 bg-current" />
-            <span className="block w-6 h-0.5 bg-current" />
-            <span className="block w-6 h-0.5 bg-current" />
-          </div>
-        </button>
+        <div className="lg:hidden flex items-center gap-3">
+          <CartButton />
+          <button className="text-foreground" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+            <div className="space-y-1.5">
+              <span className="block w-6 h-0.5 bg-current" />
+              <span className="block w-6 h-0.5 bg-current" />
+              <span className="block w-6 h-0.5 bg-current" />
+            </div>
+          </button>
+        </div>
       </div>
       {mobileOpen && (
         <div className="lg:hidden border-t border-primary/10 px-6 py-4 space-y-3 bg-background">
@@ -128,7 +134,7 @@ function FloatingWhatsApp() {
 }
 
 const pricing = [
-  { label: "Corporate Tax Registration", price: "AED 499" },
+  { label: "Corporate Tax Registration", price: "AED 499", buyOnline: true },
   { label: "Corporate Tax Return Filing", price: "AED 2,199" },
   { label: "Registration + Filing Combo", price: "AED 2,599", highlight: true },
 ];
@@ -313,16 +319,24 @@ export default function CorporateTaxConsultantsUAE() {
           <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">Transparent Pricing</h2>
           <div className="rounded-2xl border border-primary/20 overflow-hidden">
             {pricing.map((row, i) => (
-              <div key={i} className={`flex items-center justify-between px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${row.highlight ? "bg-primary/10" : "bg-card"}`}>
-                <div className="flex items-center gap-3">
+              <div key={i} className={`flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${row.highlight ? "bg-primary/10" : "bg-card"}`}>
+                <div className="flex items-center gap-3 min-w-0">
                   {row.highlight && <BadgeCheck className="w-4 h-4 text-primary shrink-0" />}
                   <span className={`text-sm ${row.highlight ? "text-foreground font-semibold" : "text-muted-foreground"}`}>{row.label}</span>
                 </div>
-                <span className={`text-sm font-bold ${row.highlight ? "text-primary text-base" : "text-foreground"}`}>{row.price}</span>
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className={`text-sm font-bold ${row.highlight ? "text-primary text-base" : "text-foreground"}`}>{row.price}</span>
+                  {"buyOnline" in row && row.buyOnline && <AddToCartButton size="sm" />}
+                </div>
               </div>
             ))}
           </div>
           <p className="text-xs text-muted-foreground mt-3 pl-1">* No hidden charges. What you see is what you pay.</p>
+        </motion.div>
+
+        {/* BUY ONLINE */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.21 }}>
+          <BuyRegistrationCard />
         </motion.div>
 
         {/* TESTIMONIALS */}
