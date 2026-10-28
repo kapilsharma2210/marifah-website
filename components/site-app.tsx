@@ -16,6 +16,11 @@ import { ConsultancyForm } from "@/components/consultancy-form";
 import { CartButton } from "@/components/cart/cart-button";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
 import { CT_REGISTRATION_ID } from "@/lib/checkout/products";
+import { ServicesOverview } from "@/components/content/services-overview";
+import { BlogIndex } from "@/components/content/blog-index";
+import { BlogArticle } from "@/components/content/blog-article";
+import { ServiceDetail } from "@/components/content/service-detail";
+import { sitePages } from "@/lib/site-pages";
 import { siteConfig } from "@/lib/site-config";
 import { blogs, blogSlug, findBlog } from "@/lib/blog-data";
 import { slugify } from "@/lib/blog-data";
@@ -275,7 +280,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
                 <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">Corporate Tax</p>
                 <ul className="space-y-2.5">
                   {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration", "Tax Agency Services"].map(item => (
-                    <li key={item}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
+                    <li key={item}><a href="/services/corporate-tax" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
                   ))}
                 </ul>
               </div>
@@ -283,7 +288,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
                 <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">UAE VAT</p>
                 <ul className="space-y-2.5">
                   {["VAT Registration Services", "VAT Consultancy & Advisory", "VAT Return Filing", "VAT Deregistration", "VAT Refund Services"].map(item => (
-                    <li key={item}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
+                    <li key={item}><a href="/services/uae-vat" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
                   ))}
                 </ul>
               </div>
@@ -291,7 +296,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
                 <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">Accounting</p>
                 <ul className="space-y-2.5">
                   {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review"].map(item => (
-                    <li key={item}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
+                    <li key={item}><a href="/services/accounting" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
                   ))}
                 </ul>
               </div>
@@ -386,8 +391,14 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
         <div>
           <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Services</h4>
           <ul className="space-y-3">
-            {["Corporate Tax Registration", "Corporate Tax Filing", "VAT Registration", "VAT Return Filing", "Accounting & Bookkeeping"].map(s => (
-              <li key={s}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{s}</a></li>
+            {[
+              { s: "Corporate Tax Registration", slug: "corporate-tax" },
+              { s: "Corporate Tax Filing", slug: "corporate-tax" },
+              { s: "VAT Registration", slug: "uae-vat" },
+              { s: "VAT Return Filing", slug: "uae-vat" },
+              { s: "Accounting & Bookkeeping", slug: "accounting" },
+            ].map(({ s, slug }) => (
+              <li key={s}><a href={`/services/${slug}`} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{s}</a></li>
             ))}
           </ul>
         </div>
@@ -443,14 +454,19 @@ function FloatingWhatsApp() {
 
 // ─── INNER PAGE LAYOUT ───────────────────────────────────────────
 
-function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
+function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog, onService }: {
   pageKey: PageKey;
   onBack: () => void;
   onNav: (p: PageKey | null) => void;
   onConsultancy: () => void;
   onBlog: (b: any) => void;
+  onService: (s: ServicePlan) => void;
 }) {
   const page = pageContent[pageKey];
+  const wide = pageKey === "blog" || pageKey === "services";
+  const width = wide ? "max-w-6xl" : "max-w-4xl";
+  const intro =
+    pageKey === "services" ? sitePages.services.description : pageKey === "blog" ? sitePages.blog.description : null;
   return (
     <div className="bg-background text-foreground min-h-screen">
       <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
@@ -458,8 +474,8 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
       </div>
 
       {/* Page Hero */}
-      <div className="bg-card border-b border-primary/10 py-14 px-6">
-        <div className={`${pageKey === "blog" ? "max-w-7xl" : "max-w-4xl"} mx-auto`}>
+      <div className="bg-card border-b border-primary/10 py-14 px-4 sm:px-6">
+        <div className={`${width} mx-auto`}>
           <button onClick={onBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
@@ -467,44 +483,24 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
             {page.title}
           </motion.h1>
           <div className="w-16 h-1 bg-primary rounded-full"></div>
+          {intro && <p className="mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">{intro}</p>}
         </div>
       </div>
 
-      <div className={`${pageKey === "blog" ? "max-w-7xl" : "max-w-4xl"} mx-auto px-6 py-14`}>
+      <div className="px-4 sm:px-6 py-14">
+      <div className={`${width} mx-auto`}>
         <div className="space-y-12">
-          {pageKey === "blog" ? (
-            <div className="space-y-8">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                {blogs.map((b, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}>
-                    <Card
-                      className="rounded-2xl bg-background border border-border hover:border-primary transition-all group h-full cursor-pointer"
-                      onClick={() => onBlog(b)}
-                    >
-                      <CardContent className="p-7 flex flex-col h-full">
-                        <div className="flex items-center gap-3 mb-4">
-                          {b.category && (
-                            <span className="text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                              {b.category}
-                            </span>
-                          )}
-                          {b.readTime && (
-                            <span className="text-[11px] text-muted-foreground">{b.readTime}</span>
-                          )}
-                        </div>
-                        <h3 className="text-foreground font-bold mb-3 group-hover:text-primary transition-colors leading-snug text-base">
-                          {b.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm mb-5 leading-relaxed flex-grow">{b.excerpt}</p>
-                        <span className="text-sm text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                          Read Article <ArrowRight className="w-3.5 h-3.5" />
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+          {pageKey === "services" ? (
+            <ServicesOverview
+              services={services}
+              sections={page.sections}
+              slugOf={serviceSlug}
+              onService={(s) => onService(s as ServicePlan)}
+              onConsultancy={onConsultancy}
+              whatsapp={content.whatsapp}
+            />
+          ) : pageKey === "blog" ? (
+            <BlogIndex blogs={blogs} onBlog={onBlog} />
           ) : pageKey === "packages" ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Corporate Tax */}
@@ -709,7 +705,8 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
           )}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA (the services page has its own "Why Act Now?" call to action) */}
+        {pageKey !== "services" && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
           <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Ready to Get Started?</p>
           <h3 className="text-2xl font-bold text-foreground mb-4">Book Your Free Consultation</h3>
@@ -718,6 +715,8 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
             <MessageCircle className="w-4 h-4 mr-2" />Book Free Consultation
           </Button>
         </motion.div>
+        )}
+      </div>
       </div>
     </div>
   );
@@ -964,11 +963,26 @@ export function SiteApp({
 
   const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
+  const openService = (svc: ServicePlan) => {
+    setScrollPosition(window.scrollY);
+    setSelectedBlog(null);
+    setSelectedService(svc);
+    window.history.pushState({ type: "service", title: svc.title }, "", `/services/${serviceSlug(svc)}`);
+  };
+
+  const openBlog = (b: Blog) => {
+    setSelectedService(null);
+    setActivePage("blog" as PageKey);
+    setSelectedBlog(b);
+    window.history.pushState({ type: "blog", title: b.title }, "", `/blog/${blogSlug(b)}`);
+    window.scrollTo(0, 0);
+  };
+
   // ── INNER PAGES — only when no blog/service detail is open ───────
   if (activePage && pageContent[activePage] && !selectedBlog && !selectedService) {
     return (
       <>
-        <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={(b) => { setSelectedBlog(b); window.history.pushState({ type: "blog", title: b.title }, "", `/blog/${blogSlug(b)}`); }} />
+        <InnerPage pageKey={activePage} onBack={goBack} onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} onBlog={openBlog} onService={openService} />
         <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
@@ -978,163 +992,29 @@ export function SiteApp({
   // ── SERVICE DETAIL ───────────────────────────────────────────────
   if (selectedService) {
     const svc = selectedService as typeof services[0];
-    const ServiceIcon = svc.icon;
+    const image =
+      svc.title === "Corporate Tax"
+        ? "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=90"
+        : svc.title === "UAE VAT"
+        ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=90"
+        : svc.title === "Accounting"
+        ? "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=90"
+        : "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=90";
     return (
       <div className="bg-background text-foreground min-h-screen">
         <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
           <Navbar onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} />
         </div>
-
-        {/* Hero banner */}
-        <div className="relative overflow-hidden border-b border-primary/10">
-          <div className="relative h-72 w-full overflow-hidden">
-            <img
-              src={
-                svc.title === "Corporate Tax"
-                  ? "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=90"
-                  : svc.title === "UAE VAT"
-                  ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=90"
-                  : svc.title === "Accounting"
-                  ? "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=90"
-                  : "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=90"
-              }
-              alt={svc.title}
-              className="w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
-          </div>
-          <div className="absolute inset-0 pointer-events-none" />
-          <div className="max-w-4xl mx-auto relative px-4 sm:px-6 pb-8">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-              <ArrowLeft className="w-4 h-4" /> Back to Insights
-            </button>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <ServiceIcon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
-              </div>
-              <div className="min-w-0">
-                <span className="inline-block text-xs font-bold tracking-widest uppercase text-gold bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
-                  {svc.tag}
-                </span>
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 leading-tight"
-                >
-                  {svc.title}
-                </motion.h1>
-                <p className="text-muted-foreground text-sm tracking-wide">{svc.subtitle}</p>
-              </div>
-            </div>
-            <p className="mt-5 text-muted-foreground leading-relaxed text-sm sm:text-base border-l-2 border-primary/40 pl-4">
-              {svc.desc}
-            </p>
-          </div>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-10 sm:space-y-14">
-
-          {/* What's Included checklist */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">What's Included</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {svc.points.map((pt: string, i: number) => (
-                <div key={i} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors w-full">
-                  <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm text-foreground">{pt}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Service sections */}
-          {svc.sections && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-              <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">How We Help</h2>
-              <div className="space-y-4">
-                {svc.sections.map((sec: { title: string; body: string }, i: number) => (
-                  <div key={i} className="bg-card border border-primary/10 rounded-2xl p-6 hover:border-primary/25 transition-colors">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                        <span className="text-primary font-bold text-xs">{String(i + 1).padStart(2, "0")}</span>
-                      </div>
-                      <h3 className="text-base font-semibold text-foreground">{sec.title}</h3>
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed pl-0 sm:pl-10">{sec.body}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Pricing table */}
-          {svc.pricing && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-              <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">Transparent Pricing</h2>
-              <div className="rounded-2xl border border-primary/20 overflow-hidden">
-                {svc.pricing.map((row: { label: string; price: string; highlight?: boolean; productId?: string }, i: number) => (
-                  <div
-                    key={i}
-                    className={`flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${
-                      row.highlight ? "bg-primary/10" : "bg-card"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      {row.highlight && <BadgeCheck className="w-4 h-4 text-primary shrink-0" />}
-                      <span className={`text-sm ${row.highlight ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
-                        {row.label}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3 shrink-0">
-                      <span className={`text-sm font-bold ${row.highlight ? "text-primary text-base" : "text-foreground"}`}>
-                        {row.price}
-                      </span>
-                      {row.productId && <AddToCartButton productId={row.productId} size="sm" />}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground mt-3 pl-1">* No hidden charges. What you see is what you pay.</p>
-            </motion.div>
-          )}
-
-          {/* Buy online — Corporate Tax Registration */}
-          {svc.title === "Corporate Tax" && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22 }}>
-              <BuyRegistrationCard />
-            </motion.div>
-          )}
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-            className="bg-card border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-5"
-          >
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Ready to get started?</h3>
-              <p className="text-sm text-muted-foreground">Book a free 30-minute consultation — no commitment required.</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <button
-                onClick={() => setConsultancyOpen(true)}
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto"
-              >
-                Book Free Consultation
-              </button>
-              <a
-                href={`https://wa.me/${content.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-primary text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors w-full sm:w-auto"
-              >
-                <MessageCircle className="w-4 h-4" /> WhatsApp
-              </a>
-            </div>
-          </motion.div>
-
-        </div>
+        <ServiceDetail
+          svc={svc}
+          image={image}
+          services={services}
+          slugOf={serviceSlug}
+          onAllServices={() => navigate("services")}
+          onService={(s) => openService(s as ServicePlan)}
+          onConsultancy={() => setConsultancyOpen(true)}
+          whatsapp={content.whatsapp}
+        />
         <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
@@ -1142,149 +1022,21 @@ export function SiteApp({
     );
   }
 
-
   // ── BLOG DETAIL ──────────────────────────────────────────────────
   if (selectedBlog) {
-    const blog = selectedBlog as typeof blogs[0];
     return (
       <div className="bg-background text-foreground min-h-screen">
         <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
           <Navbar onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} />
         </div>
-
-        {/* Hero */}
-        <div className="relative overflow-hidden bg-card border-b border-primary/10 py-16 px-6">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
-          <div className="max-w-4xl mx-auto relative">
-            <button onClick={goBack} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Insights
-            </button>
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              {blog.category && (
-                <span className="text-xs font-bold tracking-widest uppercase text-gold bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
-                  {blog.category}
-                </span>
-              )}
-              {blog.readTime && (
-                <span className="text-xs text-muted-foreground">{blog.readTime}</span>
-              )}
-            </div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
-            >
-              {blog.title}
-            </motion.h1>
-            <p className="text-muted-foreground text-base leading-relaxed max-w-2xl border-l-2 border-primary/40 pl-4">
-              {blog.excerpt}
-            </p>
-          </div>
-        </div>
-
-        {/* Article body */}
-        <div className="max-w-4xl mx-auto px-6 py-14 space-y-10">
-          {blog.sections?.map((sec: any, i: number) => {
-
-            // Plain text section
-            if (sec.type === "text") return (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                  <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0" />
-                  {sec.heading}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed pl-4">{sec.body}</p>
-              </motion.div>
-            );
-
-            // Checklist section
-            if (sec.type === "checklist") return (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0" />
-                  {sec.heading}
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-3 pl-4">
-                  {sec.items?.map((item: string, j: number) => (
-                    <div key={j} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            );
-
-            // Numbered list section
-            if (sec.type === "numbered") return (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <h2 className="text-lg font-bold text-foreground mb-5 flex items-center gap-2">
-                  <span className="w-1.5 h-5 bg-primary rounded-full inline-block shrink-0" />
-                  {sec.heading}
-                </h2>
-                <div className="space-y-4 pl-4">
-                  {sec.items?.map((item: { title: string; body: string }, j: number) => (
-                    <div key={j} className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/25 transition-colors">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                          <span className="text-primary font-bold text-xs">{String(j + 1).padStart(2, "0")}</span>
-                        </div>
-                        <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed pl-10">{item.body}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            );
-
-            // Alert / warning box
-            if (sec.type === "alert") return (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <div className="bg-card border border-primary/25 rounded-2xl p-6">
-                  <div className="flex items-start gap-3">
-                    <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="text-sm font-bold text-foreground mb-1">{sec.heading}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{sec.body}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-
-            // CTA box
-            if (sec.type === "cta") return (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <div className="bg-card border border-primary/20 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                  <div>
-                    <h3 className="text-base font-bold text-foreground mb-1">{sec.heading}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{sec.body}</p>
-                  </div>
-                  <div className="flex gap-3 shrink-0">
-                    <button
-                      onClick={() => setConsultancyOpen(true)}
-                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
-                    >
-                      Free Consultation
-                    </button>
-                    <a
-                      href={`https://wa.me/${content.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors"
-                    >
-                      <MessageCircle className="w-4 h-4" /> WhatsApp
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            );
-
-            return null;
-          })}
-        </div>
-
+        <BlogArticle
+          blog={selectedBlog}
+          allBlogs={blogs}
+          onAllArticles={() => navigate("blog")}
+          onBlog={(b) => openBlog(b as Blog)}
+          onConsultancy={() => setConsultancyOpen(true)}
+          whatsapp={content.whatsapp}
+        />
         <Footer onNav={navigate} />
         <FloatingWhatsApp />
         <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
