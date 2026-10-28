@@ -72,10 +72,10 @@ export function AddToCartButton({
 export function BuyRegistrationCard({ className = "" }: { className?: string }) {
   const p = PRODUCTS[CT_REGISTRATION_ID];
   return (
-    <div className={`rounded-2xl border-2 border-primary bg-primary/5 p-6 sm:p-8 ${className}`}>
+    <div className={`rounded-2xl border-2 border-primary bg-card p-6 sm:p-8 ${className}`}>
       <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">Register online</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">Register online</p>
           <h3 className="text-xl font-bold text-foreground mb-2">
             {p.name} — <span className="text-primary">{formatPrice(p.price)}</span>
           </h3>

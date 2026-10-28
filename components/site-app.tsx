@@ -256,7 +256,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
       <div className="flex justify-between items-center gap-3 px-4 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto">
         <a
           href="/"
-          className="font-bold text-base sm:text-lg tracking-widest text-primary cursor-pointer shrink-0"
+          className="font-bold text-base sm:text-lg tracking-widest text-gold cursor-pointer shrink-0"
           onClick={(e) => { e.preventDefault(); onNav(null); setMobileOpen(false); }}
         >
           {content.brand}
@@ -272,7 +272,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
             </button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-card border border-border rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 w-[700px] p-7 grid grid-cols-3 gap-8">
               <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Corporate Tax</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">Corporate Tax</p>
                 <ul className="space-y-2.5">
                   {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration", "Tax Agency Services"].map(item => (
                     <li key={item}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
@@ -280,7 +280,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
                 </ul>
               </div>
               <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">UAE VAT</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">UAE VAT</p>
                 <ul className="space-y-2.5">
                   {["VAT Registration Services", "VAT Consultancy & Advisory", "VAT Return Filing", "VAT Deregistration", "VAT Refund Services"].map(item => (
                     <li key={item}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
@@ -288,7 +288,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
                 </ul>
               </div>
               <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-primary border-l-2 border-primary pl-3 mb-4">Accounting</p>
+                <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">Accounting</p>
                 <ul className="space-y-2.5">
                   {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review"].map(item => (
                     <li key={item}><a href="/services" onClick={(e) => { e.preventDefault(); onNav("services"); }} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
@@ -365,10 +365,10 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
 
 function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
   return (
-    <footer className="bg-card border-t border-primary/20 mt-20">
+    <footer className="dark bg-background text-foreground border-t border-primary/20 mt-20">
       <div className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
-          <h3 className="text-primary font-bold text-base tracking-widest mb-4">{content.brand}</h3>
+          <h3 className="text-gold font-bold text-base tracking-widest mb-4">{content.brand}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed mb-6">
             UAE's trusted tax advisory firm — VAT, Corporate Tax & Accounting for businesses across all Emirates.
           </p>
@@ -622,7 +622,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                       alt="Dubai skyline — UAE business hub"
                       className="w-full h-80 object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-5 left-6 right-6">
                       <p className="text-white text-sm font-medium opacity-90">Dubai, United Arab Emirates</p>
                       <p className="text-white/70 text-xs mt-0.5">Serving businesses across all Emirates</p>
@@ -641,7 +641,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                         <Phone className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-1">WhatsApp & Phone</p>
+                        <p className="text-xs font-bold tracking-widest uppercase text-gold mb-1">WhatsApp & Phone</p>
                         <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">+971505815245</p>
                         <p className="text-xs text-muted-foreground mt-1">Responds within 1 hour</p>
                       </div>
@@ -653,7 +653,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                         <Mail className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-1">Email</p>
+                        <p className="text-xs font-bold tracking-widest uppercase text-gold mb-1">Email</p>
                         <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">info@marifahtax.com</p>
                         <p className="text-xs text-muted-foreground mt-1">Responds within 24 hours</p>
                       </div>
@@ -664,7 +664,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                         <Clock className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">Business Hours</p>
+                        <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">Business Hours</p>
                         <div className="space-y-1">
                           <div className="flex justify-between text-xs">
                             <span className="text-muted-foreground">Mon – Fri</span>
@@ -676,7 +676,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
                           </div>
                           <div className="flex justify-between text-xs">
                             <span className="text-muted-foreground">Sunday</span>
-                            <span className="text-red-400 font-medium">Closed</span>
+                            <span className="text-red-600 font-medium">Closed</span>
                           </div>
                         </div>
                       </div>
@@ -711,7 +711,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog }: {
 
         {/* Bottom CTA */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-16 p-10 rounded-2xl border border-primary/20 bg-card text-center">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Ready to Get Started?</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Ready to Get Started?</p>
           <h3 className="text-2xl font-bold text-foreground mb-4">Book Your Free Consultation</h3>
           <p className="text-muted-foreground mb-7 max-w-md mx-auto">No obligation. No pressure. Just expert advice from UAE's trusted tax professionals.</p>
           <Button onClick={onConsultancy} className="bg-primary text-primary-foreground rounded-full px-8 py-3 hover:bg-primary/90 text-base">
@@ -1013,7 +1013,7 @@ export function SiteApp({
                 <ServiceIcon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
               </div>
               <div className="min-w-0">
-                <span className="inline-block text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-gold bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
                   {svc.tag}
                 </span>
                 <motion.h1
@@ -1036,7 +1036,7 @@ export function SiteApp({
 
           {/* What's Included checklist */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">What's Included</h2>
+            <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">What's Included</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {svc.points.map((pt: string, i: number) => (
                 <div key={i} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors w-full">
@@ -1050,7 +1050,7 @@ export function SiteApp({
           {/* Service sections */}
           {svc.sections && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-              <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">How We Help</h2>
+              <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">How We Help</h2>
               <div className="space-y-4">
                 {svc.sections.map((sec: { title: string; body: string }, i: number) => (
                   <div key={i} className="bg-card border border-primary/10 rounded-2xl p-6 hover:border-primary/25 transition-colors">
@@ -1070,7 +1070,7 @@ export function SiteApp({
           {/* Pricing table */}
           {svc.pricing && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-              <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">Transparent Pricing</h2>
+              <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">Transparent Pricing</h2>
               <div className="rounded-2xl border border-primary/20 overflow-hidden">
                 {svc.pricing.map((row: { label: string; price: string; highlight?: boolean; productId?: string }, i: number) => (
                   <div
@@ -1110,7 +1110,7 @@ export function SiteApp({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="bg-primary/5 border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-5"
+            className="bg-card border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-5"
           >
             <div>
               <h3 className="text-lg font-bold text-foreground mb-1">Ready to get started?</h3>
@@ -1161,7 +1161,7 @@ export function SiteApp({
             </button>
             <div className="flex flex-wrap items-center gap-3 mb-4">
               {blog.category && (
-                <span className="text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold tracking-widest uppercase text-gold bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
                   {blog.category}
                 </span>
               )}
@@ -1241,7 +1241,7 @@ export function SiteApp({
             // Alert / warning box
             if (sec.type === "alert") return (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <div className="bg-primary/5 border border-primary/25 rounded-2xl p-6">
+                <div className="bg-card border border-primary/25 rounded-2xl p-6">
                   <div className="flex items-start gap-3">
                     <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                     <div>
@@ -1256,7 +1256,7 @@ export function SiteApp({
             // CTA box
             if (sec.type === "cta") return (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div className="bg-card border border-primary/20 rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                   <div>
                     <h3 className="text-base font-bold text-foreground mb-1">{sec.heading}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{sec.body}</p>
@@ -1312,15 +1312,15 @@ export function SiteApp({
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden py-24 md:py-36 px-6">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-            <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+            <span className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
               <BadgeCheck className="w-3.5 h-3.5" /> Marifah Tax Advisory
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               UAE Tax Compliance,<br />
-              <span className="text-primary">Made Simple.</span>
+              <span className="text-gold">Made Simple.</span>
             </h1>
             <p className="text-muted-foreground text-lg mb-8 max-w-lg leading-relaxed">
               Corporate Tax, VAT, and Accounting solutions for UAE businesses. Stay compliant, avoid penalties, and focus on growing your business.
@@ -1352,7 +1352,7 @@ export function SiteApp({
                 className="w-full h-56 object-cover rounded-t-3xl border border-primary/20 border-b-0"
               />
               <div className="relative bg-card border border-primary/20 rounded-b-3xl p-8 space-y-6">
-                <p className="text-xs font-bold tracking-widest uppercase text-primary">Why Marifah?</p>
+                <p className="text-xs font-bold tracking-widest uppercase text-gold">Why Marifah?</p>
                 {[
                   { icon: ShieldCheck, text: "100% FTA Compliant Process" },
                   { icon: Clock, text: "Registration in 3–5 Working Days" },
@@ -1381,14 +1381,14 @@ export function SiteApp({
       </section>
 
      {/* ── STATS BAR ── */}
-<section className="py-8 border-y border-primary/10 bg-card">
+<section className="dark py-10 bg-background">
   <StatsCounter />
 </section>
 
       {/* ── SERVICES ── */}
       <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">What We Offer</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">What We Offer</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">Everything your business needs to stay 100% FTA compliant — under one roof, at one firm.</p>
         </motion.div>
@@ -1450,7 +1450,7 @@ export function SiteApp({
       <section className="py-20 md:py-28 px-6 bg-card border-y border-primary/10">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Our Difference</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Our Difference</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Marifah?</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">UAE businesses trust us with their tax compliance. Here is exactly why.</p>
           </motion.div>
@@ -1483,7 +1483,7 @@ export function SiteApp({
       {/* ── HOW IT WORKS ── */}
       <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto overflow-hidden">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-20">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Simple Process</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Simple Process</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">Getting your business tax-compliant with Marifah is straightforward and hassle-free.</p>
         </motion.div>
@@ -1496,7 +1496,7 @@ export function SiteApp({
               <svg width="100%" height="4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <motion.line
                   x1="0" y1="2" x2="100%" y2="2"
-                  stroke="hsl(var(--primary))"
+                  stroke="var(--primary)"
                   strokeWidth="2"
                   strokeDasharray="8 7"
                   strokeLinecap="round"
@@ -1622,7 +1622,7 @@ export function SiteApp({
 <section className="py-20 md:py-28 px-6 bg-card border-y border-primary/10">
   <div className="max-w-7xl mx-auto">
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-      <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Client Reviews</p>
+      <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Client Reviews</p>
       <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Our Clients Say</h2>
       <p className="text-muted-foreground max-w-xl mx-auto">Real feedback from businesses we have helped across UAE.</p>
 
@@ -1723,7 +1723,7 @@ export function SiteApp({
       <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Knowledge Hub</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Knowledge Hub</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">Latest Insights</h2>
           </div>
           <button onClick={() => navigate("blog")} className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1 font-medium shrink-0">
@@ -1773,7 +1773,7 @@ export function SiteApp({
       <section className="py-20 md:py-28 px-6 bg-card border-t border-primary/10">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Common Questions</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Common Questions</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
             <p className="text-muted-foreground">Everything UAE businesses want to know about tax compliance.</p>
           </motion.div>
@@ -1800,10 +1800,10 @@ export function SiteApp({
 
       {/* ── CTA BANNER ── */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-3xl border border-primary/30 bg-primary/5 p-12 md:p-16 text-center relative overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="dark rounded-3xl border border-primary/30 bg-background p-12 md:p-16 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
           <div className="relative z-10">
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">Act Now — Don't Risk Penalties</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-gold mb-4">Act Now — Don't Risk Penalties</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">FTA Penalties Start at AED 1,000</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               Non-compliance penalties can reach AED 50,000+. Get your business fully compliant today with a free consultation from our experts.
@@ -1831,7 +1831,7 @@ export function SiteApp({
                 className="w-full h-72 object-cover object-center"
               />
             </div>
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-4">Get In Touch</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-gold mb-4">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Request a Free Consultation</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Fill in the form and one of our tax experts will reach out within 1 hour. No obligation, no pressure — just expert guidance tailored to your business.

@@ -19,7 +19,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
       <div className="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <a href="/" className="font-bold text-lg tracking-widest text-primary cursor-pointer shrink-0">
+        <a href="/" className="font-bold text-lg tracking-widest text-gold cursor-pointer shrink-0">
           {content.brand}
         </a>
         <div className="hidden lg:flex items-center gap-6">
@@ -65,10 +65,10 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
 
 function Footer() {
   return (
-    <footer className="bg-card border-t border-primary/20 mt-20">
+    <footer className="dark bg-background text-foreground border-t border-primary/20 mt-20">
       <div className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
-          <h3 className="text-primary font-bold text-base tracking-widest mb-4">{content.brand}</h3>
+          <h3 className="text-gold font-bold text-base tracking-widest mb-4">{content.brand}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed mb-6">
             UAE's trusted tax advisory firm — VAT, Corporate Tax & Accounting for businesses across all Emirates.
           </p>
@@ -227,7 +227,7 @@ export default function VATConsultancyDubai() {
               <Calculator className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
             </div>
             <div>
-              <span className="inline-block text-xs font-bold tracking-widest uppercase text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-gold bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-3">
                 High Demand
               </span>
               <motion.h1
@@ -265,7 +265,7 @@ export default function VATConsultancyDubai() {
 
         {/* WHAT'S INCLUDED */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">What&apos;s Included</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">What&apos;s Included</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {included.map((pt, i) => (
               <div key={i} className="flex items-start gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
@@ -278,7 +278,7 @@ export default function VATConsultancyDubai() {
 
         {/* HOW WE HELP */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">How We Help</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">How We Help</h2>
           <div className="space-y-4">
             {[
               { title: "VAT Registration (TRN)", body: "We obtain your Tax Registration Number from the FTA — typically within 3–5 working days. We handle document preparation, EmaraTax submission, and follow-up." },
@@ -302,7 +302,7 @@ export default function VATConsultancyDubai() {
 
         {/* HOW IT WORKS */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">How VAT Registration Works</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">How VAT Registration Works</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {steps.map((s, i) => (
               <div key={i} className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/25 transition-colors">
@@ -316,7 +316,7 @@ export default function VATConsultancyDubai() {
 
         {/* PRICING */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">Transparent Pricing</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">Transparent Pricing</h2>
           <div className="rounded-2xl border border-primary/20 overflow-hidden">
             {pricing.map((row, i) => (
               <div key={i} className={`flex items-center justify-between px-4 sm:px-6 py-4 border-b border-primary/10 last:border-0 ${row.highlight ? "bg-primary/10" : "bg-card"}`}>
@@ -333,7 +333,7 @@ export default function VATConsultancyDubai() {
 
         {/* PENALTIES TABLE */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">VAT Penalties to Avoid</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">VAT Penalties to Avoid</h2>
           <div className="rounded-2xl border border-primary/20 overflow-hidden">
             <div className="grid grid-cols-2 bg-primary/10 px-4 sm:px-6 py-3 border-b border-primary/20">
               <span className="text-xs font-bold uppercase tracking-widest text-primary">Violation</span>
@@ -351,7 +351,7 @@ export default function VATConsultancyDubai() {
 
         {/* TESTIMONIALS */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">What Our Clients Say</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">What Our Clients Say</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {testimonials.map((t, i) => (
               <div key={i} className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/30 transition-colors">
@@ -370,7 +370,7 @@ export default function VATConsultancyDubai() {
 
         {/* FAQ */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}>
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-5">Frequently Asked Questions</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">Frequently Asked Questions</h2>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-card border border-primary/10 rounded-2xl overflow-hidden hover:border-primary/25 transition-colors">
@@ -396,7 +396,7 @@ export default function VATConsultancyDubai() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.28 }}
-          className="bg-primary/5 border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-5"
+          className="bg-card border border-primary/20 rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-5"
         >
           <div>
             <h3 className="text-lg font-bold text-foreground mb-1">Get Your UAE VAT Sorted — Today</h3>

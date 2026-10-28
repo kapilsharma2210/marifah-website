@@ -258,7 +258,7 @@ export function OrderDocuments({ orderId, token }: { orderId: string; token: str
           </section>
         ) : (
           <section className="rounded-2xl border border-primary/20 bg-card p-5 sm:p-8">
-            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">Next step · Optional</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">Next step · Optional</p>
             <h2 className="text-xl font-bold text-foreground mb-2">Upload your documents</h2>
             <p className="text-sm text-muted-foreground mb-6">
               Upload what you have now — every document is optional. You can also email them to{" "}

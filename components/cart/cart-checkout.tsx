@@ -15,7 +15,7 @@ declare global {
 
 const RAZORPAY_SRC = "https://checkout.razorpay.com/v1/checkout.js";
 const DETAILS_KEY = "marifah_checkout_details_v1";
-const BRAND_COLOR = "#e6ad00";
+const BRAND_COLOR = "#1B2B5B";
 
 type Details = { name: string; company: string; email: string; phone: string; emirate: string };
 type FieldErrors = Partial<Record<keyof Details, string>>;
@@ -215,7 +215,7 @@ export function CartCheckout() {
         {/* LEFT: cart + details */}
         <div className="space-y-6 min-w-0">
           <section className="rounded-2xl border border-primary/20 bg-card">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-primary px-5 sm:px-6 pt-5">Your cart</h2>
+            <h2 className="text-xs font-bold tracking-widest uppercase text-gold px-5 sm:px-6 pt-5">Your cart</h2>
             <ul className="divide-y divide-primary/10">
               {items.map((item) => (
                 <li key={item.id} className="px-5 sm:px-6 py-5 flex gap-4">
@@ -269,7 +269,7 @@ export function CartCheckout() {
           </section>
 
           <section className="rounded-2xl border border-primary/20 bg-card p-5 sm:p-6">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-1">Your details</h2>
+            <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-1">Your details</h2>
             <p className="text-sm text-muted-foreground mb-5">We&apos;ll use these to contact you about your registration.</p>
             <div className="grid sm:grid-cols-2 gap-4">
               <Field id="name" label="Full name" error={errors.name}>
@@ -306,7 +306,7 @@ export function CartCheckout() {
 
         {/* RIGHT: summary + pay */}
         <aside className="rounded-2xl border-2 border-primary/60 bg-card p-5 sm:p-6 lg:sticky lg:top-24">
-          <h2 className="text-xs font-bold tracking-widest uppercase text-primary mb-4">Order summary</h2>
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-4">Order summary</h2>
           <div className="space-y-3 text-sm">
             {items.map((i) => (
               <div key={i.id} className="flex justify-between gap-4">
