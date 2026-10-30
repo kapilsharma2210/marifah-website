@@ -5,11 +5,38 @@ import {
   ArrowRight, Building2, ChevronRight, Lock, MessageCircle, Receipt, Rocket, ShieldCheck, TrendingUp, UserRound,
 } from "lucide-react";
 import { about } from "@/lib/about-data";
-import { DocFaq, DocList, DocParagraphs, DocSection, DocSteps, Paper } from "./doc-blocks";
+import { DocFaq, DocList, DocSteps, Paper } from "./doc-blocks";
 import { splitPrice, type ServiceInfo } from "./types";
 
 const VALUE_ICONS = [ShieldCheck, Receipt, MessageCircle, Lock];
 const AUDIENCE_ICONS = [Rocket, TrendingUp, Building2, UserRound];
+
+/** Section inside the About "paper": same look as the site's other inner pages (20px headings, 15px text). */
+function Section({ id, eyebrow, heading, children }: { id: string; eyebrow: string; heading: string; children: React.ReactNode }) {
+  return (
+    <section id={id} className="scroll-mt-28 py-8 first:pt-0 last:pb-0">
+      <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">{eyebrow}</p>
+      <h2 className="text-lg md:text-xl font-bold text-foreground leading-snug mb-4">{heading}</h2>
+      {children}
+    </section>
+  );
+}
+
+/** Gallery tile sizes: first photo large; the last one stretches so rows never end with a gap. */
+function tileClass(j: number, n: number) {
+  if (j === 0) return "col-span-2 row-span-2";
+  const small = n - 1;
+  if (j !== n - 1) return "";
+  const cls: string[] = [];
+  const mobileSpan = small % 2 === 1;
+  if (mobileSpan) cls.push("col-span-2");
+  const rest = small - 2;
+  const rem = rest > 0 ? rest % 3 : 0;
+  if (rem === 1) cls.push("md:col-span-3");
+  else if (rem === 2) cls.push("md:col-span-2");
+  else if (mobileSpan) cls.push("md:col-span-1");
+  return cls.join(" ");
+}
 
 /** The /about page: header, at-a-glance figures, structured story, sidebar and links to every service. */
 export function AboutPage({
@@ -113,16 +140,18 @@ export function AboutPage({
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,1fr)_340px] gap-10 lg:gap-12 items-start">
           <div className="min-w-0 space-y-8">
             <Paper>
-              <DocSection id="who-we-are" eyebrow="Who we are" heading="Tax compliance, handled properly">
-                <DocParagraphs paragraphs={about.whoWeAre} />
+              <Section id="who-we-are" eyebrow="Who we are" heading="Tax compliance, handled properly">
+                <div className="space-y-4">
+                  {about.whoWeAre.map((p, i) => (
+                    <p key={i} className="text-[15px] leading-7 text-muted-foreground">{p}</p>
+                  ))}
+                </div>
                 {about.photos.length > 0 && (
-                  <div className="mt-8 grid grid-cols-2 md:grid-cols-3 auto-rows-[130px] md:auto-rows-[160px] gap-3">
+                  <div className="mt-7 grid grid-cols-2 md:grid-cols-3 auto-rows-[130px] md:auto-rows-[160px] gap-3">
                     {about.photos.map((photo, j) => (
                       <div
                         key={photo.src}
-                        className={`relative overflow-hidden rounded-xl border border-border bg-muted ${
-                          j === 0 ? "col-span-2 row-span-2" : j === about.photos.length - 1 ? "col-span-2 md:col-span-1" : ""
-                        }`}
+                        className={`relative overflow-hidden rounded-xl border border-border bg-muted ${tileClass(j, about.photos.length)}`}
                       >
                         <img
                           src={photo.src}
@@ -135,10 +164,10 @@ export function AboutPage({
                     ))}
                   </div>
                 )}
-              </DocSection>
+              </Section>
 
-              <DocSection id="mission" eyebrow="Mission & values" heading="What we stand for">
-                <p className="border-l-4 border-gold pl-5 text-lg md:text-xl leading-relaxed text-foreground font-medium mb-8">
+              <Section id="mission" eyebrow="Mission & values" heading="What we stand for">
+                <p className="border-l-4 border-gold pl-5 text-base md:text-lg leading-relaxed text-foreground font-medium mb-6">
                   {about.mission}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -150,18 +179,18 @@ export function AboutPage({
                           <Icon className="w-5 h-5 text-primary" />
                         </div>
                         <h3 className="font-semibold text-foreground mb-1">{v.title}</h3>
-                        <p className="text-[15px] leading-6 text-foreground/75">{v.body}</p>
+                        <p className="text-sm leading-6 text-muted-foreground">{v.body}</p>
                       </div>
                     );
                   })}
                 </div>
-              </DocSection>
+              </Section>
 
-              <DocSection id="how-we-work" eyebrow="How we work" heading="From first call to filed return">
-                <DocSteps steps={about.process.map((s, i) => ({ num: i + 1, title: s.title, paragraphs: [s.body] }))} />
-              </DocSection>
+              <Section id="how-we-work" eyebrow="How we work" heading="From first call to filed return">
+                <div className="[&_h3]:text-base [&_p]:text-[15px] [&_p]:leading-6 [&_p]:text-muted-foreground"><DocSteps steps={about.process.map((s, i) => ({ num: i + 1, title: s.title, paragraphs: [s.body] }))} /></div>
+              </Section>
 
-              <DocSection id="who-we-serve" eyebrow="Who we work with" heading="Built for UAE businesses of every size">
+              <Section id="who-we-serve" eyebrow="Who we work with" heading="Built for UAE businesses of every size">
                 <div className="grid sm:grid-cols-2 gap-4">
                   {about.audiences.map((a, i) => {
                     const Icon = AUDIENCE_ICONS[i % AUDIENCE_ICONS.length];
@@ -172,20 +201,20 @@ export function AboutPage({
                         </div>
                         <div>
                           <h3 className="font-semibold text-foreground mb-1">{a.title}</h3>
-                          <p className="text-[15px] leading-6 text-foreground/75">{a.body}</p>
+                          <p className="text-sm leading-6 text-muted-foreground">{a.body}</p>
                         </div>
                       </div>
                     );
                   })}
                 </div>
-              </DocSection>
+              </Section>
 
-              <DocSection id="why-us" eyebrow="Why Marifah" heading="Why businesses trust us">
-                <DocList items={about.trust} columns={2} />
-              </DocSection>
+              <Section id="why-us" eyebrow="Why Marifah" heading="Why businesses trust us">
+                <div className="[&_li]:text-[15px] [&_li]:leading-6 [&_li]:text-muted-foreground"><DocList items={about.trust} columns={2} /></div>
+              </Section>
 
               {about.team.length > 0 && (
-                <DocSection id="team" eyebrow="Our team" heading="The people behind your filings">
+                <Section id="team" eyebrow="Our team" heading="The people behind your filings">
                   <div className="grid sm:grid-cols-2 gap-5">
                     {about.team.map((m) => (
                       <div key={m.name} className="rounded-xl border border-border p-5">
@@ -211,24 +240,24 @@ export function AboutPage({
                             ))}
                           </div>
                         )}
-                        <p className="text-[15px] leading-6 text-foreground/75">{m.bio}</p>
+                        <p className="text-sm leading-6 text-muted-foreground">{m.bio}</p>
                       </div>
                     ))}
                   </div>
-                </DocSection>
+                </Section>
               )}
 
               {about.faq.length > 0 && (
-                <DocSection id="faq" eyebrow="Working with us" heading="Common questions">
-                  <DocFaq items={about.faq} />
-                </DocSection>
+                <Section id="faq" eyebrow="Working with us" heading="Common questions">
+                  <div className="[&_dt]:text-base [&_dd]:text-[15px] [&_dd]:leading-6 [&_dd]:text-muted-foreground"><DocFaq items={about.faq} /></div>
+                </Section>
               )}
             </Paper>
 
             {/* Our promise */}
             <section className="dark rounded-2xl bg-background border border-primary/20 p-8 md:p-10">
               <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Our promise</p>
-              <p className="text-lg md:text-xl leading-relaxed text-foreground mb-7">{about.promise}</p>
+              <p className="text-base md:text-lg leading-relaxed text-foreground mb-6">{about.promise}</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   type="button"
