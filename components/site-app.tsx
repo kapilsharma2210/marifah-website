@@ -20,6 +20,7 @@ import { ServicesOverview } from "@/components/content/services-overview";
 import { BlogIndex } from "@/components/content/blog-index";
 import { BlogArticle } from "@/components/content/blog-article";
 import { ServiceDetail } from "@/components/content/service-detail";
+import { AboutPage } from "@/components/content/about-page";
 import { sitePages } from "@/lib/site-pages";
 import { siteConfig } from "@/lib/site-config";
 import { blogs, blogSlug, findBlog } from "@/lib/blog-data";
@@ -208,16 +209,10 @@ const faqs = [
 ];
 
 const pageContent: Record<string, { title: string; sections: { heading: string; body: string }[] }> = {
+  // The About page has its own layout and content: see lib/about-data.ts and components/content/about-page.tsx.
   about: {
     title: "About Marifah Tax Advisory",
-    sections: [
-      { heading: "ABOUT_HERO_IMAGE", body: "" },
-      { heading: "Who We Are", body: "Marifah Tax Advisory is dedicated to helping businesses navigate the complexities of UAE taxation. Founded by experienced tax professionals, we have built a reputation for accuracy, reliability, and client-first service. Whether you are a startup, SME, or an established enterprise, we are your trusted partner in tax compliance and financial clarity." },
-      { heading: "Our Mission", body: "Our mission is simple — to make UAE tax compliance easy, affordable, and stress-free for every business. We believe that no business should suffer penalties or financial losses due to lack of proper tax guidance. We bridge the gap between complex FTA regulations and your business needs, so you can focus on what matters most — growing your business." },
-      { heading: "Why Businesses Trust Us", body: "CHECKLIST:Experienced & certified tax professionals|100% FTA-compliant processes|Transparent pricing — no hidden charges|Fast turnaround — registrations done in days|Dedicated support — we answer your calls and emails|Serving 2000+ businesses across UAE" },
-      { heading: "Our Expertise", body: "We specialise in UAE Corporate Tax, VAT Registration & Filing, Accounting & Bookkeeping, and Tax Advisory. Our team stays updated with every FTA regulation change so that your business is always compliant and never caught off guard." },
-      { heading: "Our Promise to You", body: "When you choose Marifah Tax Advisory, you are not just hiring a tax firm — you are gaining a committed partner who genuinely cares about your business success. We go beyond filing returns. We advise, we plan, and we protect your business from unnecessary tax burdens and FTA penalties." },
-    ],
+    sections: [],
   },
   services: {
     title: "Our Services",
@@ -610,23 +605,6 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog, onService }:
               const checklistItems = isChecklist
                 ? section.body.replace("CHECKLIST:", "").split("|")
                 : [];
-              if (section.heading === "ABOUT_HERO_IMAGE") return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-                  <div className="relative rounded-2xl overflow-hidden border border-primary/10 shadow-sm">
-                    <img
-                      src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=90"
-                      alt="Dubai skyline — UAE business hub"
-                      className="w-full h-80 object-cover object-center"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-5 left-6 right-6">
-                      <p className="text-white text-sm font-medium opacity-90">Dubai, United Arab Emirates</p>
-                      <p className="text-white/70 text-xs mt-0.5">Serving businesses across all Emirates</p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-
               if (section.heading === "CONTACT_CARDS") return (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
                   <div className="grid sm:grid-cols-3 gap-4">
@@ -978,6 +956,29 @@ export function SiteApp({
     window.scrollTo(0, 0);
   };
 
+  // ── ABOUT US — its own structured layout ─────────────────────────
+  if (activePage === "about" && !selectedBlog && !selectedService) {
+    return (
+      <div className="bg-background text-foreground min-h-screen">
+        <div className="border-b border-primary/20 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+          <Navbar onNav={navigate} onConsultancy={() => setConsultancyOpen(true)} />
+        </div>
+        <AboutPage
+          services={services}
+          stats={stats}
+          slugOf={serviceSlug}
+          onService={(s) => openService(s as ServicePlan)}
+          onAllServices={() => navigate("services")}
+          onConsultancy={() => setConsultancyOpen(true)}
+          whatsapp={content.whatsapp}
+        />
+        <Footer onNav={navigate} />
+        <FloatingWhatsApp />
+        <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
+      </div>
+    );
+  }
+
   // ── INNER PAGES — only when no blog/service detail is open ───────
   if (activePage && pageContent[activePage] && !selectedBlog && !selectedService) {
     return (
@@ -1209,7 +1210,7 @@ export function SiteApp({
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14 rounded-2xl overflow-hidden border border-primary/10">
             <img
               src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1400&q=90"
-              alt="Marifah tax advisory team in a professional meeting"
+              alt="Business professionals in a meeting"
               className="w-full h-72 md:h-96 object-cover object-center"
             />
           </motion.div>
