@@ -38,7 +38,31 @@ export async function submitEnquiry(enquiry: Enquiry): Promise<boolean> {
     });
     if (!res.ok) return false;
     const data = await res.json().catch(() => ({}));
-    return data?.ok === true;
+    const ok = data?.ok === true;
+    if (ok) remember("enquiry_sent");
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
+// ---- Automatic pop-up bookkeeping (stored in the visitor's browser) ----
+// "welcome" = shown once after arriving, "exit" = shown once when leaving (computers),
+// "enquiry_sent" = visitor already sent a form, so never show the pop-up again.
+type Flag = "welcome" | "exit" | "enquiry_sent";
+const memoryFlags = new Set<Flag>(); // fallback when the browser blocks storage
+
+export function remember(flag: Flag) {
+  memoryFlags.add(flag);
+  try {
+    localStorage.setItem(`marifah_popup_${flag}`, "1");
+  } catch {}
+}
+
+export function hasFlag(flag: Flag) {
+  if (memoryFlags.has(flag)) return true;
+  try {
+    return localStorage.getItem(`marifah_popup_${flag}`) === "1";
   } catch {
     return false;
   }
