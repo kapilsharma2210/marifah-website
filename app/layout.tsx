@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ConsultationPrompt } from '@/components/consultation-prompt'
 import './globals.css'
 import { siteConfig } from '@/lib/site-config'
 
@@ -258,6 +259,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
+        <ConsultationPrompt />
         <Analytics />
       </body>
     </html>
