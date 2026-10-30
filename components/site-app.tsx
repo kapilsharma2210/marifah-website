@@ -13,6 +13,7 @@ import {
   TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
+import { submitEnquiry, whatsappLink, type Enquiry } from "@/lib/contact";
 import { CartButton } from "@/components/cart/cart-button";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
 import { CT_REGISTRATION_ID } from "@/lib/checkout/products";
@@ -850,6 +851,8 @@ export function SiteApp({
     (initialBlogSlug ? "blog" : initialPage) as PageKey | null
   );
   const [consultancyOpen, setConsultancyOpen] = useState(false);
+  const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+  const [contactEnquiry, setContactEnquiry] = useState<Enquiry | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -927,16 +930,26 @@ export function SiteApp({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Homepage contact form: emailed to info@marifahtax.com via /api/contact (WhatsApp if email fails).
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (contactStatus === "sending") return;
     const form = e.currentTarget;
-    const formData = new FormData(form);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const phone = formData.get("phone") as string;
-    const msg = formData.get("requirement") as string;
-    const whatsappMessage = `Hello Marifah Tax Advisory,\n\nThis is ${name}.\nEmail: ${email}\nPhone: ${phone}\n\nRequirement: ${msg}`;
-    window.open(`https://wa.me/${content.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`);
+    const fd = new FormData(form);
+    const enquiry: Enquiry = {
+      name: String(fd.get("name") || "").trim(),
+      phone: String(fd.get("phone") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      message: String(fd.get("requirement") || "").trim(),
+      service: "General enquiry",
+      source: "homepage contact form",
+      website: String(fd.get("website") || ""),
+    };
+    setContactEnquiry(enquiry);
+    setContactStatus("sending");
+    const ok = await submitEnquiry(enquiry);
+    setContactStatus(ok ? "sent" : "failed");
+    if (ok) form.reset();
   };
 
   const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -1613,17 +1626,36 @@ export function SiteApp({
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="bg-background border border-primary/20 rounded-2xl p-8">
-              <form onSubmit={handleSubmit} className="grid gap-4">
+              <form onSubmit={handleSubmit} className="relative grid gap-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <Input name="name" placeholder="Full Name" required className="bg-card border-border" />
                   <Input name="phone" type="tel" placeholder="Phone Number" required className="bg-card border-border" />
                 </div>
                 <Input name="email" type="email" placeholder="Email Address" required className="bg-card border-border" />
                 <Textarea name="requirement" placeholder="What do you need help with? (e.g. VAT Registration, Corporate Tax Filing...)" required className="bg-card border-border min-h-[120px]" />
-                <Button type="submit" className="bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all hover:scale-105 py-3 text-base font-medium">
-                  <MessageCircle className="w-4 h-4 mr-2" />Send via WhatsApp
+                {/* Spam trap: hidden from people, bots fill it in */}
+                <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] w-px h-px opacity-0" />
+                {contactStatus === "sent" && (
+                  <div role="status" className="rounded-xl border border-primary/20 bg-primary/5 px-4 py-3 text-sm text-foreground flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>Thank you{contactEnquiry?.name ? `, ${contactEnquiry.name.split(" ")[0]}` : ""}! We&apos;ve received your request and will contact you within 1 business hour.</span>
+                  </div>
+                )}
+                {contactStatus === "failed" && (
+                  <div role="alert" className="rounded-xl border border-gold/30 bg-gold/[0.07] px-4 py-3 text-sm text-foreground">
+                    <p>We couldn&apos;t send your request just now. Please send it on WhatsApp instead. Your details are already filled in.</p>
+                    <a href={whatsappLink(contactEnquiry ?? undefined)} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-2 font-semibold text-primary">
+                      <MessageCircle className="w-4 h-4" />Send on WhatsApp
+                    </a>
+                  </div>
+                )}
+                <Button type="submit" disabled={contactStatus === "sending"} className="bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all hover:scale-105 py-3 text-base font-medium disabled:opacity-70 disabled:hover:scale-100">
+                  {contactStatus === "sending" ? "Sending…" : "Send Request"}
                 </Button>
-                <p className="text-xs text-center text-muted-foreground">We respond within 1 hour during business hours.</p>
+                <p className="text-xs text-center text-muted-foreground">
+                  We respond within 1 hour during business hours. Prefer WhatsApp?{" "}
+                  <a href={`https://wa.me/${content.whatsapp}`} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">Chat with us</a>
+                </p>
               </form>
             </div>
           </motion.div>
