@@ -1,11 +1,11 @@
 'use client';
 
-// Opens the "Free Consultation" pop-up automatically, at most twice per visitor:
+// Opens the "Free Consultation" pop-up automatically, at most twice per visit:
 //   1. once, a few seconds after they arrive ("welcome");
 //   2. once more when they move to leave the site on a computer ("exit"): the mouse
 //      heads for the browser's tab bar / close button. Phones have no such signal.
-// It never appears again after that, never after the visitor has sent an enquiry,
-// and never on the cart or checkout pages.
+// Every new visit (new tab, or coming back later) starts again. It never appears once the
+// visitor has sent an enquiry, and never on the cart or checkout pages.
 
 import { useEffect, useRef, useState } from 'react';
 import { ConsultancyForm } from '@/components/consultancy-form';
