@@ -20,6 +20,7 @@ import {
   SERVICE_GROUPS,
   isValidEmail,
   isValidPhone,
+  remember,
   submitEnquiry,
   whatsappLink,
   type Enquiry,
@@ -28,6 +29,10 @@ import {
 interface ConsultancyFormProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  /** Optional heading overrides (used by the automatic "Before you go" pop-up). */
+  eyebrow?: string;
+  title?: string;
+  description?: string;
 }
 
 type Field = 'name' | 'phone' | 'email' | 'service';
@@ -36,14 +41,17 @@ type Status = 'idle' | 'sending' | 'sent' | 'failed';
 const EMPTY = { name: '', company: '', phone: '', email: '', service: '', contactBy: 'WhatsApp', message: '', website: '' };
 const METHOD_ICONS = { WhatsApp: MessageCircle, Email: Mail } as const;
 
-export function ConsultancyForm({ open, onOpenChange }: ConsultancyFormProps) {
+export function ConsultancyForm({ open, onOpenChange, eyebrow, title, description }: ConsultancyFormProps) {
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [status, setStatus] = useState<Status>('idle');
 
   // Start fresh each time the pop-up is closed (after the closing animation).
   useEffect(() => {
-    if (open) return;
+    if (open) {
+      remember('welcome'); // visitor has seen the form, so the automatic welcome pop-up isn't needed
+      return;
+    }
     const t = setTimeout(() => {
       setForm(EMPTY);
       setErrors({});
@@ -104,14 +112,14 @@ export function ConsultancyForm({ open, onOpenChange }: ConsultancyFormProps) {
             <X className="w-5 h-5" />
             <span className="sr-only">Close</span>
           </DialogClose>
-          <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">Free consultation</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-gold mb-2">{(status !== 'sent' && eyebrow) || 'Free consultation'}</p>
           <DialogTitle className="text-2xl font-bold text-foreground leading-tight pr-8">
-            {status === 'sent' ? 'Request received' : 'Book your free consultation'}
+            {status === 'sent' ? 'Request received' : title || 'Book your free consultation'}
           </DialogTitle>
           <DialogDescription className="mt-2 text-sm text-muted-foreground leading-relaxed">
             {status === 'sent'
               ? 'Thank you for contacting Marifah Tax Advisory.'
-              : 'Tell us a little about your business. A tax advisor will get back to you within 1 business hour.'}
+              : description || 'Tell us a little about your business. A tax advisor will get back to you within 1 business hour.'}
           </DialogDescription>
           {status !== 'sent' && (
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-foreground/85">
