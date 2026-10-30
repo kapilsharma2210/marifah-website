@@ -47,22 +47,28 @@ export async function submitEnquiry(enquiry: Enquiry): Promise<boolean> {
 }
 
 // ---- Automatic pop-up bookkeeping (stored in the visitor's browser) ----
-// "welcome" = shown once after arriving, "exit" = shown once when leaving (computers),
-// "enquiry_sent" = visitor already sent a form, so never show the pop-up again.
+// "welcome" = shown once after arriving, "exit" = shown once when leaving (computers).
+// Both reset on every new visit (a new tab or coming back later), so each visit shows
+// the pop-up up to twice. Reloading or moving between pages in the same visit doesn't repeat it.
+// "enquiry_sent" = visitor has already sent us a form, so they aren't shown the pop-up again.
 type Flag = "welcome" | "exit" | "enquiry_sent";
 const memoryFlags = new Set<Flag>(); // fallback when the browser blocks storage
+
+function store(flag: Flag): Storage {
+  return flag === "enquiry_sent" ? localStorage : sessionStorage;
+}
 
 export function remember(flag: Flag) {
   memoryFlags.add(flag);
   try {
-    localStorage.setItem(`marifah_popup_${flag}`, "1");
+    store(flag).setItem(`marifah_popup_${flag}`, "1");
   } catch {}
 }
 
 export function hasFlag(flag: Flag) {
   if (memoryFlags.has(flag)) return true;
   try {
-    return localStorage.getItem(`marifah_popup_${flag}`) === "1";
+    return store(flag).getItem(`marifah_popup_${flag}`) === "1";
   } catch {
     return false;
   }
