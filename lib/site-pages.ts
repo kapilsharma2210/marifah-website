@@ -3,7 +3,7 @@
 export const sitePages = {
   about: {
     title: "About Us | Marifah Tax Advisory — UAE Tax Consultants",
-    description: "Marifah Tax Advisory helps UAE businesses with Corporate Tax, VAT and accounting. Meet a tax partner focused on clear advice and FTA compliance.",
+    description: "Marifah Tax Advisory helps UAE businesses with Corporate Tax, VAT and accounting. See who we are, how we work and why businesses across all Emirates trust us.",
   },
   services: {
     title: "Our Services | Corporate Tax, VAT & Accounting UAE | Marifah Tax Advisory",
