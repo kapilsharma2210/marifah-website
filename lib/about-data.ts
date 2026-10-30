@@ -26,7 +26,7 @@ export const about = {
 
   // 1. Who we are
   whoWeAre: [
-    "Marifah Tax Advisory is a tax advisory firm serving businesses in the United Arab Emirates. We focus on three areas — Corporate Tax, VAT and accounting — and work with startups, SMEs, free zone companies and freelancers who want their tax obligations handled correctly and on time.",
+    "Marifah Tax Advisory serves businesses in the United Arab Emirates. We focus on three areas — Corporate Tax, VAT and accounting — and work with startups, SMEs, free zone companies and freelancers who want their tax obligations handled correctly and on time.",
     "Since Corporate Tax was introduced in the UAE in 2023, compliance has become more demanding for every business. Our role is to make it simple: we explain what applies to you in plain language, prepare and file everything with the Federal Tax Authority (FTA), and keep you ahead of deadlines and regulation changes.",
     "Everything can be handled online. You share documents securely, we keep you updated on WhatsApp and email, and you always know what has been filed and what comes next.",
   ],
