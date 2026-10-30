@@ -31,15 +31,16 @@ export const about = {
     "Everything can be handled online. You share documents securely, we keep you updated on WhatsApp and email, and you always know what has been filed and what comes next.",
   ],
 
-  // Optional photo strip under "Who we are". Files go in /public/images/.
+  // Optional photo strip under "Who we are". Files go in the /public folder.
   // The first photo is shown large. Leave the list empty ([]) to hide it.
+  // To add a reception photo, upload a real, unbranded one as /public/office-reception.jpg
+  // and add: { src: "/office-reception.jpg", alt: "Office reception area" },
   photos: [
-    { src: "/images/office-workspace.jpg", alt: "Modern office workspace with a glass-walled meeting room" },
-    { src: "/images/office-reception.jpg", alt: "Office reception area with marble desk" },
-    { src: "/images/client-meeting.jpg", alt: "Advisor discussing a business matter with clients at a meeting table" },
-    { src: "/images/document-review.jpg", alt: "Two professionals reviewing documents at a table" },
-    { src: "/images/office-desk.jpg", alt: "Office desk with computer and plants" },
-    { src: "/images/team-discussion.jpg", alt: "Business professionals talking in an office lobby" },
+    { src: "/office-workspace.jpg", alt: "Small office workspace with desk and chairs" },
+    { src: "/client-meeting.jpg", alt: "Advisor discussing a business matter with clients at a meeting table" },
+    { src: "/document-review.jpg", alt: "Two professionals reviewing documents at a table" },
+    { src: "/office-desk.jpg", alt: "Office desk with computer and plants" },
+    { src: "/team-discussion.jpg", alt: "Business professionals talking in an office lobby" },
   ],
 
   // 2. Mission & values
