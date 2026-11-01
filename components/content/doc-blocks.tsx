@@ -125,6 +125,17 @@ export function DocFaq({ items }: { items: { title: string; body: string }[] }) 
   );
 }
 
+export function DocFigure({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure>
+      <div className="overflow-hidden rounded-xl border border-border bg-muted">
+        <img src={src} alt={alt} loading="lazy" decoding="async" className="w-full aspect-[16/9] object-cover" />
+      </div>
+      {caption && <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{caption}</figcaption>}
+    </figure>
+  );
+}
+
 export function DocCallout({ heading, body }: { heading?: string; body: string }) {
   return (
     <div className="rounded-xl border border-gold/25 border-l-4 border-l-gold bg-gold/[0.06] px-5 py-5 sm:px-6">

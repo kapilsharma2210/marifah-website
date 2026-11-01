@@ -244,7 +244,7 @@ const pageContent: Record<string, { title: string; sections: { heading: string; 
   ],
   },
 };
-type Blog = { title: string; excerpt?: string; category?: string; readTime?: string; sections?: any[] };
+type Blog = { title: string; excerpt?: string; category?: string; readTime?: string; updated?: string; cover?: { src: string; alt?: string; credit?: string }; sections?: any[] };
 type ServicePlan = typeof services[0];
 type PageKey = keyof typeof pageContent;
 
@@ -1506,7 +1506,7 @@ export function SiteApp({
 }}>
                 <div className="relative overflow-hidden shrink-0 -mt-px">
                   <img
-                    src={[
+                    src={(b as Blog).cover?.src || [
   "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1400&q=90",
   "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1400&q=90",
   "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=90",

@@ -5,8 +5,8 @@ import { ArrowRight, ChevronDown, ChevronRight, Clock, MessageCircle } from "luc
 import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { BlogCard } from "./blog-index";
 import { toBlocks, type Block } from "./article-blocks";
-import { DocCallout, DocFaq, DocList, DocParagraphs, DocSection, DocSteps, DocTable, DocTimeline, Paper } from "./doc-blocks";
-import type { BlogPost } from "./types";
+import { DocCallout, DocFaq, DocFigure, DocList, DocParagraphs, DocSection, DocSteps, DocTable, DocTimeline, Paper } from "./doc-blocks";
+import { formatDate, type BlogPost } from "./types";
 
 /** A single blog article: header, readable body, "On this page" menu, help box and related articles. */
 export function BlogArticle({
@@ -118,10 +118,25 @@ export function BlogArticle({
               <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">M</div>
               <p className="text-sm">
                 <span className="block font-semibold text-foreground">Marifah Tax Advisory</span>
-                <span className="text-muted-foreground">UAE Tax Insights</span>
+                <span className="text-muted-foreground">
+                  UAE Tax Insights{blog.updated && <> · Updated {formatDate(blog.updated)}</>}
+                </span>
               </p>
             </div>
           </div>
+          {blog.cover?.src && (
+            <figure className="mt-10">
+              <div className="overflow-hidden rounded-3xl border border-border bg-muted">
+                <img
+                  src={blog.cover.src}
+                  alt={blog.cover.alt || blog.title}
+                  fetchPriority="high"
+                  className="w-full aspect-[16/9] md:aspect-[21/9] object-cover"
+                />
+              </div>
+              {blog.cover.credit && <figcaption className="mt-2 text-xs text-muted-foreground text-right">{blog.cover.credit}</figcaption>}
+            </figure>
+          )}
         </div>
       </header>
 
@@ -256,6 +271,12 @@ function BlockView({ block: b }: { block: Block }) {
       return (
         <DocSection id={b.id}>
           <DocCallout heading={b.heading} body={b.body} />
+        </DocSection>
+      );
+    case "image":
+      return (
+        <DocSection id={b.id}>
+          <DocFigure src={b.src} alt={b.alt} caption={b.caption} />
         </DocSection>
       );
     default:

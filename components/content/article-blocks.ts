@@ -14,6 +14,7 @@ export type Block =
   | { kind: "timeline"; id: string; heading?: string; events: { date: string; title: string; body: string }[] }
   | { kind: "faq"; id: string; heading?: string; items: Item[] }
   | { kind: "callout"; id: string; heading?: string; body: string }
+  | { kind: "image"; id: string; heading?: undefined; src: string; alt: string; caption?: string }
   | { kind: "cta"; id: string; heading?: string; body: string };
 
 const ABBREVIATIONS = /(?:\b(?:No|Nos|e\.g|i\.e|vs|etc|Dr|Mr|Mrs|Ms|St|Art|approx|Co|Ltd|Inc))\.$/i;
@@ -138,6 +139,8 @@ export function toBlocks(sections: BlogSection[]): Block[] {
           steps: items.map((x, j) => ({ num: j + 1, title: x.title, paragraphs: toParagraphs(x.body) })),
         });
       }
+    } else if (s.type === "image" && s.src) {
+      blocks.push({ kind: "image", id: nextId(), src: s.src, alt: s.alt || "", caption: s.caption });
     } else if (s.type === "alert") {
       blocks.push({ kind: "callout", id: nextId(), heading: s.heading, body: s.body || "" });
     } else if (s.type === "cta") {

@@ -284,7 +284,7 @@ export default function VATConsultancyDubai() {
               { title: "VAT Registration (TRN)", body: "We obtain your Tax Registration Number from the FTA — typically within 3–5 working days. We handle document preparation, EmaraTax submission, and follow-up." },
               { title: "Quarterly VAT Return Filing", body: "Accurate input/output VAT reconciliation and timely return submission before every FTA deadline. You get a summary report after every filing." },
               { title: "VAT Advisory & Consultancy", body: "Not sure which supplies are zero-rated vs exempt? We advise on VAT treatment for your specific business — retail, real estate, healthcare, export." },
-              { title: "VAT Deregistration", body: "If your taxable turnover falls below AED 375,000, we manage the full deregistration process and final VAT return with FTA." },
+              { title: "VAT Deregistration", body: "If you stop making taxable supplies, your turnover drops below the AED 187,500 voluntary threshold, or you qualify to deregister voluntarily below AED 375,000, we manage the deregistration application and final VAT return with the FTA." },
               { title: "VAT Refund Assistance", body: "Exporters and eligible businesses can claim VAT refunds from the UAE FTA. We prepare and submit your refund application with full documentation." },
             ].map((sec, i) => (
               <div key={i} className="bg-card border border-primary/10 rounded-2xl p-6 hover:border-primary/25 transition-colors">

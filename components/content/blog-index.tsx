@@ -111,7 +111,7 @@ export function BlogIndex({ blogs, onBlog }: { blogs: BlogPost[]; onBlog: (b: Bl
         >
           <div className="relative min-h-56 md:min-h-80 overflow-hidden bg-muted">
             <img
-              src={BLOG_IMAGES[0]}
+              src={featured.cover?.src || BLOG_IMAGES[0]}
               alt={featured.title}
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
