@@ -104,7 +104,7 @@ const services = [
     ],
     pricing: [
       { label: "VAT Registration (TRN)", price: "AED 799" },
-      { label: "VAT Return Filing (four quarter)", price: "AED 1,599" },
+      { label: "VAT Return Filing (four quarters)", price: "AED 1,599" },
     ],
   },
   {
