@@ -31,28 +31,28 @@ export const REVIEW_SERVICES = [
 export const FEATURED_REVIEWS: Review[] = [
   {
     id: "featured-1",
-    name: null,
+    name: "Chukwuka Ahmed",
     rating: 5,
     service: "VAT Registration & Filing",
     text: "Marifah handled our VAT registration and filing seamlessly. We never had to worry about FTA deadlines again. Highly recommended!",
   },
   {
     id: "featured-2",
-    name: null,
+    name: "Khalil",
     rating: 5,
     service: "Tax Advisory",
     text: "Professional, responsive, and very knowledgeable. They saved us from a potential AED 20,000 penalty with their timely advice.",
   },
   {
     id: "featured-3",
-    name: null,
+    name: "Bilal",
     rating: 5,
     service: "Full Compliance Package",
     text: "Best tax consultancy in UAE. Their full package is great value — covers everything our business needs at a very fair price.",
   },
   {
     id: "featured-4",
-    name: null,
+    name: "Syed",
     rating: 5,
     text: "Switched from another firm to Marifah and the difference is night and day. Fast, accurate, and always available when we need them.",
   },
