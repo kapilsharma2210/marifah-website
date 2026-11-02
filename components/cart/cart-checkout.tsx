@@ -14,7 +14,9 @@ declare global {
 }
 
 const RAZORPAY_SRC = "https://checkout.razorpay.com/v1/checkout.js";
-const DETAILS_KEY = "marifah_checkout_details_v1";
+// Older versions saved checkout details in the browser under this key.
+// Details are no longer saved; the key is only used to wipe old leftovers.
+const LEGACY_DETAILS_KEY = "marifah_checkout_details_v1";
 const BRAND_COLOR = "#1B2B5B";
 
 type Details = { name: string; company: string; email: string; phone: string; emirate: string };
@@ -57,12 +59,12 @@ export function CartCheckout() {
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
-  // Restore details typed earlier in this browser, and preload Razorpay.
+  // The form always starts empty: details are never saved in the browser.
+  // Remove anything an older version of the site may have saved, and preload Razorpay.
   useEffect(() => {
     setMounted(true);
     try {
-      const saved = JSON.parse(window.localStorage.getItem(DETAILS_KEY) || "null");
-      if (saved && typeof saved === "object") setDetails({ ...EMPTY_DETAILS, ...saved });
+      window.localStorage.removeItem(LEGACY_DETAILS_KEY);
     } catch {
       /* ignore */
     }
@@ -73,11 +75,6 @@ export function CartCheckout() {
     const next = { ...details, [key]: value };
     setDetails(next);
     if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
-    try {
-      window.localStorage.setItem(DETAILS_KEY, JSON.stringify(next));
-    } catch {
-      /* ignore */
-    }
   };
 
   const busy = status !== "idle";
@@ -154,11 +151,6 @@ export function CartCheckout() {
           const data = await res.json().catch(() => ({}));
           if (!res.ok || !data?.token) throw new Error(data?.error || "verify failed");
           clear();
-          try {
-            window.localStorage.removeItem(DETAILS_KEY);
-          } catch {
-            /* ignore */
-          }
           window.location.href = `/checkout/success?order=${encodeURIComponent(data.orderId)}&t=${encodeURIComponent(data.token)}`;
         } catch {
           clear();
