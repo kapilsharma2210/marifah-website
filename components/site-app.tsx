@@ -394,6 +394,12 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
             ].map(({ s, slug }) => (
               <li key={s}><a href={`/services/${slug}`} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{s}</a></li>
             ))}
+            {[
+              { s: "Corporate Tax Consultants UAE", href: "/corporate-tax-consultants-uae" },
+              { s: "VAT Consultancy Dubai", href: "/vat-consultancy-dubai" },
+            ].map(({ s, href }) => (
+              <li key={href}><a href={href} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{s}</a></li>
+            ))}
           </ul>
         </div>
 
@@ -401,7 +407,19 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
           <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Company</h4>
           <ul className="space-y-3">
             {(["about", "services", "packages", "blog", "contact"] as PageKey[]).map(p => (
-              <li key={p}><button onClick={() => onNav(p)} className="text-sm text-muted-foreground hover:text-primary transition-colors capitalize text-left">{p}</button></li>
+              <li key={p}>
+                <a
+                  href={`/${p}`}
+                  onClick={(e) => {
+                    if (isModifiedClick(e)) return;
+                    e.preventDefault();
+                    onNav(p);
+                  }}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors capitalize text-left"
+                >
+                  {p}
+                </a>
+              </li>
             ))}
           </ul>
         </div>

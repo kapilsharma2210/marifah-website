@@ -43,9 +43,19 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     author: { "@type": "Organization", name: "Marifah Tax Advisory" },
     publisher: { "@id": "https://www.marifahtax.com/#organization" },
   };
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.marifahtax.com/" },
+      { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.marifahtax.com/blog" },
+      { "@type": "ListItem", position: 3, name: blog.title, item: `https://www.marifahtax.com/blog/${slug}` },
+    ],
+  };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <SiteApp initialBlogSlug={slug} />
     </>
   );
