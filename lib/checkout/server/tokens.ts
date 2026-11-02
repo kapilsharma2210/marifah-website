@@ -37,3 +37,15 @@ export function verifyFilePath(pathname: string, signature: unknown) {
   if (typeof signature !== "string" || !signature) return false;
   return safeEqual(signFilePath(pathname), signature);
 }
+
+export type ReviewAction = "approve" | "reject" | "remove";
+
+/** Signature for the approve / reject / remove links in the "New review" email. */
+export function signReviewAction(id: string, action: ReviewAction) {
+  return sign(`review-${action}`, id);
+}
+
+export function verifyReviewAction(id: string, action: ReviewAction, signature: unknown) {
+  if (typeof signature !== "string" || !signature) return false;
+  return safeEqual(signReviewAction(id, action), signature);
+}

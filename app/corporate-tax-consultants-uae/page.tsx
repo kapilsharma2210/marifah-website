@@ -10,6 +10,8 @@ import { ConsultancyForm } from "@/components/consultancy-form";
 import { CartButton } from "@/components/cart/cart-button";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
 import { siteConfig } from "@/lib/site-config";
+import { FEATURED_REVIEWS } from "@/lib/reviews/data";
+import { ReviewCard } from "@/components/reviews/review-card";
 
 const content = { brand: "MARIFAH TAX ADVISORY", whatsapp: "971505815245" };
 
@@ -165,11 +167,6 @@ const faqs = [
   { q: "Are dividends and capital gains taxable?", a: "Dividends from UAE subsidiaries and qualifying capital gains on shares are generally exempt under the Participation Exemption — subject to specific conditions." },
 ];
 
-const testimonials = [
-  { name: "Ahmed Al Mansouri", role: "CEO, Dubai Trading Co.", text: "Marifah handled our corporate tax registration seamlessly. We never had to worry about FTA deadlines again. Highly recommended!", stars: 5 },
-  { name: "Omar Khalid", role: "Owner, Al Noor Retail", text: "Best tax consultancy in UAE. Their full package is great value — covers everything our business needs at a very fair price.", stars: 5 },
-  { name: "Priya Sharma", role: "Director, Horizon Consulting", text: "They saved us from a potential AED 10,000 penalty for late registration. Professional, fast, and very knowledgeable.", stars: 5 },
-];
 
 export default function CorporateTaxConsultantsUAE() {
   const [consultancyOpen, setConsultancyOpen] = useState(false);
@@ -341,18 +338,13 @@ export default function CorporateTaxConsultantsUAE() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22 }}>
           <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">What Our Clients Say</h2>
           <div className="grid sm:grid-cols-3 gap-4">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/30 transition-colors">
-                <div className="flex gap-0.5 mb-3">
-                  {Array(t.stars).fill(0).map((_, j) => <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />)}
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
+            {FEATURED_REVIEWS.slice(0, 3).map((r) => (
+              <ReviewCard key={r.id} review={r} clamp />
             ))}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            <a href="/reviews" className="text-primary hover:underline">Read all reviews →</a>
+            <a href="/reviews#write" className="text-primary hover:underline">Write a review</a>
           </div>
         </motion.div>
 

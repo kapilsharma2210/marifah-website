@@ -1,4 +1,8 @@
 import { SiteApp } from "@/components/site-app";
+import { allPublicReviews } from "@/lib/reviews/server";
+
+// Re-checked every 5 minutes so newly approved reviews appear on the homepage.
+export const revalidate = 300;
 
 // Structured data that describes the homepage only (its FAQ section and service list).
 // Kept here rather than in app/layout.tsx so it isn't repeated on every page.
@@ -117,12 +121,13 @@ const servicesSchema = {
               ]
             };
 
-export default function Home() {
+export default async function Home() {
+  const reviews = await allPublicReviews();
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
-      <SiteApp />
+      <SiteApp reviews={reviews} />
     </>
   );
 }

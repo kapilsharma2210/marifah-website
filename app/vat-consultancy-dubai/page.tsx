@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
 import { siteConfig } from "@/lib/site-config";
+import { FEATURED_REVIEWS } from "@/lib/reviews/data";
+import { ReviewCard } from "@/components/reviews/review-card";
 
 const content = { brand: "MARIFAH TAX ADVISORY", whatsapp: "971505815245" };
 
@@ -166,11 +168,6 @@ const faqs = [
   { q: "Do free zone companies pay UAE VAT?", a: "Generally yes, unless operating in a Designated Zone. The treatment depends on where your customers are based and the nature of your supply." },
 ];
 
-const testimonials = [
-  { name: "Ahmed Al Mansouri", role: "CEO, Dubai Trading Co.", text: "Marifah handled our VAT registration and filing seamlessly. We never had to worry about FTA deadlines again. Highly recommended!", stars: 5 },
-  { name: "Priya Sharma", role: "Director, Horizon Consulting", text: "Professional, responsive, and very knowledgeable. They saved us from a potential AED 20,000 penalty with their timely advice.", stars: 5 },
-  { name: "Omar Khalid", role: "Owner, Al Noor Retail", text: "Best tax consultancy in UAE. Their VAT package is great value — covers everything our business needs.", stars: 5 },
-];
 
 export default function VATConsultancyDubai() {
   const [consultancyOpen, setConsultancyOpen] = useState(false);
@@ -351,18 +348,13 @@ export default function VATConsultancyDubai() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }}>
           <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">What Our Clients Say</h2>
           <div className="grid sm:grid-cols-3 gap-4">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-card border border-primary/10 rounded-2xl p-5 hover:border-primary/30 transition-colors">
-                <div className="flex gap-0.5 mb-3">
-                  {Array(t.stars).fill(0).map((_, j) => <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />)}
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
+            {FEATURED_REVIEWS.slice(0, 3).map((r) => (
+              <ReviewCard key={r.id} review={r} clamp />
             ))}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            <a href="/reviews" className="text-primary hover:underline">Read all reviews →</a>
+            <a href="/reviews#write" className="text-primary hover:underline">Write a review</a>
           </div>
         </motion.div>
 
