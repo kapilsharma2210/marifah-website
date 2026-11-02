@@ -239,7 +239,7 @@ export default function VATConsultancyDubai() {
             </div>
           </div>
           <p className="mt-5 text-muted-foreground leading-relaxed text-sm sm:text-base border-l-2 border-primary/40 pl-4">
-            Trusted by 5,000+ UAE businesses for VAT registration, return filing, and FTA compliance. From AED 799. We handle every step — so you never face an FTA penalty.
+            Trusted by 2000+ UAE businesses for VAT registration, return filing, and FTA compliance. From AED 799. We handle every step — so you never face an FTA penalty.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <button

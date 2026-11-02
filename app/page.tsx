@@ -72,6 +72,18 @@ const servicesSchema = {
                   "position": 2,
                   "item": {
                     "@type": "Service",
+                    "name": "Corporate Tax Return Filing UAE",
+                    "description": "Annual Corporate Tax return preparation and filing with the FTA through EmaraTax.",
+                    "provider": { "@id": "https://www.marifahtax.com/#organization" },
+                    "areaServed": "UAE",
+                    "offers": { "@type": "Offer", "price": "1999", "priceCurrency": "AED" }
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@type": "Service",
                     "name": "UAE VAT Registration Services",
                     "description": "VAT registration with FTA for businesses exceeding the AED 375,000 mandatory threshold.",
                     "provider": { "@id": "https://www.marifahtax.com/#organization" },
@@ -81,7 +93,7 @@ const servicesSchema = {
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "item": {
                     "@type": "Service",
                     "name": "VAT Return Filing UAE",
@@ -92,7 +104,7 @@ const servicesSchema = {
                 },
                 {
                   "@type": "ListItem",
-                  "position": 4,
+                  "position": 5,
                   "item": {
                     "@type": "Service",
                     "name": "Bookkeeping and Accounting UAE",

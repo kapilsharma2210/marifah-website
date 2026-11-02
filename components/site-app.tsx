@@ -36,7 +36,7 @@ const content = {
 
 const stats = [
   { value: "2000+", label: "Businesses Served" },
-  { value: "100%", label: "FTA Compliant" },
+  { value: "100%", label: "Expert-Reviewed Filings" },
   { value: "3+", label: "Years Experience" },
   { value: "AED 0", label: "Hidden Charges" },
 ];
@@ -527,7 +527,7 @@ function InnerPage({ pageKey, onBack, onNav, onConsultancy, onBlog, onService }:
                   <p className="text-2xl font-bold text-primary">AED 499 <span className="text-sm font-normal text-muted-foreground">/ registration</span></p>
                   <p className="text-lg font-semibold text-foreground">AED 1,999 <span className="text-sm font-normal text-muted-foreground">/ return filing</span></p>
                 </div>
-                <p className="text-muted-foreground text-sm">Full corporate tax compliance handled by certified experts.</p>
+                <p className="text-muted-foreground text-sm">Full corporate tax compliance handled by experienced tax professionals.</p>
                 <div className="border-t border-primary/10 pt-4 flex flex-col gap-2">
                   {["FTA corporate tax registration", "Annual tax return filing", "Free zone eligibility assessment", "Dedicated tax advisor"].map((f) => (
                     <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -1116,7 +1116,7 @@ export function SiteApp({
               </Button>
             </div>
             <div className="flex flex-wrap gap-5">
-              {["No Hidden Fees", "FTA Compliant", "Fast Turnaround"].map(tag => (
+              {["No Hidden Fees", "Experienced Tax Professionals", "Fast Turnaround"].map(tag => (
                 <span key={tag} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />{tag}
                 </span>
@@ -1136,7 +1136,7 @@ export function SiteApp({
               <div className="relative bg-card border border-primary/20 rounded-b-3xl p-8 space-y-6">
                 <p className="text-xs font-bold tracking-widest uppercase text-gold">Why Marifah?</p>
                 {[
-                  { icon: ShieldCheck, text: "100% FTA Compliant Process" },
+                  { icon: ShieldCheck, text: "Experienced Tax Professionals" },
                   { icon: Clock, text: "Registration in 3–5 Working Days" },
                   { icon: Users, text: "Dedicated Tax Advisor Assigned" },
                   { icon: Award, text: "Transparent, Flat-Fee Pricing" },
@@ -1172,7 +1172,7 @@ export function SiteApp({
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
           <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">What We Offer</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">Everything your business needs to stay 100% FTA compliant — under one roof, at one firm.</p>
+          <p className="text-muted-foreground max-w-xl mx-auto">Everything your business needs to stay compliant — handled by experienced tax professionals, under one roof, at one firm.</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

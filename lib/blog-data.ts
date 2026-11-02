@@ -1629,8 +1629,8 @@ export const blogs = [
       },
       {
         type: "alert",
-        heading: "Third Party Access — Tax Agents",
-        body: "If you appoint a registered UAE Tax Agent (like Marifah Tax Advisory) to manage your account, they can be granted access to your EmaraTax profile. This allows the agent to file returns, respond to FTA queries, and manage your compliance — without you needing to log in for every action. Tax agent access is set up from within your EmaraTax dashboard under 'Linkage to Tax Agent'.",
+        heading: "Getting Professional Help With EmaraTax",
+        body: "You do not have to manage EmaraTax alone. The tax professionals at Marifah Tax Advisory can prepare your registrations and returns, check them before submission, help you respond to FTA queries and keep track of every deadline, so your compliance stays on schedule without you having to work through each step yourself.",
       },
       {
         type: "cta",

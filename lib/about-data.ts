@@ -11,7 +11,7 @@ export type TeamMember = {
   role: string;
   bio: string;
   photo?: string; // e.g. "/images/team/your-name.jpg" (square photo, at least 400×400)
-  credentials?: string[]; // e.g. ["ACCA", "FTA-registered Tax Agent"]
+  credentials?: string[]; // e.g. ["ACCA", "CA"]
 };
 
 export const about = {
@@ -72,8 +72,8 @@ export const about = {
 
   // 5. Why businesses trust us
   trust: [
-    "Experienced & certified tax professionals",
-    "100% FTA-compliant processes",
+    "Experienced tax and accounting professionals",
+    "Every filing prepared and reviewed by our professionals",
     "Transparent pricing — no hidden charges",
     "Fast turnaround — registrations done in days",
     "Dedicated support — we answer your calls and emails",
