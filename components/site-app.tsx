@@ -396,7 +396,11 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
             ))}
             {[
               { s: "Corporate Tax Consultants UAE", href: "/corporate-tax-consultants-uae" },
+              { s: "Corporate Tax Return Filing UAE", href: "/corporate-tax-return-filing-uae" },
               { s: "VAT Consultancy Dubai", href: "/vat-consultancy-dubai" },
+              { s: "Accounting & Bookkeeping Dubai", href: "/accounting-bookkeeping-services-dubai" },
+              { s: "Tax Consultants in Abu Dhabi", href: "/tax-consultants-abu-dhabi" },
+              { s: "Tax Consultants in Sharjah", href: "/tax-consultants-sharjah" },
             ].map(({ s, href }) => (
               <li key={href}><a href={href} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{s}</a></li>
             ))}
