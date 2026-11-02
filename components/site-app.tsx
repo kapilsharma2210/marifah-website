@@ -18,7 +18,7 @@ import { CartButton } from "@/components/cart/cart-button";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
 import { CT_REGISTRATION_ID } from "@/lib/checkout/products";
 import { ServicesOverview } from "@/components/content/services-overview";
-import { BlogIndex } from "@/components/content/blog-index";
+import { BlogIndex, isModifiedClick } from "@/components/content/blog-index";
 import { BlogArticle } from "@/components/content/blog-article";
 import { ServiceDetail } from "@/components/content/service-detail";
 import { AboutPage } from "@/components/content/about-page";
@@ -1497,11 +1497,18 @@ export function SiteApp({
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {blogs.slice(0, 6).map((b, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer overflow-hidden p-0" onClick={() => {
-  setScrollPosition(window.scrollY);
-  setSelectedBlog(b);
-  window.history.pushState({ type: "blog", title: b.title }, "", `/blog/${blogSlug(b)}`);
-}}>
+              <a
+                href={`/blog/${blogSlug(b)}`}
+                className="block h-full"
+                onClick={(e) => {
+                  if (isModifiedClick(e)) return;
+                  e.preventDefault();
+                  setScrollPosition(window.scrollY);
+                  setSelectedBlog(b);
+                  window.history.pushState({ type: "blog", title: b.title }, "", `/blog/${blogSlug(b)}`);
+                }}
+              >
+              <Card className="rounded-2xl bg-card border border-border hover:border-primary transition-all group h-full cursor-pointer overflow-hidden p-0">
                 <div className="relative overflow-hidden shrink-0 -mt-px">
                   <img
                     src={(b as Blog).cover?.src || [
@@ -1528,6 +1535,7 @@ export function SiteApp({
                   </span>
                 </CardContent>
               </Card>
+              </a>
             </motion.div>
           ))}
         </div>

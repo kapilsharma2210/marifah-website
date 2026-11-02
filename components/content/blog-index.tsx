@@ -23,9 +23,16 @@ export function categoryIcon(category?: string) {
   return BookOpen;
 }
 
-const linkProps = (b: BlogPost, onBlog: (b: BlogPost) => void) => ({
+/** True for a click the browser should handle itself: Ctrl/Cmd/Shift/Alt-click or a non-left button (new tab / new window). */
+export const isModifiedClick = (e: React.MouseEvent) =>
+  e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+
+// Every article card is a real link to its own /blog/<slug> page, so "Open in new tab",
+// Ctrl/Cmd-click and middle-click all work. A plain click opens it in place without a reload.
+export const linkProps = (b: BlogPost, onBlog: (b: BlogPost) => void) => ({
   href: `/blog/${blogSlug(b)}`,
   onClick: (e: React.MouseEvent) => {
+    if (isModifiedClick(e)) return;
     e.preventDefault();
     onBlog(b);
   },
