@@ -30,6 +30,20 @@ export const REVIEW_SERVICES = [
 
 export const FEATURED_REVIEWS: Review[] = [
   {
+    id: "featured-mohit",
+    name: "Mohit",
+    rating: 5,
+    service: "Corporate Tax Registration",
+    text: "I run my business from India, and Marifah Tax Advisory has been a great support in helping me stay compliant with UAE tax laws and regulations. Their team is knowledgeable, professional, and highly responsive. They completed my Corporate Tax Registration within just 2 days, making the entire process smooth and hassle-free.\n\nI truly appreciate their support and would highly recommend Marifah Tax Advisory to businesses looking for reliable tax and accounting services in the UAE.",
+  },
+  {
+    id: "featured-zamal",
+    name: "Zamal",
+    rating: 5,
+    service: "VAT & Corporate Tax",
+    text: "I had a great experience with Marifah Tax Advisory. Their team is professional, knowledgeable, and responsive. They provide clear guidance on UAE VAT and Corporate Tax requirements and make the entire process smooth and hassle-free. Highly recommended for businesses looking for reliable tax and accounting services in the UAE!",
+  },
+  {
     id: "featured-1",
     name: "Chukwuka Ahmed",
     rating: 5,

@@ -26,7 +26,7 @@ export function ReviewCard({ review, clamp = false }: { review: Review; clamp?: 
     <figure className="relative h-full flex flex-col rounded-2xl bg-background border border-border p-6 sm:p-7 hover:border-primary/30 hover:shadow-sm transition-all">
       <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/10" aria-hidden="true" />
       <Stars rating={review.rating} />
-      <blockquote className={`mt-4 text-[15px] text-foreground/85 leading-relaxed flex-grow ${clamp ? "line-clamp-5" : ""}`}>
+      <blockquote className={`mt-4 text-[15px] text-foreground/85 leading-relaxed whitespace-pre-line flex-grow ${clamp ? "line-clamp-5" : ""}`}>
         {review.text}
       </blockquote>
       <figcaption className="mt-6 pt-4 border-t border-border flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
