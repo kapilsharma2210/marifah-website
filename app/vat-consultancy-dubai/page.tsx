@@ -128,10 +128,9 @@ function FloatingWhatsApp() {
   );
 }
 
-const pricing = [
+const pricing: { label: string; price: string; buyOnline?: boolean; highlight?: boolean }[] = [
   { label: "VAT Registration (TRN)", price: "AED 599" },
   { label: "VAT Return Filing (four quarters)", price: "AED 1,499" },
-  { label: "Registration + Filing Combo", price: "AED 1,999", highlight: true },
 ];
 
 const included = [
@@ -202,8 +201,7 @@ export default function VATConsultancyDubai() {
             ],
             "offers": [
               { "@type": "Offer", "name": "VAT Registration", "price": "599", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "VAT Return Filing", "price": "1499", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "VAT Registration + Filing Combo", "price": "1999", "priceCurrency": "AED" }
+              { "@type": "Offer", "name": "VAT Return Filing", "price": "1499", "priceCurrency": "AED" }
             ]
           })
         }}

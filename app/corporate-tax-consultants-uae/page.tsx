@@ -133,10 +133,9 @@ function FloatingWhatsApp() {
   );
 }
 
-const pricing = [
+const pricing: { label: string; price: string; buyOnline?: boolean; highlight?: boolean }[] = [
   { label: "Corporate Tax Registration", price: "AED 499", buyOnline: true },
-  { label: "Corporate Tax Return Filing", price: "AED 2,199" },
-  { label: "Registration + Filing Combo", price: "AED 2,599", highlight: true },
+  { label: "Corporate Tax Return Filing", price: "AED 1,999" },
 ];
 
 const included = [
@@ -197,8 +196,7 @@ export default function CorporateTaxConsultantsUAE() {
             "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
             "offers": [
               { "@type": "Offer", "name": "Corporate Tax Registration", "price": "499", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "Corporate Tax Return Filing", "price": "2199", "priceCurrency": "AED" },
-              { "@type": "Offer", "name": "Registration + Filing Combo", "price": "2599", "priceCurrency": "AED" }
+              { "@type": "Offer", "name": "Corporate Tax Return Filing", "price": "1999", "priceCurrency": "AED" }
             ]
           })
         }}
@@ -277,7 +275,7 @@ export default function CorporateTaxConsultantsUAE() {
           <div className="space-y-4">
             {[
               { title: "Corporate Tax Registration — AED 499", body: "We register your business with the FTA for Corporate Tax via the EmaraTax portal. Document preparation, submission, and follow-up all handled. Turnaround: 3–5 working days." },
-              { title: "Corporate Tax Return Filing — AED 2,199", body: "We prepare your annual Corporate Tax return based on your audited or management accounts, calculate your taxable income correctly, and file before the FTA deadline." },
+              { title: "Corporate Tax Return Filing — AED 1,999", body: "We prepare your annual Corporate Tax return based on your audited or management accounts, calculate your taxable income correctly, and file before the FTA deadline." },
               { title: "Tax Impact Assessment", body: "Not sure how Corporate Tax affects your business? We analyse your current financials and project your tax liability — so there are no surprises at year-end." },
               { title: "Free Zone Eligibility Review", body: "Qualifying Free Zone Persons can benefit from a 0% rate on qualifying income. We assess your eligibility and structure your filing accordingly." },
               { title: "Small Business Relief Election", body: "If your revenue is under AED 3 million, you may qualify to elect Small Business Relief and pay 0% tax. We assess your eligibility and file the election correctly with FTA." },
