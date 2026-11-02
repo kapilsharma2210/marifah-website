@@ -28,6 +28,7 @@ const NAV = [
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
   { label: "Insights", href: "/blog" },
+  { label: "Penalty Calculator", href: "/uae-tax-penalty-calculator" },
   { label: "Contact", href: "/contact" },
 ];
 

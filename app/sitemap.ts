@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/contact`, changeFrequency: "yearly", priority: 0.7 },
     { url: `${BASE}/reviews`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${BASE}/uae-tax-penalty-calculator`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },
   ];
 

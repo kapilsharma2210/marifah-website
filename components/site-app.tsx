@@ -258,7 +258,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-6 list-none">
+        <ul className="hidden lg:flex items-center gap-5 xl:gap-6 list-none whitespace-nowrap">
           <li><button onClick={() => onNav(null)} className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</button></li>
           <li><a href="/about" onClick={(e) => { e.preventDefault(); onNav("about"); }} className="text-sm text-foreground hover:text-primary transition-colors">About</a></li>
           <li className="relative group">
@@ -294,6 +294,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
           </li>
           <li><a href="/packages" onClick={(e) => { e.preventDefault(); onNav("packages"); }} className="text-sm text-foreground hover:text-primary transition-colors">Packages</a></li>
           <li><a href="/blog" onClick={(e) => { e.preventDefault(); onNav("blog"); }} className="text-sm text-foreground hover:text-primary transition-colors">Blog</a></li>
+          <li><a href="/uae-tax-penalty-calculator" className="text-sm text-foreground hover:text-primary transition-colors">Penalty Calculator</a></li>
           <li><a href="/contact" onClick={(e) => { e.preventDefault(); onNav("contact"); }} className="text-sm text-foreground hover:text-primary transition-colors">Contact</a></li>
         </ul>
 
@@ -302,7 +303,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
             href={`https://wa.me/${content.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+            className="hidden xl:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
           >
             <PhoneCall className="w-4 h-4" />
             <span className="text-sm">{`+${content.whatsapp}`}</span>
@@ -346,6 +347,9 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
               {label}
             </button>
           ))}
+          <a href="/uae-tax-penalty-calculator" className="text-left text-base text-foreground hover:text-primary py-3 transition-colors">
+            Penalty Calculator
+          </a>
           <Button
             onClick={() => { onConsultancy(); setMobileOpen(false); }}
             className="mt-3 w-full bg-primary text-primary-foreground rounded-full py-2 text-sm hover:bg-primary/90"
@@ -422,6 +426,7 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
               </li>
             ))}
             <li><a href="/reviews" className="text-sm text-muted-foreground hover:text-primary transition-colors">Reviews</a></li>
+            <li><a href="/uae-tax-penalty-calculator" className="text-sm text-muted-foreground hover:text-primary transition-colors">Tax Penalty Calculator</a></li>
           </ul>
         </div>
 
@@ -1500,6 +1505,25 @@ export function SiteApp({
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* ── PENALTY CALCULATOR ── */}
+      <section className="px-6 py-16 md:py-20">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="max-w-7xl mx-auto rounded-3xl bg-primary text-primary-foreground p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <p className="text-xs font-bold tracking-widest uppercase text-primary-foreground/70 mb-3">Free Tool</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Missed an FTA deadline? Check your penalty.</h2>
+            <p className="text-primary-foreground/80 max-w-2xl leading-relaxed">
+              Our UAE Tax Penalty Calculator works out the penalty for late VAT or Corporate Tax registration, late returns, late payment,
+              voluntary disclosures and e-invoicing — even if you are only one day late.
+            </p>
+          </div>
+          <a href="/uae-tax-penalty-calculator"
+            className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-7 py-3.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity shrink-0">
+            <Calculator className="w-4 h-4" /> Calculate my penalty
+          </a>
+        </motion.div>
       </section>
 
       {/* ── FAQ ── */}
