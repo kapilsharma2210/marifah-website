@@ -51,11 +51,13 @@ export async function POST(req: NextRequest) {
   const id = `${now.toISOString().slice(0, 10).replace(/-/g, "")}-${crypto.randomBytes(5).toString("hex")}`;
   const review = { id, name, email, rating, text, service, date: now.toISOString().slice(0, 10), submittedAt: now.toISOString() };
 
+  let saved = true;
   try {
     await savePendingReview(review);
   } catch (err) {
+    // Don't lose the review: it is still emailed to you below, so it can be added by hand.
+    saved = false;
     console.error("[reviews] could not save review", err);
-    return NextResponse.json({ ok: false, error: "unavailable" }, { status: 503 });
   }
 
   const link = (action: "approve" | "reject") =>
@@ -63,7 +65,9 @@ export async function POST(req: NextRequest) {
   const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
   const { html, text: plain } = emailLayout({
     heading: `New review: ${stars}`,
-    intro: `${name} left a review on marifahtax.com. It is not visible on the website until you approve it.`,
+    intro: saved
+      ? `${name} left a review on marifahtax.com. It is not visible on the website until you approve it.`
+      : `${name} left a review on marifahtax.com, but the website couldn't store it, so the Approve button below won't work. Reply here and it can be added to the website by hand.`,
     rows: [
       ["Name", name],
       ["Email (not shown)", email],
@@ -77,12 +81,13 @@ export async function POST(req: NextRequest) {
       `<a href="${link("reject")}" style="display:inline-block;border:1px solid #1B2B5B;color:#1B2B5B;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:bold">Reject</a>` +
       `</div>`,
   });
-  await sendEmail({
-    subject: `New ${rating}-star review from ${name}`,
+  const emailed = await sendEmail({
+    subject: `New ${rating}-star review from ${name}${saved ? "" : " (not saved — action needed)"}`,
     html,
     text: `${plain}\n\nReview:\n${text}\n\nApprove: ${link("approve")}\nReject: ${link("reject")}`,
     replyTo: email,
   });
 
+  if (!saved && !emailed) return NextResponse.json({ ok: false, error: "unavailable" }, { status: 503 });
   return NextResponse.json({ ok: true });
 }

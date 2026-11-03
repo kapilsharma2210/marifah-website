@@ -12,8 +12,10 @@ const APPROVED = "reviews/approved/";
 
 export const isValidReviewId = (id: unknown): id is string => typeof id === "string" && /^[a-z0-9-]{8,64}$/.test(id);
 
+// Vercel connects the Blob store either with a read-write token or (the default for new
+// stores) automatically through OIDC, which sets BLOB_STORE_ID. Either one is enough.
 function storageReady() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  return Boolean(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID);
 }
 
 async function readJson(pathname: string): Promise<StoredReview | null> {
@@ -27,7 +29,6 @@ async function readJson(pathname: string): Promise<StoredReview | null> {
 }
 
 export async function savePendingReview(review: StoredReview) {
-  if (!storageReady()) throw new Error("storage_not_configured");
   await put(`${PENDING}${review.id}.json`, JSON.stringify(review), {
     access: "private",
     contentType: "application/json",
