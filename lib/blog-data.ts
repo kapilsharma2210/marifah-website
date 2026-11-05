@@ -10,6 +10,166 @@ export function slugify(text: string): string {
 }
 
 export const blogs = [
+  // ── NEW UAE TAX PENALTIES 2026 (2026-11-05) ────────────────────────────
+  {
+    title: "UAE Tax Penalties 2026: Every FTA Fine Explained and What Changed on 14 April",
+    excerpt: "A plain-English guide to every FTA penalty for VAT, Corporate Tax, Excise Tax and e-invoicing, with worked examples, the 14 April 2026 changes, and practical ways to keep penalties down.",
+    category: "Tax Procedures",
+    readTime: "10 min read",
+    updated: "2026-11-05",
+    cover: {
+      src: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1400&q=80&auto=format&fit=crop",
+      alt: "Calculator and financial paperwork on a desk",
+      credit: "Photo: Unsplash",
+    },
+    sections: [
+      {
+        type: "text",
+        heading: "Why UAE Tax Penalties Matter More in 2026",
+        body: "The Federal Tax Authority (FTA) charges administrative penalties when a business registers late, files or pays late, makes an error, or doesn't keep proper records. On 14 April 2026, the penalties for VAT and Excise Tax changed under Cabinet Decision No. 129 of 2025. Some became smaller, and the way late payment is charged changed completely.\n\nThis guide explains every penalty in simple language, shows what being late actually costs, and covers the practical ways to keep penalties down. To work out your own figure, down to a single day late, use our free UAE Tax Penalty Calculator at marifahtax.com/uae-tax-penalty-calculator.",
+      },
+      {
+        type: "checklist",
+        heading: "The Most Common Penalties at a Glance",
+        items: [
+          "Late VAT registration: AED 10,000",
+          "Late Corporate Tax registration: AED 10,000",
+          "Late VAT return: AED 1,000 (AED 2,000 if repeated within 24 months)",
+          "Late Corporate Tax return: AED 500 a month for 12 months, then AED 1,000 a month",
+          "Late payment of tax: 14% a year on the unpaid tax, charged monthly",
+          "Voluntary disclosure of an error: 1% of the error per month",
+          "Error found after an audit notice: 15% of the error plus 1% per month",
+          "Incorrect tax return: AED 500",
+          "Late deregistration: AED 1,000, then AED 1,000 a month (maximum AED 10,000)",
+        ],
+      },
+      {
+        type: "image",
+        src: "/blog/uae-tax-penalties-2026/what-changed-april-2026.png",
+        alt: "Table comparing VAT and Excise penalties before and after 14 April 2026: late payment, voluntary disclosure, error found after audit notice, incorrect return, tax record not updated, records not in Arabic",
+        caption: "The main VAT and Excise Tax penalties before and after Cabinet Decision No. 129 of 2025 took effect.",
+      },
+      {
+        type: "text",
+        heading: "What Changed on 14 April 2026",
+        body: "Late payment used to be expensive and fast-growing: 2% the day after the due date, another 4% on the seventh day, then 1% a day from one month after the due date, up to 300% of the tax. It is now 14% a year, charged as roughly 1.17% of the unpaid tax for each month or part of a month.\n\nVoluntary disclosures used to cost a fixed 5% to 40% of the error, depending on how old it was. They now cost 1% of the error for each month from the original deadline until you disclose it. If the FTA finds the error after notifying you of an audit, the penalty is 15% plus 1% a month, down from 50%.\n\nSeveral fixed penalties were also reduced: an incorrect return is now AED 500, failing to update your tax record is AED 1,000 (AED 5,000 if repeated), and not providing records in Arabic is AED 5,000.\n\nThese changes apply to VAT and Excise Tax. Corporate Tax penalties are set by a separate decision, Cabinet Decision No. 75 of 2023, which this reform did not change.",
+      },
+      {
+        type: "alert",
+        heading: "\"Each month or part of a month\" means one day late counts as a full month",
+        body: "Most monthly penalties are charged from the day after the deadline and again on the same date every month. So a Corporate Tax return filed one day late costs AED 500, the same as one filed 30 days late. Filing even a week earlier can save a whole month's penalty.",
+      },
+      {
+        type: "checklist",
+        heading: "VAT Penalties",
+        items: [
+          "Late registration: AED 10,000",
+          "Late return: AED 1,000 (AED 2,000 if repeated within 24 months)",
+          "Late payment: 14% a year on the unpaid tax, charged monthly",
+          "Incorrect return: AED 500, unless corrected before the deadline",
+          "Voluntary disclosure: 1% of the tax difference per month",
+          "Error found after audit notice: 15% of the tax difference plus 1% per month",
+          "Late deregistration: AED 1,000, then AED 1,000 a month (maximum AED 10,000)",
+          "Tax record not updated: AED 1,000 (AED 5,000 if repeated within 24 months)",
+          "Required records not kept: AED 10,000 (AED 20,000 if repeated within 24 months)",
+          "Prices not shown including VAT: AED 5,000",
+          "Tax invoice or credit note not issued on time: AED 2,500 for each one",
+          "Tax on imported goods not calculated: 50% of the unpaid tax",
+          "Not facilitating a tax audit: AED 20,000",
+        ],
+      },
+      {
+        type: "text",
+        heading: "VAT Deadlines to Remember",
+        body: "A VAT return and the VAT due must both reach the FTA by the 28th day after the end of the tax period. For a quarter ending 30 June, that is 28 July. You must apply to register within 30 days of your taxable supplies passing the AED 375,000 mandatory threshold. If you register late, the FTA can also charge VAT from the date you should have been registered, with late-payment penalties on top of the AED 10,000.",
+      },
+      {
+        type: "checklist",
+        heading: "Corporate Tax Penalties",
+        items: [
+          "Late registration: AED 10,000",
+          "Late return: AED 500 a month for months 1–12, then AED 1,000 a month",
+          "Late payment: 14% a year on the unpaid tax, charged monthly",
+          "Incorrect return: AED 500, unless corrected before the deadline",
+          "Voluntary disclosure: 1% of the tax difference per month",
+          "Error found after audit notice: 15% of the tax difference plus 1% per month",
+          "Late deregistration: AED 1,000, then AED 1,000 a month (maximum AED 10,000)",
+          "Tax record not updated: AED 1,000 (AED 5,000 if repeated within 24 months)",
+          "Required records not kept: AED 10,000 (AED 20,000 if repeated within 24 months)",
+          "Late annual declaration (for example, by an exempt person): AED 500 a month for 12 months, then AED 1,000 a month",
+          "Not facilitating a tax audit: AED 20,000",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Corporate Tax Deadlines to Remember",
+        body: "Your Corporate Tax return and any tax due must be filed and paid within 9 months of the end of your tax period. For a financial year ending 31 December 2025, the deadline was 30 September 2026. For a year ending 31 March 2026, it is 31 December 2026. A return is due even if you made a loss or elected Small Business Relief, so a missed return is penalised even when no tax is owed.",
+      },
+      {
+        type: "image",
+        src: "/blog/uae-tax-penalties-2026/worked-examples.png",
+        alt: "Three worked examples: VAT return and payment one day late costs AED 1,233.33; Corporate Tax 107 days late costs AED 3,400; a VAT error of AED 10,000 costs AED 700 if disclosed voluntarily versus AED 2,200 if found after an audit notice",
+        caption: "Worked examples calculated with the Marifah UAE Tax Penalty Calculator.",
+      },
+      {
+        type: "numbered",
+        heading: "Worked Examples",
+        items: [
+          { title: "VAT filed and paid one day late", body: "A quarter ends on 30 June 2026, so the deadline is 28 July. The business files and pays AED 20,000 of VAT on 29 July. The late return costs AED 1,000 (first time), and late payment costs one month at 14% ÷ 12 of AED 20,000, which is AED 233.33. Total: AED 1,233.33." },
+          { title: "Corporate Tax filed and paid 107 days late", body: "The financial year ended 31 December 2025, so the deadline was 30 September 2026. The return is filed and AED 30,000 of tax paid on 15 January 2027. That counts as 4 months (charged on 1 October, 1 November, 1 December and 1 January). The late return costs 4 × AED 500 = AED 2,000, and late payment costs 4 × AED 350 = AED 1,400. Total: AED 3,400." },
+          { title: "A VAT error of AED 10,000", body: "A business under-declared AED 10,000 of VAT in its return for the quarter ending 31 March 2026 (due 28 April). If it makes a voluntary disclosure on 10 November 2026, that is 7 months at 1%: AED 700. If the FTA had found the error after an audit notice instead, the penalty would be 15% (AED 1,500) plus the same AED 700: AED 2,200. In both cases the AED 10,000 of tax is still payable." },
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "Excise Tax and E-Invoicing Penalties",
+        items: [
+          "Excise Tax: The same registration, return, payment, disclosure and record penalties as VAT",
+          "Excise prices not shown including tax: AED 5,000",
+          "Excise price lists not provided: AED 5,000 (AED 10,000 if repeated)",
+          "E-invoicing system or service provider not in place by your deadline: AED 5,000, then AED 5,000 a month (maximum AED 50,000 in any 12 months)",
+          "E-invoice or e-credit note not issued and sent on time: AED 100 each (maximum AED 5,000 a calendar month)",
+          "Service provider not told about changes to your data: AED 250 a day (maximum AED 5,000 a calendar month)",
+        ],
+      },
+      {
+        type: "text",
+        heading: "About the E-Invoicing Penalties",
+        body: "The e-invoicing penalties come from Cabinet Decision No. 173 of 2026, which replaced the earlier Cabinet Decision No. 106 of 2025. They only start to apply once your business's mandatory e-invoicing date has passed. Our guide to e-invoicing in the UAE explains which deadline applies to you.",
+      },
+      {
+        type: "numbered",
+        heading: "How to Keep Penalties Down",
+        items: [
+          { title: "File on time, even if you can't pay yet", body: "Late filing and late payment are separate penalties. Filing on time avoids the filing penalty, even if the tax is paid a little later." },
+          { title: "Pay as soon as you can", body: "Late payment is charged for each month or part of a month. Paying before the next monthly date stops another 1.17% being added." },
+          { title: "Disclose errors yourself, early", body: "A voluntary disclosure costs 1% of the error per month. Waiting until the FTA notifies you of an audit adds a fixed 15% on top, so it pays to correct mistakes as soon as you find them." },
+          { title: "Correct a return before its deadline", body: "If you spot an error before the return is due, correct it then. There is no incorrect-return penalty if it is fixed before the deadline." },
+          { title: "Use the Corporate Tax registration waiver if you qualify", body: "Under the FTA's waiver initiative, the AED 10,000 late Corporate Tax registration penalty is waived, or refunded, if you file your first Corporate Tax return or annual declaration within 7 months of the end of your first tax period. Check the FTA's current conditions before relying on it." },
+          { title: "Ask the FTA to reconsider a penalty", body: "If you believe a penalty is wrong, you can ask the FTA to reconsider it within the time limit in the Tax Procedures Law. A clear explanation with supporting documents gives the best chance of success." },
+          { title: "Keep a compliance calendar", body: "Most penalties come from missed dates. A simple calendar of VAT, Corporate Tax and licence deadlines, with reminders a week ahead, prevents most of them." },
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Frequently Asked Questions",
+        items: [
+          { title: "What is the penalty for filing a VAT return one day late?", body: "AED 1,000 for a first late return, or AED 2,000 if you filed another return late in the previous 24 months. It is the same whether you are one day or several months late." },
+          { title: "What is the penalty for filing a Corporate Tax return one day late?", body: "AED 500, because the penalty is charged for each month or part of a month. It rises by AED 500 a month for the first 12 months, then by AED 1,000 a month." },
+          { title: "How is the 14% late payment penalty worked out?", body: "Divide 14% by 12 to get about 1.17% a month. Multiply that by the unpaid tax, then by the number of months or part months it stays unpaid, counting from the day after the due date." },
+          { title: "Do the new VAT penalties apply to delays before 14 April 2026?", body: "The new amounts apply from 14 April 2026. For any part of a delay before that date, the previous rules may apply, so the FTA's figure can differ from a calculation using only today's rules." },
+          { title: "Did Corporate Tax penalties change in 2026?", body: "No. Corporate Tax penalties are set by Cabinet Decision No. 75 of 2023, as amended by Cabinet Decision No. 10 of 2024. The April 2026 reform covered VAT and Excise Tax." },
+          { title: "If I make a voluntary disclosure, do I still pay the tax?", body: "Yes. The penalty is added to the tax difference, which you still have to pay. Tax due under a voluntary disclosure must generally be paid within 20 business days of submitting it." },
+          { title: "Can I calculate my exact penalty?", body: "Yes. Our free UAE Tax Penalty Calculator works out every FTA penalty for VAT, Corporate Tax, Excise Tax and e-invoicing to the day, using the rules in force today." },
+        ],
+      },
+      {
+        type: "cta",
+        heading: "Facing an FTA Penalty?",
+        body: "We can check whether a penalty is correct, file what's outstanding, prepare voluntary disclosures and, where there are grounds, help you ask the FTA to reconsider. Try our free penalty calculator, or book a free consultation.",
+      },
+    ],
+  },
   // ── NEW IFZA FINANCIAL REPORT FOR LICENCE RENEWAL (2026-11-05) ─────────
   {
     title: "IFZA Financial Report for Licence Renewal: Simplified Form, Audit and E-Signing",
