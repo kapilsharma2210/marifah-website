@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogs, blogSlug } from "@/lib/blog-data";
 import { servicePages } from "@/lib/site-pages";
+import { SERVICE_DETAIL_PAGES } from "@/lib/service-menu";
 
 // Generated at build time: every page, service and blog article is listed automatically,
 // so new articles added to lib/blog-data.ts appear here with no manual editing.
@@ -34,6 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  // Individual service pages from the Services menu (e.g. /services/vat-registration)
+  const serviceDetails: MetadataRoute.Sitemap = SERVICE_DETAIL_PAGES.map((path) => ({
+    url: `${BASE}${path}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const articles: MetadataRoute.Sitemap = blogs.map((b) => {
     const updated = (b as { updated?: string }).updated;
     return {
@@ -44,5 +52,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...pages, ...services, ...articles];
+  return [...pages, ...services, ...serviceDetails, ...articles];
 }

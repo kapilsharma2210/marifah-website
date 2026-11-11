@@ -28,6 +28,7 @@ import { blogs, blogSlug, findBlog } from "@/lib/blog-data";
 import { slugify } from "@/lib/blog-data";
 import { FEATURED_REVIEWS, ratingSummary, type Review } from "@/lib/reviews/data";
 import { ReviewCard, Stars } from "@/components/reviews/review-card";
+import { SERVICE_MENU } from "@/lib/service-menu";
 import { UPDATES as TAX_UPDATES, CATEGORIES as TAX_UPDATE_CATEGORIES, LAST_REVIEWED as TAX_LAST_REVIEWED } from "@/lib/tax-updates";
 
 const content = {
@@ -257,6 +258,7 @@ const HERO_UPDATE = (() => {
 
 function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; onConsultancy: () => void }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
       <div className="flex justify-between items-center gap-3 px-4 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto">
@@ -276,30 +278,24 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
             <button className="flex items-center gap-1 text-sm text-foreground hover:text-primary transition-colors">
               Services <ChevronDown className="w-3 h-3" />
             </button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-card border border-border rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 w-[700px] p-7 grid grid-cols-3 gap-8">
-              <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">Corporate Tax</p>
-                <ul className="space-y-2.5">
-                  {["Corporate Tax Registration", "UAE Corporate Tax Filing", "Corporate Tax Advisory", "Tax Impact Assessment", "Corporate Tax Deregistration", "Tax Agency Services"].map(item => (
-                    <li key={item}><a href="/services/corporate-tax" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all z-50">
+              <div className="bg-card border border-border rounded-2xl shadow-xl w-[720px] p-7">
+                <div className="grid grid-cols-3 gap-8">
+                  {SERVICE_MENU.map((group) => (
+                    <div key={group.heading}>
+                      <a href={group.href} className="block text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4 hover:text-primary transition-colors">{group.heading}</a>
+                      <ul className="space-y-2.5">
+                        {group.items.map((item) => (
+                          <li key={item.href}><a href={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item.label}</a></li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-              </div>
-              <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">UAE VAT</p>
-                <ul className="space-y-2.5">
-                  {["VAT Registration Services", "VAT Consultancy & Advisory", "VAT Return Filing", "VAT Deregistration", "VAT Refund Services"].map(item => (
-                    <li key={item}><a href="/services/uae-vat" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="text-[10px] font-bold tracking-widest uppercase text-gold border-l-2 border-gold pl-3 mb-4">Accounting</p>
-                <ul className="space-y-2.5">
-                  {["Bookkeeping & Accounting", "Financial Statements", "MIS Reporting", "Accounting Review"].map(item => (
-                    <li key={item}><a href="/services/accounting" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 text-left w-full"><ChevronRight className="w-3 h-3 text-primary shrink-0" />{item}</a></li>
-                  ))}
-                </ul>
+                </div>
+                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+                  <p className="text-xs text-muted-foreground">Not sure what you need? Book a free consultation.</p>
+                  <a href="/services" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">View all services <ArrowRight className="w-3.5 h-3.5" /></a>
+                </div>
               </div>
             </div>
           </li>
@@ -341,11 +337,48 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
 
       {/* Mobile Menu Dropdown */}
       {mobileOpen && (
-        <div className="lg:hidden bg-card border-t border-primary/10 px-6 py-4 flex flex-col gap-1">
+        <div className="lg:hidden bg-card border-t border-primary/10 px-6 py-4 flex flex-col gap-1 max-h-[calc(100vh-72px)] overflow-y-auto">
           {[
             { label: "Home", page: null },
             { label: "About", page: "about" },
-            { label: "Services", page: "services" },
+          ].map(({ label, page }) => (
+            <button
+              key={label}
+              onClick={() => { onNav(page as PageKey | null); setMobileOpen(false); }}
+              className="text-left text-base text-foreground hover:text-primary py-3 border-b border-primary/10 transition-colors"
+            >
+              {label}
+            </button>
+          ))}
+          <div className="border-b border-primary/10">
+            <button
+              onClick={() => setMobileServicesOpen((o) => !o)}
+              aria-expanded={mobileServicesOpen}
+              className="w-full flex items-center justify-between text-left text-base text-foreground hover:text-primary py-3 transition-colors"
+            >
+              Services <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            {mobileServicesOpen && (
+              <div className="pb-4 space-y-5">
+                {SERVICE_MENU.map((group) => (
+                  <div key={group.heading}>
+                    <a href={group.href} className="block text-[11px] font-bold tracking-widest uppercase text-gold mb-2">{group.heading}</a>
+                    <ul className="space-y-1">
+                      {group.items.map((item) => (
+                        <li key={item.href}>
+                          <a href={item.href} className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+                            <ChevronRight className="w-3 h-3 text-primary shrink-0" />{item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                <a href="/services" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">View all services <ArrowRight className="w-3.5 h-3.5" /></a>
+              </div>
+            )}
+          </div>
+          {[
             { label: "Packages", page: "packages" },
             { label: "Blog", page: "blog" },
             { label: "Contact", page: "contact" },
@@ -353,7 +386,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
             <button
               key={label}
               onClick={() => { onNav(page as PageKey | null); setMobileOpen(false); }}
-              className="text-left text-base text-foreground hover:text-primary py-3 border-b border-primary/10 last:border-0 transition-colors"
+              className="text-left text-base text-foreground hover:text-primary py-3 border-b border-primary/10 transition-colors"
             >
               {label}
             </button>
@@ -397,17 +430,11 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
           <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Services</h4>
           <ul className="space-y-3">
             {[
-              { s: "Corporate Tax Registration", slug: "corporate-tax" },
-              { s: "Corporate Tax Filing", slug: "corporate-tax" },
-              { s: "VAT Registration", slug: "uae-vat" },
-              { s: "VAT Return Filing", slug: "uae-vat" },
-              { s: "Accounting & Bookkeeping", slug: "accounting" },
-            ].map(({ s, slug }) => (
-              <li key={s}><a href={`/services/${slug}`} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{s}</a></li>
-            ))}
-            {[
-              { s: "Corporate Tax Consultants UAE", href: "/corporate-tax-consultants-uae" },
+              { s: "Corporate Tax Registration", href: "/services/corporate-tax-registration" },
               { s: "Corporate Tax Return Filing UAE", href: "/corporate-tax-return-filing-uae" },
+              { s: "Corporate Tax Consultants UAE", href: "/corporate-tax-consultants-uae" },
+              { s: "VAT Registration", href: "/services/vat-registration" },
+              { s: "VAT Return Filing", href: "/services/vat-return-filing" },
               { s: "VAT Consultancy Dubai", href: "/vat-consultancy-dubai" },
               { s: "Accounting & Bookkeeping Dubai", href: "/accounting-bookkeeping-services-dubai" },
               { s: "Tax Consultants in Abu Dhabi", href: "/tax-consultants-abu-dhabi" },

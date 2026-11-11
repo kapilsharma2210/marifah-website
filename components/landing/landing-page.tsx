@@ -2,16 +2,14 @@
 
 import { useState } from "react";
 import {
-  MessageCircle, Mail, Phone, Linkedin, Instagram, Facebook,
-  CheckCircle, FileText, Calculator, BookOpen, Building2, MapPin, ChevronDown, ArrowRight,
+  MessageCircle, CheckCircle, FileText, Calculator, BookOpen, Building2, MapPin, ChevronDown, ArrowRight,
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
-import { CartButton } from "@/components/cart/cart-button";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
-import { siteConfig } from "@/lib/site-config";
+import { SiteShell } from "@/components/site-app";
+import { findService, relatedServices } from "@/lib/service-menu";
 import { LANDING_LINKS, type LandingConfig, type LandingIcon } from "./types";
 
-const BRAND = "MARIFAH TAX ADVISORY";
 const WHATSAPP = "971505815245";
 
 const ICONS: Record<LandingIcon, typeof FileText> = {
@@ -22,117 +20,14 @@ const ICONS: Record<LandingIcon, typeof FileText> = {
   map: MapPin,
 };
 
-const NAV = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Packages", href: "/packages" },
-  { label: "Insights", href: "/blog" },
-  { label: "Penalty Calculator", href: "/uae-tax-penalty-calculator" },
-  { label: "Contact", href: "/contact" },
-];
-
-function Navbar({ onConsultancy }: { onConsultancy: () => void }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
-      <div className="flex justify-between items-center gap-3 px-4 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <a href="/" className="font-bold text-base sm:text-lg tracking-widest text-gold shrink-0">{BRAND}</a>
-        <div className="hidden lg:flex items-center gap-6">
-          {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm text-foreground hover:text-primary transition-colors">{n.label}</a>
-          ))}
-          <CartButton />
-          <button onClick={onConsultancy} className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors">
-            Free Consultation
-          </button>
-        </div>
-        <div className="lg:hidden flex items-center gap-3">
-          <CartButton />
-          <button className="text-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
-            <div className="space-y-1.5">
-              <span className="block w-6 h-0.5 bg-current" />
-              <span className="block w-6 h-0.5 bg-current" />
-              <span className="block w-6 h-0.5 bg-current" />
-            </div>
-          </button>
-        </div>
-      </div>
-      {open && (
-        <div className="lg:hidden border-t border-primary/10 px-6 py-4 space-y-3 bg-background">
-          {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="block text-sm text-foreground hover:text-primary transition-colors py-1">{n.label}</a>
-          ))}
-          <button onClick={() => { onConsultancy(); setOpen(false); }} className="w-full bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold mt-2">
-            Free Consultation
-          </button>
-        </div>
-      )}
-    </nav>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="dark bg-background text-foreground border-t border-primary/20 mt-20">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
-        <div>
-          <p className="text-gold font-bold text-base tracking-widest mb-4">{BRAND}</p>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            Experienced tax professionals for VAT, Corporate Tax and Accounting — serving businesses across all Emirates.
-          </p>
-          <div className="flex gap-4">
-            {[
-              { url: siteConfig.socials.linkedin, Icon: Linkedin, label: "LinkedIn" },
-              { url: siteConfig.socials.instagram, Icon: Instagram, label: "Instagram" },
-              { url: siteConfig.socials.facebook, Icon: Facebook, label: "Facebook" },
-            ].filter((s) => s.url).map(({ url, Icon, label }) => (
-              <a key={label} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Icon className="w-4 h-4" /></a>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="text-foreground font-semibold mb-5 text-sm tracking-wide">Services</p>
-          <ul className="space-y-3">
-            {LANDING_LINKS.map((l) => (
-              <li key={l.href}><a href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className="text-foreground font-semibold mb-5 text-sm tracking-wide">Company</p>
-          <ul className="space-y-3">
-            {[...NAV.slice(1), { label: "Reviews", href: "/reviews" }, { label: "FTA Contact Number", href: "/fta-contact-number-uae" }, { label: "UAE Tax Updates", href: "/uae-tax-updates" }].map((n) => (
-              <li key={n.href}><a href={n.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{n.label}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className="text-foreground font-semibold mb-5 text-sm tracking-wide">Contact</p>
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <p className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0 text-primary" />info@marifahtax.com</p>
-            <p className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary" />+{WHATSAPP}</p>
-          </div>
-          <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm hover:bg-primary/90 transition-colors">
-            <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-      <div className="border-t border-primary/10 py-5 px-6 max-w-7xl mx-auto">
-        <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Marifah Tax Advisory. All Rights Reserved.</p>
-      </div>
-    </footer>
-  );
-}
-
 const sectionHeading = "text-xs font-bold tracking-widest uppercase text-gold mb-5";
 
 export function LandingPage({ config: c }: { config: LandingConfig }) {
   const [consultancyOpen, setConsultancyOpen] = useState(false);
   const Icon = ICONS[c.icon];
   const wa = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(c.whatsappText)}`;
-  const related = LANDING_LINKS.filter((l) => l.href !== `/${c.slug}`);
+  const inMenu = findService(`/${c.slug}`);
+  const related = relatedServices(`/${c.slug}`) ?? LANDING_LINKS.filter((l) => l.href !== `/${c.slug}`);
 
   const ctaButtons = (full = false) => (
     <div className={`flex flex-col sm:flex-row gap-3 ${full ? "w-full sm:w-auto" : ""}`}>
@@ -148,8 +43,7 @@ export function LandingPage({ config: c }: { config: LandingConfig }) {
   );
 
   return (
-    <div className="bg-background text-foreground min-h-screen">
-      <Navbar onConsultancy={() => setConsultancyOpen(true)} />
+    <SiteShell>
 
       {/* HERO */}
       <header className="relative overflow-hidden border-b border-primary/10">
@@ -163,7 +57,15 @@ export function LandingPage({ config: c }: { config: LandingConfig }) {
             <span className="mx-1.5">/</span>
             <a href="/services" className="hover:text-primary">Services</a>
             <span className="mx-1.5">/</span>
-            <span className="text-foreground">{c.eyebrow}</span>
+            {inMenu ? (
+              <>
+                <a href={inMenu.group.href} className="hover:text-primary">{inMenu.group.heading}</a>
+                <span className="mx-1.5">/</span>
+                <span className="text-foreground">{inMenu.item.label}</span>
+              </>
+            ) : (
+              <span className="text-foreground">{c.eyebrow}</span>
+            )}
           </nav>
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
@@ -182,7 +84,7 @@ export function LandingPage({ config: c }: { config: LandingConfig }) {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-14">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-14">
         {/* WHAT'S INCLUDED */}
         <section>
           <h2 className={sectionHeading}>What&apos;s Included</h2>
@@ -294,15 +196,9 @@ export function LandingPage({ config: c }: { config: LandingConfig }) {
             ))}
           </div>
         </section>
-      </main>
+      </div>
 
-      <Footer />
-      <a href={wa} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary text-primary-foreground pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-300">
-        <MessageCircle className="w-5 h-5" />
-        <span className="text-sm font-medium">WhatsApp Us</span>
-      </a>
       <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
-    </div>
+    </SiteShell>
   );
 }

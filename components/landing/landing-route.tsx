@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LandingPage } from "./landing-page";
 import type { LandingConfig } from "./types";
+import { findService } from "@/lib/service-menu";
 
 const BASE = "https://www.marifahtax.com";
 
@@ -22,6 +23,7 @@ export function LandingRoute({ config: c, serviceName, offers, areaServed }: {
   areaServed: { "@type": "City" | "Country"; name: string };
 }) {
   const url = `${BASE}/${c.slug}`;
+  const inMenu = findService(`/${c.slug}`);
   const schema = [
     {
       "@context": "https://schema.org",
@@ -48,7 +50,12 @@ export function LandingRoute({ config: c, serviceName, offers, areaServed }: {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
         { "@type": "ListItem", position: 2, name: "Services", item: `${BASE}/services` },
-        { "@type": "ListItem", position: 3, name: c.h1, item: url },
+        ...(inMenu
+          ? [
+              { "@type": "ListItem", position: 3, name: inMenu.group.heading, item: `${BASE}${inMenu.group.href}` },
+              { "@type": "ListItem", position: 4, name: c.h1, item: url },
+            ]
+          : [{ "@type": "ListItem", position: 3, name: c.h1, item: url }]),
       ],
     },
   ];

@@ -3,137 +3,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
-  MessageCircle, Mail, Phone, Linkedin, Instagram, Facebook,
-  CheckCircle, BadgeCheck, FileText, ChevronDown, Star
+  MessageCircle, ArrowRight, CheckCircle, BadgeCheck, FileText, ChevronDown,
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
-import { CartButton } from "@/components/cart/cart-button";
+import { SiteShell } from "@/components/site-app";
+import { relatedServices } from "@/lib/service-menu";
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
-import { siteConfig } from "@/lib/site-config";
 import { FEATURED_REVIEWS } from "@/lib/reviews/data";
 import { ReviewCard } from "@/components/reviews/review-card";
 
 const content = { brand: "MARIFAH TAX ADVISORY", whatsapp: "971505815245" };
-
-type PageKey = "about" | "services" | "packages" | "blog" | "contact";
-
-function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; onConsultancy: () => void }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
-      <div className="flex justify-between items-center gap-3 px-4 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <a href="/" className="font-bold text-base sm:text-lg tracking-widest text-gold cursor-pointer shrink-0">
-          {content.brand}
-        </a>
-        <div className="hidden lg:flex items-center gap-6">
-          <a href="/" className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</a>
-          <a href="/about" className="text-sm text-foreground hover:text-primary transition-colors">About</a>
-          <a href="/services" className="text-sm text-foreground hover:text-primary transition-colors">Services</a>
-          <a href="/packages" className="text-sm text-foreground hover:text-primary transition-colors">Packages</a>
-          <a href="/blog" className="text-sm text-foreground hover:text-primary transition-colors">Insights</a>
-          <a href="/contact" className="text-sm text-foreground hover:text-primary transition-colors">Contact</a>
-          <CartButton />
-          <button
-            onClick={onConsultancy}
-            className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
-          >
-            Free Consultation
-          </button>
-        </div>
-        <div className="lg:hidden flex items-center gap-3">
-          <CartButton />
-          <button className="text-foreground" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-            <div className="space-y-1.5">
-              <span className="block w-6 h-0.5 bg-current" />
-              <span className="block w-6 h-0.5 bg-current" />
-              <span className="block w-6 h-0.5 bg-current" />
-            </div>
-          </button>
-        </div>
-      </div>
-      {mobileOpen && (
-        <div className="lg:hidden border-t border-primary/10 px-6 py-4 space-y-3 bg-background">
-          {["Home", "About", "Services", "Packages", "Insights", "Contact"].map((item) => (
-            <a key={item} href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
-              className="block text-sm text-foreground hover:text-primary transition-colors py-1"
-              onClick={() => setMobileOpen(false)}>
-              {item}
-            </a>
-          ))}
-          <button onClick={() => { onConsultancy(); setMobileOpen(false); }}
-            className="w-full bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold mt-2">
-            Free Consultation
-          </button>
-        </div>
-      )}
-    </nav>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="dark bg-background text-foreground border-t border-primary/20 mt-20">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
-        <div className="md:col-span-1">
-          <h3 className="text-gold font-bold text-base tracking-widest mb-4">{content.brand}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-            UAE's trusted tax advisory firm — VAT, Corporate Tax & Accounting for businesses across all Emirates.
-          </p>
-          <div className="flex gap-4">
-            {[
-              { url: siteConfig.socials.linkedin, Icon: Linkedin, label: "LinkedIn" },
-              { url: siteConfig.socials.instagram, Icon: Instagram, label: "Instagram" },
-              { url: siteConfig.socials.facebook, Icon: Facebook, label: "Facebook" },
-            ].filter(s => s.url).map(({ url, Icon, label }) => (
-              <a key={label} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-colors text-muted-foreground"><Icon className="w-4 h-4" /></a>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Services</h4>
-          <ul className="space-y-3">
-            {["Corporate Tax Registration", "Corporate Tax Filing", "VAT Registration", "VAT Return Filing", "Accounting & Bookkeeping"].map(s => (
-              <li key={s}><a href="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{s}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Company</h4>
-          <ul className="space-y-3">
-            {["About", "Services", "Packages", "Blog", "Contact"].map(p => (
-              <li key={p}><a href={`/#${p.toLowerCase()}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{p}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-foreground font-semibold mb-5 text-sm tracking-wide">Contact</h4>
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <p className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0 text-primary" />info@marifahtax.com</p>
-            <p className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary" />+{content.whatsapp}</p>
-          </div>
-          <a href={`https://wa.me/${content.whatsapp}`} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm hover:bg-primary/90 transition-colors">
-            <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-      <div className="border-t border-primary/10 py-5 px-6 flex flex-col md:flex-row justify-between items-center gap-2 max-w-7xl mx-auto">
-        <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Marifah Tax Advisory. All Rights Reserved.</p>
-      </div>
-    </footer>
-  );
-}
-
-function FloatingWhatsApp() {
-  return (
-    <a href={`https://wa.me/${content.whatsapp}?text=Hello%20Marifah%20Tax%20Advisory%2C%20I%20need%20assistance%20with%20UAE%20Corporate%20Tax.`}
-      target="_blank" rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary text-primary-foreground pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-300">
-      <MessageCircle className="w-5 h-5" />
-      <span className="text-sm font-medium">WhatsApp Us</span>
-    </a>
-  );
-}
 
 const pricing: { label: string; price: string; buyOnline?: boolean; highlight?: boolean }[] = [
   { label: "Corporate Tax Registration", price: "AED 499", buyOnline: true },
@@ -167,13 +46,12 @@ const faqs = [
   { q: "Are dividends and capital gains taxable?", a: "Dividends from UAE subsidiaries and qualifying capital gains on shares are generally exempt under the Participation Exemption — subject to specific conditions." },
 ];
 
-
 export default function CorporateTaxConsultantsUAE() {
   const [consultancyOpen, setConsultancyOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="bg-background text-foreground min-h-screen">
+    <SiteShell>
 
       <script
         type="application/ld+json"
@@ -198,8 +76,6 @@ export default function CorporateTaxConsultantsUAE() {
           })
         }}
       />
-
-      <Navbar onNav={() => {}} onConsultancy={() => setConsultancyOpen(true)} />
 
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-primary/10">
@@ -401,9 +277,20 @@ export default function CorporateTaxConsultantsUAE() {
 
       </div>
 
-      <Footer />
-      <FloatingWhatsApp />
+      {/* RELATED SERVICES */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-4">
+        <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">Related Services</h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {(relatedServices("/corporate-tax-consultants-uae") ?? []).map((l) => (
+            <a key={l.href} href={l.href} className="group flex items-center justify-between gap-3 bg-card border border-primary/10 rounded-xl px-4 py-3 hover:border-primary/30 transition-colors">
+              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{l.label}</span>
+              <ArrowRight className="w-4 h-4 text-primary shrink-0" />
+            </a>
+          ))}
+        </div>
+      </section>
+
       <ConsultancyForm open={consultancyOpen} onOpenChange={setConsultancyOpen} />
-    </div>
+    </SiteShell>
   );
 }

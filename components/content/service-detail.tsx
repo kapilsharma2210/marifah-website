@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck, ChevronRight, MessageCircle } from "lucide-reac
 import { AddToCartButton, BuyRegistrationCard } from "@/components/cart/add-to-cart-button";
 import { DocList, DocSection, DocSteps, Paper } from "./doc-blocks";
 import { splitPrice, type ServiceInfo } from "./types";
+import { SERVICE_MENU } from "@/lib/service-menu";
 
 /** A single service page (/services/<slug>): overview, what's included, how we help, pricing and other services. */
 export function ServiceDetail({
@@ -27,6 +28,7 @@ export function ServiceDetail({
 }) {
   const Icon = svc.icon;
   const others = services.filter((s) => s.title !== svc.title);
+  const subServices = SERVICE_MENU.find((g) => g.heading === svc.title)?.items ?? [];
   const allServicesLink = {
     href: "/services",
     onClick: (e: React.MouseEvent) => {
@@ -90,6 +92,22 @@ export function ServiceDetail({
                 </DocSection>
               )}
             </Paper>
+
+            {subServices.length > 0 && (
+              <section aria-labelledby="sub-services" className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+                <p className="text-xs font-bold tracking-widest uppercase text-gold mb-1">Explore</p>
+                <h2 id="sub-services" className="text-xl font-bold text-foreground mb-5">{svc.title} services in detail</h2>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {subServices.map((item) => (
+                    <a key={item.href} href={item.href}
+                      className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-background px-4 py-3 hover:border-primary/40 hover:shadow-sm transition-all">
+                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{item.label}</span>
+                      <ArrowRight className="w-4 h-4 text-primary shrink-0" />
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {svc.title === "Corporate Tax" && <BuyRegistrationCard />}
           </div>
