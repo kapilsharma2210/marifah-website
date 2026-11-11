@@ -28,6 +28,7 @@ import { blogs, blogSlug, findBlog } from "@/lib/blog-data";
 import { slugify } from "@/lib/blog-data";
 import { FEATURED_REVIEWS, ratingSummary, type Review } from "@/lib/reviews/data";
 import { ReviewCard, Stars } from "@/components/reviews/review-card";
+import { UPDATES as TAX_UPDATES, CATEGORIES as TAX_UPDATE_CATEGORIES } from "@/lib/tax-updates";
 
 const content = {
   brand: "MARIFAH TAX ADVISORY",
@@ -428,6 +429,7 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
             <li><a href="/reviews" className="text-sm text-muted-foreground hover:text-primary transition-colors">Reviews</a></li>
             <li><a href="/uae-tax-penalty-calculator" className="text-sm text-muted-foreground hover:text-primary transition-colors">Tax Penalty Calculator</a></li>
             <li><a href="/fta-contact-number-uae" className="text-sm text-muted-foreground hover:text-primary transition-colors">FTA Contact Number</a></li>
+            <li><a href="/uae-tax-updates" className="text-sm text-muted-foreground hover:text-primary transition-colors">UAE Tax Updates</a></li>
           </ul>
         </div>
 
@@ -1505,6 +1507,33 @@ export function SiteApp({
               </a>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* ── LATEST TAX UPDATES ── */}
+      <section className="px-6 pt-16 md:pt-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">Tax Update Tracker</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Latest UAE Tax Updates</h2>
+            </div>
+            <a href="/uae-tax-updates" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+              See all updates <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {TAX_UPDATES.filter((u) => u.kind !== "Deadline").sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((u) => (
+              <a key={u.id} href={`/uae-tax-updates#${u.id}`} className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/40 hover:shadow-sm transition-all flex flex-col">
+                <div className="flex items-center justify-between gap-2 mb-3 text-xs">
+                  <span className="font-semibold text-primary bg-primary/10 rounded-full px-2.5 py-1">{TAX_UPDATE_CATEGORIES.find((c) => c.id === u.category)?.label}</span>
+                  <span className="text-muted-foreground">{new Date(`${u.date}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}</span>
+                </div>
+                <h3 className="font-bold text-foreground leading-snug group-hover:text-primary transition-colors mb-2">{u.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{u.summary}</p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
