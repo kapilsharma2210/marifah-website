@@ -10,7 +10,7 @@ import {
   ArrowLeft, MessageCircle, Mail, Phone, Linkedin, Instagram, Facebook,
   ChevronDown, Search, ShieldCheck, Clock, Users, Award, FileText,
   Calculator, BookOpen, Package, Star, CheckCircle, ArrowRight,
-  TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight, BellRing
+  TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
 import { submitEnquiry, whatsappLink, type Enquiry } from "@/lib/contact";
@@ -254,11 +254,6 @@ const HERO_UPDATE = (() => {
   return { id: u.id, text: u.short ?? u.title, isNew: days <= 30 };
 })();
 
-const HERO_TOOLS = [
-  { href: "/uae-tax-penalty-calculator", icon: Calculator, title: "Penalty Calculator", sub: "Estimate FTA fines" },
-  { href: "/uae-tax-updates", icon: BellRing, title: "UAE Tax Updates", sub: "Latest law changes" },
-  { href: "/fta-contact-number-uae", icon: PhoneCall, title: "FTA Contact", sub: "Numbers & hours" },
-];
 
 function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; onConsultancy: () => void }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -1158,8 +1153,8 @@ export function SiteApp({
               </Button>
             </div>
 
-            {/* Trust points — on desktop these are in the card on the right */}
-            <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8 md:hidden">
+            {/* Trust points */}
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
               {["No Hidden Fees", "Experienced Tax Professionals", "Fast Turnaround"].map(tag => (
                 <span key={tag} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />{tag}
@@ -1167,24 +1162,6 @@ export function SiteApp({
               ))}
             </div>
 
-            {/* Free tools */}
-            <div className="border-t border-primary/10 pt-6">
-              <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-3">Free tools &amp; resources</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3 gap-3">
-                {HERO_TOOLS.map(({ href, icon: Icon, title, sub }) => (
-                  <a key={href} href={href}
-                    className="group flex items-center gap-3 sm:flex-col sm:items-start md:flex-row md:items-center xl:flex-col xl:items-start rounded-xl border border-border bg-card/70 px-4 py-3.5 md:py-2.5 xl:py-4 hover:border-primary/40 hover:bg-card hover:shadow-sm transition-all">
-                    <span className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-colors">
-                      <Icon className="w-4 h-4" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-sm font-semibold text-foreground leading-tight">{title}</span>
-                      <span className="block text-xs text-muted-foreground mt-0.5">{sub}</span>
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           {/* Hero Right — Image + Why Marifah card */}
