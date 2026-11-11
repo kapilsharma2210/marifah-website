@@ -102,7 +102,7 @@ function Footer() {
         <div>
           <p className="text-foreground font-semibold mb-5 text-sm tracking-wide">Company</p>
           <ul className="space-y-3">
-            {[...NAV.slice(1), { label: "Reviews", href: "/reviews" }].map((n) => (
+            {[...NAV.slice(1), { label: "Reviews", href: "/reviews" }, { label: "FTA Contact Number", href: "/fta-contact-number-uae" }].map((n) => (
               <li key={n.href}><a href={n.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{n.label}</a></li>
             ))}
           </ul>

@@ -427,6 +427,7 @@ function Footer({ onNav }: { onNav: (p: PageKey | null) => void }) {
             ))}
             <li><a href="/reviews" className="text-sm text-muted-foreground hover:text-primary transition-colors">Reviews</a></li>
             <li><a href="/uae-tax-penalty-calculator" className="text-sm text-muted-foreground hover:text-primary transition-colors">Tax Penalty Calculator</a></li>
+            <li><a href="/fta-contact-number-uae" className="text-sm text-muted-foreground hover:text-primary transition-colors">FTA Contact Number</a></li>
           </ul>
         </div>
 
