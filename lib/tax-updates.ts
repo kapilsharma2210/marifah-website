@@ -1,6 +1,7 @@
 // UAE tax updates feed shown on /uae-tax-updates (and the latest three on the homepage).
 //
 // HOW TO ADD AN UPDATE: add an object at the top of UPDATES (newest first) and change LAST_REVIEWED.
+// Give it a `short` headline too: the newest one appears in the homepage hero.
 // Only add changes confirmed by an official source (tax.gov.ae, mof.gov.ae, uaelegislation.gov.ae,
 // a customs authority) or, failing that, by two reputable advisers. Always include a source link.
 
@@ -32,6 +33,8 @@ export type TaxUpdate = {
   category: UpdateCategory;
   kind: UpdateKind;
   title: string;
+  /** Optional short headline (about 60 characters) for the homepage "latest update" strip. */
+  short?: string;
   summary: string;
   /** Who should act, in one line. */
   whoIsAffected?: string;
@@ -91,6 +94,7 @@ export const UPDATES: TaxUpdate[] = [
   {
     id: "cd-173-2026", date: "2026-10-30", category: "einv", kind: "Cabinet Decision",
     title: "New e-invoicing penalties: Cabinet Decision No. 173 of 2026 replaces No. 106 of 2025",
+    short: "New e-invoicing penalties under Cabinet Decision No. 173 of 2026",
     summary: "Failing to implement e-invoicing or appoint a service provider costs AED 5,000 plus AED 5,000 a month (maximum AED 50,000 in 12 months). Each e-invoice or e-credit note not issued on time costs AED 100, up to AED 5,000 a month. Not telling your provider about data changes costs AED 250 a day, up to AED 5,000 a month.",
     whoIsAffected: "Businesses once their e-invoicing date applies",
     sources: [{ label: "The National", url: "https://www.thenationalnews.com/business/2026/11/01/uae-updates-e-invoicing-penalties-for-businesses/" }],

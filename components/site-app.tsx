@@ -10,7 +10,7 @@ import {
   ArrowLeft, MessageCircle, Mail, Phone, Linkedin, Instagram, Facebook,
   ChevronDown, Search, ShieldCheck, Clock, Users, Award, FileText,
   Calculator, BookOpen, Package, Star, CheckCircle, ArrowRight,
-  TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight
+  TrendingUp, Building2, Globe, BadgeCheck, PhoneCall, ChevronRight, BellRing
 } from "lucide-react";
 import { ConsultancyForm } from "@/components/consultancy-form";
 import { submitEnquiry, whatsappLink, type Enquiry } from "@/lib/contact";
@@ -28,7 +28,7 @@ import { blogs, blogSlug, findBlog } from "@/lib/blog-data";
 import { slugify } from "@/lib/blog-data";
 import { FEATURED_REVIEWS, ratingSummary, type Review } from "@/lib/reviews/data";
 import { ReviewCard, Stars } from "@/components/reviews/review-card";
-import { UPDATES as TAX_UPDATES, CATEGORIES as TAX_UPDATE_CATEGORIES } from "@/lib/tax-updates";
+import { UPDATES as TAX_UPDATES, CATEGORIES as TAX_UPDATE_CATEGORIES, LAST_REVIEWED as TAX_LAST_REVIEWED } from "@/lib/tax-updates";
 
 const content = {
   brand: "MARIFAH TAX ADVISORY",
@@ -244,6 +244,21 @@ type ServicePlan = typeof services[0];
 type PageKey = keyof typeof pageContent;
 
 // ─── SHARED COMPONENTS ───────────────────────────────────────────
+
+// Latest published tax update for the hero strip. "New" is measured against the last review date
+// (not the visitor's clock) so server and browser render the same text.
+const HERO_UPDATE = (() => {
+  const u = [...TAX_UPDATES].filter((x) => x.kind !== "Deadline").sort((a, b) => b.date.localeCompare(a.date))[0];
+  if (!u) return null;
+  const days = Math.round((Date.parse(`${TAX_LAST_REVIEWED}T00:00:00Z`) - Date.parse(`${u.date}T00:00:00Z`)) / 86_400_000);
+  return { id: u.id, text: u.short ?? u.title, isNew: days <= 30 };
+})();
+
+const HERO_TOOLS = [
+  { href: "/uae-tax-penalty-calculator", icon: Calculator, title: "Penalty Calculator", sub: "Estimate FTA fines" },
+  { href: "/uae-tax-updates", icon: BellRing, title: "UAE Tax Updates", sub: "Latest law changes" },
+  { href: "/fta-contact-number-uae", icon: PhoneCall, title: "FTA Contact", sub: "Numbers & hours" },
+];
 
 function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; onConsultancy: () => void }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -1106,13 +1121,27 @@ export function SiteApp({
       </div>
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden py-24 md:py-36 px-6">
+      <section className="relative overflow-hidden pt-12 pb-20 md:pt-16 md:pb-24 px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-            <span className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
-              <BadgeCheck className="w-3.5 h-3.5" /> Marifah Tax Advisory
-            </span>
+        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div className="min-w-0" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+            {/* Latest update strip — always shows the newest item from the UAE Tax Updates tracker */}
+            {HERO_UPDATE && (
+              <a
+                href={`/uae-tax-updates#${HERO_UPDATE.id}`}
+                className="group inline-flex max-w-full items-center gap-3 rounded-full border border-primary/20 bg-card/80 backdrop-blur py-1.5 pl-1.5 pr-4 mb-7 shadow-sm hover:border-primary/40 hover:shadow transition-all"
+              >
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
+                  <span className="relative flex w-1.5 h-1.5">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75 animate-ping" />
+                    <span className="relative inline-flex w-1.5 h-1.5 rounded-full bg-emerald-300" />
+                  </span>
+                  {HERO_UPDATE.isNew ? "New" : "Latest"}
+                </span>
+                <span className="truncate text-sm font-medium text-foreground">{HERO_UPDATE.text}</span>
+                <ArrowRight className="w-4 h-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
+              </a>
+            )}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               UAE Tax Compliance,<br />
               <span className="text-gold">Made Simple.</span>
@@ -1120,7 +1149,7 @@ export function SiteApp({
             <p className="text-muted-foreground text-lg mb-8 max-w-lg leading-relaxed">
               Corporate Tax, VAT, and Accounting solutions for UAE businesses. Stay compliant, avoid penalties, and focus on growing your business.
             </p>
-            <div className="flex flex-wrap gap-4 mb-10">
+            <div className="flex flex-wrap gap-4 mb-8 md:mb-10">
               <Button onClick={() => setConsultancyOpen(true)} className="bg-primary text-primary-foreground rounded-full px-7 py-3 hover:bg-primary/90 text-base font-medium shadow-lg hover:scale-105 transition-all">
                 Book Free Consultation
               </Button>
@@ -1128,45 +1157,68 @@ export function SiteApp({
                 Our Services <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </div>
-            <div className="flex flex-wrap gap-5">
+
+            {/* Trust points — on desktop these are in the card on the right */}
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8 md:hidden">
               {["No Hidden Fees", "Experienced Tax Professionals", "Fast Turnaround"].map(tag => (
                 <span key={tag} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <CheckCircle className="w-4 h-4 text-primary" />{tag}
                 </span>
               ))}
             </div>
+
+            {/* Free tools */}
+            <div className="border-t border-primary/10 pt-6">
+              <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-3">Free tools &amp; resources</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3 gap-3">
+                {HERO_TOOLS.map(({ href, icon: Icon, title, sub }) => (
+                  <a key={href} href={href}
+                    className="group flex items-center gap-3 sm:flex-col sm:items-start md:flex-row md:items-center xl:flex-col xl:items-start rounded-xl border border-border bg-card/70 px-4 py-3.5 md:py-2.5 xl:py-4 hover:border-primary/40 hover:bg-card hover:shadow-sm transition-all">
+                    <span className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-colors">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-foreground leading-tight">{title}</span>
+                      <span className="block text-xs text-muted-foreground mt-0.5">{sub}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
-          {/* Hero Right — Image + Stats Card */}
+          {/* Hero Right — Image + Why Marifah card */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="hidden md:block">
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl" />
               <img
                 src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80"
                 alt="Tax professionals reviewing financial documents"
-                className="w-full h-56 object-cover rounded-t-3xl border border-primary/20 border-b-0"
+                className="relative w-full h-48 object-cover rounded-t-3xl border border-primary/20 border-b-0"
               />
-              <div className="relative bg-card border border-primary/20 rounded-b-3xl p-8 space-y-6">
-                <p className="text-xs font-bold tracking-widest uppercase text-gold">Why Marifah?</p>
-                {[
-                  { icon: ShieldCheck, text: "Experienced Tax Professionals" },
-                  { icon: Clock, text: "Registration in 3–5 Working Days" },
-                  { icon: Users, text: "Dedicated Tax Advisor Assigned" },
-                  { icon: Award, text: "Transparent, Flat-Fee Pricing" },
-                  { icon: TrendingUp, text: "2000+ UAE Businesses Served" },
-                  { icon: Building2, text: "Serving All Emirates" },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4 text-primary" />
+              <div className="relative bg-card border border-primary/20 rounded-b-3xl p-7">
+                <p className="text-xs font-bold tracking-widest uppercase text-gold mb-5">Why Marifah?</p>
+                <div className="grid grid-cols-2 gap-x-5 gap-y-4">
+                  {[
+                    { icon: ShieldCheck, text: "Experienced Tax Professionals" },
+                    { icon: Clock, text: "Registration in 3–5 Working Days" },
+                    { icon: Users, text: "Dedicated Tax Advisor Assigned" },
+                    { icon: Award, text: "Transparent, Flat-Fee Pricing" },
+                    { icon: TrendingUp, text: "2000+ UAE Businesses Served" },
+                    { icon: Building2, text: "Serving All Emirates" },
+                  ].map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          <Icon className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-sm text-foreground leading-snug">{item.text}</span>
                       </div>
-                      <span className="text-sm text-foreground">{item.text}</span>
-                    </div>
-                  );
-                })}
-                <Button onClick={scrollToContact} className="w-full bg-primary text-primary-foreground rounded-full hover:bg-primary/90 mt-2">
+                    );
+                  })}
+                </div>
+                <Button onClick={scrollToContact} className="w-full bg-primary text-primary-foreground rounded-full hover:bg-primary/90 mt-6">
                   Get Started Today
                 </Button>
               </div>
