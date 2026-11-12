@@ -1237,34 +1237,6 @@ export function SiteApp({
   <StatsCounter />
 </section>
 
-      {/* ── VAT RETURN DUE DATES ── */}
-      <section id="vat-due-dates" className="py-16 md:py-20 px-6 border-b border-primary/10 bg-gradient-to-b from-card/60 to-transparent">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-            <div>
-              <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">VAT Deadline Tracker</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">VAT Return Due Dates</h2>
-              <p className="text-muted-foreground mt-3 max-w-2xl leading-relaxed">
-                The next deadlines for quarterly VAT returns, adjusted for weekends and UAE public holidays. Pick your own tax period to see exactly when your return and payment are due.
-              </p>
-            </div>
-            <a href="/services/vat-return-filing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline shrink-0">
-              VAT Return Filing from AED 1,599 <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <div>
-              <h3 className="text-sm font-semibold text-foreground mb-4">Upcoming quarterly deadlines</h3>
-              <UpcomingVatDeadlines />
-              <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                The FTA assigns each business one of three quarterly cycles. If the 28th day after a quarter ends is a Saturday, Sunday or public holiday, the deadline moves to the next working day.
-              </p>
-            </div>
-            <VatDueDateCalculator compact />
-          </div>
-        </div>
-      </section>
-
       {/* ── SERVICES ── */}
       <section className="py-20 md:py-28 px-6 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
@@ -1639,6 +1611,34 @@ export function SiteApp({
             <Calculator className="w-4 h-4" /> Calculate my penalty
           </a>
         </motion.div>
+      </section>
+
+      {/* ── VAT RETURN DUE DATES ── */}
+      <section id="vat-due-dates" className="pt-4 pb-16 md:pt-6 md:pb-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <p className="text-xs font-bold tracking-widest uppercase text-gold mb-3">VAT Deadline Tracker</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">VAT Return Due Dates</h2>
+              <p className="text-muted-foreground mt-3 max-w-2xl leading-relaxed">
+                The next deadlines for quarterly VAT returns, adjusted for weekends and UAE public holidays. Pick your own tax period to see exactly when your return and payment are due.
+              </p>
+            </div>
+            <a href="/services/vat-return-filing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline shrink-0">
+              VAT Return Filing from AED 1,599 <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-4">Upcoming quarterly deadlines</h3>
+              <UpcomingVatDeadlines />
+              <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                The FTA assigns each business one of three quarterly cycles. If the 28th day after a quarter ends is a Saturday, Sunday or public holiday, the deadline moves to the next working day.
+              </p>
+            </div>
+            <VatDueDateCalculator compact />
+          </div>
+        </div>
       </section>
 
       {/* ── FAQ ── */}
