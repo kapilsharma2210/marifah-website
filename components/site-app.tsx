@@ -261,7 +261,10 @@ const HERO_UPDATE = (() => {
 function goHomeTop(onNav: (p: PageKey | null) => void) {
   const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   if (window.location.pathname === "/") {
+    const start = window.scrollY;
     window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    // Some browsers and in-app web views ignore smooth scrolling; if it hasn't started moving, jump to the top.
+    window.setTimeout(() => { if (window.scrollY > 0 && window.scrollY >= start - 2) window.scrollTo({ top: 0 }); }, 400);
     onNav(null);
   } else {
     onNav(null);
