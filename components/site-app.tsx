@@ -1594,27 +1594,8 @@ export function SiteApp({
         </div>
       </section>
 
-      {/* ── PENALTY CALCULATOR ── */}
-      <section className="px-6 py-16 md:py-20">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="max-w-7xl mx-auto rounded-3xl bg-primary text-primary-foreground p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
-          <div>
-            <p className="text-xs font-bold tracking-widest uppercase text-primary-foreground/70 mb-3">Free Tool</p>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Missed an FTA deadline? Check your penalty.</h2>
-            <p className="text-primary-foreground/80 max-w-2xl leading-relaxed">
-              Our UAE Tax Penalty Calculator works out the penalty for late VAT or Corporate Tax registration, late returns, late payment,
-              voluntary disclosures and e-invoicing — even if you are only one day late.
-            </p>
-          </div>
-          <a href="/uae-tax-penalty-calculator"
-            className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-7 py-3.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity shrink-0">
-            <Calculator className="w-4 h-4" /> Calculate my penalty
-          </a>
-        </motion.div>
-      </section>
-
       {/* ── VAT RETURN DUE DATES ── */}
-      <section id="vat-due-dates" className="pt-4 pb-16 md:pt-6 md:pb-20 px-6">
+      <section id="vat-due-dates" className="pt-16 pb-4 md:pt-20 md:pb-6 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
             <div>
@@ -1639,6 +1620,24 @@ export function SiteApp({
             <VatDueDateCalculator compact />
           </div>
         </div>
+      </section>
+
+      {/* ── PENALTY CALCULATOR ── */}
+      <section className="px-6 pt-10 pb-16 md:pt-12 md:pb-20">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="max-w-7xl mx-auto rounded-3xl bg-primary text-primary-foreground p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Missed an FTA deadline? Check your penalty.</h2>
+            <p className="text-primary-foreground/80 max-w-2xl leading-relaxed">
+              Our UAE Tax Penalty Calculator works out the penalty for late VAT or Corporate Tax registration, late returns, late payment,
+              voluntary disclosures and e-invoicing — even if you are only one day late.
+            </p>
+          </div>
+          <a href="/uae-tax-penalty-calculator"
+            className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-7 py-3.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity shrink-0">
+            <Calculator className="w-4 h-4" /> Calculate my penalty
+          </a>
+        </motion.div>
       </section>
 
       {/* ── FAQ ── */}
