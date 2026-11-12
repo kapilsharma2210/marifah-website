@@ -257,6 +257,18 @@ const HERO_UPDATE = (() => {
 })();
 
 
+/** Clicking the brand (or Home) on the homepage scrolls smoothly back to the top; elsewhere it opens the homepage at the top. */
+function goHomeTop(onNav: (p: PageKey | null) => void) {
+  const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  if (window.location.pathname === "/") {
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    onNav(null);
+  } else {
+    onNav(null);
+    requestAnimationFrame(() => window.scrollTo({ top: 0 }));
+  }
+}
+
 function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; onConsultancy: () => void }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -266,14 +278,15 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
         <a
           href="/"
           className="font-bold text-base sm:text-lg tracking-widest text-gold cursor-pointer shrink-0"
-          onClick={(e) => { e.preventDefault(); onNav(null); setMobileOpen(false); }}
+          onClick={(e) => { e.preventDefault(); setMobileOpen(false); goHomeTop(onNav); }}
+          aria-label="Marifah Tax Advisory — back to the top of the homepage"
         >
           {content.brand}
         </a>
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-5 xl:gap-6 list-none whitespace-nowrap">
-          <li><button onClick={() => onNav(null)} className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</button></li>
+          <li><button onClick={() => goHomeTop(onNav)} className="text-sm text-foreground hover:text-primary transition-colors font-medium">Home</button></li>
           <li><a href="/about" onClick={(e) => { e.preventDefault(); onNav("about"); }} className="text-sm text-foreground hover:text-primary transition-colors">About</a></li>
           <li className="relative group">
             <button className="flex items-center gap-1 text-sm text-foreground hover:text-primary transition-colors">
@@ -345,7 +358,7 @@ function Navbar({ onNav, onConsultancy }: { onNav: (p: PageKey | null) => void; 
           ].map(({ label, page }) => (
             <button
               key={label}
-              onClick={() => { onNav(page as PageKey | null); setMobileOpen(false); }}
+              onClick={() => { setMobileOpen(false); if (page === null) goHomeTop(onNav); else onNav(page as PageKey); }}
               className="text-left text-base text-foreground hover:text-primary py-3 border-b border-primary/10 transition-colors"
             >
               {label}
