@@ -1,3 +1,4 @@
+import type React from "react";
 import type { Metadata } from "next";
 import { LandingPage } from "./landing-page";
 import type { LandingConfig } from "./types";
@@ -16,11 +17,13 @@ export function landingMetadata(c: LandingConfig, title: string, description: st
 }
 
 /** Renders a landing page together with its structured data (Service, FAQ, breadcrumbs). */
-export function LandingRoute({ config: c, serviceName, offers, areaServed }: {
+export function LandingRoute({ config: c, serviceName, offers, areaServed, tool }: {
   config: LandingConfig;
   serviceName: string;
   offers: { name: string; price: string }[];
   areaServed: { "@type": "City" | "Country"; name: string };
+  /** Optional interactive tool shown after the page introduction. */
+  tool?: React.ReactNode;
 }) {
   const url = `${BASE}/${c.slug}`;
   const inMenu = findService(`/${c.slug}`);
@@ -62,7 +65,7 @@ export function LandingRoute({ config: c, serviceName, offers, areaServed }: {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <LandingPage config={c} />
+      <LandingPage config={c} tool={tool} />
     </>
   );
 }

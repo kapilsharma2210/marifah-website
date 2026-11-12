@@ -1,5 +1,6 @@
 import { LandingRoute, landingMetadata } from "@/components/landing/landing-route";
 import type { LandingConfig } from "@/components/landing/types";
+import { VatDueDateCalculator } from "@/components/vat/vat-due-date-calculator";
 
 const config: LandingConfig = {
   slug: "services/vat-return-filing",
@@ -45,7 +46,7 @@ const config: LandingConfig = {
     title: "VAT Returns: Key Facts",
     columns: ["Item", "Rule"],
     rows: [
-      ["Return and payment deadline", "28 days after the tax period ends"],
+      ["Return and payment deadline", "28th day after the period ends (next working day if a weekend or holiday)"],
       ["Tax period", "Usually quarterly, as set by the FTA"],
       ["Return form", "VAT201 on EmaraTax"],
       ["Late filing penalty", "AED 1,000 (AED 2,000 if repeated within 24 months)"],
@@ -69,7 +70,7 @@ const config: LandingConfig = {
     },
     {
       q: "When do I pay the VAT?",
-      a: "By the same deadline as the return: 28 days after the end of the tax period. Late payment is charged at 14% a year on the unpaid tax, calculated monthly.",
+      a: "By the same deadline as the return: the 28th day after the end of the tax period. If that day is a Saturday, Sunday or an official UAE public holiday, the deadline moves to the next working day. Use the due date calculator on this page to see your exact date. Late payment is charged at 14% a year on the unpaid tax, calculated monthly.",
     },
     {
       q: "Do I file monthly or quarterly?",
@@ -103,6 +104,12 @@ export default function Page() {
       serviceName="VAT Return Filing UAE"
       offers={[{ name: "VAT Return Filing (four quarterly returns)", price: "1599" }]}
       areaServed={{ "@type": "Country", name: "United Arab Emirates" }}
+      tool={
+        <section id="vat-due-date" className="scroll-mt-28">
+          <h2 className="text-xs font-bold tracking-widest uppercase text-gold mb-5">When Is Your VAT Return Due?</h2>
+          <VatDueDateCalculator />
+        </section>
+      }
     />
   );
 }

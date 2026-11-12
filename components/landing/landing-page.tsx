@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { useState } from "react";
 import {
   MessageCircle, CheckCircle, FileText, Calculator, BookOpen, Building2, MapPin, ChevronDown, ArrowRight,
@@ -22,7 +24,7 @@ const ICONS: Record<LandingIcon, typeof FileText> = {
 
 const sectionHeading = "text-xs font-bold tracking-widest uppercase text-gold mb-5";
 
-export function LandingPage({ config: c }: { config: LandingConfig }) {
+export function LandingPage({ config: c, tool }: { config: LandingConfig; tool?: React.ReactNode }) {
   const [consultancyOpen, setConsultancyOpen] = useState(false);
   const Icon = ICONS[c.icon];
   const wa = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(c.whatsappText)}`;
@@ -85,6 +87,8 @@ export function LandingPage({ config: c }: { config: LandingConfig }) {
       </header>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-14">
+        {tool}
+
         {/* WHAT'S INCLUDED */}
         <section>
           <h2 className={sectionHeading}>What&apos;s Included</h2>
