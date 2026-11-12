@@ -7,7 +7,7 @@
 
 import { slugify } from "./blog-data";
 
-export const LAST_REVIEWED = "2026-11-11";
+export const LAST_REVIEWED = "2026-11-12";
 
 export type UpdateCategory = "vat" | "ct" | "excise" | "customs" | "einv" | "procedures";
 
@@ -106,6 +106,15 @@ export const UPDATES: TaxUpdate[] = [
     summary: "Ministerial Decision No. 66 of 2026 moved the deadline for businesses with revenue of AED 50 million or more to appoint an Accredited Service Provider from 31 July to 30 October 2026. The go-live date of 1 January 2027 did not change, which the FTA restated on 25 October 2026.",
     whoIsAffected: "Businesses with revenue of AED 50 million or more",
     sources: [{ label: "Ministry of Finance – legislation", url: "https://mof.gov.ae/en/financial-legislation/" }],
+    related: EINV_GUIDE,
+  },
+  {
+    id: "md-197-2026", date: "2026-10-19", effective: "2026-10-01", category: "einv", kind: "Ministerial Decision",
+    title: "E-invoicing rules eased: Ministerial Decision No. 197 of 2026",
+    short: "E-invoicing relief for tax groups under Ministerial Decision No. 197 of 2026",
+    summary: "Amends Ministerial Decision No. 243 of 2025. Sales between members of the same VAT tax group are left out of e-invoicing for 24 months from 1 January 2027. E-invoices no longer have to be stored inside the UAE, as long as they are kept for the legal period and can be given to the FTA on request. The rule to report a system failure to the FTA within two business days has been removed.",
+    whoIsAffected: "Businesses in VAT tax groups, and all businesses preparing for e-invoicing",
+    sources: [{ label: "Ministry of Finance announcement", url: "https://mof.gov.ae/en/news/ministry-of-finance-amends-electronic-invoicing-regulations-to-ease-the-burden-on-businesses/" }, { label: "Ministerial Decision No. 197 of 2026 (MoF)", url: "https://mof.gov.ae/wp-content/uploads/2026/10/Ministerial-Decision-No.-197-of-2026-–-Amending-Certain-Provisions-of-Ministerial-Decision-No.-243-of-2025-on-the-Electronic-Invoicing-System_En.pdf" }, { label: "Khaleej Times", url: "https://www.khaleejtimes.com/business/uae-amends-e-invoicing-regulations-to-reduce-operational-burden-on-businesses" }],
     related: EINV_GUIDE,
   },
   {
