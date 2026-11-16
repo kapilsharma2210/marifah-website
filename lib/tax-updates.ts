@@ -7,7 +7,7 @@
 
 import { slugify } from "./blog-data";
 
-export const LAST_REVIEWED = "2026-11-12";
+export const LAST_REVIEWED = "2026-11-16";
 
 export type UpdateCategory = "vat" | "ct" | "excise" | "customs" | "einv" | "procedures";
 
@@ -92,6 +92,14 @@ export const UPDATES: TaxUpdate[] = [
 
   // ── Published changes ──
   {
+    id: "vatp048", date: "2026-11-13", category: "vat", kind: "Public Clarification",
+    title: "How to check suppliers before claiming input VAT (VATP048)",
+    short: "FTA guide on checking suppliers before claiming input VAT",
+    summary: "Explains FTA Decision No. 13 of 2026. The FTA can only refuse input tax on these grounds where it has established tax evasion, and a business that carried out and documented the checks is protected. Check a supplier's identity, licence and real place of business on first dealing and at least every 12 months. For suppliers above AED 375,000 a year, also get a bank confirmation of their account and review public reviews and media. Purchases under AED 10,000 (before VAT) need no transaction check unless that supplier's total passes AED 100,000 in 12 months. Keep records and a written policy naming who is responsible.",
+    whoIsAffected: "All VAT-registered businesses that claim input tax",
+    sources: [{ label: "Parker Russell UAE summary", url: "https://www.parkerrusselluae.com/input-vat-supplier-verification-fta-decision-13-2026/" }, { label: "RegFollower", url: "https://regfollower.com/uae-issues-guidance-on-verifying-suppliers-before-input-tax-deduction/" }, { label: "FTA – VAT legislation", url: FTA_VAT }],
+  },
+  {
     id: "cd-173-2026", date: "2026-10-30", category: "einv", kind: "Cabinet Decision",
     title: "New e-invoicing penalties: Cabinet Decision No. 173 of 2026 replaces No. 106 of 2025",
     short: "New e-invoicing penalties under Cabinet Decision No. 173 of 2026",
@@ -116,6 +124,20 @@ export const UPDATES: TaxUpdate[] = [
     whoIsAffected: "Businesses in VAT tax groups, and all businesses preparing for e-invoicing",
     sources: [{ label: "Ministry of Finance announcement", url: "https://mof.gov.ae/en/news/ministry-of-finance-amends-electronic-invoicing-regulations-to-ease-the-burden-on-businesses/" }, { label: "Ministerial Decision No. 197 of 2026 (MoF)", url: "https://mof.gov.ae/wp-content/uploads/2026/10/Ministerial-Decision-No.-197-of-2026-–-Amending-Certain-Provisions-of-Ministerial-Decision-No.-243-of-2025-on-the-Electronic-Invoicing-System_En.pdf" }, { label: "Khaleej Times", url: "https://www.khaleejtimes.com/business/uae-amends-e-invoicing-regulations-to-reduce-operational-burden-on-businesses" }],
     related: EINV_GUIDE,
+  },
+  {
+    id: "vatp047", date: "2026-10-07", effective: "2026-01-14", category: "vat", kind: "Public Clarification",
+    title: "Reverse charge on metal scrap explained (VATP047)",
+    summary: "Explains the mandatory reverse charge on metal scrap sold between VAT-registered businesses in the UAE (Cabinet Decision No. 153 of 2025, in force since 14 January 2026). It applies only when the buyer resells or processes the scrap, not when it is bought for its own maintenance. The seller does not charge VAT, must get the buyer's written declaration, check the buyer's TRN on the FTA tool and state on the invoice that the reverse charge applies. The buyer reports the VAT in Box 3 and recovers it in Box 10. If these steps are missed, normal VAT applies and the buyer cannot recover it. Exports are not covered.",
+    whoIsAffected: "Scrap metal traders, recyclers and manufacturers that buy scrap",
+    sources: [{ label: "Crowe UAE alert", url: "https://www.crowe.com/ae/news/vatp047" }, { label: "RegFollower", url: "https://regfollower.com/uae-clarifies-mandatory-reverse-charge-rules-for-metal-scrap-trading/" }, { label: "FTA – VAT legislation", url: FTA_VAT }],
+  },
+  {
+    id: "taxp010", date: "2026-10-02", category: "ct", kind: "Public Clarification",
+    title: "Free Zones and Designated Zones: what counts for each tax (TAXP010)",
+    summary: "Explains that Corporate Tax, VAT and Excise Tax each define Free Zones and Designated Zones differently, so a business must check its location separately for each tax. A VAT Designated Zone is not automatically a Corporate Tax Designated Zone: it must also be a Corporate Tax Free Zone. This matters for free zone companies claiming the 0% rate on distribution of goods, which must take place in or from a Corporate Tax Designated Zone.",
+    whoIsAffected: "Free zone companies, especially those distributing goods, and businesses in Designated Zones",
+    sources: [{ label: "International Tax Review (Willow Tax & Legal)", url: "https://www.internationaltaxreview.com/article/2h3bff1nt4o0tcq2q9gxs/taxp010-and-corporate-tax-designated-zones-has-the-fta-narrowed-the-concept" }, { label: "RegFollower", url: "https://regfollower.com/uae-fta-issues-guidance-on-free-zone-designated-zone-tests/" }, { label: "FTA – Corporate Tax legislation", url: FTA_CT }],
   },
   {
     id: "fta-17-2026", date: "2026-09-28", effective: "2026-10-01", category: "vat", kind: "FTA Decision",
