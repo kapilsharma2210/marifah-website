@@ -10,6 +10,368 @@ export function slugify(text: string): string {
 }
 
 export const blogs = [
+  // ── NEW BUSINESS BANK ACCOUNT: UAE RESIDENTS (2026-11-17) ───────────────
+  {
+    title: "How to Open a Business Bank Account in the UAE as a Resident (2026 Guide)",
+    slug: "open-business-bank-account-uae-residents",
+    excerpt: "For company owners with an Emirates ID: the documents banks ask for, the new 3-business-day rule, what you receive when the account opens, minimum balances and monthly fees at six UAE banks, and which accounts suit trading and service companies.",
+    category: "Business Banking",
+    readTime: "11 min read",
+    updated: "2026-11-17",
+    cover: {
+      src: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1400&q=80&auto=format&fit=crop",
+      alt: "Business owners reviewing bank account documents with an adviser",
+      credit: "Photo: Unsplash",
+    },
+    sections: [
+      {
+        type: "text",
+        heading: "Who This Guide Is For",
+        body: "This guide is for owners and managers of a UAE company, mainland or free zone, who live in the UAE and hold an Emirates ID and residence visa. If you, your partners or your signatories live outside the UAE, read our companion guide for non-residents instead, because the documents and the route are different.\n\nA business bank account is opened in your company's name, not your own. You need it to receive payments from customers, pay suppliers and salaries, and pay VAT and Corporate Tax to the Federal Tax Authority. Keeping business money out of your personal account also makes your bookkeeping, audit and tax returns far simpler.",
+      },
+      {
+        type: "alert",
+        heading: "New from 13 September 2026: a 3-business-day deadline for low-risk SMEs",
+        body: "Under the Central Bank's SME Customer Protection Regulation (Circular No. 2/2026), banks must open an SME's account within three business days once the business has submitted every document the bank needs, provided the bank assesses it as low risk for money laundering. If there is another valid reason for delay, the bank can open the account with restrictions and give you the account number, but the delay must not exceed two weeks. Banks can still take longer where their financial crime checks require it.",
+      },
+      {
+        type: "checklist",
+        heading: "Company Documents You Will Need",
+        items: [
+          "Trade licence: Valid and in the company's name, mainland or free zone",
+          "Memorandum and Articles of Association: Including any amendments (not needed for a sole establishment)",
+          "Certificate of incorporation or registration: Usually issued by free zones and the registry",
+          "Shareholder register or share certificates: Showing who owns the company",
+          "Board or shareholder resolution: Approving the account and naming the authorised signatories",
+          "Ultimate beneficial owner details: Everyone who owns or controls 25% or more",
+          "Proof of business address: Tenancy contract (Ejari) or free zone lease or flexi-desk agreement",
+          "Company profile or business plan: What you do, your customers, suppliers and expected turnover",
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "Documents for Each Owner and Signatory",
+        items: [
+          "Passport: Valid copy, shown in original at verification",
+          "Emirates ID: Front and back, valid",
+          "UAE residence visa: Copy of the visa page or e-visa",
+          "Proof of residential address: Tenancy contract or recent utility bill",
+          "Short CV or profile: Especially for new companies with no trading history",
+          "Source of funds: Where the starting capital came from, such as savings or the sale of a business",
+          "Tax residency self-certification: The bank's own CRS and FATCA form",
+        ],
+      },
+      {
+        type: "text",
+        heading: "What the Bank Will Ask About Your Business",
+        body: "Banks must understand how you will use the account before they open it. Expect questions about the activity on your licence and what you actually do, your expected monthly turnover and number of transactions, which countries you will send money to and receive it from, your main customers and suppliers, and whether you will handle cash.\n\nThe more specific your answers, the faster the review. Invoices, signed contracts, purchase orders or a working website all help, particularly for a new company. Your answers should match your trade licence: an activity the bank cannot see on the licence is a common reason for questions and delay.",
+      },
+      {
+        type: "text",
+        heading: "Step 1 — Choose the bank and account",
+        body: "Compare the minimum balance, monthly fee and services you actually need, using the table further down this guide. A trading company usually needs trade finance and foreign currency accounts, while a service company usually values low fees and good online banking. Ask the bank for its Key Facts Statement; under the Central Bank's rules it must give you one before you sign up.",
+      },
+      {
+        type: "text",
+        heading: "Step 2 — Prepare your documents",
+        body: "Gather the company and personal documents listed above, make sure every one is valid and in date, and check that names and passport numbers match across all of them. Scan them clearly in colour. Expired documents and spelling differences between documents are among the most common causes of delay.",
+      },
+      {
+        type: "text",
+        heading: "Step 3 — Apply online or at a branch",
+        body: "Most banks now let UAE residents apply online or through an app for a business account, often with a relationship manager following up. You upload the documents, answer the business questions and sign the account forms electronically or in person.",
+      },
+      {
+        type: "text",
+        heading: "Step 4 — Verification and compliance review",
+        body: "The bank checks your documents against the originals, verifies your identity, may visit or call your office, and runs its anti-money-laundering and sanctions checks. It may ask follow-up questions or for extra documents. Answer quickly, because the 3-business-day deadline only runs once the bank has everything it needs.",
+      },
+      {
+        type: "text",
+        heading: "Step 5 — Account opening and activation",
+        body: "Once approved, the bank opens the account and sends your welcome details. You can deposit funds while the review is still being completed, but the bank must keep them blocked until all its checks are finished, and it has to tell you this in writing.",
+      },
+      {
+        type: "checklist",
+        heading: "What You Receive When the Account Opens",
+        items: [
+          "Account number and IBAN: A 23-character UAE IBAN starting with AE, used for all local and international transfers",
+          "Online and mobile banking: An administrator login so you can add users and set approval rules",
+          "Debit card: For the authorised signatory; some banks issue one only where a single person can sign",
+          "Cheque book: The first one is often free; ask if you will pay suppliers or rent by cheque",
+          "Welcome pack: Account confirmation and terms, plus the bank's schedule of charges",
+          "Optional extras: Foreign currency accounts, payment links and card terminals, payroll (WPS) and business cards",
+        ],
+      },
+      {
+        type: "image",
+        src: "/blog/uae-business-bank-account/fees-comparison.png",
+        alt: "Table of minimum balance and monthly fees at Wio, Mashreq NEOBiz, Emirates NBD, RAKBANK, ADCB and FAB business accounts, November 2026",
+        caption: "Minimum balance and monthly fees for popular SME business accounts, from each bank's published charges, checked 17 November 2026.",
+      },
+      {
+        type: "checklist",
+        heading: "Minimum Balance and Monthly Fees, Bank by Bank",
+        items: [
+          "Wio Business Essential: No minimum balance; AED 99 a month including VAT",
+          "Wio Business Grow: No minimum balance; AED 249 a month including VAT",
+          "Mashreq NEOBiz Pro: No minimum balance; AED 99 + VAT a month",
+          "Mashreq NEOBiz Pro Plus: No minimum balance; AED 199 + VAT a month",
+          "Emirates NBD Business Banking Connect: No minimum balance; AED 261.45 a month after the first 30 days",
+          "Emirates NBD Business Banking Proprietor: AED 50,000 average balance; no monthly fee; AED 262.50 a month if the balance falls below",
+          "RAKBANK RAKstarter: No minimum balance; AED 103.95 a month plus the RAKvalue SME Plus package at AED 51.45 a month; only for companies under 12 months old",
+          "RAKBANK Business Current Account: AED 25,000 average balance; AED 103.95 a month; AED 52.50 a month if the balance falls below",
+          "ADCB Business First Essential: No minimum balance; AED 288.75 a month including VAT",
+          "FAB Basic Account: AED 10,000 average balance; AED 250 a month; AED 100 a month if the balance falls below",
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Check the bank's latest Key Facts Statement before you apply",
+        body: "These figures come from each bank's own published schedule of charges or Key Facts Statement, checked on 17 November 2026: Wio Bank (business fees schedule dated 1 January 2025), Mashreq NEOBiz (Key Facts Statement, September 2026), Emirates NBD (business banking schedule of charges, June 2025), RAKBANK (business banking service and price guide, effective 30 September 2026), ADCB (Business First package charges, effective 1 April 2026) and FAB (business fees page). Banks change their fees, and transfer, card, cheque and teller charges are extra. The bank's current Key Facts Statement is always the final word.",
+      },
+      {
+        type: "image",
+        src: "/blog/uae-business-bank-account/trading-vs-service.png",
+        alt: "Comparison of what a trading company and a service company should look for in a UAE business bank account",
+        caption: "What to look for depends on how your business earns and moves money.",
+      },
+      {
+        type: "text",
+        heading: "Which Bank Suits a Trading Company?",
+        body: "A trading company buys and sells goods, often across borders. It usually needs trade finance, such as letters of credit, bank guarantees and documentary collections, foreign currency accounts in USD or EUR for overseas suppliers, and branch or deposit-machine access if customers pay in cash or by cheque. A relationship manager who understands your supply chain makes larger and international payments much smoother.\n\nThose needs are usually best served by the business banking teams of established banks with trade finance desks, such as Emirates NBD, Mashreq, ADCB, FAB and RAKBANK, on a package that includes a relationship manager. Expect a minimum balance requirement on most of these packages. For a newly formed trading company, RAKBANK's RAKstarter, which offers AED, USD, EUR and GBP accounts with no minimum balance, is worth comparing. Mashreq's NEOBiz accounts are designed for businesses with turnover of up to AED 100 million that are fully owned by individuals.",
+      },
+      {
+        type: "text",
+        heading: "Which Bank Suits a Service Company?",
+        body: "A consultancy, IT, marketing or other service business mostly receives and sends local and international transfers and pays by card. It rarely needs trade finance or cash handling, so a low fixed monthly cost and good online banking matter most.\n\nAccounts with no minimum balance and a flat monthly fee are usually the best fit: Wio Business Essential (AED 99 a month), Mashreq NEOBiz Pro (AED 99 + VAT), RAKBANK RAKstarter for companies under 12 months old, or Emirates NBD Business Banking Connect. If your balance will regularly stay high, a balance-based package with no monthly fee, such as Emirates NBD Proprietor, can work out cheaper.",
+      },
+      {
+        type: "checklist",
+        heading: "Common Reasons Applications Are Delayed or Declined",
+        items: [
+          "The activity you describe is not on your trade licence",
+          "Expired, unclear or inconsistent documents, such as names spelled differently",
+          "No clear source of funds or explanation of the business model",
+          "Payments expected to or from high-risk countries without a clear business reason",
+          "No real business address, or the bank cannot reach the office or signatory",
+          "Ownership through layers of companies without full ownership documents",
+          "Slow replies to the bank's follow-up questions",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Frequently Asked Questions",
+        items: [
+          { title: "How long does it take to open a business bank account in the UAE?", body: "From 13 September 2026, banks must open a low-risk SME's account within three business days of receiving all the documents and information they need. Where there is a valid delay, the account can be opened with restrictions, but the delay must not exceed two weeks. Accounts that need extra financial crime checks can take longer." },
+          { title: "Do I need a minimum balance?", body: "It depends on the account. Wio Business, Mashreq NEOBiz Pro, Emirates NBD Business Banking Connect, RAKBANK RAKstarter and ADCB Business First Essential have no minimum balance but charge a monthly fee. Others, such as Emirates NBD Proprietor (AED 50,000), RAKBANK's Business Current Account (AED 25,000) and FAB's Basic Account (AED 10,000), require an average balance and charge a fee if you fall below it." },
+          { title: "Can a free zone company open an account with any UAE bank?", body: "Yes. Free zone and mainland companies can apply to any UAE bank. Each bank decides on its own risk assessment, and a trade licence does not guarantee approval." },
+          { title: "Can I open the account before my company has started trading?", body: "Yes. Most companies open their account soon after receiving their licence. Without trading history, a clear business plan, your CV and proof of where the starting capital came from become more important." },
+          { title: "Do I need to visit the bank in person?", body: "Many banks now let UAE residents apply online, and some complete verification digitally. Others ask the signatory to visit a branch or meet a relationship manager, especially for larger or more complex businesses." },
+          { title: "What is an IBAN?", body: "Your International Bank Account Number. UAE IBANs are 23 characters long and start with AE. You need it to receive payments, set up payroll and pay the Federal Tax Authority." },
+          { title: "Can the bank charge me to close the account?", body: "Under the Central Bank's SME rules, a bank cannot charge a closing fee once the account has been open for six months or more. Several banks charge a closing fee in the first six months." },
+          { title: "Can I keep using my personal account for the business?", body: "It isn't recommended. A company is a separate legal person, and mixing personal and business money makes bookkeeping, audits, VAT and Corporate Tax returns much harder. Customers and suppliers also expect to pay a company account." },
+        ],
+      },
+      {
+        type: "cta",
+        heading: "Need help opening your company's bank account?",
+        body: "Marifah Tax Advisory helps UAE businesses choose a suitable bank, prepare the documents and business profile banks ask for, and set up bookkeeping, VAT and Corporate Tax from day one. Book a free consultation to get started.",
+      },
+    ],
+  },
+  // ── NEW BUSINESS BANK ACCOUNT: NON-RESIDENTS (2026-11-17) ───────────────
+  {
+    title: "How to Open a UAE Business Bank Account as a Non-Resident Without an Emirates ID (2026 Guide)",
+    slug: "open-business-bank-account-uae-non-residents",
+    excerpt: "For company owners who live outside the UAE: your three routes to a business account, the extra documents banks ask non-residents for, realistic timelines, minimum balances and monthly fees, and the right type of bank for trading and service companies.",
+    category: "Business Banking",
+    readTime: "11 min read",
+    updated: "2026-11-17",
+    cover: {
+      src: "/client-meeting.jpg",
+      alt: "International business owners meeting an adviser about a UAE bank account",
+      credit: "Photo: Marifah Tax Advisory",
+    },
+    sections: [
+      {
+        type: "text",
+        heading: "Can You Open a UAE Business Account Without an Emirates ID?",
+        body: "Yes, it is possible, but it takes more planning than it does for UAE residents. You can own a UAE mainland or free zone company while living abroad, and some banks will open the company's account even if no owner holds an Emirates ID. Others, particularly for online applications, require at least one authorised signatory or partner who lives in the UAE.\n\nThis guide explains your options, the extra documents banks ask non-residents for, how long it takes and what it costs. If you already hold a UAE residence visa and Emirates ID, follow our guide for residents instead.",
+      },
+      {
+        type: "alert",
+        heading: "Many online applications need a UAE-resident signatory",
+        body: "Digital business accounts are usually built for UAE-resident owners. Emirates NBD's online business account application requires at least one UAE-resident signatory, and Mashreq NEOBiz requires at least one partner or power of attorney holder who is a UAE resident. If every owner and signatory lives abroad, you will usually apply through a bank's business banking team instead, and expect a video call or an in-person meeting.",
+      },
+      {
+        type: "image",
+        src: "/blog/uae-business-bank-account/non-resident-routes.png",
+        alt: "Three routes for non-resident company owners: apply as a non-resident, add a UAE-resident signatory, or obtain a UAE residence visa",
+        caption: "The three practical routes to a UAE business account when the owners live abroad.",
+      },
+      {
+        type: "text",
+        heading: "Route 1: Apply as a Non-Resident",
+        body: "Some banks onboard companies whose owners all live abroad. Expect the bank to verify you by video call or ask you to visit the UAE for an in-person meeting, and to ask for more evidence about you, your source of funds and your business than it would ask a resident. This route suits owners who don't plan to live in the UAE.",
+      },
+      {
+        type: "text",
+        heading: "Route 2: Appoint a UAE-Resident Signatory",
+        body: "You can appoint a manager, partner or attorney who lives in the UAE and holds an Emirates ID as an authorised signatory, through a board resolution or a power of attorney. This often opens the door to online applications and faster account opening. You stay in control through the signing rules you set, for example requiring your approval for payments above a set amount. Choose this person carefully, because they can act on the company's account within the authority you give them.",
+      },
+      {
+        type: "text",
+        heading: "Route 3: Get a UAE Residence Visa Through Your Company",
+        body: "Many free zones and mainland authorities let a company sponsor an investor or partner visa for its owner. Once you have the visa and an Emirates ID, you apply as a UAE resident, with the same choice of banks and accounts as other residents. It adds the visa process, medical test and Emirates ID application before you start, but it is the most flexible long-term route if you will spend time in the UAE.",
+      },
+      {
+        type: "checklist",
+        heading: "Company Documents You Will Need",
+        items: [
+          "Trade licence: Valid and in the company's name, mainland or free zone",
+          "Memorandum and Articles of Association: Including any amendments",
+          "Certificate of incorporation or registration: Usually issued by free zones and the registry",
+          "Shareholder register or share certificates: Showing who owns the company",
+          "Board or shareholder resolution: Approving the account and naming the authorised signatories",
+          "Ultimate beneficial owner details: Everyone who owns or controls 25% or more",
+          "Proof of UAE business address: Tenancy contract (Ejari) or free zone lease or flexi-desk agreement",
+          "Company profile or business plan: What you do, customers, suppliers, countries and expected turnover",
+          "Foreign corporate shareholders: Their incorporation documents, notarised and attested for use in the UAE",
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "Extra Documents Banks Ask Non-Resident Owners For",
+        items: [
+          "Passport: Valid copy, with the original shown at verification",
+          "Proof of residential address abroad: Recent utility bill or bank statement in your name",
+          "Bank reference letter: From your bank in your home country, where requested",
+          "Personal bank statements: Usually the last six months",
+          "Detailed CV: Your professional background and previous businesses",
+          "Source of funds and wealth: Evidence of where the capital came from, such as savings, a business sale or dividends",
+          "Tax residency self-certification: The bank's CRS and FATCA form, showing your tax residence country and tax number",
+          "Evidence of real business: Contracts, invoices, purchase orders or a website, if you have them",
+        ],
+      },
+      {
+        type: "text",
+        heading: "How Long It Takes",
+        body: "The Central Bank's SME Customer Protection Regulation, in force since 13 September 2026, requires banks to open an SME's account within three business days of receiving every document they need, but only where they assess the business as low risk for money laundering. Banks generally carry out more detailed checks where owners live abroad, and the three-day deadline does not apply where those checks require more time.\n\nIn practice, allow for document collection, any notarisation or attestation, the bank's video call or meeting and its follow-up questions, which can take several weeks. Starting with complete, consistent documents is the single biggest thing you can do to shorten it. Money you deposit while the review is under way must be kept blocked by the bank until its checks are complete.",
+      },
+      {
+        type: "text",
+        heading: "Step 1 — Decide your route",
+        body: "Decide whether you will apply as a non-resident, appoint a UAE-resident signatory, or get a residence visa first. This decides which banks and which application channels are open to you.",
+      },
+      {
+        type: "text",
+        heading: "Step 2 — Prepare and certify your documents",
+        body: "Collect the company documents and the extra personal documents above. Documents issued outside the UAE, such as a foreign company's incorporation papers, usually need to be notarised and attested before a UAE bank will accept them, so start these early.",
+      },
+      {
+        type: "text",
+        heading: "Step 3 — Submit the application",
+        body: "Apply through the bank's business banking team or relationship manager, or online if you have a UAE-resident signatory. Explain clearly what the company does, where its customers and suppliers are, and how money will flow through the account.",
+      },
+      {
+        type: "text",
+        heading: "Step 4 — Complete the bank's verification",
+        body: "Attend the video call or in-person meeting, and answer follow-up questions promptly. Some banks need the signatory present to collect cards, tokens or a cheque book, so plan a UAE visit if your bank requires it.",
+      },
+      {
+        type: "text",
+        heading: "Step 5 — Activate and set up online banking",
+        body: "Once the account is opened, activate online banking, add users and approval limits, and request any foreign currency accounts you need. With online banking set up, you can run the account from abroad.",
+      },
+      {
+        type: "checklist",
+        heading: "What You Receive When the Account Opens",
+        items: [
+          "Account number and IBAN: A 23-character UAE IBAN starting with AE, for local and international transfers",
+          "Online and mobile banking: Administrator access to run the account from anywhere and set approval rules",
+          "Debit card: Usually for the authorised signatory; some banks issue it only where one person can sign alone",
+          "Cheque book: Where the bank offers one to your account type",
+          "Welcome pack: Account confirmation, terms and the schedule of charges",
+          "Optional extras: Foreign currency accounts, payment links, payroll (WPS) and business cards",
+        ],
+      },
+      {
+        type: "image",
+        src: "/blog/uae-business-bank-account/fees-comparison.png",
+        alt: "Table of minimum balance and monthly fees at Wio, Mashreq NEOBiz, Emirates NBD, RAKBANK, ADCB and FAB business accounts, November 2026",
+        caption: "Minimum balance and monthly fees for popular SME business accounts, from each bank's published charges, checked 17 November 2026. Eligibility for non-resident owners differs by bank.",
+      },
+      {
+        type: "checklist",
+        heading: "Minimum Balance and Monthly Fees, Bank by Bank",
+        items: [
+          "Wio Business Essential: No minimum balance; AED 99 a month including VAT",
+          "Wio Business Grow: No minimum balance; AED 249 a month including VAT",
+          "Mashreq NEOBiz Pro: No minimum balance; AED 99 + VAT a month (needs a UAE-resident partner or attorney)",
+          "Mashreq NEOBiz Pro Plus: No minimum balance; AED 199 + VAT a month (needs a UAE-resident partner or attorney)",
+          "Emirates NBD Business Banking Connect: No minimum balance; AED 261.45 a month after the first 30 days",
+          "Emirates NBD Business Banking Proprietor: AED 50,000 average balance; no monthly fee; AED 262.50 a month if the balance falls below",
+          "RAKBANK RAKstarter: No minimum balance; AED 103.95 a month plus the RAKvalue SME Plus package at AED 51.45 a month; only for companies under 12 months old",
+          "RAKBANK Business Current Account: AED 25,000 average balance; AED 103.95 a month; AED 52.50 a month if the balance falls below",
+          "ADCB Business First Essential: No minimum balance; AED 288.75 a month including VAT",
+          "FAB Basic Account: AED 10,000 average balance; AED 250 a month; AED 100 a month if the balance falls below",
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Fees are only half the question for non-residents",
+        body: "These figures come from each bank's own published schedule of charges or Key Facts Statement, checked on 17 November 2026: Wio Bank (business fees schedule dated 1 January 2025), Mashreq NEOBiz (Key Facts Statement, September 2026), Emirates NBD (business banking schedule of charges, June 2025), RAKBANK (service and price guide, effective 30 September 2026), ADCB (Business First package charges, effective 1 April 2026) and FAB (business fees page). Before comparing prices, first confirm that the bank and account accept your ownership and signatory set-up, because eligibility for non-resident owners differs from bank to bank. Always check the bank's current Key Facts Statement.",
+      },
+      {
+        type: "image",
+        src: "/blog/uae-business-bank-account/trading-vs-service.png",
+        alt: "Comparison of what a trading company and a service company should look for in a UAE business bank account",
+        caption: "What to look for depends on how your business earns and moves money.",
+      },
+      {
+        type: "text",
+        heading: "Which Bank Suits a Trading Company Owned From Abroad?",
+        body: "A trading company usually needs trade finance, such as letters of credit and bank guarantees, foreign currency accounts and a relationship manager for cross-border payments. As a non-resident owner, you will usually apply through the business banking team of an established bank with a trade finance desk, such as Emirates NBD, Mashreq, ADCB, FAB or RAKBANK, rather than a digital-only account.\n\nBe ready to show the bank your supply chain in detail: who you buy from, who you sell to, which countries the goods and payments move between, and sample contracts or invoices. Clear trade documents are what make a non-resident trading application succeed.",
+      },
+      {
+        type: "text",
+        heading: "Which Bank Suits a Service Company Owned From Abroad?",
+        body: "A service company, such as a consultancy, software or marketing business, mainly needs low running costs and good online banking it can operate from anywhere. Accounts with no minimum balance and a flat monthly fee, such as Wio Business, Mashreq NEOBiz or Emirates NBD Business Banking Connect, fit this pattern well, but they are mostly designed for UAE-resident owners or signatories.\n\nIf you want one of these accounts, the simplest path is usually to appoint a UAE-resident signatory or take a residence visa through your company. If you will stay fully non-resident, compare the business accounts of banks that accept non-resident owners, and weigh any minimum balance against the monthly fees.",
+      },
+      {
+        type: "checklist",
+        heading: "Common Reasons Non-Resident Applications Are Delayed",
+        items: [
+          "No clear explanation of why the company is in the UAE and what it does here",
+          "Foreign documents that are not notarised and attested",
+          "No proof of residential address abroad, or an address that doesn't match other documents",
+          "Source of funds that isn't supported by bank statements or other evidence",
+          "Payments expected to or from high-risk countries without a clear business reason",
+          "Slow replies or missed video calls during the bank's review",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Frequently Asked Questions",
+        items: [
+          { title: "Can a non-resident open a UAE business bank account?", body: "Yes. Some banks open accounts for companies whose owners live abroad, usually with a video call or in-person meeting and more documents. Many online applications require at least one UAE-resident signatory or partner, so check each bank's eligibility first." },
+          { title: "Do I have to travel to the UAE?", body: "It depends on the bank. Some complete verification by video call, while others ask the signatory to attend a meeting in person or to collect cards and tokens. Ask the bank before you apply so you can plan a visit if needed." },
+          { title: "Can I open the account without any UAE resident involved?", body: "Yes, at banks that onboard non-resident owners, but your choice of banks and accounts is narrower. Appointing a UAE-resident signatory or getting a residence visa through your company widens your options." },
+          { title: "Will getting a UAE residence visa make it easier?", body: "Usually, yes. With a residence visa and Emirates ID you apply as a resident, which opens digital accounts and online applications that require a UAE-resident signatory." },
+          { title: "How long does it take for a non-resident?", body: "The Central Bank's three-business-day deadline applies only to businesses a bank assesses as low risk with complete documents. Applications with owners abroad usually go through more detailed checks, so allow several weeks, including time to notarise and attest any foreign documents." },
+          { title: "Can I run the account from abroad once it is open?", body: "Yes. Once online banking is set up, you can make and approve payments from anywhere. Keep the bank's records up to date when your passport, address or documents change, or the bank may restrict the account." },
+          { title: "Will the bank report my account to my home country's tax authority?", body: "Possibly. The UAE takes part in the Common Reporting Standard, which is why banks ask owners and controlling persons to self-certify their tax residence. Information about accounts held for tax residents of other participating countries can be exchanged with those countries' tax authorities." },
+          { title: "Does a UAE bank account make my company UAE tax resident?", body: "No. A bank account doesn't decide tax residence on its own. A UAE company is generally a UAE tax resident for Corporate Tax, and it must still register for Corporate Tax and file returns whether its owners live in the UAE or abroad." },
+        ],
+      },
+      {
+        type: "cta",
+        heading: "Own a UAE company from abroad?",
+        body: "Marifah Tax Advisory helps non-resident owners choose a bank that accepts their set-up, prepare the documents and business profile banks ask for, and keep the company compliant with VAT and Corporate Tax. Book a free consultation to get started.",
+      },
+    ],
+  },
   // ── NEW UAE TAX PENALTIES 2026 (2026-11-05) ────────────────────────────
   {
     title: "UAE Tax Penalties 2026: Every FTA Fine Explained and What Changed on 14 April",
@@ -2162,7 +2524,8 @@ export const blogs = [
 
 export type BlogArticle = (typeof blogs)[number];
 
-export const blogSlug = (b: { title: string }) => slugify(b.title);
+/** A post can set its own short `slug`; otherwise it comes from the title. */
+export const blogSlug = (b: { title: string; slug?: string }) => b.slug ?? slugify(b.title);
 
 export function findBlog(slug: string) {
   return blogs.find((b) => blogSlug(b) === slug) ?? null;

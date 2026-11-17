@@ -25,6 +25,8 @@ export type BlogSection = {
 
 export type BlogPost = {
   title: string;
+  /** Optional short URL slug; defaults to the title. */
+  slug?: string;
   excerpt?: string;
   category?: string;
   readTime?: string;
