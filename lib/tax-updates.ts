@@ -7,7 +7,7 @@
 
 import { slugify } from "./blog-data";
 
-export const LAST_REVIEWED = "2026-11-11";
+export const LAST_REVIEWED = "2026-11-19";
 
 export type UpdateCategory = "vat" | "ct" | "excise" | "customs" | "einv" | "procedures";
 
@@ -22,7 +22,7 @@ export const CATEGORIES: { id: UpdateCategory; label: string }[] = [
 
 export type UpdateKind =
   | "Federal Decree-Law" | "Cabinet Decision" | "Ministerial Decision" | "FTA Decision"
-  | "Public Clarification" | "Deadline" | "Announcement" | "Customs Notice";
+  | "Public Clarification" | "FTA Directive" | "Deadline" | "Announcement" | "Customs Notice";
 
 export type TaxUpdate = {
   id: string;
@@ -92,6 +92,14 @@ export const UPDATES: TaxUpdate[] = [
 
   // ── Published changes ──
   {
+    id: "fta-directive-2026-06", date: "2026-11-18", category: "vat", kind: "FTA Directive",
+    title: "VAT on insured assets handed to the insurer after a total loss: FTA Directive 2026-06",
+    short: "FTA directive on VAT when an insurer takes a written-off asset",
+    summary: "The FTA has issued Directive 2026-06, which explains how VAT applies when an insured asset that is a total loss is transferred to the insurer, including the salvage that remains. Issued and published on 18 November 2026.",
+    whoIsAffected: "Insurers, and VAT-registered businesses that make total-loss insurance claims",
+    sources: [{ label: "FTA – VAT legislation (Directive 2026-06)", url: FTA_VAT }],
+  },
+  {
     id: "cd-173-2026", date: "2026-10-30", category: "einv", kind: "Cabinet Decision",
     title: "New e-invoicing penalties: Cabinet Decision No. 173 of 2026 replaces No. 106 of 2025",
     short: "New e-invoicing penalties under Cabinet Decision No. 173 of 2026",
@@ -106,6 +114,14 @@ export const UPDATES: TaxUpdate[] = [
     summary: "Ministerial Decision No. 66 of 2026 moved the deadline for businesses with revenue of AED 50 million or more to appoint an Accredited Service Provider from 31 July to 30 October 2026. The go-live date of 1 January 2027 did not change, which the FTA restated on 25 October 2026.",
     whoIsAffected: "Businesses with revenue of AED 50 million or more",
     sources: [{ label: "Ministry of Finance – legislation", url: "https://mof.gov.ae/en/financial-legislation/" }],
+    related: EINV_GUIDE,
+  },
+  {
+    id: "md-197-2026", date: "2026-10-19", effective: "2026-10-01", category: "einv", kind: "Ministerial Decision",
+    title: "E-invoicing rules eased: Ministerial Decision No. 197 of 2026",
+    summary: "Transactions between members of the same VAT Tax Group are left out of e-invoicing for 24 months from 1 January 2027. E-invoices and related data no longer have to be stored inside the UAE, as long as they are kept for the required period and shown to the FTA on request. The rule to report a system failure to the FTA within two business days has been removed.",
+    whoIsAffected: "Businesses preparing for e-invoicing, especially members of VAT groups",
+    sources: [{ label: "Ministry of Finance announcement", url: "https://mof.gov.ae/en/news/ministry-of-finance-amends-electronic-invoicing-regulations-to-ease-the-burden-on-businesses/" }, { label: "The National", url: "https://thenationalnews.com/business/2026/10/19/uae-amends-e-invoicing-regulations-as-implementation-deadline-draws-closer" }],
     related: EINV_GUIDE,
   },
   {
