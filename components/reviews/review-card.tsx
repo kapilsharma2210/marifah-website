@@ -13,15 +13,8 @@ export function Stars({ rating, size = "sm" }: { rating: number; size?: "sm" | "
   );
 }
 
-function formatDate(iso?: string) {
-  if (!iso) return null;
-  const d = new Date(`${iso}T00:00:00Z`);
-  return Number.isNaN(d.getTime()) ? null : d.toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
-}
-
 export function ReviewCard({ review, clamp = false }: { review: Review; clamp?: boolean }) {
   const name = reviewerName(review);
-  const date = formatDate(review.date);
   return (
     <figure className="relative h-full flex flex-col rounded-2xl bg-background border border-border p-6 sm:p-7 hover:border-primary/30 hover:shadow-sm transition-all">
       <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/10" aria-hidden="true" />
@@ -31,9 +24,7 @@ export function ReviewCard({ review, clamp = false }: { review: Review; clamp?: 
       </blockquote>
       <figcaption className="mt-6 pt-4 border-t border-border flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <span className="text-sm font-semibold text-foreground">{name}</span>
-        {(review.service || date) && (
-          <span className="text-xs text-muted-foreground">{[review.service, date].filter(Boolean).join(" · ")}</span>
-        )}
+        {review.service && <span className="text-xs text-muted-foreground">{review.service}</span>}
       </figcaption>
     </figure>
   );

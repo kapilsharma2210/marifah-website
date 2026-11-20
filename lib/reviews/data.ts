@@ -30,6 +30,13 @@ export const REVIEW_SERVICES = [
 
 export const FEATURED_REVIEWS: Review[] = [
   {
+    id: "featured-ahmed-al-mansoori",
+    name: "Ahmed Al Mansoori",
+    rating: 5,
+    service: "VAT Registration",
+    text: "I contacted Marifah Tax Advisory for VAT registration of my company. Kapil was very helpful throughout the process and explained the requirements clearly. The registration was handled smoothly, and I was kept updated at every stage. Good experience overall.",
+  },
+  {
     id: "featured-mohit",
     name: "Mohit",
     rating: 5,
