@@ -93,6 +93,20 @@ export const FEATURED_REVIEWS: Review[] = [
     text: "We signed a one-year package with Marifah Tax Advisory covering our accounting, VAT and Corporate Tax requirements. The pricing was reasonable, and everything was clearly explained before we started. There were no unexpected or hidden charges, which I really appreciated.",
   },
   {
+    id: "featured-ivan-petrov",
+    name: "Ivan Petrov",
+    rating: 5,
+    service: "Corporate Tax Deregistration",
+    text: "Good experience with Marifah Tax Advisory. They explained the requirements clearly and helped us complete the Corporate Tax deregistration without unnecessary complications. Thank you for the support.",
+  },
+  {
+    id: "featured-sergey-ivanov",
+    name: "Sergey Ivanov",
+    rating: 5,
+    service: "VAT Deregistration",
+    text: "I had a good experience with Marifah Tax Advisory. They helped us understand the VAT deregistration requirements and took care of the process. Professional service at a reasonable price.",
+  },
+  {
     id: "featured-mohit",
     name: "Mohit",
     rating: 5,
