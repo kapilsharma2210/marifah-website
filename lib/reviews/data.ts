@@ -114,6 +114,12 @@ export const FEATURED_REVIEWS: Review[] = [
     text: "Good service and reasonable pricing. They explained the deregistration requirements clearly and kept us informed about the application. Happy with the overall experience.",
   },
   {
+    id: "featured-thomas-anderson",
+    name: "Thomas Anderson",
+    rating: 4,
+    text: "The team was helpful and professional throughout the process. Communication was good, and they handled our requirements properly. Overall, happy with the service.",
+  },
+  {
     id: "featured-mohit",
     name: "Mohit",
     rating: 5,
