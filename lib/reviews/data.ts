@@ -107,6 +107,13 @@ export const FEATURED_REVIEWS: Review[] = [
     text: "I had a good experience with Marifah Tax Advisory. They helped us understand the VAT deregistration requirements and took care of the process. Professional service at a reasonable price.",
   },
   {
+    id: "featured-arjun-mehta",
+    name: "Arjun Mehta",
+    rating: 5,
+    service: "Tax Deregistration",
+    text: "Good service and reasonable pricing. They explained the deregistration requirements clearly and kept us informed about the application. Happy with the overall experience.",
+  },
+  {
     id: "featured-mohit",
     name: "Mohit",
     rating: 5,
