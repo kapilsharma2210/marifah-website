@@ -86,6 +86,13 @@ export const FEATURED_REVIEWS: Review[] = [
     text: "Marifah Tax Advisory has been handling our accounting requirements, including monthly bookkeeping and financial reports. They are careful with the details and respond promptly whenever we need something. Good professional service and a reliable team to work with.",
   },
   {
+    id: "featured-viktor-kuznetsov",
+    name: "Viktor Kuznetsov",
+    rating: 5,
+    service: "Full Compliance Package",
+    text: "We signed a one-year package with Marifah Tax Advisory covering our accounting, VAT and Corporate Tax requirements. The pricing was reasonable, and everything was clearly explained before we started. There were no unexpected or hidden charges, which I really appreciated.",
+  },
+  {
     id: "featured-mohit",
     name: "Mohit",
     rating: 5,
