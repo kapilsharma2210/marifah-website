@@ -7,7 +7,7 @@
 
 import { slugify } from "./blog-data";
 
-export const LAST_REVIEWED = "2026-11-19";
+export const LAST_REVIEWED = "2026-11-23";
 
 export type UpdateCategory = "vat" | "ct" | "excise" | "customs" | "einv" | "procedures";
 
@@ -91,6 +91,30 @@ export const UPDATES: TaxUpdate[] = [
   },
 
   // ── Published changes ──
+  {
+    id: "fta-directive-2026-08", date: "2026-11-19", category: "vat", kind: "FTA Directive",
+    title: "No tax invoice needed for each vending machine sale: FTA Directive No. 8 of 2026",
+    short: "Vending machine sales: no tax invoice needed for each sale",
+    summary: "Businesses selling through vending machines no longer have to issue a tax invoice for every sale, as long as they keep proper records showing what was sold, the total received, the VAT charged and the date of supply. VAT still applies to these sales. Where a third-party operator collects the cash, payment is treated as received when the operator confirms the collection, or 30 days after the collection if earlier. Issued on 19 November 2026.",
+    whoIsAffected: "VAT-registered businesses that sell goods or services through vending machines",
+    sources: [{ label: "FTA – VAT legislation", url: FTA_VAT }, { label: "Gulf News", url: "https://gulfnews.com/business/uae-waives-tax-invoice-requirement-for-vending-machine-sales-under-new-directive-1.500755947" }],
+  },
+  {
+    id: "vatp048", date: "2026-11-11", category: "vat", kind: "Public Clarification",
+    title: "How to check suppliers before recovering input VAT (VATP048)",
+    short: "FTA guidance on checking suppliers before claiming input VAT",
+    summary: "This FTA clarification explains how to apply FTA Decision No. 13 of 2026. Check a supplier when you first deal with them, and again if they have not been checked in the last 12 months: confirm their identity, trade licence and real place of business. Bigger suppliers (over AED 375,000 a year) need extra checks, such as a bank confirmation of their account. Small purchases under AED 10,000 can usually skip the per-supply checks, unless that supplier's total goes above AED 100,000 a year. Keep a written policy and records of your checks.",
+    whoIsAffected: "All VAT-registered businesses that recover input VAT",
+    sources: [{ label: "FTA – VAT legislation", url: FTA_VAT }, { label: "RegFollower", url: "https://regfollower.com/uae-issues-guidance-on-verifying-suppliers-before-input-tax-deduction/" }],
+  },
+  {
+    id: "ctgtgr1", date: "2026-11-11", category: "ct", kind: "Announcement",
+    title: "Updated Corporate Tax guide on Tax Groups (CTGTGR1)",
+    short: "FTA updates its Corporate Tax guide on Tax Groups",
+    summary: "The FTA has published a new edition of its Tax Groups guide, replacing the January 2024 version. It adds more detail on when a partnership treated as a separate taxable person can join a Tax Group, and on losses (including losses from before joining and on liquidation), interest expenses, foreign branches and foreign tax credits.",
+    whoIsAffected: "Groups of UAE companies that are in, or are thinking of forming, a Corporate Tax Group",
+    sources: [{ label: "FTA – Corporate Tax guides", url: "https://tax.gov.ae/en/taxes/corporate.tax/corporate.tax.guides.references.aspx" }],
+  },
   {
     id: "fta-directive-2026-06", date: "2026-11-18", category: "vat", kind: "FTA Directive",
     title: "VAT on insured assets handed to the insurer after a total loss: FTA Directive 2026-06",
