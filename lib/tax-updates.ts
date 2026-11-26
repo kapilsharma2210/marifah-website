@@ -114,6 +114,7 @@ export const UPDATES: TaxUpdate[] = [
     summary: "This FTA clarification explains how to apply FTA Decision No. 13 of 2026. Check a supplier when you first deal with them, and again if they have not been checked in the last 12 months: confirm their identity, trade licence and real place of business. Bigger suppliers (over AED 375,000 a year) need extra checks, such as a bank confirmation of their account. Small purchases under AED 10,000 can usually skip the per-supply checks, unless that supplier's total goes above AED 100,000 a year. Keep a written policy and records of your checks.",
     whoIsAffected: "All VAT-registered businesses that recover input VAT",
     sources: [{ label: "FTA – VAT legislation", url: FTA_VAT }, { label: "RegFollower", url: "https://regfollower.com/uae-issues-guidance-on-verifying-suppliers-before-input-tax-deduction/" }],
+    related: { label: "Our supplier verification guide", href: "/blog/supplier-verification-input-vat-uae-fta-decision-13-2026" },
   },
   {
     id: "ctgtgr1", date: "2026-11-11", category: "ct", kind: "Announcement",
@@ -196,6 +197,7 @@ export const UPDATES: TaxUpdate[] = [
     summary: "Sets the measures, procedures and conditions businesses must follow to verify that their purchases are genuine before deducting input tax. It supports the 2026 rule allowing the FTA to deny input tax linked to tax evasion the buyer knew or should have known about.",
     whoIsAffected: "All VAT-registered businesses, especially in high-risk sectors",
     sources: [{ label: "FTA – VAT legislation", url: FTA_VAT }],
+    related: { label: "Our supplier verification guide", href: "/blog/supplier-verification-input-vat-uae-fta-decision-13-2026" },
   },
   {
     id: "cd-137-2026", date: "2026-08-06", effective: "2026-09-01", category: "excise", kind: "Cabinet Decision",

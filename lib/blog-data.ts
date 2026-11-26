@@ -10,6 +10,144 @@ export function slugify(text: string): string {
 }
 
 export const blogs = [
+  // ── NEW SUPPLIER VERIFICATION BEFORE CLAIMING INPUT VAT (2026-11-26) ────
+  {
+    title: "Supplier Verification Before Claiming Input VAT in the UAE: FTA Decision No. 13 of 2026 Explained",
+    slug: "supplier-verification-input-vat-uae-fta-decision-13-2026",
+    excerpt: "Since 1 October 2026, UAE businesses are expected to check their suppliers and purchases before deducting input VAT. What FTA Decision No. 13 of 2026 and Public Clarification VATP048 require, the AED 10,000, AED 100,000 and AED 375,000 thresholds, and how to protect your input VAT if a supplier turns out to be part of tax evasion.",
+    category: "VAT",
+    readTime: "10 min read",
+    updated: "2026-11-26",
+    cover: {
+      src: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80&auto=format&fit=crop",
+      alt: "Two business people shaking hands over a new supplier agreement",
+      credit: "Photo: Unsplash",
+    },
+    sections: [
+      {
+        type: "text",
+        heading: "What Changed and Why It Matters",
+        body: "From 1 January 2026, Federal Decree-Law No. 16 of 2025 added Article 54(bis) to the UAE VAT Law. Under Article 54(bis)(2), the Federal Tax Authority (FTA) may reject your deduction of input VAT if it establishes that the purchase was part of a supply, or a chain of supplies, related to tax evasion, and that, based on the circumstances, you should have been aware of it. In other words, you can lose input VAT because of evasion further up the chain, even though you paid the VAT to your supplier.\n\nTo make clear what a business must do to show it could not have known, the FTA issued FTA Decision No. 13 of 2026 on 22 July 2026. It sets out the checks to carry out on suppliers and on each purchase, and it has applied since 1 October 2026. On 11 November 2026 the FTA published Public Clarification VATP048, which explains how the decision works, with worked examples. This guide brings the two together.",
+      },
+      {
+        type: "checklist",
+        heading: "The Rules at a Glance",
+        items: [
+          "Legal basis: Article 54(bis)(2) of Federal Decree-Law No. 8 of 2017 on VAT, added by Federal Decree-Law No. 16 of 2025",
+          "Input VAT can be denied for tax evasion: since 1 January 2026",
+          "Supplier and purchase checks: FTA Decision No. 13 of 2026, issued 22 July 2026, in force from 1 October 2026",
+          "FTA guidance: Public Clarification VATP048, published 11 November 2026",
+          "Who it affects: every business registered, or required to register, for VAT that deducts input tax",
+          "When to check a supplier: on the first dealing, and again for a regular supplier not checked in the previous 12 months",
+          "Extra supplier checks: purchases from the supplier above AED 375,000 in the previous 12 months, or expected above that in the next 12",
+          "Small purchase exception: consideration under AED 10,000 excluding VAT, unless purchases from that supplier exceed AED 100,000 excluding VAT in the previous or next 12 months",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Is This Compulsory for Every Purchase?",
+        body: "Not in the sense that input VAT is lost just because a check was missed. VATP048 says the decision only comes into play where the FTA has established that tax evasion took place, and the Tax Procedures Law puts the burden of proving tax evasion on the FTA. The FTA also says businesses are not required to apply the checks to every supply they receive.\n\nThe catch is what happens when evasion is found. If you carried out the checks and kept the evidence, and you were not actually aware of the evasion, you are treated as not having been in a position to know, and the normal input VAT rules apply. If you did not, the FTA's examples show it will regard you as someone who should have been aware, and it can reject the deduction. You rarely know in advance which supplier will turn out to be a problem, so the FTA recommends building the checks into your normal purchasing process. In practice, that is the only safe approach.",
+      },
+      {
+        type: "numbered",
+        heading: "The Supplier Checks",
+        items: [
+          { title: "Confirm who the supplier is", body: "For an individual: get a copy of a valid Emirates ID or passport, and meet them before the supply, in person or by phone or video call. For a company: confirm it is incorporated, through an official register (VATP048 gives the ADGM and DIFC registers as examples) or a copy of its certificate of incorporation or licence from the UAE licensing authority. The details must be valid and match the company's name, address and staff. Also get a copy of a valid Emirates ID or passport for the director, agent or employee authorised to represent it." },
+          { title: "Confirm a real place of business", body: "Check that the supplier actually operates from a place of business, either online (VATP048 mentions web mapping and navigation platforms) or by visiting. The premises must also be compatible with the activities the supplier carries out. This applies to individuals and companies alike." },
+          { title: "Look for the three risk indicators", body: "Make sure none of these applies: the supplier changed its address more than twice in the previous 12 months; it changed its key employees (its managers, or the people you deal with) more than twice in that period; or it is making transactions that are disproportionate or unexpected in volume, value or nature compared with the size and history of its business. If one does apply, keep a clear, justified explanation of why and be ready to give it to the FTA on request." },
+          { title: "Do two extra checks on bigger suppliers", body: "Where purchases from one supplier exceeded AED 375,000 in the previous 12 months, or are expected to exceed it in the next 12 months, also get written confirmation from an authorised UAE bank that the supplier holds an account there, without reservations or conditions. VATP048 gives an IBAN letter as an example, and the letter does not need to be addressed to you. Then review public reviews and media coverage of the supplier from reliable sources, and make sure they match the nature and size of its business and show no signs of suspected tax evasion." },
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "The Checks on Each Purchase",
+        items: [
+          { title: "A genuine commercial reason", body: "Look at the overall conditions of the transaction and make sure there is a real business reason for it, and for buying from this supplier." },
+          { title: "Payment terms that make sense", body: "The payment method and terms must be justifiable for commercial reasons. If a third party is involved in paying or receiving the money, or payment goes to a bank account outside the supplier's country of incorporation, you need a reasonable commercial explanation that does not conflict with what you know." },
+          { title: "Pay electronically", body: "The decision expects payment by electronic means. A cash payment needs a documented commercial reason, must stay within the thresholds set in the tax legislation and must be easy to verify. VATP048 notes that the cash thresholds will be set by a decision of the Minister of Finance." },
+          { title: "A price in line with the market", body: "The price or profit margin must not be commercially unjustifiable or significantly different from market conditions without a clear reason. An offer far below what everyone else charges is a warning sign, not just a bargain." },
+          { title: "Within the supplier's licence", body: "The goods or services must fall within the supplier's ordinary activity or the activities on its commercial licence." },
+          { title: "Genuine goods the supplier can sell", body: "Check the authenticity and origin of the goods, and that the supplier owns them or has the right to sell them. Serial numbers and customs documents are the kind of evidence VATP048 refers to." },
+          { title: "A reason for any middleman", body: "If the supplier is acting as an intermediary, there must be a clear and justifiable commercial explanation for its role in the supply." },
+        ],
+      },
+      {
+        type: "image",
+        src: "/blog/supplier-verification-input-vat/supplier-checks.png",
+        alt: "Infographic summarising the supplier checks, the extra checks above AED 375,000 and the checks on each purchase under FTA Decision No. 13 of 2026",
+        caption: "The three layers of checks under FTA Decision No. 13 of 2026. Document every check and keep a written policy.",
+      },
+      {
+        type: "text",
+        heading: "The AED 10,000 Exception and the AED 100,000 Limit",
+        body: "Under Article 6 of the decision, you may skip the checks for a purchase where the consideration, excluding VAT, is less than AED 10,000. VATP048 presents this as an exception to the checks on each purchase.\n\nThe amount must be below AED 10,000, so an invoice of exactly AED 10,000 plus VAT does not qualify. The first example in VATP048 is just that: a curtain fitter charging AED 10,000 plus AED 500 VAT, whose identity was never checked.\n\nThe exception also falls away once your purchases from the same supplier exceed AED 100,000, excluding VAT, in the previous 12 months, or are expected to exceed it in the next 12 months. A regular supplier that invoices AED 9,000 a month, for example, adds up to AED 108,000 a year, so none of its invoices qualifies even though each one is under AED 10,000. Look at expected spend too, not just past spend.",
+      },
+      {
+        type: "text",
+        heading: "Records and a Written Policy",
+        body: "Doing the checks is not enough on its own. Article 5 of the decision requires you to document each verification step and keep the supporting documents and records, so the FTA can confirm the checks were carried out properly. Typical evidence includes copies of IDs and licences, screenshots of register searches and maps, visit notes, the bank letter, price comparisons and notes explaining anything unusual.\n\nYou must also keep a documented policy that names the people in charge of carrying out, reviewing and supervising the checks, and sets out their powers and responsibilities clearly. Keep it with the rest of your tax records. A short procedure with an onboarding form and a yearly review calendar is usually enough for a small business.",
+      },
+      {
+        type: "checklist",
+        heading: "What the FTA's Examples Show",
+        items: [
+          "Curtain fitter found on social media: dealt with only on WhatsApp and identity never checked, so the shop is treated as should have been aware",
+          "Start-up claiming 25 consultants for an ERP project: its website showed three staff and only mobile app experience, a risk indicator the buyer ignored",
+          "Furniture order split into three invoices: different companies and foreign bank accounts, explained only as convenience, needs a real commercial explanation",
+          "Branded bed sheets at AED 200 a set: the market price was AED 400 to AED 800, and the low price was accepted without justification",
+          "Shishas from a consultancy: the seller's licence covered management consulting, IT advisory and marketing, so the restaurant rightly walked away",
+          "Construction company visiting a new supplier: inspecting the premises in an industrial area meets the place of business check",
+          "Clinic buying aesthetic devices: serial numbers, customs documents and a yearly supplier review meet the goods and supplier checks",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "How to Build This Into Your Purchasing",
+        items: [
+          { title: "List your suppliers and their 12-month spend", body: "Pull purchases per supplier for the previous 12 months and estimate the next 12. This shows which suppliers need the AED 375,000 checks and which ones lose the AED 10,000 exception." },
+          { title: "Use an onboarding form for new suppliers", body: "Collect the trade licence or incorporation record, the representative's ID, the business address and, for larger suppliers, a UAE bank letter before you place the first order." },
+          { title: "Diarise a yearly re-check", body: "Any supplier you keep using must be checked again if it has not been verified in the previous 12 months. Existing suppliers you have used for years are included." },
+          { title: "Add checks to payment approval", body: "Do not pay a third party or a bank account that differs from the supplier's records without a documented reason, and avoid cash unless there is one." },
+          { title: "Keep a file per supplier", body: "Store the evidence and any explanation for a risk indicator where your finance team and adviser can find it, together with your written policy." },
+        ],
+      },
+      {
+        type: "checklist",
+        heading: "Common Mistakes",
+        items: [
+          "Treating an invoice of exactly AED 10,000 before VAT as exempt from the checks; it must be less than AED 10,000",
+          "Checking only new suppliers and forgetting the 12-month re-check for regular ones",
+          "Looking only at past spend when the AED 100,000 and AED 375,000 tests also count expected spend over the next 12 months",
+          "Relying on a supplier's TRN alone; a valid TRN is useful but is not one of the checks the decision lists",
+          "Doing the checks but keeping no evidence, or having no written policy naming who is responsible",
+          "Accepting a price far below the market without asking why",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Frequently Asked Questions",
+        items: [
+          { title: "Does this apply to purchases made before 1 October 2026?", body: "The checks in FTA Decision No. 13 of 2026 apply from 1 October 2026. The rule allowing the FTA to reject input VAT where you should have been aware of tax evasion has been in the VAT Law since 1 January 2026, so good records matter for earlier purchases as well." },
+          { title: "Do I need to check suppliers I have used for years?", body: "Yes. A regular supplier must be verified if it has not been verified in the previous 12 months, so long-standing suppliers need a check too and then a yearly review." },
+          { title: "Does the bank letter have to be addressed to my company?", body: "No. The decision says the confirmation does not have to be issued to the buyer. A letter from a UAE bank to the supplier, such as an IBAN letter, confirming its account without reservations or conditions is enough." },
+          { title: "Can I still pay a supplier in cash?", body: "Only with care. The decision expects electronic payment. A cash payment needs a documented commercial reason, must be within the thresholds in the tax legislation and must be easy to verify. VATP048 says the cash thresholds will be set by a decision of the Minister of Finance." },
+          { title: "What happens if the FTA rejects my input VAT?", body: "You lose the deduction for the affected purchases, so the VAT you claimed becomes payable to the FTA, and the usual penalties for underpaid tax can apply on top. That is why the evidence of your checks is worth keeping." },
+          { title: "Is a supplier's valid TRN enough?", body: "No. Checking the TRN on the FTA's TRN verification service is a sensible step, but the decision lists other checks: identity, place of business, risk indicators and, for larger suppliers, the bank letter and reputation review." },
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Check the Position Before You Act",
+        body: "This guide reflects FTA Decision No. 13 of 2026 (the FTA's English text is an unofficial translation of the Arabic original), Public Clarification VATP048 and the VAT Law as they stood on 26 November 2026. When VATP048 was published, the cash payment thresholds were still to be set by a decision of the Minister of Finance. It is general information rather than advice on your particular facts, so confirm the current position before you rely on it.",
+      },
+      {
+        type: "cta",
+        heading: "Protect Your Input VAT",
+        body: "Marifah Tax Advisory can review your supplier list against the AED 375,000 and AED 100,000 thresholds, draft the written verification policy and onboarding checklist the decision requires, and check your input VAT claims before you file. Contact us for a free consultation.",
+      },
+    ],
+  },
+
   // ── NEW BUSINESS BANK ACCOUNT: UAE RESIDENTS (2026-11-17) ───────────────
   {
     title: "How to Open a Business Bank Account in the UAE as a Resident (2026 Guide)",
