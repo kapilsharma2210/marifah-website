@@ -7,7 +7,7 @@
 
 import { slugify } from "./blog-data";
 
-export const LAST_REVIEWED = "2026-11-23";
+export const LAST_REVIEWED = "2026-11-26";
 
 export type UpdateCategory = "vat" | "ct" | "excise" | "customs" | "einv" | "procedures";
 
@@ -91,6 +91,14 @@ export const UPDATES: TaxUpdate[] = [
   },
 
   // ── Published changes ──
+  {
+    id: "fta-directive-2026-07", date: "2026-11-19", category: "vat", kind: "FTA Directive",
+    title: "VAT on registered Musataha agreements: FTA Directive No. 7 of 2026",
+    short: "FTA directive on VAT for registered Musataha agreements",
+    summary: "The FTA has issued Directive No. 7 of 2026, which explains how VAT applies to registered Musataha agreements. A Musataha is a long-term right to build on and use land owned by someone else. Issued and published on 19 November 2026. If you grant, hold or transfer a Musataha, read the directive to check how VAT applies to your agreement.",
+    whoIsAffected: "Landowners, developers and investors that grant, hold or transfer registered Musataha rights",
+    sources: [{ label: "FTA – VAT legislation (Directive No. 7 of 2026)", url: FTA_VAT }],
+  },
   {
     id: "fta-directive-2026-08", date: "2026-11-19", category: "vat", kind: "FTA Directive",
     title: "No tax invoice needed for each vending machine sale: FTA Directive No. 8 of 2026",
