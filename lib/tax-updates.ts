@@ -72,7 +72,7 @@ export const UPDATES: TaxUpdate[] = [
     summary: "Under Federal Decree-Law No. 17 of 2025, refunds of excess input tax are limited to five years. If your five-year period had expired by 1 January 2026, or expires during 2026, you have until 31 December 2026 to request the refund.",
     whoIsAffected: "Businesses with VAT credit balances from 2021 or earlier",
     sources: [{ label: "Ministry of Finance announcement", url: "https://mof.gov.ae/en/news/ministry-of-finance-to-implement-amendments-to-the-tax-procedures-law-starting-early-2026/" }],
-    related: { label: "Our VAT refunds guide", href: blog("VAT Refunds in the UAE: How to Claim Back Excess Input Tax") },
+    related: { label: "Our guide to the 31 December 2026 deadline", href: "/blog/uae-vat-credit-balance-deadline-31-december-2026" },
   },
   {
     id: "ct-march-ye-deadline", date: "2026-12-31", category: "ct", kind: "Deadline",

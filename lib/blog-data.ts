@@ -10,6 +10,135 @@ export function slugify(text: string): string {
 }
 
 export const blogs = [
+  // ── NEW OLD VAT CREDIT BALANCES: 31 DECEMBER 2026 DEADLINE (2026-11-26) ─
+  {
+    title: "Old VAT Credit Balances in the UAE: Claim or Use Them by 31 December 2026",
+    slug: "uae-vat-credit-balance-deadline-31-december-2026",
+    excerpt: "Since 1 January 2026, unused VAT credits expire five years after the tax period they arose in. A one-off window lets you rescue credits from tax periods that ended up to the end of 2021, but only until 31 December 2026. Which credits are affected, how to work out your dates and what to do now.",
+    category: "VAT",
+    readTime: "8 min read",
+    updated: "2026-11-26",
+    cover: {
+      src: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1400&q=80&auto=format&fit=crop",
+      alt: "A monthly planner open on a desk next to a cup of coffee",
+      credit: "Photo: Unsplash",
+    },
+    sections: [
+      {
+        type: "text",
+        heading: "The Short Answer",
+        body: "If your Federal Tax Authority (FTA) account shows a VAT credit that has been sitting there for years, part of it may disappear on 1 January 2027. Since 1 January 2026, an excess of recoverable VAT can only be carried forward for five years from the end of the tax period in which it arose. If it has not been refunded, or used to pay tax or penalties, by the end of those five years, the right to it lapses.\n\nCredits from the first years of VAT would have lapsed the day the rule started, so the law gives a one-off window. Credits from tax periods that ended up to 31 December 2021 can still be refunded, or used to pay tax or penalties, but only if you act by 31 December 2026. After that date they are gone for good.",
+      },
+      {
+        type: "checklist",
+        heading: "Key Facts",
+        items: [
+          "Five-year limit for VAT credits: Article 74(3) of Federal Decree-Law No. 8 of 2017, as amended by Federal Decree-Law No. 16 of 2025",
+          "Five-year limit for refund requests: Article 38 of the Tax Procedures Law (Federal Decree-Law No. 28 of 2022), as amended by Federal Decree-Law No. 17 of 2025",
+          "Both in force from: 1 January 2026",
+          "One-off window: Article 3 of Federal Decree-Law No. 17 of 2025, one year from 1 January 2026",
+          "Last day of the window: Thursday 31 December 2026",
+          "Credits covered: in practice, those from VAT tax periods that ended on or before 31 December 2021",
+          "Ways to rescue a credit: a refund request, or using it to pay tax or administrative penalties",
+          "What happens after: any credit not refunded or used lapses and can no longer settle any tax",
+        ],
+      },
+      {
+        type: "text",
+        heading: "How the Five-Year Rule Works",
+        body: "Under Article 74 of the VAT Law, the FTA first sets any excess recoverable tax against VAT or administrative penalties you owe. Whatever is left can be refunded if you apply. If you do not, it is carried forward, but since 1 January 2026 only for up to five years from the end of the tax period in which the excess arose. If you have not asked for a refund and the credit has not been used to settle tax liabilities before that period ends, the right to it lapses.\n\nThe FTA's own example in Public Clarification VATP046 (September 2026): a business with a credit in its return for the tax period ending 31 January 2026 can carry it forward until 31 January 2031, using it to pay VAT or penalties or applying for a refund in the meantime. If part of a credit has been used, the unused remainder still lapses at the end of the same five years. Article 38 of the Tax Procedures Law sets the matching five-year limit for refund applications and says that if a refund application is not made in time, the right to the refund lapses.",
+      },
+      {
+        type: "text",
+        heading: "The One-Off Window for Older Credits",
+        body: "Without a transitional rule, credits from 2018 to 2020 would have expired the moment the five-year limit took effect. Article 3 of Federal Decree-Law No. 17 of 2025 avoids that. Where the five-year period for a tax refund or credit balance has lapsed, the taxpayer may apply for a refund of that balance, or use it to pay tax liabilities or administrative penalties, provided the request is made within one year of the law taking effect on 1 January 2026.\n\nThe Ministry of Finance's announcement of the amendments describes the window as covering taxpayers whose five-year period expired before 1 January 2026 or expires within one year of that date, and allows them to submit refund requests within one year from 1 January 2026. Put together, any credit from a VAT tax period that ended on or before 31 December 2021 must be refunded or used by 31 December 2026.",
+      },
+      {
+        type: "image",
+        src: "/blog/vat-credit-deadline-2026/credit-expiry.png",
+        alt: "Table showing that VAT credits from tax periods ending 2018 to 2021 must be refunded or used by 31 December 2026, and later credits expire five years after the tax period ends",
+        caption: "Which deadline applies depends on the tax period the credit arose in, not on when you look at it.",
+      },
+      {
+        type: "checklist",
+        heading: "Worked Dates",
+        items: [
+          "Quarter ending 31 March 2018: five years ended 31 March 2023; refund or use by 31 December 2026",
+          "Quarter ending 31 December 2020: five years ended 31 December 2025; refund or use by 31 December 2026",
+          "Quarter ending 30 June 2021: five years ended 30 June 2026; refund or use by 31 December 2026",
+          "Quarter ending 31 December 2021: five years end 31 December 2026; refund or use by 31 December 2026",
+          "Quarter ending 31 March 2022: normal rule; refund or use by 31 March 2027",
+          "Month ending 31 January 2026 (the FTA's example): normal rule; refund or use by 31 January 2031",
+        ],
+      },
+      {
+        type: "text",
+        heading: "Who Is Most Likely to Be Affected",
+        body: "Credits build up where input VAT regularly exceeds output VAT. That is typical for exporters and others whose sales are mostly zero-rated, businesses that paid VAT on a large fit-out, property or equipment purchase in their early years, and businesses that carried forward a credit from a quiet period and never claimed it. Any business that was registered for VAT at any point between 2018 and 2021 and still shows a credit balance in its FTA account should check where that balance came from.",
+      },
+      {
+        type: "numbered",
+        heading: "What to Do Before 31 December 2026",
+        items: [
+          { title: "Find the credit and its origin", body: "Go through your filed VAT returns since registration and the balance shown in your EmaraTax account. For each return that ended in a credit, note the tax period and how much of it has since been used or refunded." },
+          { title: "Pick out credits from periods ending by 31 December 2021", body: "These are the ones caught by the deadline. Keep a simple schedule by tax period, so you can show which part of the balance you are claiming and why." },
+          { title: "Decide: refund or use it", body: "The law lets you rescue the credit by applying for a refund or by using it to pay tax or penalties within the window. If you will not have enough VAT or penalties to pay before 31 December 2026 to absorb it, apply for a refund. A return you file in January 2027 is after the window closes." },
+          { title: "Get your filings in order first", body: "Under Article 26 of the Tax Procedures Executive Regulation, the FTA can hold back a refund until any overdue returns are filed. Correct known errors in the old returns before you claim, normally through a voluntary disclosure." },
+          { title: "Submit the refund request on EmaraTax", body: "Use the VAT refund request form (VAT311) with your bank details and supporting documents. Our VAT refunds guide walks through the form and the documents the FTA asks for." },
+          { title: "Keep the evidence", body: "Keep the tax invoices, import documents and export evidence behind the old input VAT, because a refund request can be checked (see below)." },
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Do Not Leave It to the Last Week",
+        body: "31 December 2026 is a Thursday, and 1 January 2027 is a public holiday. Supporting documents for claims going back to 2018 can take time to pull together, and the FTA expects them with the refund request. Aim to submit well before Christmas week.",
+      },
+      {
+        type: "text",
+        heading: "What the FTA Can Do After You Claim",
+        body: "Claiming an old credit reopens those years. Under Article 46 of the Tax Procedures Law, the FTA generally cannot audit or assess a tax period more than five years after it ends. Article 3 of Federal Decree-Law No. 17 of 2025 makes an exception for refund requests made in the window: the FTA may audit, or issue an assessment, relating to the request as long as it finishes within two years of the date you submitted it.\n\nThe same article lets you correct your own request. If you find an error in a refund application made in the window, you can submit a voluntary disclosure within two years of the application, unless the FTA has already decided on it. So claim only what your records support, and be ready to show the invoices and customs papers behind the credit.",
+      },
+      {
+        type: "text",
+        heading: "How Long a Refund Takes",
+        body: "Under Article 26 of Cabinet Decision No. 74 of 2023, as amended, the FTA must decide on a refund application and notify you within 20 business days of submission, or within any other period it needs, provided it notifies you. Once it approves, it starts the repayment within five business days of notifying you. Before paying, the FTA sets the refund against any undisputed VAT or penalties you owe (Article 39 of the Tax Procedures Law).",
+      },
+      {
+        type: "checklist",
+        heading: "Common Mistakes",
+        items: [
+          "Assuming a credit in your FTA account never expires. That stopped being true on 1 January 2026",
+          "Counting the five years from today instead of from the end of the tax period the credit arose in",
+          "Relying on VAT payable in a return filed after 31 December 2026 to use up a credit from 2021 or earlier",
+          "Claiming without the invoices and import or export documents behind the old input VAT",
+          "Leaving known errors in old returns uncorrected before claiming, when the claim lets the FTA audit those years",
+          "Forgetting that the rest of a partly used credit still lapses at the end of the same five years",
+        ],
+      },
+      {
+        type: "numbered",
+        heading: "Frequently Asked Questions",
+        items: [
+          { title: "Is there a penalty for not claiming an old credit?", body: "No. There is no penalty. The credit simply lapses, and you lose the money." },
+          { title: "My credit comes from 2022. Does the 31 December 2026 deadline apply?", body: "No. Credits from tax periods that ended in 2022 or later follow the normal rule: five years from the end of the tax period in which they arose. A credit from the quarter ending 31 March 2022, for example, must be refunded or used by 31 March 2027." },
+          { title: "Can I use the old credit against my next VAT return instead of claiming a refund?", body: "Only if the use falls within the window. The law allows the credit to be used to pay tax liabilities or administrative penalties within one year from 1 January 2026. A return you file in January 2027 for the last quarter of 2026 is too late to save a credit from 2021 or earlier, so a refund request is the safer route." },
+          { title: "Will claiming an old refund trigger an audit?", body: "Not automatically, but it can. The FTA has two years from the date you submit a refund request in the window to audit it or issue an assessment, even though those tax periods are more than five years old." },
+          { title: "Does this affect Corporate Tax?", body: "Not in practice for this deadline. Corporate Tax started for financial years beginning on or after 1 June 2023, so no Corporate Tax credit is old enough to be caught. The same five-year refund limit in the Tax Procedures Law will apply to Corporate Tax credits in future." },
+        ],
+      },
+      {
+        type: "alert",
+        heading: "Check the Position Before You Act",
+        body: "This guide reflects the VAT Law, the Tax Procedures Law and its Executive Regulation, Federal Decree-Laws No. 16 and No. 17 of 2025, FTA Public Clarification VATP046 and the Ministry of Finance's announcement, as they stood on 26 November 2026. The FTA and Ministry publish English texts as unofficial translations of the Arabic originals. It is general information rather than advice on your particular facts, so confirm the position for your own credit balance before you rely on it.",
+      },
+      {
+        type: "cta",
+        heading: "Don't Let an Old VAT Credit Lapse",
+        body: "Marifah Tax Advisory can trace your credit balance back to the tax periods it came from, check which part is caught by the 31 December 2026 deadline, fix errors in old returns and prepare your refund request and supporting documents on EmaraTax. Contact us for a free consultation.",
+      },
+    ],
+  },
+
   // ── NEW SUPPLIER VERIFICATION BEFORE CLAIMING INPUT VAT (2026-11-26) ────
   {
     title: "Supplier Verification Before Claiming Input VAT in the UAE: FTA Decision No. 13 of 2026 Explained",
